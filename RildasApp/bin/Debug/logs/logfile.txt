@@ -1,0 +1,1826 @@
+2016-06-13 21:55:37.0062 Debug VLC media player - 2.2.1 Terry Pratchett (Weatherwax)
+2016-06-13 21:55:37.0062 Debug Copyright ÂC 1996-2015 the VideoLAN team
+2016-06-13 21:55:37.0062 Debug revision 2.2.1-0-ga425c42
+2016-06-13 21:55:37.0062 Debug configured with ../extras/package/win32/../../../configure  '--enable-update-check' '--enable-lua' '--enable-faad' '--enable-flac' '--enable-theora' '--enable-twolame' '--enable-quicktime' '--enable-avcodec' '--enable-merge-ffmpeg' '--enable-dca' '--enable-mpc' '--enable-libass' '--enable-x264' '--enable-schroedinger' '--enable-realrtsp' '--enable-live555' '--enable-dvdread' '--enable-shout' '--enable-goom' '--enable-caca' '--disable-sdl' '--enable-qt' '--enable-skins2' '--enable-sse' '--enable-mmx' '--enable-libcddb' '--enable-zvbi' '--disable-telx' '--enable-nls' '--host=i686-w64-mingw32' '--disable-debug' 'host_alias=i686-w64-mingw32'
+2016-06-13 21:55:37.2206 Debug creating audio output
+2016-06-13 21:55:37.2206 Debug looking for audio output module matching "any": zd candidates
+2016-06-13 21:55:37.2557 Debug found 2 devices
+2016-06-13 21:55:37.2557 Debug using audio output module "directsound"
+2016-06-13 21:55:37.2557 Debug keeping audio output
+2016-06-13 21:55:53.4105 Debug Creating an input for '[NG] Zankyou no Terror - 01.mkv'
+2016-06-13 21:55:53.4105 Debug looking for meta fetcher module matching "any": zd candidates
+2016-06-13 21:55:53.4105 Debug using timeshift granularity of 50 MiB, in path 'C:\Users\Richard\AppData\Local\Temp'
+2016-06-13 21:55:53.4105 Debug Creating an input for '[NG] Zankyou no Terror - 01.mkv'
+2016-06-13 21:55:53.4105 Debug `file:///C:/Users/Richard/Desktop/%5BNG%5D%20Zankyou%20no%20Terror%20-%2001.mkv' gives access `file' demux `' path `/C:/Users/Richard/Desktop/%5BNG%5D%20Zankyou%20no%20Terror%20-%2001.mkv'
+2016-06-13 21:55:53.4105 Debug specified demux `any'
+2016-06-13 21:55:53.4105 Debug creating demux: access='file' demux='any' location='/C:/Users/Richard/Desktop/%5BNG%5D%20Zankyou%20no%20Terror%20-%2001.mkv' file='C:\Users\Richard\Desktop\[NG] Zankyou no Terror - 01.mkv'
+2016-06-13 21:55:53.4105 Debug looking for access_demux module matching "file": zd candidates
+2016-06-13 21:55:53.4886 Debug Trying Lua scripts in C:\Users\Richard\AppData\Roaming\vlc\lua\meta\fetcher
+2016-06-13 21:55:53.5056 Debug Trying Lua scripts in C:\Users\Richard\Desktop\vlc\newvlc\nVLC_Demo_WinForms\bin\x86\Debug\lua\meta\fetcher
+2016-06-13 21:55:53.5056 Debug no meta fetcher modules matched
+2016-06-13 21:55:53.5216 Debug searching art for [NG] Zankyou no Terror - 01.mkv
+2016-06-13 21:55:53.5216 Debug looking for art finder module matching "any": zd candidates
+2016-06-13 21:55:53.5767 Debug Trying Lua scripts in C:\Users\Richard\AppData\Roaming\vlc\lua\meta\art
+2016-06-13 21:55:53.5767 Debug Trying Lua scripts in C:\Users\Richard\Desktop\vlc\newvlc\nVLC_Demo_WinForms\bin\x86\Debug\lua\meta\art
+2016-06-13 21:55:53.5767 Debug no art finder modules matched
+2016-06-13 21:55:53.5767 Debug art not found for [NG] Zankyou no Terror - 01.mkv
+2016-06-13 21:55:54.1143 Debug no access_demux modules matched
+2016-06-13 21:55:54.1143 Debug creating access 'file' location='/C:/Users/Richard/Desktop/%5BNG%5D%20Zankyou%20no%20Terror%20-%2001.mkv', path='C:\Users\Richard\Desktop\[NG] Zankyou no Terror - 01.mkv'
+2016-06-13 21:55:54.1143 Debug looking for access module matching "file": zd candidates
+2016-06-13 21:55:54.1143 Debug opening file `C:\Users\Richard\Desktop\[NG] Zankyou no Terror - 01.mkv'
+2016-06-13 21:55:54.1143 Debug using access module "filesystem"
+2016-06-13 21:55:54.1143 Debug Using stream method for AStream*
+2016-06-13 21:55:54.1143 Debug starting pre-buffering
+2016-06-13 21:55:54.1143 Debug received first data after 0 ms
+2016-06-13 21:55:54.1143 Debug pre-buffering done 1024 bytes in 0s - 1000000 KiB/s
+2016-06-13 21:55:54.1143 Debug looking for stream_filter module matching "any": zd candidates
+2016-06-13 21:55:54.2805 Debug no stream_filter modules matched
+2016-06-13 21:55:54.2805 Debug looking for stream_filter module matching "record": zd candidates
+2016-06-13 21:55:54.3205 Debug using stream_filter module "record"
+2016-06-13 21:55:54.3205 Debug creating demux: access='file' demux='any' location='/C:/Users/Richard/Desktop/%5BNG%5D%20Zankyou%20no%20Terror%20-%2001.mkv' file='C:\Users\Richard\Desktop\[NG] Zankyou no Terror - 01.mkv'
+2016-06-13 21:55:54.3205 Debug looking for demux module matching "mkv": zd candidates
+2016-06-13 21:55:54.5578 Debug |   + Seek head
+2016-06-13 21:55:54.5578 Debug |   |   + Seek
+2016-06-13 21:55:54.5808 Debug |   - info at 4151
+2016-06-13 21:55:54.5808 Debug |   + Information
+2016-06-13 21:55:54.5808 Debug |   |   + TimecodeScale=1000000
+2016-06-13 21:55:54.5808 Debug |   |   + Muxing Application=libebml v1.3.0 + libmatroska v1.4.1
+2016-06-13 21:55:54.5808 Debug |   |   + Writing Application=mkvmerge v7.1.0 ('Good Love') 64bit built on Jul 27 2014 13:06:55
+2016-06-13 21:55:54.5808 Debug |   |   + Duration=1369452
+2016-06-13 21:55:54.5988 Debug |   |   + Date=Sat Aug 09 21:39:09 2014
+2016-06-13 21:55:54.5988 Debug |   |   + UID=1314648989
+2016-06-13 21:55:54.5988 Debug |   |   + Seek
+2016-06-13 21:55:54.5988 Debug |   - tracks at 4307
+2016-06-13 21:55:54.5988 Debug |   + Tracks
+2016-06-13 21:55:54.5988 Debug |   |   + Track Entry
+2016-06-13 21:55:54.5988 Debug |   |   |   + Track Number=1
+2016-06-13 21:55:54.5988 Debug |   |   |   + Track UID=1
+2016-06-13 21:55:54.5988 Debug |   |   |   + Track Type=video
+2016-06-13 21:55:54.5988 Debug |   |   |   + Track Lacing=0
+2016-06-13 21:55:54.5988 Debug |   |   |   + Track MinCache=1
+2016-06-13 21:55:54.5988 Debug |   |   |   + Track CodecId=V_MPEG4/ISO/AVC
+2016-06-13 21:55:54.5988 Debug |   |   |   + Track CodecPrivate size=43
+2016-06-13 21:55:54.5988 Debug |   |   |   + Track Default Duration=41708333
+2016-06-13 21:55:54.5988 Debug |   |   |   + Track Language=`cze'
+2016-06-13 21:55:54.5988 Debug |   |   |   + Track Video
+2016-06-13 21:55:54.5988 Debug |   |   |   |   + width=1280
+2016-06-13 21:55:54.5988 Debug |   |   |   |   + height=720
+2016-06-13 21:55:54.5988 Debug |   |   |   |   + display width=1280
+2016-06-13 21:55:54.5988 Debug |   |   |   |   + display height=720
+2016-06-13 21:55:54.5988 Debug |   |   + Track Entry
+2016-06-13 21:55:54.5988 Debug |   |   |   + Track Number=2
+2016-06-13 21:55:54.5988 Debug |   |   |   + Track UID=1967579547
+2016-06-13 21:55:54.5988 Debug |   |   |   + Track Type=audio
+2016-06-13 21:55:54.5988 Debug |   |   |   + Track CodecId=A_AAC
+2016-06-13 21:55:54.5988 Debug |   |   |   + Track CodecPrivate size=5
+2016-06-13 21:55:54.5988 Debug |   |   |   + Track Default Duration=21333333
+2016-06-13 21:55:54.5988 Debug |   |   |   + Track Language=`jpn'
+2016-06-13 21:55:54.5988 Debug |   |   |   + Track Audio
+2016-06-13 21:55:54.5988 Debug |   |   |   |   + afreq=48000
+2016-06-13 21:55:54.5988 Debug |   |   |   |   + achan=2
+2016-06-13 21:55:54.5988 Debug |   |   |   |   + aoutfreq=96000
+2016-06-13 21:55:54.5988 Debug |   |   + Track Entry
+2016-06-13 21:55:54.5988 Debug |   |   |   + Track Number=3
+2016-06-13 21:55:54.5988 Debug |   |   |   + Track UID=1168029864
+2016-06-13 21:55:54.5988 Debug |   |   |   + Track Type=subtitle
+2016-06-13 21:55:54.5988 Debug |   |   |   + Track Lacing=0
+2016-06-13 21:55:54.5988 Debug |   |   |   + Track CodecId=S_TEXT/ASS
+2016-06-13 21:55:54.5988 Debug |   |   |   + Track CodecPrivate size=1785
+2016-06-13 21:55:54.5988 Debug |   |   |   + Track Language=`cze'
+2016-06-13 21:55:54.5988 Debug |   |   + Seek
+2016-06-13 21:55:54.5988 Debug |   - cues at 362236444
+2016-06-13 21:55:54.5988 Debug |   + Cues
+2016-06-13 21:55:54.7260 Debug |   - loading cues done.
+2016-06-13 21:55:54.7260 Debug |   |   + Seek
+2016-06-13 21:55:54.7260 Debug |   - tags at 362341348
+2016-06-13 21:55:54.7260 Debug |   + Tags
+2016-06-13 21:55:54.7260 Debug + Tag
+2016-06-13 21:55:54.7260 Debug |   + Targets
+2016-06-13 21:55:54.7260 Debug |   |   + TargetTypeValue: 50
+2016-06-13 21:55:54.7260 Debug |   |   + TrackUID: 1
+2016-06-13 21:55:54.7260 Debug |   + Simple Tag 
+2016-06-13 21:55:54.7260 Debug |   |   + Meta _STATISTICS_WRITING_APP: mkvmerge v7.1.0 ('Good Love') 64bit built on Jul 27 2014 13:06:55
+2016-06-13 21:55:54.7260 Debug |   + Simple Tag 
+2016-06-13 21:55:54.7260 Debug |   |   + Meta _STATISTICS_WRITING_DATE_UTC: 2014-08-09 21:39:09
+2016-06-13 21:55:54.7260 Debug |   + Simple Tag 
+2016-06-13 21:55:54.7260 Debug |   |   + Meta _STATISTICS_TAGS: BPS DURATION NUMBER_OF_FRAMES NUMBER_OF_BYTES
+2016-06-13 21:55:54.7260 Debug |   + Simple Tag 
+2016-06-13 21:55:54.7260 Debug |   |   + Meta BPS: 1913217
+2016-06-13 21:55:54.7260 Debug |   + Simple Tag 
+2016-06-13 21:55:54.7260 Debug |   |   + Meta DURATION: 00:22:49.452000000
+2016-06-13 21:55:54.7260 Debug |   + Simple Tag 
+2016-06-13 21:55:54.7260 Debug |   |   + Meta NUMBER_OF_FRAMES: 32834
+2016-06-13 21:55:54.7260 Debug |   + Simple Tag 
+2016-06-13 21:55:54.7260 Debug |   |   + Meta NUMBER_OF_BYTES: 327507423
+2016-06-13 21:55:54.7260 Debug + Tag
+2016-06-13 21:55:54.7260 Debug |   + Targets
+2016-06-13 21:55:54.7260 Debug |   |   + TargetTypeValue: 50
+2016-06-13 21:55:54.7260 Debug |   |   + TrackUID: 17145546264059240859
+2016-06-13 21:55:54.7260 Debug |   + Simple Tag 
+2016-06-13 21:55:54.7260 Debug |   |   + Meta _STATISTICS_WRITING_APP: mkvmerge v7.1.0 ('Good Love') 64bit built on Jul 27 2014 13:06:55
+2016-06-13 21:55:54.7260 Debug |   + Simple Tag 
+2016-06-13 21:55:54.7260 Debug |   |   + Meta _STATISTICS_WRITING_DATE_UTC: 2014-08-09 21:39:09
+2016-06-13 21:55:54.7260 Debug |   + Simple Tag 
+2016-06-13 21:55:54.7260 Debug |   |   + Meta _STATISTICS_TAGS: BPS DURATION NUMBER_OF_FRAMES NUMBER_OF_BYTES
+2016-06-13 21:55:54.7260 Debug |   + Simple Tag 
+2016-06-13 21:55:54.7260 Debug |   |   + Meta BPS: 188624
+2016-06-13 21:55:54.7260 Debug |   + Simple Tag 
+2016-06-13 21:55:54.7260 Debug |   |   + Meta DURATION: 00:22:49.451000000
+2016-06-13 21:55:54.7260 Debug |   + Simple Tag 
+2016-06-13 21:55:54.7260 Debug |   |   + Meta NUMBER_OF_FRAMES: 64193
+2016-06-13 21:55:54.7260 Debug |   + Simple Tag 
+2016-06-13 21:55:54.7260 Debug |   |   + Meta NUMBER_OF_BYTES: 32289079
+2016-06-13 21:55:54.7260 Debug + Tag
+2016-06-13 21:55:54.7260 Debug |   + Targets
+2016-06-13 21:55:54.7260 Debug |   |   + TargetTypeValue: 50
+2016-06-13 21:55:54.7260 Debug |   |   + TrackUID: 15062869089026226344
+2016-06-13 21:55:54.7260 Debug |   + Simple Tag 
+2016-06-13 21:55:54.7260 Debug |   |   + Meta BPS: 2428
+2016-06-13 21:55:54.7260 Debug |   + Simple Tag 
+2016-06-13 21:55:54.7260 Debug |   |   + Meta DURATION: 00:22:35.470000000
+2016-06-13 21:55:54.7260 Debug |   + Simple Tag 
+2016-06-13 21:55:54.7260 Debug |   |   + Meta NUMBER_OF_FRAMES: 3771
+2016-06-13 21:55:54.7260 Debug |   + Simple Tag 
+2016-06-13 21:55:54.7260 Debug |   |   + Meta NUMBER_OF_BYTES: 411501
+2016-06-13 21:55:54.7260 Debug |   + Simple Tag 
+2016-06-13 21:55:54.7260 Debug |   |   + Meta _STATISTICS_WRITING_APP: mkvmerge v7.1.0 ('Good Love') 64bit built on Jul 27 2014 13:06:55
+2016-06-13 21:55:54.7260 Debug |   + Simple Tag 
+2016-06-13 21:55:54.7260 Debug |   |   + Meta _STATISTICS_WRITING_DATE_UTC: 2014-08-09 21:39:09
+2016-06-13 21:55:54.7260 Debug |   + Simple Tag 
+2016-06-13 21:55:54.7400 Warn MKV/Ebml Parser: m_el[mi_level] == NULL
+
+2016-06-13 21:55:54.7400 Debug |   |   + Meta _STATISTICS_TAGS: BPS DURATION NUMBER_OF_FRAMES NUMBER_OF_BYTES
+2016-06-13 21:55:54.7400 Warn MKV/Ebml Parser: m_el[mi_level] == NULL
+
+2016-06-13 21:55:54.7400 Warn MKV/Ebml Parser: Up cannot escape itself
+2016-06-13 21:55:54.7400 Debug loading tags done.
+2016-06-13 21:55:54.7400 Debug |   |   + Seek
+2016-06-13 21:55:54.7400 Debug |   - chapters at 1604258
+2016-06-13 21:55:54.7400 Debug |   + Chapters
+2016-06-13 21:55:54.7400 Debug |   |   + EditionEntry
+2016-06-13 21:55:54.7400 Debug |   |   |   + ChapterAtom (level=0)
+2016-06-13 21:55:54.7400 Debug |   |   |   |   + ChapterUID: 1280002216
+2016-06-13 21:55:54.7400 Debug |   |   |   |   + ChapterTimeStart: 0
+2016-06-13 21:55:54.7400 Debug |   |   |   |   + ChapterFlagHidden: no
+2016-06-13 21:55:54.7400 Debug |   |   |   |   + ChapterDisplay
+2016-06-13 21:55:54.7400 Debug |   |   |   |   |    + ChapterString 'A¹vod'
+2016-06-13 21:55:54.7400 Debug |   |   |   |   |    + ChapterLanguage 'cze'
+2016-06-13 21:55:54.7400 Debug |   |   |   + ChapterAtom (level=0)
+2016-06-13 21:55:54.7400 Debug |   |   |   |   + ChapterUID: 991427770
+2016-06-13 21:55:54.7400 Debug |   |   |   |   + ChapterTimeStart: 176927000
+2016-06-13 21:55:54.7400 Debug |   |   |   |   + ChapterFlagHidden: no
+2016-06-13 21:55:54.7400 Debug |   |   |   |   + ChapterDisplay
+2016-06-13 21:55:54.7400 Debug |   |   |   |   |    + ChapterString 'OP'
+2016-06-13 21:55:54.7400 Debug |   |   |   |   |    + ChapterLanguage 'cze'
+2016-06-13 21:55:54.7400 Debug |   |   |   + ChapterAtom (level=0)
+2016-06-13 21:55:54.7400 Debug |   |   |   |   + ChapterUID: 2056155288
+2016-06-13 21:55:54.7400 Debug |   |   |   |   + ChapterTimeStart: 267851000
+2016-06-13 21:55:54.7400 Debug |   |   |   |   + ChapterFlagHidden: no
+2016-06-13 21:55:54.7400 Debug |   |   |   |   + ChapterDisplay
+2016-06-13 21:55:54.7400 Debug |   |   |   |   |    + ChapterString 'DA­l - 01'
+2016-06-13 21:55:54.7400 Debug |   |   |   |   |    + ChapterLanguage 'cze'
+2016-06-13 21:55:54.7400 Debug |   |   |   + ChapterAtom (level=0)
+2016-06-13 21:55:54.7400 Debug |   |   |   |   + ChapterUID: 786499983
+2016-06-13 21:55:54.7400 Debug |   |   |   |   + ChapterTimeStart: 1279528000
+2016-06-13 21:55:54.7400 Debug |   |   |   |   + ChapterFlagHidden: no
+2016-06-13 21:55:54.7400 Debug |   |   |   |   + ChapterDisplay
+2016-06-13 21:55:54.7400 Debug |   |   |   |   |    + ChapterString 'ED'
+2016-06-13 21:55:54.7400 Debug |   |   |   |   |    + ChapterLanguage 'cze'
+2016-06-13 21:55:54.7400 Debug |   |   + Seek
+2016-06-13 21:55:54.7400 Debug |   |   + Unknown (N7libebml8EbmlVoidE)
+2016-06-13 21:55:54.7400 Debug |   - attachments at 7461
+2016-06-13 21:55:54.7400 Debug |   + Attachments
+2016-06-13 21:55:54.7400 Debug |   |   - Candarab.ttf (application/x-truetype-font)
+2016-06-13 21:55:54.7400 Debug |   |   - Candarai.ttf (application/x-truetype-font)
+2016-06-13 21:55:54.7400 Debug |   |   - Candaraz.ttf (application/x-truetype-font)
+2016-06-13 21:55:54.7400 Debug |   |   - Clichee.otf (application/vnd.ms-opentype)
+2016-06-13 21:55:54.7400 Debug |   |   - ClicheeBold.otf (application/vnd.ms-opentype)
+2016-06-13 21:55:54.7400 Debug |   |   - ClicheeBoldItalic.otf (application/vnd.ms-opentype)
+2016-06-13 21:55:54.7400 Debug |   |   - ClicheeItalic.otf (application/vnd.ms-opentype)
+2016-06-13 21:55:54.7400 Debug |   |   - DISTInking-Bold.otf (application/vnd.ms-opentype)
+2016-06-13 21:55:54.7400 Debug |   |   - DISTInking-Regular.otf (application/vnd.ms-opentype)
+2016-06-13 21:55:54.7400 Debug |   |   - octin prison free.ttf (application/x-truetype-font)
+2016-06-13 21:55:54.7400 Debug |   |   - octin stencil rg.ttf (application/x-truetype-font)
+2016-06-13 21:55:54.7400 Debug |   |   - TarragonDOT-Regular.otf (application/vnd.ms-opentype)
+2016-06-13 21:55:54.7400 Debug |   |   - Candara.ttf (application/x-truetype-font)
+2016-06-13 21:55:54.7400 Debug |   + Void
+2016-06-13 21:55:54.7400 Debug |   + Information
+2016-06-13 21:55:54.7400 Debug |   + Tracks
+2016-06-13 21:55:54.7400 Debug |   + Void
+2016-06-13 21:55:54.7400 Debug |   + Attachments
+2016-06-13 21:55:54.7400 Debug |   + Chapters
+2016-06-13 21:55:54.7400 Debug |   + Void
+2016-06-13 21:55:54.7400 Debug |   + Cluster
+2016-06-13 21:55:54.7400 Debug Virtual chapter  A¹vod from 0 to -1 - 
+2016-06-13 21:55:54.7400 Debug Virtual chapter  OP from 176927000 to -1 - 
+2016-06-13 21:55:54.7400 Debug Virtual chapter  DA­l - 01 from 267851000 to -1 - 
+2016-06-13 21:55:54.7400 Debug Virtual chapter  ED from 1279528000 to -1 - 
+2016-06-13 21:55:54.7400 Debug Virtual chapter  from 0 to -1 - 
+2016-06-13 21:55:54.7640 Debug found 3 es
+2016-06-13 21:55:54.7640 Debug selecting program id=0
+2016-06-13 21:55:54.7980 Debug Buffering 0%
+2016-06-13 21:55:54.7980 Debug Starting the UI Hook
+2016-06-13 21:55:54.7980 Debug using demux module "mkv"
+2016-06-13 21:55:54.8321 Debug looking for a subtitle file in C:\Users\Richard\Desktop\
+2016-06-13 21:55:54.8321 Debug looking for decoder module matching "any": zd candidates
+2016-06-13 21:55:55.6771 Debug meta ok for (null), need to fetch art
+2016-06-13 21:55:55.7076 Debug looking for meta fetcher module matching "any": zd candidates
+2016-06-13 21:55:55.7076 Debug Trying Lua scripts in C:\Users\Richard\AppData\Roaming\vlc\lua\meta\fetcher
+2016-06-13 21:55:55.7076 Debug Trying Lua scripts in C:\Users\Richard\Desktop\vlc\newvlc\nVLC_Demo_WinForms\bin\x86\Debug\lua\meta\fetcher
+2016-06-13 21:55:55.7076 Debug no meta fetcher modules matched
+2016-06-13 21:55:55.7076 Debug searching art for [NG] Zankyou no Terror - 01.mkv
+2016-06-13 21:55:55.7076 Debug looking for art finder module matching "any": zd candidates
+2016-06-13 21:55:55.7076 Debug Trying Lua scripts in C:\Users\Richard\AppData\Roaming\vlc\lua\meta\art
+2016-06-13 21:55:55.7076 Debug Trying Lua scripts in C:\Users\Richard\Desktop\vlc\newvlc\nVLC_Demo_WinForms\bin\x86\Debug\lua\meta\art
+2016-06-13 21:55:55.7076 Debug no art finder modules matched
+2016-06-13 21:55:55.7076 Debug art not found for [NG] Zankyou no Terror - 01.mkv
+2016-06-13 21:55:56.6143 Debug CPU flags: 0x0107d3db
+2016-06-13 21:55:56.6444 Debug trying to use direct rendering
+2016-06-13 21:55:56.6444 Debug allowing 4 thread(s) for decoding
+2016-06-13 21:55:56.6444 Warn threaded frame decoding is not compatible with DXVA2, disabled
+2016-06-13 21:55:56.6800 Debug avcodec codec (H264 - MPEG-4 AVC (part 10)) started
+2016-06-13 21:55:56.6800 Debug using slice thread mode with 4 threads
+2016-06-13 21:55:56.6800 Debug using decoder module "avcodec"
+2016-06-13 21:55:56.6800 Debug looking for decoder module matching "any": zd candidates
+2016-06-13 21:55:56.7045 Debug using decoder module "faad"
+2016-06-13 21:55:56.7045 Debug looking for decoder module matching "any": zd candidates
+2016-06-13 21:55:56.7226 Debug adding embedded font Candarab.ttf
+2016-06-13 21:55:56.7226 Debug adding embedded font Candarai.ttf
+2016-06-13 21:55:56.7226 Debug adding embedded font Candaraz.ttf
+2016-06-13 21:55:56.7226 Debug adding embedded font Clichee.otf
+2016-06-13 21:55:56.7226 Debug adding embedded font ClicheeBold.otf
+2016-06-13 21:55:56.7226 Debug adding embedded font ClicheeBoldItalic.otf
+2016-06-13 21:55:56.7226 Debug adding embedded font ClicheeItalic.otf
+2016-06-13 21:55:56.7226 Debug adding embedded font DISTInking-Bold.otf
+2016-06-13 21:55:56.7226 Debug adding embedded font DISTInking-Regular.otf
+2016-06-13 21:55:56.7226 Debug adding embedded font octin prison free.ttf
+2016-06-13 21:55:56.7226 Debug adding embedded font octin stencil rg.ttf
+2016-06-13 21:55:56.7226 Debug adding embedded font TarragonDOT-Regular.otf
+2016-06-13 21:55:56.7226 Debug adding embedded font Candara.ttf
+2016-06-13 21:55:57.1559 Debug using decoder module "libass"
+2016-06-13 21:55:57.1559 Debug looking for meta reader module matching "any": zd candidates
+2016-06-13 21:55:57.1559 Debug Trying Lua scripts in C:\Users\Richard\AppData\Roaming\vlc\lua\meta\reader
+2016-06-13 21:55:57.1559 Debug Trying Lua scripts in C:\Users\Richard\Desktop\vlc\newvlc\nVLC_Demo_WinForms\bin\x86\Debug\lua\meta\reader
+2016-06-13 21:55:57.1559 Debug no meta reader modules matched
+2016-06-13 21:55:57.1559 Debug `file:///C:/Users/Richard/Desktop/%5BNG%5D%20Zankyou%20no%20Terror%20-%2001.mkv' successfully opened
+2016-06-13 21:55:57.1559 Debug Buffering 0%
+2016-06-13 21:55:57.1559 Debug Stream buffering done (417 ms in 2359 ms)
+2016-06-13 21:55:57.2268 Warn decoded zero sample
+2016-06-13 21:55:57.2268 Debug AAC SBR (channels: 2, samplerate: 96000)
+2016-06-13 21:55:57.2268 Debug reusing audio output
+2016-06-13 21:55:57.2268 Debug Opening DirectSound Audio Output
+2016-06-13 21:55:57.2373 Debug Windows speaker config: Stereo and stream has 2 channels, using 2 channels
+2016-06-13 21:55:57.2373 Debug available software decoder output format 72 (yuv420p10le)
+2016-06-13 21:55:57.2604 Debug output 'f32l' 96000 Hz Stereo frame=1 samples/8 bytes
+2016-06-13 21:55:57.2604 Debug looking for audio volume module matching "any": zd candidates
+2016-06-13 21:55:57.3205 Debug using audio volume module "float_mixer"
+2016-06-13 21:55:57.3205 Debug input 'f32l' 96000 Hz Stereo frame=1 samples/8 bytes
+2016-06-13 21:55:57.3205 Debug looking for audio filter module matching "scaletempo": zd candidates
+2016-06-13 21:55:57.3205 Debug looking for text renderer module matching "any": zd candidates
+2016-06-13 21:55:57.3576 Debug format: 96000 rate, 2 nch, 4 bps, fl32
+2016-06-13 21:55:57.3576 Debug params: 30 stride, 0.200 overlap, 14 search
+2016-06-13 21:55:57.3576 Debug 1.000 scale, 2880.000 stride_in, 2880 stride_out, 2304 standing, 576 overlap, 1344 search, 4800 queue, fl32 mode
+2016-06-13 21:55:57.3576 Debug using audio filter module "scaletempo"
+2016-06-13 21:55:57.3576 Debug conversion: 'f32l'->'f32l' 96000 Hz->96000 Hz Stereo->Stereo
+2016-06-13 21:55:57.3576 Debug conversion pipeline complete
+2016-06-13 21:55:57.3576 Debug conversion: 'f32l'->'f32l' 96000 Hz->96000 Hz Stereo->Stereo
+2016-06-13 21:55:57.3576 Debug conversion pipeline complete
+2016-06-13 21:55:57.3576 Debug looking for audio resampler module matching "any": zd candidates
+2016-06-13 21:55:57.4093 Debug Using Arial as font from file C:\WINDOWS\Fonts\arial.ttf
+2016-06-13 21:55:57.4093 Debug Using Courier New as mono-font from file C:\WINDOWS\Fonts\cour.ttf
+2016-06-13 21:55:57.4283 Debug using fontsize: 2
+2016-06-13 21:55:57.4283 Debug using text renderer module "freetype"
+2016-06-13 21:55:57.4283 Debug looking for video filter2 module matching "any": zd candidates
+2016-06-13 21:55:57.4534 Debug using audio resampler module "samplerate"
+2016-06-13 21:55:57.4534 Debug End of audio preroll
+2016-06-13 21:55:57.5752 Debug 32x32 (32x32) chroma: YUVA -> 16x16 (16x16) chroma: RGBA with scaling using Bicubic (good quality)
+2016-06-13 21:55:57.5752 Debug using video filter2 module "swscale"
+2016-06-13 21:55:57.5752 Debug looking for video filter2 module matching "any": zd candidates
+2016-06-13 21:55:57.9907 Debug YUVP to YUVA converter
+2016-06-13 21:55:57.9907 Debug using video filter2 module "yuvp"
+2016-06-13 21:55:58.0127 Debug Deinterlacing available
+2016-06-13 21:55:58.0127 Debug deinterlace 0, mode blend, is_needed 0
+2016-06-13 21:55:58.0127 Debug Opening vout display wrapper
+2016-06-13 21:55:58.0127 Debug looking for vout display module matching "any": zd candidates
+2016-06-13 21:55:58.2768 Debug creating Vout EventThread
+2016-06-13 21:55:58.2768 Debug Win32VoutCreateWindow
+2016-06-13 21:55:58.2768 Debug looking for vout window hwnd module matching "embed-hwnd,any": zd candidates
+2016-06-13 21:55:58.2958 Debug using vout window hwnd module "drawable"
+2016-06-13 21:55:58.3038 Debug created video sub-window
+2016-06-13 21:55:58.3038 Debug Vout EventThread running
+2016-06-13 21:55:58.3038 Debug disabling screen saver
+2016-06-13 21:55:58.3038 Debug Direct3d Device: Intel(R) HD Graphics Family 32902 2582 11
+2016-06-13 21:55:58.3328 Debug VoutDisplayEvent 'resize' 1296x759 window
+2016-06-13 21:55:58.3328 Warn trying surface pixel format: YV12
+2016-06-13 21:55:58.3328 Debug selected surface pixel format is YV12
+2016-06-13 21:55:58.3328 Debug Using D3DTEXF_LINEAR for minification
+2016-06-13 21:55:58.3328 Debug Using D3DTEXF_LINEAR for magnification
+2016-06-13 21:55:58.3328 Debug Direct3D scene created successfully
+2016-06-13 21:55:58.3328 Debug Direct3D device adapter successfully initialized
+2016-06-13 21:55:58.3328 Debug using vout display module "direct3d"
+2016-06-13 21:55:58.3328 Debug A filter to adapt decoder to display is needed
+2016-06-13 21:55:58.3328 Debug looking for video filter2 module matching "any": zd candidates
+2016-06-13 21:55:58.3558 Debug 1280x720 (1280x738) chroma: I0AL -> 1280x720 (1280x738) chroma: I420 with scaling using Bicubic (good quality)
+2016-06-13 21:55:58.3558 Debug using video filter2 module "swscale"
+2016-06-13 21:55:58.3558 Debug Filter 'Swscale' (1560B294) appended to chain
+2016-06-13 21:55:58.3558 Debug original format sz 1280x738, of (0,0), vsz 1280x720, 4cc I0AL, sar 1:1, msk r0x0 g0x0 b0x0
+2016-06-13 21:55:58.3729 Debug removing module "freetype"
+2016-06-13 21:55:58.3729 Debug VoutDisplayEvent 'resize' 764x613 window
+2016-06-13 21:55:58.3729 Error Failed to set on top
+2016-06-13 21:55:58.3839 Debug looking for text renderer module matching "any": zd candidates
+2016-06-13 21:55:58.3839 Debug Using Arial as font from file C:\WINDOWS\Fonts\arial.ttf
+2016-06-13 21:55:58.3839 Debug Using Courier New as mono-font from file C:\WINDOWS\Fonts\cour.ttf
+2016-06-13 21:55:58.3839 Debug using fontsize: 2
+2016-06-13 21:55:58.3839 Debug using text renderer module "freetype"
+2016-06-13 21:55:58.3839 Warn plane 0 not aligned
+2016-06-13 21:55:58.3839 Warn disabling direct rendering
+2016-06-13 21:55:58.4940 Debug End of video preroll
+2016-06-13 21:55:58.4940 Debug Received first picture
+2016-06-13 21:55:58.5498 Debug Decoder wait done in 1393 ms
+2016-06-13 21:55:58.7267 Warn buffer too late (-124334 us): dropped
+2016-06-13 21:55:58.7267 Warn buffer too late (-104001 us): dropped
+2016-06-13 21:55:58.7267 Warn buffer too late (-84668 us): dropped
+2016-06-13 21:55:58.7267 Warn buffer too late (-64335 us): dropped
+2016-06-13 21:55:58.7548 Warn playback too late (87136): up-sampling
+2016-06-13 21:55:59.0199 Debug auto hiding mouse cursor
+2016-06-13 21:56:02.9077 Debug control: stopping input
+2016-06-13 21:56:02.9192 Debug removing module "avcodec"
+2016-06-13 21:56:02.9328 Debug ffmpeg codec (H264 - MPEG-4 AVC (part 10)) stopped
+2016-06-13 21:56:02.9328 Debug killing decoder fourcc `h264', 0 PES in FIFO
+2016-06-13 21:56:02.9328 Debug saving a free vout
+2016-06-13 21:56:02.9328 Debug reusing provided vout
+2016-06-13 21:56:02.9328 Debug removing module "faad"
+2016-06-13 21:56:02.9328 Debug killing decoder fourcc `mp4a', 0 PES in FIFO
+2016-06-13 21:56:02.9328 Debug removing module "samplerate"
+2016-06-13 21:56:02.9328 Debug removing module "scaletempo"
+2016-06-13 21:56:02.9328 Debug closing audio device
+2016-06-13 21:56:02.9744 Debug removing module "float_mixer"
+2016-06-13 21:56:02.9744 Debug keeping audio output
+2016-06-13 21:56:02.9744 Debug removing module "libass"
+2016-06-13 21:56:02.9744 Debug killing decoder fourcc `ssa ', 0 PES in FIFO
+2016-06-13 21:56:02.9744 Debug removing module "mkv"
+2016-06-13 21:56:02.9744 Debug Program doesn't contain anymore ES
+2016-06-13 21:56:02.9744 Debug Stopping the UI Hook
+2016-06-13 21:56:02.9744 Debug removing module "record"
+2016-06-13 21:56:02.9744 Debug removing module "filesystem"
+2016-06-13 21:56:02.9744 Debug Creating an input for '[NG] Zankyou no Terror - 01.mkv'
+2016-06-13 21:56:02.9744 Debug Creating an input for '[NG] Zankyou no Terror - 01.mkv'
+2016-06-13 21:56:03.0160 Debug using timeshift granularity of 50 MiB, in path 'C:\Users\Richard\AppData\Local\Temp'
+2016-06-13 21:56:03.0160 Debug `file:///C:/Users/Richard/Desktop/%5BNG%5D%20Zankyou%20no%20Terror%20-%2001.mkv' gives access `file' demux `' path `/C:/Users/Richard/Desktop/%5BNG%5D%20Zankyou%20no%20Terror%20-%2001.mkv'
+2016-06-13 21:56:03.0160 Debug specified demux `any'
+2016-06-13 21:56:03.0160 Debug creating demux: access='file' demux='any' location='/C:/Users/Richard/Desktop/%5BNG%5D%20Zankyou%20no%20Terror%20-%2001.mkv' file='C:\Users\Richard\Desktop\[NG] Zankyou no Terror - 01.mkv'
+2016-06-13 21:56:03.0160 Debug looking for access_demux module matching "file": zd candidates
+2016-06-13 21:56:03.0160 Debug looking for meta fetcher module matching "any": zd candidates
+2016-06-13 21:56:03.0160 Debug Trying Lua scripts in C:\Users\Richard\AppData\Roaming\vlc\lua\meta\fetcher
+2016-06-13 21:56:03.0160 Debug no access_demux modules matched
+2016-06-13 21:56:03.0160 Debug Trying Lua scripts in C:\Users\Richard\Desktop\vlc\newvlc\nVLC_Demo_WinForms\bin\x86\Debug\lua\meta\fetcher
+2016-06-13 21:56:03.0160 Debug creating access 'file' location='/C:/Users/Richard/Desktop/%5BNG%5D%20Zankyou%20no%20Terror%20-%2001.mkv', path='C:\Users\Richard\Desktop\[NG] Zankyou no Terror - 01.mkv'
+2016-06-13 21:56:03.0160 Debug looking for access module matching "file": zd candidates
+2016-06-13 21:56:03.0160 Debug no meta fetcher modules matched
+2016-06-13 21:56:03.0160 Debug searching art for [NG] Zankyou no Terror - 01.mkv
+2016-06-13 21:56:03.0160 Debug looking for art finder module matching "any": zd candidates
+2016-06-13 21:56:03.0160 Debug opening file `C:\Users\Richard\Desktop\[NG] Zankyou no Terror - 01.mkv'
+2016-06-13 21:56:03.0160 Debug using access module "filesystem"
+2016-06-13 21:56:03.0160 Debug Using stream method for AStream*
+2016-06-13 21:56:03.0160 Debug starting pre-buffering
+2016-06-13 21:56:03.0160 Debug received first data after 0 ms
+2016-06-13 21:56:03.0160 Debug pre-buffering done 1024 bytes in 0s - 1000000 KiB/s
+2016-06-13 21:56:03.0160 Debug looking for stream_filter module matching "any": zd candidates
+2016-06-13 21:56:03.0160 Debug no stream_filter modules matched
+2016-06-13 21:56:03.0160 Debug looking for stream_filter module matching "record": zd candidates
+2016-06-13 21:56:03.0160 Debug using stream_filter module "record"
+2016-06-13 21:56:03.0160 Debug creating demux: access='file' demux='any' location='/C:/Users/Richard/Desktop/%5BNG%5D%20Zankyou%20no%20Terror%20-%2001.mkv' file='C:\Users\Richard\Desktop\[NG] Zankyou no Terror - 01.mkv'
+2016-06-13 21:56:03.0160 Debug looking for demux module matching "mkv": zd candidates
+2016-06-13 21:56:03.0160 Debug |   + Seek head
+2016-06-13 21:56:03.0160 Debug |   |   + Seek
+2016-06-13 21:56:03.0160 Debug |   - info at 4151
+2016-06-13 21:56:03.0160 Debug |   + Information
+2016-06-13 21:56:03.0160 Debug |   |   + TimecodeScale=1000000
+2016-06-13 21:56:03.0160 Debug |   |   + Muxing Application=libebml v1.3.0 + libmatroska v1.4.1
+2016-06-13 21:56:03.0160 Debug |   |   + Writing Application=mkvmerge v7.1.0 ('Good Love') 64bit built on Jul 27 2014 13:06:55
+2016-06-13 21:56:03.0160 Debug |   |   + Duration=1369452
+2016-06-13 21:56:03.0160 Debug |   |   + Date=Sat Aug 09 21:39:09 2014
+2016-06-13 21:56:03.0160 Debug |   |   + UID=1314648989
+2016-06-13 21:56:03.0160 Debug |   |   + Seek
+2016-06-13 21:56:03.0160 Debug |   - tracks at 4307
+2016-06-13 21:56:03.0160 Debug Trying Lua scripts in C:\Users\Richard\AppData\Roaming\vlc\lua\meta\art
+2016-06-13 21:56:03.0160 Debug |   + Tracks
+2016-06-13 21:56:03.0160 Debug Trying Lua scripts in C:\Users\Richard\Desktop\vlc\newvlc\nVLC_Demo_WinForms\bin\x86\Debug\lua\meta\art
+2016-06-13 21:56:03.0160 Debug no art finder modules matched
+2016-06-13 21:56:03.0160 Debug art not found for [NG] Zankyou no Terror - 01.mkv
+2016-06-13 21:56:03.0160 Debug |   |   + Track Entry
+2016-06-13 21:56:03.0160 Debug |   |   |   + Track Number=1
+2016-06-13 21:56:03.0160 Debug |   |   |   + Track UID=1
+2016-06-13 21:56:03.0160 Debug |   |   |   + Track Type=video
+2016-06-13 21:56:03.0160 Debug |   |   |   + Track Lacing=0
+2016-06-13 21:56:03.0160 Debug |   |   |   + Track MinCache=1
+2016-06-13 21:56:03.0160 Debug |   |   |   + Track CodecId=V_MPEG4/ISO/AVC
+2016-06-13 21:56:03.0160 Debug |   |   |   + Track CodecPrivate size=43
+2016-06-13 21:56:03.0160 Debug |   |   |   + Track Default Duration=41708333
+2016-06-13 21:56:03.0160 Debug |   |   |   + Track Language=`cze'
+2016-06-13 21:56:03.0160 Debug |   |   |   + Track Video
+2016-06-13 21:56:03.0160 Debug |   |   |   |   + width=1280
+2016-06-13 21:56:03.0160 Debug |   |   |   |   + height=720
+2016-06-13 21:56:03.0160 Debug |   |   |   |   + display width=1280
+2016-06-13 21:56:03.0160 Debug |   |   |   |   + display height=720
+2016-06-13 21:56:03.0160 Debug |   |   + Track Entry
+2016-06-13 21:56:03.0160 Debug |   |   |   + Track Number=2
+2016-06-13 21:56:03.0160 Debug |   |   |   + Track UID=1967579547
+2016-06-13 21:56:03.0160 Debug |   |   |   + Track Type=audio
+2016-06-13 21:56:03.0160 Debug |   |   |   + Track CodecId=A_AAC
+2016-06-13 21:56:03.0160 Debug |   |   |   + Track CodecPrivate size=5
+2016-06-13 21:56:03.0185 Debug |   |   |   + Track Default Duration=21333333
+2016-06-13 21:56:03.0185 Debug |   |   |   + Track Language=`jpn'
+2016-06-13 21:56:03.0185 Debug |   |   |   + Track Audio
+2016-06-13 21:56:03.0185 Debug |   |   |   |   + afreq=48000
+2016-06-13 21:56:03.0185 Debug |   |   |   |   + achan=2
+2016-06-13 21:56:03.0185 Debug |   |   |   |   + aoutfreq=96000
+2016-06-13 21:56:03.0185 Debug |   |   + Track Entry
+2016-06-13 21:56:03.0185 Debug |   |   |   + Track Number=3
+2016-06-13 21:56:03.0185 Debug |   |   |   + Track UID=1168029864
+2016-06-13 21:56:03.0185 Debug |   |   |   + Track Type=subtitle
+2016-06-13 21:56:03.0185 Debug |   |   |   + Track Lacing=0
+2016-06-13 21:56:03.0185 Debug |   |   |   + Track CodecId=S_TEXT/ASS
+2016-06-13 21:56:03.0185 Debug |   |   |   + Track CodecPrivate size=1785
+2016-06-13 21:56:03.0185 Debug |   |   |   + Track Language=`cze'
+2016-06-13 21:56:03.0185 Debug |   |   + Seek
+2016-06-13 21:56:03.0185 Debug |   - cues at 362236444
+2016-06-13 21:56:03.0185 Debug |   + Cues
+2016-06-13 21:56:03.1807 Debug meta ok for (null), need to fetch art
+2016-06-13 21:56:03.2088 Debug |   - loading cues done.
+2016-06-13 21:56:03.2088 Debug |   |   + Seek
+2016-06-13 21:56:03.2088 Debug |   - tags at 362341348
+2016-06-13 21:56:03.2088 Debug |   + Tags
+2016-06-13 21:56:03.2088 Debug + Tag
+2016-06-13 21:56:03.2088 Debug |   + Targets
+2016-06-13 21:56:03.2088 Debug |   |   + TargetTypeValue: 50
+2016-06-13 21:56:03.2088 Debug |   |   + TrackUID: 1
+2016-06-13 21:56:03.2088 Debug |   + Simple Tag 
+2016-06-13 21:56:03.2088 Debug |   |   + Meta _STATISTICS_WRITING_APP: mkvmerge v7.1.0 ('Good Love') 64bit built on Jul 27 2014 13:06:55
+2016-06-13 21:56:03.2088 Debug |   + Simple Tag 
+2016-06-13 21:56:03.2088 Debug |   |   + Meta _STATISTICS_WRITING_DATE_UTC: 2014-08-09 21:39:09
+2016-06-13 21:56:03.2088 Debug |   + Simple Tag 
+2016-06-13 21:56:03.2088 Debug |   |   + Meta _STATISTICS_TAGS: BPS DURATION NUMBER_OF_FRAMES NUMBER_OF_BYTES
+2016-06-13 21:56:03.2088 Debug |   + Simple Tag 
+2016-06-13 21:56:03.2088 Debug |   |   + Meta BPS: 1913217
+2016-06-13 21:56:03.2088 Debug |   + Simple Tag 
+2016-06-13 21:56:03.2088 Debug |   |   + Meta DURATION: 00:22:49.452000000
+2016-06-13 21:56:03.2088 Debug |   + Simple Tag 
+2016-06-13 21:56:03.2088 Debug |   |   + Meta NUMBER_OF_FRAMES: 32834
+2016-06-13 21:56:03.2088 Debug |   + Simple Tag 
+2016-06-13 21:56:03.2088 Debug |   |   + Meta NUMBER_OF_BYTES: 327507423
+2016-06-13 21:56:03.2088 Debug + Tag
+2016-06-13 21:56:03.2088 Debug |   + Targets
+2016-06-13 21:56:03.2088 Debug |   |   + TargetTypeValue: 50
+2016-06-13 21:56:03.2088 Debug |   |   + TrackUID: 17145546264059240859
+2016-06-13 21:56:03.2088 Debug |   + Simple Tag 
+2016-06-13 21:56:03.2088 Debug |   |   + Meta _STATISTICS_WRITING_APP: mkvmerge v7.1.0 ('Good Love') 64bit built on Jul 27 2014 13:06:55
+2016-06-13 21:56:03.2088 Debug |   + Simple Tag 
+2016-06-13 21:56:03.2088 Debug |   |   + Meta _STATISTICS_WRITING_DATE_UTC: 2014-08-09 21:39:09
+2016-06-13 21:56:03.2088 Debug |   + Simple Tag 
+2016-06-13 21:56:03.2088 Debug |   |   + Meta _STATISTICS_TAGS: BPS DURATION NUMBER_OF_FRAMES NUMBER_OF_BYTES
+2016-06-13 21:56:03.2088 Debug |   + Simple Tag 
+2016-06-13 21:56:03.2088 Debug |   |   + Meta BPS: 188624
+2016-06-13 21:56:03.2088 Debug |   + Simple Tag 
+2016-06-13 21:56:03.2088 Debug |   |   + Meta DURATION: 00:22:49.451000000
+2016-06-13 21:56:03.2088 Debug |   + Simple Tag 
+2016-06-13 21:56:03.2088 Debug |   |   + Meta NUMBER_OF_FRAMES: 64193
+2016-06-13 21:56:03.2088 Debug |   + Simple Tag 
+2016-06-13 21:56:03.2088 Debug |   |   + Meta NUMBER_OF_BYTES: 32289079
+2016-06-13 21:56:03.2088 Debug + Tag
+2016-06-13 21:56:03.2088 Debug |   + Targets
+2016-06-13 21:56:03.2088 Debug |   |   + TargetTypeValue: 50
+2016-06-13 21:56:03.2088 Debug |   |   + TrackUID: 15062869089026226344
+2016-06-13 21:56:03.2088 Debug |   + Simple Tag 
+2016-06-13 21:56:03.2088 Debug |   |   + Meta BPS: 2428
+2016-06-13 21:56:03.2088 Debug |   + Simple Tag 
+2016-06-13 21:56:03.2088 Debug |   |   + Meta DURATION: 00:22:35.470000000
+2016-06-13 21:56:03.2088 Debug |   + Simple Tag 
+2016-06-13 21:56:03.2088 Debug |   |   + Meta NUMBER_OF_FRAMES: 3771
+2016-06-13 21:56:03.2088 Debug |   + Simple Tag 
+2016-06-13 21:56:03.2088 Debug |   |   + Meta NUMBER_OF_BYTES: 411501
+2016-06-13 21:56:03.2088 Debug |   + Simple Tag 
+2016-06-13 21:56:03.2088 Debug |   |   + Meta _STATISTICS_WRITING_APP: mkvmerge v7.1.0 ('Good Love') 64bit built on Jul 27 2014 13:06:55
+2016-06-13 21:56:03.2088 Debug |   + Simple Tag 
+2016-06-13 21:56:03.2088 Debug |   |   + Meta _STATISTICS_WRITING_DATE_UTC: 2014-08-09 21:39:09
+2016-06-13 21:56:03.2088 Debug |   + Simple Tag 
+2016-06-13 21:56:03.2088 Warn MKV/Ebml Parser: m_el[mi_level] == NULL
+
+2016-06-13 21:56:03.2088 Debug |   |   + Meta _STATISTICS_TAGS: BPS DURATION NUMBER_OF_FRAMES NUMBER_OF_BYTES
+2016-06-13 21:56:03.2088 Warn MKV/Ebml Parser: m_el[mi_level] == NULL
+
+2016-06-13 21:56:03.2088 Warn MKV/Ebml Parser: Up cannot escape itself
+2016-06-13 21:56:03.2088 Debug loading tags done.
+2016-06-13 21:56:03.2088 Debug |   |   + Seek
+2016-06-13 21:56:03.2088 Debug |   - chapters at 1604258
+2016-06-13 21:56:03.2088 Debug |   + Chapters
+2016-06-13 21:56:03.2088 Debug |   |   + EditionEntry
+2016-06-13 21:56:03.2088 Debug |   |   |   + ChapterAtom (level=0)
+2016-06-13 21:56:03.2088 Debug |   |   |   |   + ChapterUID: 1280002216
+2016-06-13 21:56:03.2088 Debug |   |   |   |   + ChapterTimeStart: 0
+2016-06-13 21:56:03.2088 Debug |   |   |   |   + ChapterFlagHidden: no
+2016-06-13 21:56:03.2088 Debug |   |   |   |   + ChapterDisplay
+2016-06-13 21:56:03.2088 Debug |   |   |   |   |    + ChapterString 'A¹vod'
+2016-06-13 21:56:03.2088 Debug |   |   |   |   |    + ChapterLanguage 'cze'
+2016-06-13 21:56:03.2088 Debug |   |   |   + ChapterAtom (level=0)
+2016-06-13 21:56:03.2088 Debug |   |   |   |   + ChapterUID: 991427770
+2016-06-13 21:56:03.2088 Debug |   |   |   |   + ChapterTimeStart: 176927000
+2016-06-13 21:56:03.2088 Debug |   |   |   |   + ChapterFlagHidden: no
+2016-06-13 21:56:03.2088 Debug |   |   |   |   + ChapterDisplay
+2016-06-13 21:56:03.2088 Debug |   |   |   |   |    + ChapterString 'OP'
+2016-06-13 21:56:03.2088 Debug |   |   |   |   |    + ChapterLanguage 'cze'
+2016-06-13 21:56:03.2088 Debug |   |   |   + ChapterAtom (level=0)
+2016-06-13 21:56:03.2088 Debug |   |   |   |   + ChapterUID: 2056155288
+2016-06-13 21:56:03.2088 Debug |   |   |   |   + ChapterTimeStart: 267851000
+2016-06-13 21:56:03.2088 Debug |   |   |   |   + ChapterFlagHidden: no
+2016-06-13 21:56:03.2088 Debug |   |   |   |   + ChapterDisplay
+2016-06-13 21:56:03.2088 Debug |   |   |   |   |    + ChapterString 'DA­l - 01'
+2016-06-13 21:56:03.2088 Debug |   |   |   |   |    + ChapterLanguage 'cze'
+2016-06-13 21:56:03.2088 Debug |   |   |   + ChapterAtom (level=0)
+2016-06-13 21:56:03.2088 Debug |   |   |   |   + ChapterUID: 786499983
+2016-06-13 21:56:03.2088 Debug |   |   |   |   + ChapterTimeStart: 1279528000
+2016-06-13 21:56:03.2088 Debug |   |   |   |   + ChapterFlagHidden: no
+2016-06-13 21:56:03.2088 Debug |   |   |   |   + ChapterDisplay
+2016-06-13 21:56:03.2088 Debug |   |   |   |   |    + ChapterString 'ED'
+2016-06-13 21:56:03.2088 Debug |   |   |   |   |    + ChapterLanguage 'cze'
+2016-06-13 21:56:03.2088 Debug |   |   + Seek
+2016-06-13 21:56:03.2088 Debug |   |   + Unknown (N7libebml8EbmlVoidE)
+2016-06-13 21:56:03.2088 Debug |   - attachments at 7461
+2016-06-13 21:56:03.2088 Debug |   + Attachments
+2016-06-13 21:56:03.2088 Debug looking for meta fetcher module matching "any": zd candidates
+2016-06-13 21:56:03.2088 Debug |   |   - Candarab.ttf (application/x-truetype-font)
+2016-06-13 21:56:03.2088 Debug |   |   - Candarai.ttf (application/x-truetype-font)
+2016-06-13 21:56:03.2088 Debug |   |   - Candaraz.ttf (application/x-truetype-font)
+2016-06-13 21:56:03.2088 Debug Trying Lua scripts in C:\Users\Richard\AppData\Roaming\vlc\lua\meta\fetcher
+2016-06-13 21:56:03.2088 Debug Trying Lua scripts in C:\Users\Richard\Desktop\vlc\newvlc\nVLC_Demo_WinForms\bin\x86\Debug\lua\meta\fetcher
+2016-06-13 21:56:03.2088 Debug no meta fetcher modules matched
+2016-06-13 21:56:03.2088 Debug |   |   - Clichee.otf (application/vnd.ms-opentype)
+2016-06-13 21:56:03.2088 Debug searching art for [NG] Zankyou no Terror - 01.mkv
+2016-06-13 21:56:03.2088 Debug |   |   - ClicheeBold.otf (application/vnd.ms-opentype)
+2016-06-13 21:56:03.2088 Debug looking for art finder module matching "any": zd candidates
+2016-06-13 21:56:03.2088 Debug |   |   - ClicheeBoldItalic.otf (application/vnd.ms-opentype)
+2016-06-13 21:56:03.2088 Debug |   |   - ClicheeItalic.otf (application/vnd.ms-opentype)
+2016-06-13 21:56:03.2088 Debug |   |   - DISTInking-Bold.otf (application/vnd.ms-opentype)
+2016-06-13 21:56:03.2088 Debug |   |   - DISTInking-Regular.otf (application/vnd.ms-opentype)
+2016-06-13 21:56:03.2088 Debug |   |   - octin prison free.ttf (application/x-truetype-font)
+2016-06-13 21:56:03.2218 Debug |   |   - octin stencil rg.ttf (application/x-truetype-font)
+2016-06-13 21:56:03.2218 Debug |   |   - TarragonDOT-Regular.otf (application/vnd.ms-opentype)
+2016-06-13 21:56:03.2218 Debug |   |   - Candara.ttf (application/x-truetype-font)
+2016-06-13 21:56:03.2218 Debug Trying Lua scripts in C:\Users\Richard\AppData\Roaming\vlc\lua\meta\art
+2016-06-13 21:56:03.2218 Debug |   + Void
+2016-06-13 21:56:03.2218 Debug |   + Information
+2016-06-13 21:56:03.2218 Debug |   + Tracks
+2016-06-13 21:56:03.2218 Debug |   + Void
+2016-06-13 21:56:03.2218 Debug Trying Lua scripts in C:\Users\Richard\Desktop\vlc\newvlc\nVLC_Demo_WinForms\bin\x86\Debug\lua\meta\art
+2016-06-13 21:56:03.2218 Debug |   + Attachments
+2016-06-13 21:56:03.2218 Debug |   + Chapters
+2016-06-13 21:56:03.2218 Debug no art finder modules matched
+2016-06-13 21:56:03.2218 Debug |   + Void
+2016-06-13 21:56:03.2218 Debug art not found for [NG] Zankyou no Terror - 01.mkv
+2016-06-13 21:56:03.2218 Debug |   + Cluster
+2016-06-13 21:56:03.2218 Debug Virtual chapter  A¹vod from 0 to -1 - 
+2016-06-13 21:56:03.2218 Debug Virtual chapter  OP from 176927000 to -1 - 
+2016-06-13 21:56:03.2218 Debug Virtual chapter  DA­l - 01 from 267851000 to -1 - 
+2016-06-13 21:56:03.2218 Debug Virtual chapter  ED from 1279528000 to -1 - 
+2016-06-13 21:56:03.2218 Debug Virtual chapter  from 0 to -1 - 
+2016-06-13 21:56:03.2218 Debug found 3 es
+2016-06-13 21:56:03.2218 Debug selecting program id=0
+2016-06-13 21:56:03.2218 Debug Buffering 0%
+2016-06-13 21:56:03.2218 Debug Starting the UI Hook
+2016-06-13 21:56:03.2218 Debug using demux module "mkv"
+2016-06-13 21:56:03.2218 Debug looking for a subtitle file in C:\Users\Richard\Desktop\
+2016-06-13 21:56:03.2218 Debug looking for decoder module matching "any": zd candidates
+2016-06-13 21:56:03.2218 Debug CPU flags: 0x0107d3db
+2016-06-13 21:56:03.2218 Debug trying to use direct rendering
+2016-06-13 21:56:03.2218 Debug allowing 4 thread(s) for decoding
+2016-06-13 21:56:03.2218 Warn threaded frame decoding is not compatible with DXVA2, disabled
+2016-06-13 21:56:03.2388 Debug avcodec codec (H264 - MPEG-4 AVC (part 10)) started
+2016-06-13 21:56:03.2388 Debug using slice thread mode with 4 threads
+2016-06-13 21:56:03.2388 Debug using decoder module "avcodec"
+2016-06-13 21:56:03.2388 Debug looking for decoder module matching "any": zd candidates
+2016-06-13 21:56:03.2388 Debug using decoder module "faad"
+2016-06-13 21:56:03.2388 Debug looking for decoder module matching "any": zd candidates
+2016-06-13 21:56:03.2388 Debug adding embedded font Candarab.ttf
+2016-06-13 21:56:03.2388 Debug adding embedded font Candarai.ttf
+2016-06-13 21:56:03.2388 Debug adding embedded font Candaraz.ttf
+2016-06-13 21:56:03.2388 Debug adding embedded font Clichee.otf
+2016-06-13 21:56:03.2388 Debug adding embedded font ClicheeBold.otf
+2016-06-13 21:56:03.2388 Debug adding embedded font ClicheeBoldItalic.otf
+2016-06-13 21:56:03.2388 Debug adding embedded font ClicheeItalic.otf
+2016-06-13 21:56:03.2388 Debug adding embedded font DISTInking-Bold.otf
+2016-06-13 21:56:03.2388 Debug adding embedded font DISTInking-Regular.otf
+2016-06-13 21:56:03.2388 Debug adding embedded font octin prison free.ttf
+2016-06-13 21:56:03.2388 Debug adding embedded font octin stencil rg.ttf
+2016-06-13 21:56:03.2388 Debug adding embedded font TarragonDOT-Regular.otf
+2016-06-13 21:56:03.2388 Debug adding embedded font Candara.ttf
+2016-06-13 21:56:03.3680 Debug using decoder module "libass"
+2016-06-13 21:56:03.3680 Debug looking for meta reader module matching "any": zd candidates
+2016-06-13 21:56:03.3680 Debug Trying Lua scripts in C:\Users\Richard\AppData\Roaming\vlc\lua\meta\reader
+2016-06-13 21:56:03.3680 Debug Trying Lua scripts in C:\Users\Richard\Desktop\vlc\newvlc\nVLC_Demo_WinForms\bin\x86\Debug\lua\meta\reader
+2016-06-13 21:56:03.3680 Debug no meta reader modules matched
+2016-06-13 21:56:03.3680 Debug `file:///C:/Users/Richard/Desktop/%5BNG%5D%20Zankyou%20no%20Terror%20-%2001.mkv' successfully opened
+2016-06-13 21:56:03.3680 Debug Buffering 0%
+2016-06-13 21:56:03.3680 Debug Stream buffering done (417 ms in 137 ms)
+2016-06-13 21:56:03.3680 Debug available software decoder output format 72 (yuv420p10le)
+2016-06-13 21:56:03.3680 Warn decoded zero sample
+2016-06-13 21:56:03.3680 Debug trying to reuse free vout
+2016-06-13 21:56:03.3680 Debug removing module "freetype"
+2016-06-13 21:56:03.3680 Debug looking for text renderer module matching "any": zd candidates
+2016-06-13 21:56:03.3680 Debug AAC SBR (channels: 2, samplerate: 96000)
+2016-06-13 21:56:03.3680 Debug reusing audio output
+2016-06-13 21:56:03.3680 Debug Opening DirectSound Audio Output
+2016-06-13 21:56:03.3680 Debug Using Arial as font from file C:\WINDOWS\Fonts\arial.ttf
+2016-06-13 21:56:03.3680 Debug Using Courier New as mono-font from file C:\WINDOWS\Fonts\cour.ttf
+2016-06-13 21:56:03.3680 Debug using fontsize: 2
+2016-06-13 21:56:03.3680 Debug using text renderer module "freetype"
+2016-06-13 21:56:03.3680 Debug reusing provided vout
+2016-06-13 21:56:03.3680 Warn plane 0 not aligned
+2016-06-13 21:56:03.3680 Warn disabling direct rendering
+2016-06-13 21:56:03.3920 Debug Windows speaker config: Stereo and stream has 2 channels, using 2 channels
+2016-06-13 21:56:03.3940 Debug End of video preroll
+2016-06-13 21:56:03.3940 Debug Received first picture
+2016-06-13 21:56:03.4160 Debug output 'f32l' 96000 Hz Stereo frame=1 samples/8 bytes
+2016-06-13 21:56:03.4160 Debug looking for audio volume module matching "any": zd candidates
+2016-06-13 21:56:03.4160 Debug using audio volume module "float_mixer"
+2016-06-13 21:56:03.4160 Debug input 'f32l' 96000 Hz Stereo frame=1 samples/8 bytes
+2016-06-13 21:56:03.4160 Debug looking for audio filter module matching "scaletempo": zd candidates
+2016-06-13 21:56:03.4160 Debug format: 96000 rate, 2 nch, 4 bps, fl32
+2016-06-13 21:56:03.4160 Debug params: 30 stride, 0.200 overlap, 14 search
+2016-06-13 21:56:03.4160 Debug 1.000 scale, 2880.000 stride_in, 2880 stride_out, 2304 standing, 576 overlap, 1344 search, 4800 queue, fl32 mode
+2016-06-13 21:56:03.4160 Debug using audio filter module "scaletempo"
+2016-06-13 21:56:03.4160 Debug conversion: 'f32l'->'f32l' 96000 Hz->96000 Hz Stereo->Stereo
+2016-06-13 21:56:03.4160 Debug conversion pipeline complete
+2016-06-13 21:56:03.4160 Debug conversion: 'f32l'->'f32l' 96000 Hz->96000 Hz Stereo->Stereo
+2016-06-13 21:56:03.4160 Debug conversion pipeline complete
+2016-06-13 21:56:03.4160 Debug looking for audio resampler module matching "any": zd candidates
+2016-06-13 21:56:03.4160 Debug using audio resampler module "samplerate"
+2016-06-13 21:56:03.4160 Debug End of audio preroll
+2016-06-13 21:56:03.4160 Debug Decoder wait done in 46 ms
+2016-06-13 21:56:03.5782 Warn buffer too late (-107334 us): dropped
+2016-06-13 21:56:03.5782 Warn buffer too late (-88001 us): dropped
+2016-06-13 21:56:03.5812 Warn buffer too late (-67668 us): dropped
+2016-06-13 21:56:03.5812 Warn playback too late (75804): up-sampling
+2016-06-13 21:56:11.8574 Warn early picture skipped
+2016-06-13 21:56:11.8574 Debug seek request to -1 (0.050000%)
+2016-06-13 21:56:11.8574 Debug seek got 67985000 - 17847433
+2016-06-13 21:56:11.8574 Debug Buffering 0%
+2016-06-13 21:56:12.1056 Debug available software decoder output format 72 (yuv420p10le)
+2016-06-13 21:56:12.1056 Debug Buffering 0%
+2016-06-13 21:56:12.1056 Debug Buffering 42%
+2016-06-13 21:56:12.1056 Debug Buffering 84%
+2016-06-13 21:56:12.1056 Debug Stream buffering done (1042 ms in 246 ms)
+2016-06-13 21:56:12.1357 Debug End of audio preroll
+2016-06-13 21:56:12.2528 Debug End of video preroll
+2016-06-13 21:56:12.2528 Debug Received first picture
+2016-06-13 21:56:12.2698 Debug End of video preroll
+2016-06-13 21:56:12.2698 Debug Decoder wait done in 166 ms
+2016-06-13 21:56:12.3037 Warn early picture skipped
+2016-06-13 21:56:12.3037 Debug seek request to -1 (0.100000%)
+2016-06-13 21:56:12.3037 Debug seek got 136094000 - 37157664
+2016-06-13 21:56:12.3037 Debug Buffering 0%
+2016-06-13 21:56:12.4360 Debug available software decoder output format 72 (yuv420p10le)
+2016-06-13 21:56:12.4360 Debug Buffering 0%
+2016-06-13 21:56:12.4360 Debug Buffering 29%
+2016-06-13 21:56:12.4360 Debug Buffering 58%
+2016-06-13 21:56:12.4360 Debug Buffering 86%
+2016-06-13 21:56:12.4360 Debug Stream buffering done (1335 ms in 128 ms)
+2016-06-13 21:56:12.5007 Debug End of audio preroll
+2016-06-13 21:56:12.8615 Debug End of video preroll
+2016-06-13 21:56:12.8615 Debug Received first picture
+2016-06-13 21:56:12.8835 Debug Decoder wait done in 447 ms
+2016-06-13 21:56:15.7567 Warn picture is too late to be displayed (missing 43 ms)
+2016-06-13 21:56:15.7567 Debug picture might be displayed late (missing 2 ms)
+2016-06-13 21:56:18.6190 Debug resampling stopped (drift: -10080 us)
+2016-06-13 21:56:20.0918 Debug VoutDisplayEvent 'mouse button' 2 t=8
+2016-06-13 21:56:20.2252 Debug VoutDisplayEvent 'mouse button' 2 t=9
+2016-06-13 21:56:22.2993 Debug auto hiding mouse cursor
+2016-06-13 21:56:25.4919 Debug auto hiding mouse cursor
+2016-06-13 21:56:27.8849 Debug WinProc WM_DESTROY
+2016-06-13 21:56:27.8849 Debug Win32 Vout EventThread terminating
+2016-06-13 21:56:27.8849 Debug Win32VoutCloseWindow
+2016-06-13 21:56:27.8849 Debug WinProc WM_DESTROY
+2016-06-13 22:36:48.6870 Debug VLC media player - 2.2.1 Terry Pratchett (Weatherwax)
+2016-06-13 22:36:48.6870 Debug Copyright ÂC 1996-2015 the VideoLAN team
+2016-06-13 22:36:48.6870 Debug revision 2.2.1-0-ga425c42
+2016-06-13 22:36:48.6870 Debug configured with ../extras/package/win32/../../../configure  '--enable-update-check' '--enable-lua' '--enable-faad' '--enable-flac' '--enable-theora' '--enable-twolame' '--enable-quicktime' '--enable-avcodec' '--enable-merge-ffmpeg' '--enable-dca' '--enable-mpc' '--enable-libass' '--enable-x264' '--enable-schroedinger' '--enable-realrtsp' '--enable-live555' '--enable-dvdread' '--enable-shout' '--enable-goom' '--enable-caca' '--disable-sdl' '--enable-qt' '--enable-skins2' '--enable-sse' '--enable-mmx' '--enable-libcddb' '--enable-zvbi' '--disable-telx' '--enable-nls' '--host=i686-w64-mingw32' '--disable-debug' 'host_alias=i686-w64-mingw32'
+2016-06-13 22:36:48.7020 Debug creating audio output
+2016-06-13 22:36:48.7020 Debug looking for audio output module matching "any": zd candidates
+2016-06-13 22:36:48.7470 Debug found 2 devices
+2016-06-13 22:36:48.7470 Debug using audio output module "directsound"
+2016-06-13 22:36:48.7470 Debug keeping audio output
+2016-06-13 23:08:28.7531 Debug VLC media player - 2.2.1 Terry Pratchett (Weatherwax)
+2016-06-13 23:08:28.7531 Debug Copyright ÂC 1996-2015 the VideoLAN team
+2016-06-13 23:08:28.7531 Debug revision 2.2.1-0-ga425c42
+2016-06-13 23:08:28.7531 Debug configured with ../extras/package/win32/../../../configure  '--enable-update-check' '--enable-lua' '--enable-faad' '--enable-flac' '--enable-theora' '--enable-twolame' '--enable-quicktime' '--enable-avcodec' '--enable-merge-ffmpeg' '--enable-dca' '--enable-mpc' '--enable-libass' '--enable-x264' '--enable-schroedinger' '--enable-realrtsp' '--enable-live555' '--enable-dvdread' '--enable-shout' '--enable-goom' '--enable-caca' '--disable-sdl' '--enable-qt' '--enable-skins2' '--enable-sse' '--enable-mmx' '--enable-libcddb' '--enable-zvbi' '--disable-telx' '--enable-nls' '--host=i686-w64-mingw32' '--disable-debug' 'host_alias=i686-w64-mingw32'
+2016-06-13 23:08:28.7862 Debug creating audio output
+2016-06-13 23:08:28.7862 Debug looking for audio output module matching "any": zd candidates
+2016-06-13 23:08:28.7862 Debug found 2 devices
+2016-06-13 23:08:28.7862 Debug using audio output module "directsound"
+2016-06-13 23:08:28.7862 Debug keeping audio output
+2016-06-13 23:09:16.6223 Debug VLC media player - 2.2.1 Terry Pratchett (Weatherwax)
+2016-06-13 23:09:16.6223 Debug Copyright ÂC 1996-2015 the VideoLAN team
+2016-06-13 23:09:16.6223 Debug revision 2.2.1-0-ga425c42
+2016-06-13 23:09:16.6223 Debug configured with ../extras/package/win32/../../../configure  '--enable-update-check' '--enable-lua' '--enable-faad' '--enable-flac' '--enable-theora' '--enable-twolame' '--enable-quicktime' '--enable-avcodec' '--enable-merge-ffmpeg' '--enable-dca' '--enable-mpc' '--enable-libass' '--enable-x264' '--enable-schroedinger' '--enable-realrtsp' '--enable-live555' '--enable-dvdread' '--enable-shout' '--enable-goom' '--enable-caca' '--disable-sdl' '--enable-qt' '--enable-skins2' '--enable-sse' '--enable-mmx' '--enable-libcddb' '--enable-zvbi' '--disable-telx' '--enable-nls' '--host=i686-w64-mingw32' '--disable-debug' 'host_alias=i686-w64-mingw32'
+2016-06-13 23:09:16.6378 Debug creating audio output
+2016-06-13 23:09:16.6378 Debug looking for audio output module matching "any": zd candidates
+2016-06-13 23:09:16.6454 Debug found 2 devices
+2016-06-13 23:09:16.6454 Debug using audio output module "directsound"
+2016-06-13 23:09:16.6454 Debug keeping audio output
+2016-06-13 23:09:30.6993 Debug Creating an input for '[NG] Zankyou no Terror - 02.mkv'
+2016-06-13 23:09:30.6993 Debug looking for meta fetcher module matching "any": zd candidates
+2016-06-13 23:09:30.6993 Debug Trying Lua scripts in C:\Users\Richard\AppData\Roaming\vlc\lua\meta\fetcher
+2016-06-13 23:09:30.6993 Debug Creating an input for '[NG] Zankyou no Terror - 02.mkv'
+2016-06-13 23:09:30.7063 Debug Trying Lua scripts in C:\Users\Richard\Desktop\vlc\newvlc\nVLC_Demo_WinForms\bin\x86\Debug\lua\meta\fetcher
+2016-06-13 23:09:30.7063 Debug using timeshift granularity of 50 MiB, in path 'C:\Users\Richard\AppData\Local\Temp'
+2016-06-13 23:09:30.7063 Debug `file:///C:/Users/Richard/Desktop/%5BNG%5D%20Zankyou%20no%20Terror%20-%2002.mkv' gives access `file' demux `' path `/C:/Users/Richard/Desktop/%5BNG%5D%20Zankyou%20no%20Terror%20-%2002.mkv'
+2016-06-13 23:09:30.7063 Debug specified demux `any'
+2016-06-13 23:09:30.7063 Debug creating demux: access='file' demux='any' location='/C:/Users/Richard/Desktop/%5BNG%5D%20Zankyou%20no%20Terror%20-%2002.mkv' file='C:\Users\Richard\Desktop\[NG] Zankyou no Terror - 02.mkv'
+2016-06-13 23:09:30.7063 Debug looking for access_demux module matching "file": zd candidates
+2016-06-13 23:09:30.7063 Debug no access_demux modules matched
+2016-06-13 23:09:30.7063 Debug creating access 'file' location='/C:/Users/Richard/Desktop/%5BNG%5D%20Zankyou%20no%20Terror%20-%2002.mkv', path='C:\Users\Richard\Desktop\[NG] Zankyou no Terror - 02.mkv'
+2016-06-13 23:09:30.7063 Debug looking for access module matching "file": zd candidates
+2016-06-13 23:09:30.7063 Debug opening file `C:\Users\Richard\Desktop\[NG] Zankyou no Terror - 02.mkv'
+2016-06-13 23:09:30.7063 Debug using access module "filesystem"
+2016-06-13 23:09:30.7063 Debug Using stream method for AStream*
+2016-06-13 23:09:30.7063 Debug starting pre-buffering
+2016-06-13 23:09:30.7063 Debug received first data after 0 ms
+2016-06-13 23:09:30.7063 Debug pre-buffering done 1024 bytes in 0s - 1000000 KiB/s
+2016-06-13 23:09:30.7063 Debug looking for stream_filter module matching "any": zd candidates
+2016-06-13 23:09:30.7063 Debug no stream_filter modules matched
+2016-06-13 23:09:30.7063 Debug looking for stream_filter module matching "record": zd candidates
+2016-06-13 23:09:30.7063 Debug using stream_filter module "record"
+2016-06-13 23:09:30.7063 Debug creating demux: access='file' demux='any' location='/C:/Users/Richard/Desktop/%5BNG%5D%20Zankyou%20no%20Terror%20-%2002.mkv' file='C:\Users\Richard\Desktop\[NG] Zankyou no Terror - 02.mkv'
+2016-06-13 23:09:30.7063 Debug looking for demux module matching "mkv": zd candidates
+2016-06-13 23:09:30.7244 Debug no meta fetcher modules matched
+2016-06-13 23:09:30.7244 Debug searching art for [NG] Zankyou no Terror - 02.mkv
+2016-06-13 23:09:30.7244 Debug looking for art finder module matching "any": zd candidates
+2016-06-13 23:09:30.7964 Debug Trying Lua scripts in C:\Users\Richard\AppData\Roaming\vlc\lua\meta\art
+2016-06-13 23:09:30.7964 Debug Trying Lua scripts in C:\Users\Richard\Desktop\vlc\newvlc\nVLC_Demo_WinForms\bin\x86\Debug\lua\meta\art
+2016-06-13 23:09:30.7964 Debug no art finder modules matched
+2016-06-13 23:09:30.7964 Debug art not found for [NG] Zankyou no Terror - 02.mkv
+2016-06-13 23:09:30.8115 Debug |   + Seek head
+2016-06-13 23:09:30.8115 Debug |   |   + Seek
+2016-06-13 23:09:30.8115 Debug |   - info at 4151
+2016-06-13 23:09:30.8115 Debug |   + Information
+2016-06-13 23:09:30.8165 Debug |   |   + TimecodeScale=1000000
+2016-06-13 23:09:30.8165 Debug |   |   + Muxing Application=libebml v1.3.0 + libmatroska v1.4.1
+2016-06-13 23:09:30.8165 Debug |   |   + Writing Application=mkvmerge v7.1.0 ('Good Love') 64bit built on Jul 27 2014 13:06:55
+2016-06-13 23:09:30.8165 Debug |   |   + Duration=1369785
+2016-06-13 23:09:30.8165 Debug |   |   + Date=Mon Aug 18 19:24:08 2014
+2016-06-13 23:09:30.8165 Debug |   |   + UID=-353944172
+2016-06-13 23:09:30.8165 Debug |   |   + Seek
+2016-06-13 23:09:30.8165 Debug |   - tracks at 4307
+2016-06-13 23:09:30.8165 Debug |   + Tracks
+2016-06-13 23:09:30.8165 Debug |   |   + Track Entry
+2016-06-13 23:09:30.8165 Debug |   |   |   + Track Number=1
+2016-06-13 23:09:30.8165 Debug |   |   |   + Track UID=1
+2016-06-13 23:09:30.8165 Debug |   |   |   + Track Type=video
+2016-06-13 23:09:30.8165 Debug |   |   |   + Track Lacing=0
+2016-06-13 23:09:30.8165 Debug |   |   |   + Track MinCache=1
+2016-06-13 23:09:30.8165 Debug |   |   |   + Track CodecId=V_MPEG4/ISO/AVC
+2016-06-13 23:09:30.8165 Debug |   |   |   + Track CodecPrivate size=43
+2016-06-13 23:09:30.8165 Debug |   |   |   + Track Default Duration=41708333
+2016-06-13 23:09:30.8165 Debug |   |   |   + Track Language=`cze'
+2016-06-13 23:09:30.8165 Debug |   |   |   + Track Video
+2016-06-13 23:09:30.8165 Debug |   |   |   |   + width=1280
+2016-06-13 23:09:30.8165 Debug |   |   |   |   + height=720
+2016-06-13 23:09:30.8165 Debug |   |   |   |   + display width=1280
+2016-06-13 23:09:30.8165 Debug |   |   |   |   + display height=720
+2016-06-13 23:09:30.8165 Debug |   |   + Track Entry
+2016-06-13 23:09:30.8165 Debug |   |   |   + Track Number=2
+2016-06-13 23:09:30.8165 Debug |   |   |   + Track UID=1426706846
+2016-06-13 23:09:30.8165 Debug |   |   |   + Track Type=audio
+2016-06-13 23:09:30.8165 Debug |   |   |   + Track CodecId=A_AAC
+2016-06-13 23:09:30.8165 Debug |   |   |   + Track CodecPrivate size=5
+2016-06-13 23:09:30.8165 Debug |   |   |   + Track Default Duration=21333333
+2016-06-13 23:09:30.8165 Debug |   |   |   + Track Language=`jpn'
+2016-06-13 23:09:30.8165 Debug |   |   |   + Track Audio
+2016-06-13 23:09:30.8165 Debug |   |   |   |   + afreq=48000
+2016-06-13 23:09:30.8165 Debug |   |   |   |   + achan=2
+2016-06-13 23:09:30.8165 Debug |   |   |   |   + aoutfreq=96000
+2016-06-13 23:09:30.8165 Debug |   |   + Track Entry
+2016-06-13 23:09:30.8165 Debug |   |   |   + Track Number=3
+2016-06-13 23:09:30.8165 Debug |   |   |   + Track UID=1261179274
+2016-06-13 23:09:30.8165 Debug |   |   |   + Track Type=subtitle
+2016-06-13 23:09:30.8165 Debug |   |   |   + Track Lacing=0
+2016-06-13 23:09:30.8165 Debug |   |   |   + Track CodecId=S_TEXT/ASS
+2016-06-13 23:09:30.8165 Debug |   |   |   + Track CodecPrivate size=2695
+2016-06-13 23:09:30.8165 Debug |   |   |   + Track Language=`cze'
+2016-06-13 23:09:30.8165 Debug |   |   + Seek
+2016-06-13 23:09:30.8165 Debug |   - cues at 290878747
+2016-06-13 23:09:30.8165 Debug |   + Cues
+2016-06-13 23:09:31.1348 Debug |   - loading cues done.
+2016-06-13 23:09:31.1348 Debug |   |   + Seek
+2016-06-13 23:09:31.1348 Debug |   - tags at 291119725
+2016-06-13 23:09:31.1348 Debug |   + Tags
+2016-06-13 23:09:31.1348 Debug + Tag
+2016-06-13 23:09:31.1348 Debug |   + Targets
+2016-06-13 23:09:31.1348 Debug |   |   + TargetTypeValue: 50
+2016-06-13 23:09:31.1348 Debug |   |   + TrackUID: 1
+2016-06-13 23:09:31.1348 Debug |   + Simple Tag 
+2016-06-13 23:09:31.1348 Debug |   |   + Meta _STATISTICS_WRITING_APP: mkvmerge v7.1.0 ('Good Love') 64bit built on Jul 27 2014 13:06:55
+2016-06-13 23:09:31.1348 Debug |   + Simple Tag 
+2016-06-13 23:09:31.1348 Debug |   |   + Meta _STATISTICS_WRITING_DATE_UTC: 2014-08-18 19:24:08
+2016-06-13 23:09:31.1348 Debug |   + Simple Tag 
+2016-06-13 23:09:31.1348 Debug |   |   + Meta _STATISTICS_TAGS: BPS DURATION NUMBER_OF_FRAMES NUMBER_OF_BYTES
+2016-06-13 23:09:31.1348 Debug |   + Simple Tag 
+2016-06-13 23:09:31.1348 Debug |   |   + Meta BPS: 1490791
+2016-06-13 23:09:31.1348 Debug |   + Simple Tag 
+2016-06-13 23:09:31.1348 Debug |   |   + Meta DURATION: 00:22:49.785000000
+2016-06-13 23:09:31.1348 Debug |   + Simple Tag 
+2016-06-13 23:09:31.1348 Debug |   |   + Meta NUMBER_OF_FRAMES: 32842
+2016-06-13 23:09:31.1348 Debug |   + Simple Tag 
+2016-06-13 23:09:31.1348 Debug |   |   + Meta NUMBER_OF_BYTES: 255257953
+2016-06-13 23:09:31.1348 Debug + Tag
+2016-06-13 23:09:31.1348 Debug |   + Targets
+2016-06-13 23:09:31.1348 Debug |   |   + TargetTypeValue: 50
+2016-06-13 23:09:31.1348 Debug |   |   + TrackUID: 15260728697784226206
+2016-06-13 23:09:31.1348 Debug |   + Simple Tag 
+2016-06-13 23:09:31.1348 Debug |   |   + Meta _STATISTICS_WRITING_APP: mkvmerge v7.1.0 ('Good Love') 64bit built on Jul 27 2014 13:06:55
+2016-06-13 23:09:31.1348 Debug |   + Simple Tag 
+2016-06-13 23:09:31.1348 Debug |   |   + Meta _STATISTICS_WRITING_DATE_UTC: 2014-08-18 19:24:08
+2016-06-13 23:09:31.1348 Debug |   + Simple Tag 
+2016-06-13 23:09:31.1348 Debug |   |   + Meta _STATISTICS_TAGS: BPS DURATION NUMBER_OF_FRAMES NUMBER_OF_BYTES
+2016-06-13 23:09:31.1348 Debug |   + Simple Tag 
+2016-06-13 23:09:31.1348 Debug |   |   + Meta BPS: 188625
+2016-06-13 23:09:31.1348 Debug |   + Simple Tag 
+2016-06-13 23:09:31.1348 Debug |   |   + Meta DURATION: 00:22:49.770000000
+2016-06-13 23:09:31.1348 Debug |   + Simple Tag 
+2016-06-13 23:09:31.1348 Debug |   |   + Meta NUMBER_OF_FRAMES: 64208
+2016-06-13 23:09:31.1348 Debug |   + Simple Tag 
+2016-06-13 23:09:31.1348 Debug |   |   + Meta NUMBER_OF_BYTES: 32296624
+2016-06-13 23:09:31.1348 Debug + Tag
+2016-06-13 23:09:31.1348 Debug |   + Targets
+2016-06-13 23:09:31.1348 Debug |   |   + TargetTypeValue: 50
+2016-06-13 23:09:31.1348 Debug |   |   + TrackUID: 14156788013667717514
+2016-06-13 23:09:31.1348 Debug |   + Simple Tag 
+2016-06-13 23:09:31.1348 Debug |   |   + Meta BPS: 7257
+2016-06-13 23:09:31.1348 Debug |   + Simple Tag 
+2016-06-13 23:09:31.1348 Debug |   |   + Meta DURATION: 00:22:37.110000000
+2016-06-13 23:09:31.1348 Debug |   + Simple Tag 
+2016-06-13 23:09:31.1348 Debug |   |   + Meta NUMBER_OF_FRAMES: 9063
+2016-06-13 23:09:31.1348 Debug |   + Simple Tag 
+2016-06-13 23:09:31.1348 Debug |   |   + Meta NUMBER_OF_BYTES: 1231151
+2016-06-13 23:09:31.1348 Debug |   + Simple Tag 
+2016-06-13 23:09:31.1348 Debug |   |   + Meta _STATISTICS_WRITING_APP: mkvmerge v7.1.0 ('Good Love') 64bit built on Jul 27 2014 13:06:55
+2016-06-13 23:09:31.1348 Debug |   + Simple Tag 
+2016-06-13 23:09:31.1348 Debug |   |   + Meta _STATISTICS_WRITING_DATE_UTC: 2014-08-18 19:24:08
+2016-06-13 23:09:31.1348 Debug |   + Simple Tag 
+2016-06-13 23:09:31.1348 Warn MKV/Ebml Parser: m_el[mi_level] == NULL
+
+2016-06-13 23:09:31.1348 Debug |   |   + Meta _STATISTICS_TAGS: BPS DURATION NUMBER_OF_FRAMES NUMBER_OF_BYTES
+2016-06-13 23:09:31.1348 Warn MKV/Ebml Parser: m_el[mi_level] == NULL
+
+2016-06-13 23:09:31.1348 Warn MKV/Ebml Parser: Up cannot escape itself
+2016-06-13 23:09:31.1348 Debug loading tags done.
+2016-06-13 23:09:31.1348 Debug |   |   + Seek
+2016-06-13 23:09:31.1348 Debug |   - chapters at 1605168
+2016-06-13 23:09:31.1348 Debug |   + Chapters
+2016-06-13 23:09:31.1348 Debug |   |   + EditionEntry
+2016-06-13 23:09:31.1348 Debug |   |   |   + ChapterAtom (level=0)
+2016-06-13 23:09:31.1348 Debug |   |   |   |   + ChapterUID: 11186
+2016-06-13 23:09:31.1348 Debug |   |   |   |   + ChapterTimeStart: 33000
+2016-06-13 23:09:31.1348 Debug |   |   |   |   + ChapterFlagHidden: no
+2016-06-13 23:09:31.1348 Debug |   |   |   |   + ChapterDisplay
+2016-06-13 23:09:31.1348 Debug |   |   |   |   |    + ChapterString 'A¹vod'
+2016-06-13 23:09:31.1348 Debug |   |   |   |   |    + ChapterLanguage 'cze'
+2016-06-13 23:09:31.1348 Debug |   |   |   + ChapterAtom (level=0)
+2016-06-13 23:09:31.1348 Debug |   |   |   |   + ChapterUID: 31003
+2016-06-13 23:09:31.1348 Debug |   |   |   |   + ChapterTimeStart: 28990000
+2016-06-13 23:09:31.1348 Debug |   |   |   |   + ChapterFlagHidden: no
+2016-06-13 23:09:31.1348 Debug |   |   |   |   + ChapterDisplay
+2016-06-13 23:09:31.1348 Debug |   |   |   |   |    + ChapterString 'OP'
+2016-06-13 23:09:31.1348 Debug |   |   |   |   |    + ChapterLanguage 'cze'
+2016-06-13 23:09:31.1348 Debug |   |   |   + ChapterAtom (level=0)
+2016-06-13 23:09:31.1348 Debug |   |   |   |   + ChapterUID: 121903
+2016-06-13 23:09:31.1348 Debug |   |   |   |   + ChapterTimeStart: 119890000
+2016-06-13 23:09:31.1348 Debug |   |   |   |   + ChapterFlagHidden: no
+2016-06-13 23:09:31.1348 Debug |   |   |   |   + ChapterDisplay
+2016-06-13 23:09:31.1348 Debug |   |   |   |   |    + ChapterString 'DA­l - 02'
+2016-06-13 23:09:31.1348 Debug |   |   |   |   |    + ChapterLanguage 'cze'
+2016-06-13 23:09:31.1348 Debug |   |   |   + ChapterAtom (level=0)
+2016-06-13 23:09:31.1348 Debug |   |   |   |   + ChapterUID: 1281843
+2016-06-13 23:09:31.1348 Debug |   |   |   |   + ChapterTimeStart: 1279830000
+2016-06-13 23:09:31.1348 Debug |   |   |   |   + ChapterFlagHidden: no
+2016-06-13 23:09:31.1348 Debug |   |   |   |   + ChapterDisplay
+2016-06-13 23:09:31.1348 Debug |   |   |   |   |    + ChapterString 'ED'
+2016-06-13 23:09:31.1348 Debug |   |   |   |   |    + ChapterLanguage 'cze'
+2016-06-13 23:09:31.1348 Debug |   |   + Seek
+2016-06-13 23:09:31.1348 Debug |   |   + Unknown (N7libebml8EbmlVoidE)
+2016-06-13 23:09:31.1348 Debug |   - attachments at 8371
+2016-06-13 23:09:31.1348 Debug |   + Attachments
+2016-06-13 23:09:31.1348 Debug |   |   - Candara.ttf (application/x-truetype-font)
+2016-06-13 23:09:31.1348 Debug |   |   - Candarab.ttf (application/x-truetype-font)
+2016-06-13 23:09:31.1348 Debug |   |   - Candarai.ttf (application/x-truetype-font)
+2016-06-13 23:09:31.1348 Debug |   |   - Candaraz.ttf (application/x-truetype-font)
+2016-06-13 23:09:31.1348 Debug |   |   - Clichee.otf (application/vnd.ms-opentype)
+2016-06-13 23:09:31.1348 Debug |   |   - ClicheeBold.otf (application/vnd.ms-opentype)
+2016-06-13 23:09:31.1348 Debug |   |   - ClicheeBoldItalic.otf (application/vnd.ms-opentype)
+2016-06-13 23:09:31.1348 Debug |   |   - ClicheeItalic.otf (application/vnd.ms-opentype)
+2016-06-13 23:09:31.1348 Debug |   |   - DISTInking-Bold.otf (application/vnd.ms-opentype)
+2016-06-13 23:09:31.1348 Debug |   |   - DISTInking-Regular.otf (application/vnd.ms-opentype)
+2016-06-13 23:09:31.1348 Debug |   |   - octin prison free.ttf (application/x-truetype-font)
+2016-06-13 23:09:31.1438 Debug |   |   - octin stencil rg.ttf (application/x-truetype-font)
+2016-06-13 23:09:31.1438 Debug |   |   - TarragonDOT-Regular.otf (application/vnd.ms-opentype)
+2016-06-13 23:09:31.1438 Debug |   + Void
+2016-06-13 23:09:31.1438 Debug |   + Information
+2016-06-13 23:09:31.1438 Debug |   + Tracks
+2016-06-13 23:09:31.1438 Debug |   + Void
+2016-06-13 23:09:31.1438 Debug |   + Attachments
+2016-06-13 23:09:31.1438 Debug |   + Chapters
+2016-06-13 23:09:31.1438 Debug |   + Void
+2016-06-13 23:09:31.1438 Debug |   + Cluster
+2016-06-13 23:09:31.1438 Debug Virtual chapter  A¹vod from 33000 to -1 - 
+2016-06-13 23:09:31.1438 Debug Virtual chapter  OP from 28990000 to -1 - 
+2016-06-13 23:09:31.1438 Debug Virtual chapter  DA­l - 02 from 119890000 to -1 - 
+2016-06-13 23:09:31.1438 Debug Virtual chapter  ED from 1279830000 to -1 - 
+2016-06-13 23:09:31.1438 Debug Virtual chapter  from 0 to -1 - 
+2016-06-13 23:09:31.1438 Debug found 3 es
+2016-06-13 23:09:31.1438 Debug selecting program id=0
+2016-06-13 23:09:31.1438 Debug Buffering 0%
+2016-06-13 23:09:31.1438 Debug Starting the UI Hook
+2016-06-13 23:09:31.1438 Debug using demux module "mkv"
+2016-06-13 23:09:31.1438 Debug looking for a subtitle file in C:\Users\Richard\Desktop\
+2016-06-13 23:09:31.1438 Debug meta ok for (null), need to fetch art
+2016-06-13 23:09:31.1438 Debug looking for decoder module matching "any": zd candidates
+2016-06-13 23:09:31.1689 Debug looking for meta fetcher module matching "any": zd candidates
+2016-06-13 23:09:31.1689 Debug Trying Lua scripts in C:\Users\Richard\AppData\Roaming\vlc\lua\meta\fetcher
+2016-06-13 23:09:31.1689 Debug Trying Lua scripts in C:\Users\Richard\Desktop\vlc\newvlc\nVLC_Demo_WinForms\bin\x86\Debug\lua\meta\fetcher
+2016-06-13 23:09:31.1689 Debug no meta fetcher modules matched
+2016-06-13 23:09:31.1689 Debug searching art for [NG] Zankyou no Terror - 02.mkv
+2016-06-13 23:09:31.1689 Debug looking for art finder module matching "any": zd candidates
+2016-06-13 23:09:31.1689 Debug Trying Lua scripts in C:\Users\Richard\AppData\Roaming\vlc\lua\meta\art
+2016-06-13 23:09:31.1689 Debug Trying Lua scripts in C:\Users\Richard\Desktop\vlc\newvlc\nVLC_Demo_WinForms\bin\x86\Debug\lua\meta\art
+2016-06-13 23:09:31.1689 Debug no art finder modules matched
+2016-06-13 23:09:31.1689 Debug art not found for [NG] Zankyou no Terror - 02.mkv
+2016-06-13 23:09:31.1919 Debug CPU flags: 0x0107d3db
+2016-06-13 23:09:31.2289 Debug trying to use direct rendering
+2016-06-13 23:09:31.2289 Debug allowing 4 thread(s) for decoding
+2016-06-13 23:09:31.2289 Warn threaded frame decoding is not compatible with DXVA2, disabled
+2016-06-13 23:09:31.2450 Debug avcodec codec (H264 - MPEG-4 AVC (part 10)) started
+2016-06-13 23:09:31.2450 Debug using slice thread mode with 4 threads
+2016-06-13 23:09:31.2450 Debug using decoder module "avcodec"
+2016-06-13 23:09:31.2450 Debug looking for decoder module matching "any": zd candidates
+2016-06-13 23:09:31.2450 Debug using decoder module "faad"
+2016-06-13 23:09:31.2450 Debug looking for decoder module matching "any": zd candidates
+2016-06-13 23:09:31.2450 Debug adding embedded font Candara.ttf
+2016-06-13 23:09:31.2450 Debug adding embedded font Candarab.ttf
+2016-06-13 23:09:31.2450 Debug adding embedded font Candarai.ttf
+2016-06-13 23:09:31.2450 Debug adding embedded font Candaraz.ttf
+2016-06-13 23:09:31.2450 Debug adding embedded font Clichee.otf
+2016-06-13 23:09:31.2450 Debug adding embedded font ClicheeBold.otf
+2016-06-13 23:09:31.2450 Debug adding embedded font ClicheeBoldItalic.otf
+2016-06-13 23:09:31.2450 Debug adding embedded font ClicheeItalic.otf
+2016-06-13 23:09:31.2450 Debug adding embedded font DISTInking-Bold.otf
+2016-06-13 23:09:31.2450 Debug adding embedded font DISTInking-Regular.otf
+2016-06-13 23:09:31.2450 Debug adding embedded font octin prison free.ttf
+2016-06-13 23:09:31.2450 Debug adding embedded font octin stencil rg.ttf
+2016-06-13 23:09:31.2450 Debug adding embedded font TarragonDOT-Regular.otf
+2016-06-13 23:09:31.3610 Debug using decoder module "libass"
+2016-06-13 23:09:31.3610 Debug looking for meta reader module matching "any": zd candidates
+2016-06-13 23:09:31.3610 Debug Trying Lua scripts in C:\Users\Richard\AppData\Roaming\vlc\lua\meta\reader
+2016-06-13 23:09:31.3610 Debug Trying Lua scripts in C:\Users\Richard\Desktop\vlc\newvlc\nVLC_Demo_WinForms\bin\x86\Debug\lua\meta\reader
+2016-06-13 23:09:31.3620 Debug no meta reader modules matched
+2016-06-13 23:09:31.3620 Debug `file:///C:/Users/Richard/Desktop/%5BNG%5D%20Zankyou%20no%20Terror%20-%2002.mkv' successfully opened
+2016-06-13 23:09:31.3620 Debug NEW CHAPTER 83000
+2016-06-13 23:09:31.3620 Debug Buffering 0%
+2016-06-13 23:09:31.3620 Debug Stream buffering done (334 ms in 213 ms)
+2016-06-13 23:09:31.3620 Warn decoded zero sample
+2016-06-13 23:09:31.3620 Debug AAC SBR (channels: 2, samplerate: 96000)
+2016-06-13 23:09:31.3620 Debug reusing audio output
+2016-06-13 23:09:31.3620 Debug Opening DirectSound Audio Output
+2016-06-13 23:09:31.3620 Debug Windows speaker config: Stereo and stream has 2 channels, using 2 channels
+2016-06-13 23:09:31.3620 Debug available software decoder output format 72 (yuv420p10le)
+2016-06-13 23:09:31.3620 Debug output 'f32l' 96000 Hz Stereo frame=1 samples/8 bytes
+2016-06-13 23:09:31.3620 Debug looking for audio volume module matching "any": zd candidates
+2016-06-13 23:09:31.3620 Debug looking for text renderer module matching "any": zd candidates
+2016-06-13 23:09:31.3620 Debug using audio volume module "float_mixer"
+2016-06-13 23:09:31.3620 Debug input 'f32l' 96000 Hz Stereo frame=1 samples/8 bytes
+2016-06-13 23:09:31.3620 Debug looking for audio filter module matching "scaletempo": zd candidates
+2016-06-13 23:09:31.3620 Debug format: 96000 rate, 2 nch, 4 bps, fl32
+2016-06-13 23:09:31.3620 Debug params: 30 stride, 0.200 overlap, 14 search
+2016-06-13 23:09:31.3620 Debug 1.000 scale, 2880.000 stride_in, 2880 stride_out, 2304 standing, 576 overlap, 1344 search, 4800 queue, fl32 mode
+2016-06-13 23:09:31.3620 Debug using audio filter module "scaletempo"
+2016-06-13 23:09:31.3620 Debug conversion: 'f32l'->'f32l' 96000 Hz->96000 Hz Stereo->Stereo
+2016-06-13 23:09:31.3620 Debug conversion pipeline complete
+2016-06-13 23:09:31.3620 Debug conversion: 'f32l'->'f32l' 96000 Hz->96000 Hz Stereo->Stereo
+2016-06-13 23:09:31.3620 Debug conversion pipeline complete
+2016-06-13 23:09:31.3620 Debug looking for audio resampler module matching "any": zd candidates
+2016-06-13 23:09:31.3775 Debug using audio resampler module "samplerate"
+2016-06-13 23:09:31.3775 Debug End of audio preroll
+2016-06-13 23:09:31.3775 Debug Using Arial as font from file C:\WINDOWS\Fonts\arial.ttf
+2016-06-13 23:09:31.3775 Debug Using Courier New as mono-font from file C:\WINDOWS\Fonts\cour.ttf
+2016-06-13 23:09:31.3950 Debug using fontsize: 2
+2016-06-13 23:09:31.3950 Debug using text renderer module "freetype"
+2016-06-13 23:09:31.3950 Debug looking for video filter2 module matching "any": zd candidates
+2016-06-13 23:09:31.4211 Debug 32x32 (32x32) chroma: YUVA -> 16x16 (16x16) chroma: RGBA with scaling using Bicubic (good quality)
+2016-06-13 23:09:31.4211 Debug using video filter2 module "swscale"
+2016-06-13 23:09:31.4211 Debug looking for video filter2 module matching "any": zd candidates
+2016-06-13 23:09:31.4447 Debug YUVP to YUVA converter
+2016-06-13 23:09:31.4447 Debug using video filter2 module "yuvp"
+2016-06-13 23:09:31.4447 Debug Deinterlacing available
+2016-06-13 23:09:31.4557 Debug deinterlace 0, mode blend, is_needed 0
+2016-06-13 23:09:31.4557 Debug Opening vout display wrapper
+2016-06-13 23:09:31.4557 Debug looking for vout display module matching "any": zd candidates
+2016-06-13 23:09:31.4983 Debug creating Vout EventThread
+2016-06-13 23:09:31.4983 Debug Win32VoutCreateWindow
+2016-06-13 23:09:31.4983 Debug looking for vout window hwnd module matching "embed-hwnd,any": zd candidates
+2016-06-13 23:09:31.4983 Debug using vout window hwnd module "drawable"
+2016-06-13 23:09:31.5073 Debug created video sub-window
+2016-06-13 23:09:31.5073 Debug Vout EventThread running
+2016-06-13 23:09:31.5073 Debug disabling screen saver
+2016-06-13 23:09:31.5073 Debug Direct3d Device: Intel(R) HD Graphics Family 32902 2582 11
+2016-06-13 23:09:31.5183 Debug VoutDisplayEvent 'resize' 1296x759 window
+2016-06-13 23:09:31.5183 Warn trying surface pixel format: YV12
+2016-06-13 23:09:31.5183 Debug selected surface pixel format is YV12
+2016-06-13 23:09:31.5183 Debug Using D3DTEXF_LINEAR for minification
+2016-06-13 23:09:31.5183 Debug Using D3DTEXF_LINEAR for magnification
+2016-06-13 23:09:31.5183 Debug Direct3D scene created successfully
+2016-06-13 23:09:31.5183 Debug Direct3D device adapter successfully initialized
+2016-06-13 23:09:31.5183 Debug using vout display module "direct3d"
+2016-06-13 23:09:31.5183 Debug A filter to adapt decoder to display is needed
+2016-06-13 23:09:31.5183 Debug looking for video filter2 module matching "any": zd candidates
+2016-06-13 23:09:31.5183 Debug 1280x720 (1280x738) chroma: I0AL -> 1280x720 (1280x738) chroma: I420 with scaling using Bicubic (good quality)
+2016-06-13 23:09:31.5183 Debug using video filter2 module "swscale"
+2016-06-13 23:09:31.5183 Debug Filter 'Swscale' (1133EE14) appended to chain
+2016-06-13 23:09:31.5183 Debug original format sz 1280x738, of (0,0), vsz 1280x720, 4cc I0AL, sar 1:1, msk r0x0 g0x0 b0x0
+2016-06-13 23:09:31.5183 Debug removing module "freetype"
+2016-06-13 23:09:31.5183 Debug looking for text renderer module matching "any": zd candidates
+2016-06-13 23:09:31.5183 Debug VoutDisplayEvent 'resize' 764x613 window
+2016-06-13 23:09:31.5183 Debug Using Arial as font from file C:\WINDOWS\Fonts\arial.ttf
+2016-06-13 23:09:31.5183 Debug Using Courier New as mono-font from file C:\WINDOWS\Fonts\cour.ttf
+2016-06-13 23:09:31.5183 Debug using fontsize: 2
+2016-06-13 23:09:31.5183 Error Failed to set on top
+2016-06-13 23:09:31.5183 Debug using text renderer module "freetype"
+2016-06-13 23:09:31.5183 Warn plane 0 not aligned
+2016-06-13 23:09:31.5183 Warn disabling direct rendering
+2016-06-13 23:09:31.5965 Debug End of video preroll
+2016-06-13 23:09:31.5965 Debug Received first picture
+2016-06-13 23:09:31.6206 Debug Decoder wait done in 258 ms
+2016-06-13 23:09:31.7499 Warn buffer too late (-76334 us): dropped
+2016-06-13 23:09:31.7609 Warn playback too late (87470): up-sampling
+2016-06-13 23:09:32.8421 Warn early picture skipped
+2016-06-13 23:09:32.8421 Debug seek request to -1 (0.050000%)
+2016-06-13 23:09:32.8421 Debug seek got 68460000 - 36197063
+2016-06-13 23:09:32.8421 Debug Buffering 0%
+2016-06-13 23:09:33.0859 Debug available software decoder output format 72 (yuv420p10le)
+2016-06-13 23:09:33.0859 Debug Buffering 0%
+2016-06-13 23:09:33.0859 Debug Buffering 23%
+2016-06-13 23:09:33.0859 Debug Buffering 48%
+2016-06-13 23:09:33.0859 Debug Buffering 72%
+2016-06-13 23:09:33.0859 Debug Buffering 96%
+2016-06-13 23:09:33.0859 Debug Stream buffering done (1667 ms in 244 ms)
+2016-06-13 23:09:33.1280 Debug End of audio preroll
+2016-06-13 23:09:33.3458 Debug End of video preroll
+2016-06-13 23:09:33.3458 Debug Received first picture
+2016-06-13 23:09:33.3578 Debug Decoder wait done in 270 ms
+2016-06-13 23:09:33.3578 Warn picture is too late to be displayed (missing 36 ms)
+2016-06-13 23:09:33.3578 Debug discarded audio buffer
+2016-06-13 23:09:33.3578 Debug seek request to -1 (0.200000%)
+2016-06-13 23:09:33.3578 Debug seek got 272355000 - 87527679
+2016-06-13 23:09:33.3629 Debug Buffering 0%
+2016-06-13 23:09:33.5471 Debug available software decoder output format 72 (yuv420p10le)
+2016-06-13 23:09:33.5471 Debug Buffering 0%
+2016-06-13 23:09:33.5471 Debug Buffering 19%
+2016-06-13 23:09:33.5471 Debug Buffering 37%
+2016-06-13 23:09:33.5471 Debug Buffering 59%
+2016-06-13 23:09:33.5471 Debug Buffering 81%
+2016-06-13 23:09:33.5471 Debug Buffering 98%
+2016-06-13 23:09:33.5471 Debug Stream buffering done (2211 ms in 185 ms)
+2016-06-13 23:09:33.6262 Debug End of audio preroll
+2016-06-13 23:09:33.7973 Debug End of video preroll
+2016-06-13 23:09:33.7973 Debug Received first picture
+2016-06-13 23:09:33.8334 Debug End of video preroll
+2016-06-13 23:09:33.8334 Debug Decoder wait done in 289 ms
+2016-06-13 23:09:34.7238 Debug auto hiding mouse cursor
+2016-06-13 23:09:34.9364 Debug WinProc WM_DESTROY
+2016-06-13 23:09:34.9364 Debug Win32 Vout EventThread terminating
+2016-06-13 23:09:34.9364 Debug Win32VoutCloseWindow
+2016-06-13 23:09:34.9364 Debug WinProc WM_DESTROY
+2016-06-13 23:09:34.9599 Debug VoutDisplayEvent 'resize' 1962429423x1400 window
+2016-06-13 23:09:34.9599 Debug VoutDisplayEvent 'resize' 0x1280 window
+2016-06-14 23:29:36.6550 Debug VLC media player - 2.2.1 Terry Pratchett (Weatherwax)
+2016-06-14 23:29:36.6550 Debug Copyright ÂC 1996-2015 the VideoLAN team
+2016-06-14 23:29:36.6550 Debug revision 2.2.1-0-ga425c42
+2016-06-14 23:29:36.6550 Debug configured with ../extras/package/win32/../../../configure  '--enable-update-check' '--enable-lua' '--enable-faad' '--enable-flac' '--enable-theora' '--enable-twolame' '--enable-quicktime' '--enable-avcodec' '--enable-merge-ffmpeg' '--enable-dca' '--enable-mpc' '--enable-libass' '--enable-x264' '--enable-schroedinger' '--enable-realrtsp' '--enable-live555' '--enable-dvdread' '--enable-shout' '--enable-goom' '--enable-caca' '--disable-sdl' '--enable-qt' '--enable-skins2' '--enable-sse' '--enable-mmx' '--enable-libcddb' '--enable-zvbi' '--disable-telx' '--enable-nls' '--host=i686-w64-mingw32' '--disable-debug' 'host_alias=i686-w64-mingw32'
+2016-06-14 23:29:36.6966 Debug creating audio output
+2016-06-14 23:29:36.6966 Debug looking for audio output module matching "any": zd candidates
+2016-06-14 23:29:36.7573 Debug found 3 devices
+2016-06-14 23:29:36.7573 Debug using audio output module "directsound"
+2016-06-14 23:29:36.7573 Debug keeping audio output
+2016-06-14 23:29:50.5260 Debug Creating an input for '[NG] Zankyou no Terror - 01.mkv'
+2016-06-14 23:29:50.5260 Debug looking for meta fetcher module matching "any": zd candidates
+2016-06-14 23:29:50.5260 Debug Creating an input for '[NG] Zankyou no Terror - 01.mkv'
+2016-06-14 23:29:50.5741 Debug Trying Lua scripts in C:\Users\Richard\AppData\Roaming\vlc\lua\meta\fetcher
+2016-06-14 23:29:50.6161 Debug using timeshift granularity of 50 MiB, in path 'C:\Users\Richard\AppData\Local\Temp'
+2016-06-14 23:29:50.6161 Debug Trying Lua scripts in C:\Users\Richard\Desktop\vlc\newvlc\nVLC_Demo_WinForms\bin\x86\Debug\lua\meta\fetcher
+2016-06-14 23:29:50.6161 Debug `file:///C:/Users/Richard/Desktop/%5BNG%5D%20Zankyou%20no%20Terror%20-%2001.mkv' gives access `file' demux `' path `/C:/Users/Richard/Desktop/%5BNG%5D%20Zankyou%20no%20Terror%20-%2001.mkv'
+2016-06-14 23:29:50.6161 Debug specified demux `any'
+2016-06-14 23:29:50.6161 Debug creating demux: access='file' demux='any' location='/C:/Users/Richard/Desktop/%5BNG%5D%20Zankyou%20no%20Terror%20-%2001.mkv' file='C:\Users\Richard\Desktop\[NG] Zankyou no Terror - 01.mkv'
+2016-06-14 23:29:50.6161 Debug looking for access_demux module matching "file": zd candidates
+2016-06-14 23:29:50.6572 Debug no meta fetcher modules matched
+2016-06-14 23:29:50.6572 Debug searching art for [NG] Zankyou no Terror - 01.mkv
+2016-06-14 23:29:50.6572 Debug looking for art finder module matching "any": zd candidates
+2016-06-14 23:29:50.7062 Debug Trying Lua scripts in C:\Users\Richard\AppData\Roaming\vlc\lua\meta\art
+2016-06-14 23:29:50.7062 Debug Trying Lua scripts in C:\Users\Richard\Desktop\vlc\newvlc\nVLC_Demo_WinForms\bin\x86\Debug\lua\meta\art
+2016-06-14 23:29:50.7062 Debug no art finder modules matched
+2016-06-14 23:29:50.7062 Debug art not found for [NG] Zankyou no Terror - 01.mkv
+2016-06-14 23:29:50.9395 Debug no access_demux modules matched
+2016-06-14 23:29:50.9395 Debug creating access 'file' location='/C:/Users/Richard/Desktop/%5BNG%5D%20Zankyou%20no%20Terror%20-%2001.mkv', path='C:\Users\Richard\Desktop\[NG] Zankyou no Terror - 01.mkv'
+2016-06-14 23:29:50.9395 Debug looking for access module matching "file": zd candidates
+2016-06-14 23:29:50.9395 Debug opening file `C:\Users\Richard\Desktop\[NG] Zankyou no Terror - 01.mkv'
+2016-06-14 23:29:50.9395 Debug using access module "filesystem"
+2016-06-14 23:29:50.9395 Debug Using stream method for AStream*
+2016-06-14 23:29:50.9395 Debug starting pre-buffering
+2016-06-14 23:29:50.9395 Debug received first data after 0 ms
+2016-06-14 23:29:50.9395 Debug pre-buffering done 1024 bytes in 0s - 1000000 KiB/s
+2016-06-14 23:29:50.9395 Debug looking for stream_filter module matching "any": zd candidates
+2016-06-14 23:29:50.9756 Debug no stream_filter modules matched
+2016-06-14 23:29:50.9756 Debug looking for stream_filter module matching "record": zd candidates
+2016-06-14 23:29:50.9896 Debug using stream_filter module "record"
+2016-06-14 23:29:50.9896 Debug creating demux: access='file' demux='any' location='/C:/Users/Richard/Desktop/%5BNG%5D%20Zankyou%20no%20Terror%20-%2001.mkv' file='C:\Users\Richard\Desktop\[NG] Zankyou no Terror - 01.mkv'
+2016-06-14 23:29:50.9896 Debug looking for demux module matching "mkv": zd candidates
+2016-06-14 23:29:51.0948 Debug |   + Seek head
+2016-06-14 23:29:51.0948 Debug |   |   + Seek
+2016-06-14 23:29:51.0948 Debug |   - info at 4151
+2016-06-14 23:29:51.0948 Debug |   + Information
+2016-06-14 23:29:51.1008 Debug |   |   + TimecodeScale=1000000
+2016-06-14 23:29:51.1008 Debug |   |   + Muxing Application=libebml v1.3.0 + libmatroska v1.4.1
+2016-06-14 23:29:51.1008 Debug |   |   + Writing Application=mkvmerge v7.1.0 ('Good Love') 64bit built on Jul 27 2014 13:06:55
+2016-06-14 23:29:51.1008 Debug |   |   + Duration=1369452
+2016-06-14 23:29:51.1158 Debug |   |   + Date=Sat Aug 09 21:39:09 2014
+2016-06-14 23:29:51.1158 Debug |   |   + UID=1314648989
+2016-06-14 23:29:51.1158 Debug |   |   + Seek
+2016-06-14 23:29:51.1158 Debug |   - tracks at 4307
+2016-06-14 23:29:51.1158 Debug |   + Tracks
+2016-06-14 23:29:51.1158 Debug |   |   + Track Entry
+2016-06-14 23:29:51.1158 Debug |   |   |   + Track Number=1
+2016-06-14 23:29:51.1158 Debug |   |   |   + Track UID=1
+2016-06-14 23:29:51.1158 Debug |   |   |   + Track Type=video
+2016-06-14 23:29:51.1158 Debug |   |   |   + Track Lacing=0
+2016-06-14 23:29:51.1158 Debug |   |   |   + Track MinCache=1
+2016-06-14 23:29:51.1158 Debug |   |   |   + Track CodecId=V_MPEG4/ISO/AVC
+2016-06-14 23:29:51.1158 Debug |   |   |   + Track CodecPrivate size=43
+2016-06-14 23:29:51.1158 Debug |   |   |   + Track Default Duration=41708333
+2016-06-14 23:29:51.1158 Debug |   |   |   + Track Language=`cze'
+2016-06-14 23:29:51.1158 Debug |   |   |   + Track Video
+2016-06-14 23:29:51.1158 Debug |   |   |   |   + width=1280
+2016-06-14 23:29:51.1158 Debug |   |   |   |   + height=720
+2016-06-14 23:29:51.1158 Debug |   |   |   |   + display width=1280
+2016-06-14 23:29:51.1158 Debug |   |   |   |   + display height=720
+2016-06-14 23:29:51.1158 Debug |   |   + Track Entry
+2016-06-14 23:29:51.1158 Debug |   |   |   + Track Number=2
+2016-06-14 23:29:51.1158 Debug |   |   |   + Track UID=1967579547
+2016-06-14 23:29:51.1158 Debug |   |   |   + Track Type=audio
+2016-06-14 23:29:51.1158 Debug |   |   |   + Track CodecId=A_AAC
+2016-06-14 23:29:51.1158 Debug |   |   |   + Track CodecPrivate size=5
+2016-06-14 23:29:51.1158 Debug |   |   |   + Track Default Duration=21333333
+2016-06-14 23:29:51.1158 Debug |   |   |   + Track Language=`jpn'
+2016-06-14 23:29:51.1158 Debug |   |   |   + Track Audio
+2016-06-14 23:29:51.1158 Debug |   |   |   |   + afreq=48000
+2016-06-14 23:29:51.1158 Debug |   |   |   |   + achan=2
+2016-06-14 23:29:51.1158 Debug |   |   |   |   + aoutfreq=96000
+2016-06-14 23:29:51.1158 Debug |   |   + Track Entry
+2016-06-14 23:29:51.1158 Debug |   |   |   + Track Number=3
+2016-06-14 23:29:51.1158 Debug |   |   |   + Track UID=1168029864
+2016-06-14 23:29:51.1158 Debug |   |   |   + Track Type=subtitle
+2016-06-14 23:29:51.1158 Debug |   |   |   + Track Lacing=0
+2016-06-14 23:29:51.1158 Debug |   |   |   + Track CodecId=S_TEXT/ASS
+2016-06-14 23:29:51.1158 Debug |   |   |   + Track CodecPrivate size=1785
+2016-06-14 23:29:51.1158 Debug |   |   |   + Track Language=`cze'
+2016-06-14 23:29:51.1158 Debug |   |   + Seek
+2016-06-14 23:29:51.1158 Debug |   - cues at 362236444
+2016-06-14 23:29:51.1158 Debug |   + Cues
+2016-06-14 23:29:51.2149 Debug |   - loading cues done.
+2016-06-14 23:29:51.2149 Debug |   |   + Seek
+2016-06-14 23:29:51.2149 Debug |   - tags at 362341348
+2016-06-14 23:29:51.2149 Debug |   + Tags
+2016-06-14 23:29:51.2149 Debug + Tag
+2016-06-14 23:29:51.2149 Debug |   + Targets
+2016-06-14 23:29:51.2149 Debug |   |   + TargetTypeValue: 50
+2016-06-14 23:29:51.2149 Debug |   |   + TrackUID: 1
+2016-06-14 23:29:51.2149 Debug |   + Simple Tag 
+2016-06-14 23:29:51.2149 Debug |   |   + Meta _STATISTICS_WRITING_APP: mkvmerge v7.1.0 ('Good Love') 64bit built on Jul 27 2014 13:06:55
+2016-06-14 23:29:51.2149 Debug |   + Simple Tag 
+2016-06-14 23:29:51.2149 Debug |   |   + Meta _STATISTICS_WRITING_DATE_UTC: 2014-08-09 21:39:09
+2016-06-14 23:29:51.2149 Debug |   + Simple Tag 
+2016-06-14 23:29:51.2149 Debug |   |   + Meta _STATISTICS_TAGS: BPS DURATION NUMBER_OF_FRAMES NUMBER_OF_BYTES
+2016-06-14 23:29:51.2149 Debug |   + Simple Tag 
+2016-06-14 23:29:51.2149 Debug |   |   + Meta BPS: 1913217
+2016-06-14 23:29:51.2149 Debug |   + Simple Tag 
+2016-06-14 23:29:51.2149 Debug |   |   + Meta DURATION: 00:22:49.452000000
+2016-06-14 23:29:51.2149 Debug |   + Simple Tag 
+2016-06-14 23:29:51.2149 Debug |   |   + Meta NUMBER_OF_FRAMES: 32834
+2016-06-14 23:29:51.2149 Debug |   + Simple Tag 
+2016-06-14 23:29:51.2149 Debug |   |   + Meta NUMBER_OF_BYTES: 327507423
+2016-06-14 23:29:51.2149 Debug + Tag
+2016-06-14 23:29:51.2149 Debug |   + Targets
+2016-06-14 23:29:51.2149 Debug |   |   + TargetTypeValue: 50
+2016-06-14 23:29:51.2149 Debug |   |   + TrackUID: 17145546264059240859
+2016-06-14 23:29:51.2149 Debug |   + Simple Tag 
+2016-06-14 23:29:51.2149 Debug |   |   + Meta _STATISTICS_WRITING_APP: mkvmerge v7.1.0 ('Good Love') 64bit built on Jul 27 2014 13:06:55
+2016-06-14 23:29:51.2149 Debug |   + Simple Tag 
+2016-06-14 23:29:51.2149 Debug |   |   + Meta _STATISTICS_WRITING_DATE_UTC: 2014-08-09 21:39:09
+2016-06-14 23:29:51.2149 Debug |   + Simple Tag 
+2016-06-14 23:29:51.2149 Debug |   |   + Meta _STATISTICS_TAGS: BPS DURATION NUMBER_OF_FRAMES NUMBER_OF_BYTES
+2016-06-14 23:29:51.2149 Debug |   + Simple Tag 
+2016-06-14 23:29:51.2149 Debug |   |   + Meta BPS: 188624
+2016-06-14 23:29:51.2149 Debug |   + Simple Tag 
+2016-06-14 23:29:51.2149 Debug |   |   + Meta DURATION: 00:22:49.451000000
+2016-06-14 23:29:51.2149 Debug |   + Simple Tag 
+2016-06-14 23:29:51.2149 Debug |   |   + Meta NUMBER_OF_FRAMES: 64193
+2016-06-14 23:29:51.2149 Debug |   + Simple Tag 
+2016-06-14 23:29:51.2149 Debug |   |   + Meta NUMBER_OF_BYTES: 32289079
+2016-06-14 23:29:51.2149 Debug + Tag
+2016-06-14 23:29:51.2149 Debug |   + Targets
+2016-06-14 23:29:51.2149 Debug |   |   + TargetTypeValue: 50
+2016-06-14 23:29:51.2149 Debug |   |   + TrackUID: 15062869089026226344
+2016-06-14 23:29:51.2149 Debug |   + Simple Tag 
+2016-06-14 23:29:51.2149 Debug |   |   + Meta BPS: 2428
+2016-06-14 23:29:51.2149 Debug |   + Simple Tag 
+2016-06-14 23:29:51.2149 Debug |   |   + Meta DURATION: 00:22:35.470000000
+2016-06-14 23:29:51.2149 Debug |   + Simple Tag 
+2016-06-14 23:29:51.2149 Debug |   |   + Meta NUMBER_OF_FRAMES: 3771
+2016-06-14 23:29:51.2149 Debug |   + Simple Tag 
+2016-06-14 23:29:51.2149 Debug |   |   + Meta NUMBER_OF_BYTES: 411501
+2016-06-14 23:29:51.2149 Debug |   + Simple Tag 
+2016-06-14 23:29:51.2149 Debug |   |   + Meta _STATISTICS_WRITING_APP: mkvmerge v7.1.0 ('Good Love') 64bit built on Jul 27 2014 13:06:55
+2016-06-14 23:29:51.2149 Debug |   + Simple Tag 
+2016-06-14 23:29:51.2149 Debug |   |   + Meta _STATISTICS_WRITING_DATE_UTC: 2014-08-09 21:39:09
+2016-06-14 23:29:51.2149 Debug |   + Simple Tag 
+2016-06-14 23:29:51.2149 Warn MKV/Ebml Parser: m_el[mi_level] == NULL
+
+2016-06-14 23:29:51.2149 Debug |   |   + Meta _STATISTICS_TAGS: BPS DURATION NUMBER_OF_FRAMES NUMBER_OF_BYTES
+2016-06-14 23:29:51.2149 Warn MKV/Ebml Parser: m_el[mi_level] == NULL
+
+2016-06-14 23:29:51.2149 Warn MKV/Ebml Parser: Up cannot escape itself
+2016-06-14 23:29:51.2149 Debug loading tags done.
+2016-06-14 23:29:51.2149 Debug |   |   + Seek
+2016-06-14 23:29:51.2149 Debug |   - chapters at 1604258
+2016-06-14 23:29:51.2149 Debug |   + Chapters
+2016-06-14 23:29:51.2259 Debug |   |   + EditionEntry
+2016-06-14 23:29:51.2259 Debug |   |   |   + ChapterAtom (level=0)
+2016-06-14 23:29:51.2259 Debug |   |   |   |   + ChapterUID: 1280002216
+2016-06-14 23:29:51.2259 Debug |   |   |   |   + ChapterTimeStart: 0
+2016-06-14 23:29:51.2259 Debug |   |   |   |   + ChapterFlagHidden: no
+2016-06-14 23:29:51.2259 Debug |   |   |   |   + ChapterDisplay
+2016-06-14 23:29:51.2259 Debug |   |   |   |   |    + ChapterString 'A¹vod'
+2016-06-14 23:29:51.2259 Debug |   |   |   |   |    + ChapterLanguage 'cze'
+2016-06-14 23:29:51.2259 Debug |   |   |   + ChapterAtom (level=0)
+2016-06-14 23:29:51.2259 Debug |   |   |   |   + ChapterUID: 991427770
+2016-06-14 23:29:51.2259 Debug |   |   |   |   + ChapterTimeStart: 176927000
+2016-06-14 23:29:51.2259 Debug |   |   |   |   + ChapterFlagHidden: no
+2016-06-14 23:29:51.2259 Debug |   |   |   |   + ChapterDisplay
+2016-06-14 23:29:51.2259 Debug |   |   |   |   |    + ChapterString 'OP'
+2016-06-14 23:29:51.2259 Debug |   |   |   |   |    + ChapterLanguage 'cze'
+2016-06-14 23:29:51.2259 Debug |   |   |   + ChapterAtom (level=0)
+2016-06-14 23:29:51.2259 Debug |   |   |   |   + ChapterUID: 2056155288
+2016-06-14 23:29:51.2259 Debug |   |   |   |   + ChapterTimeStart: 267851000
+2016-06-14 23:29:51.2259 Debug |   |   |   |   + ChapterFlagHidden: no
+2016-06-14 23:29:51.2259 Debug |   |   |   |   + ChapterDisplay
+2016-06-14 23:29:51.2259 Debug |   |   |   |   |    + ChapterString 'DA­l - 01'
+2016-06-14 23:29:51.2259 Debug |   |   |   |   |    + ChapterLanguage 'cze'
+2016-06-14 23:29:51.2259 Debug |   |   |   + ChapterAtom (level=0)
+2016-06-14 23:29:51.2259 Debug |   |   |   |   + ChapterUID: 786499983
+2016-06-14 23:29:51.2259 Debug |   |   |   |   + ChapterTimeStart: 1279528000
+2016-06-14 23:29:51.2259 Debug |   |   |   |   + ChapterFlagHidden: no
+2016-06-14 23:29:51.2259 Debug |   |   |   |   + ChapterDisplay
+2016-06-14 23:29:51.2259 Debug |   |   |   |   |    + ChapterString 'ED'
+2016-06-14 23:29:51.2259 Debug |   |   |   |   |    + ChapterLanguage 'cze'
+2016-06-14 23:29:51.2259 Debug |   |   + Seek
+2016-06-14 23:29:51.2259 Debug |   |   + Unknown (N7libebml8EbmlVoidE)
+2016-06-14 23:29:51.2259 Debug |   - attachments at 7461
+2016-06-14 23:29:51.2259 Debug |   + Attachments
+2016-06-14 23:29:51.2259 Debug |   |   - Candarab.ttf (application/x-truetype-font)
+2016-06-14 23:29:51.2259 Debug |   |   - Candarai.ttf (application/x-truetype-font)
+2016-06-14 23:29:51.2259 Debug |   |   - Candaraz.ttf (application/x-truetype-font)
+2016-06-14 23:29:51.2259 Debug |   |   - Clichee.otf (application/vnd.ms-opentype)
+2016-06-14 23:29:51.2259 Debug |   |   - ClicheeBold.otf (application/vnd.ms-opentype)
+2016-06-14 23:29:51.2259 Debug |   |   - ClicheeBoldItalic.otf (application/vnd.ms-opentype)
+2016-06-14 23:29:51.2259 Debug |   |   - ClicheeItalic.otf (application/vnd.ms-opentype)
+2016-06-14 23:29:51.2259 Debug |   |   - DISTInking-Bold.otf (application/vnd.ms-opentype)
+2016-06-14 23:29:51.2259 Debug |   |   - DISTInking-Regular.otf (application/vnd.ms-opentype)
+2016-06-14 23:29:51.2259 Debug |   |   - octin prison free.ttf (application/x-truetype-font)
+2016-06-14 23:29:51.2259 Debug |   |   - octin stencil rg.ttf (application/x-truetype-font)
+2016-06-14 23:29:51.2259 Debug |   |   - TarragonDOT-Regular.otf (application/vnd.ms-opentype)
+2016-06-14 23:29:51.2259 Debug |   |   - Candara.ttf (application/x-truetype-font)
+2016-06-14 23:29:51.2259 Debug |   + Void
+2016-06-14 23:29:51.2259 Debug |   + Information
+2016-06-14 23:29:51.2259 Debug |   + Tracks
+2016-06-14 23:29:51.2259 Debug |   + Void
+2016-06-14 23:29:51.2259 Debug |   + Attachments
+2016-06-14 23:29:51.2259 Debug |   + Chapters
+2016-06-14 23:29:51.2259 Debug |   + Void
+2016-06-14 23:29:51.2259 Debug |   + Cluster
+2016-06-14 23:29:51.2259 Debug Virtual chapter  A¹vod from 0 to -1 - 
+2016-06-14 23:29:51.2259 Debug Virtual chapter  OP from 176927000 to -1 - 
+2016-06-14 23:29:51.2259 Debug Virtual chapter  DA­l - 01 from 267851000 to -1 - 
+2016-06-14 23:29:51.2259 Debug Virtual chapter  ED from 1279528000 to -1 - 
+2016-06-14 23:29:51.2259 Debug Virtual chapter  from 0 to -1 - 
+2016-06-14 23:29:51.2259 Debug found 3 es
+2016-06-14 23:29:51.2259 Debug selecting program id=0
+2016-06-14 23:29:51.2569 Debug Buffering 0%
+2016-06-14 23:29:51.2569 Debug Starting the UI Hook
+2016-06-14 23:29:51.2569 Debug using demux module "mkv"
+2016-06-14 23:29:51.2569 Debug looking for a subtitle file in C:\Users\Richard\Desktop\
+2016-06-14 23:29:51.2569 Debug looking for decoder module matching "any": zd candidates
+2016-06-14 23:29:51.4065 Debug meta ok for (null), need to fetch art
+2016-06-14 23:29:51.4627 Debug looking for meta fetcher module matching "any": zd candidates
+2016-06-14 23:29:51.4627 Debug Trying Lua scripts in C:\Users\Richard\AppData\Roaming\vlc\lua\meta\fetcher
+2016-06-14 23:29:51.4627 Debug Trying Lua scripts in C:\Users\Richard\Desktop\vlc\newvlc\nVLC_Demo_WinForms\bin\x86\Debug\lua\meta\fetcher
+2016-06-14 23:29:51.4627 Debug no meta fetcher modules matched
+2016-06-14 23:29:51.4627 Debug searching art for [NG] Zankyou no Terror - 01.mkv
+2016-06-14 23:29:51.4627 Debug looking for art finder module matching "any": zd candidates
+2016-06-14 23:29:51.4627 Debug Trying Lua scripts in C:\Users\Richard\AppData\Roaming\vlc\lua\meta\art
+2016-06-14 23:29:51.4627 Debug Trying Lua scripts in C:\Users\Richard\Desktop\vlc\newvlc\nVLC_Demo_WinForms\bin\x86\Debug\lua\meta\art
+2016-06-14 23:29:51.4627 Debug no art finder modules matched
+2016-06-14 23:29:51.4627 Debug art not found for [NG] Zankyou no Terror - 01.mkv
+2016-06-14 23:29:51.8146 Debug CPU flags: 0x0107d3db
+2016-06-14 23:29:51.8553 Debug trying to use direct rendering
+2016-06-14 23:29:51.8553 Debug allowing 4 thread(s) for decoding
+2016-06-14 23:29:51.8553 Warn threaded frame decoding is not compatible with DXVA2, disabled
+2016-06-14 23:29:51.8815 Debug avcodec codec (H264 - MPEG-4 AVC (part 10)) started
+2016-06-14 23:29:51.8815 Debug using slice thread mode with 4 threads
+2016-06-14 23:29:51.8815 Debug using decoder module "avcodec"
+2016-06-14 23:29:51.8815 Debug looking for decoder module matching "any": zd candidates
+2016-06-14 23:29:51.8992 Debug using decoder module "faad"
+2016-06-14 23:29:51.8992 Debug looking for decoder module matching "any": zd candidates
+2016-06-14 23:29:51.9152 Debug adding embedded font Candarab.ttf
+2016-06-14 23:29:51.9152 Debug adding embedded font Candarai.ttf
+2016-06-14 23:29:51.9152 Debug adding embedded font Candaraz.ttf
+2016-06-14 23:29:51.9152 Debug adding embedded font Clichee.otf
+2016-06-14 23:29:51.9152 Debug adding embedded font ClicheeBold.otf
+2016-06-14 23:29:51.9152 Debug adding embedded font ClicheeBoldItalic.otf
+2016-06-14 23:29:51.9152 Debug adding embedded font ClicheeItalic.otf
+2016-06-14 23:29:51.9152 Debug adding embedded font DISTInking-Bold.otf
+2016-06-14 23:29:51.9152 Debug adding embedded font DISTInking-Regular.otf
+2016-06-14 23:29:51.9152 Debug adding embedded font octin prison free.ttf
+2016-06-14 23:29:51.9152 Debug adding embedded font octin stencil rg.ttf
+2016-06-14 23:29:51.9152 Debug adding embedded font TarragonDOT-Regular.otf
+2016-06-14 23:29:51.9152 Debug adding embedded font Candara.ttf
+2016-06-14 23:29:52.0681 Debug using decoder module "libass"
+2016-06-14 23:29:52.0681 Debug looking for meta reader module matching "any": zd candidates
+2016-06-14 23:29:52.0681 Debug Trying Lua scripts in C:\Users\Richard\AppData\Roaming\vlc\lua\meta\reader
+2016-06-14 23:29:52.0681 Debug Trying Lua scripts in C:\Users\Richard\Desktop\vlc\newvlc\nVLC_Demo_WinForms\bin\x86\Debug\lua\meta\reader
+2016-06-14 23:29:52.0681 Debug no meta reader modules matched
+2016-06-14 23:29:52.0681 Debug `file:///C:/Users/Richard/Desktop/%5BNG%5D%20Zankyou%20no%20Terror%20-%2001.mkv' successfully opened
+2016-06-14 23:29:52.0681 Debug Buffering 0%
+2016-06-14 23:29:52.0681 Debug Stream buffering done (417 ms in 815 ms)
+2016-06-14 23:29:52.1041 Debug available software decoder output format 72 (yuv420p10le)
+2016-06-14 23:29:52.1041 Warn decoded zero sample
+2016-06-14 23:29:52.1041 Debug AAC SBR (channels: 2, samplerate: 96000)
+2016-06-14 23:29:52.1041 Debug reusing audio output
+2016-06-14 23:29:52.1041 Debug Opening DirectSound Audio Output
+2016-06-14 23:29:52.1161 Debug Windows speaker config: Stereo and stream has 2 channels, using 2 channels
+2016-06-14 23:29:52.1452 Debug output 'f32l' 96000 Hz Stereo frame=1 samples/8 bytes
+2016-06-14 23:29:52.1452 Debug looking for audio volume module matching "any": zd candidates
+2016-06-14 23:29:52.1452 Debug looking for text renderer module matching "any": zd candidates
+2016-06-14 23:29:52.1738 Debug using audio volume module "float_mixer"
+2016-06-14 23:29:52.1738 Debug input 'f32l' 96000 Hz Stereo frame=1 samples/8 bytes
+2016-06-14 23:29:52.1738 Debug looking for audio filter module matching "scaletempo": zd candidates
+2016-06-14 23:29:52.1988 Debug Using Arial as font from file C:\WINDOWS\Fonts\arial.ttf
+2016-06-14 23:29:52.1988 Debug Using Courier New as mono-font from file C:\WINDOWS\Fonts\cour.ttf
+2016-06-14 23:29:52.2154 Debug format: 96000 rate, 2 nch, 4 bps, fl32
+2016-06-14 23:29:52.2154 Debug params: 30 stride, 0.200 overlap, 14 search
+2016-06-14 23:29:52.2154 Debug 1.000 scale, 2880.000 stride_in, 2880 stride_out, 2304 standing, 576 overlap, 1344 search, 4800 queue, fl32 mode
+2016-06-14 23:29:52.2154 Debug using audio filter module "scaletempo"
+2016-06-14 23:29:52.2154 Debug conversion: 'f32l'->'f32l' 96000 Hz->96000 Hz Stereo->Stereo
+2016-06-14 23:29:52.2154 Debug conversion pipeline complete
+2016-06-14 23:29:52.2154 Debug conversion: 'f32l'->'f32l' 96000 Hz->96000 Hz Stereo->Stereo
+2016-06-14 23:29:52.2154 Debug conversion pipeline complete
+2016-06-14 23:29:52.2154 Debug looking for audio resampler module matching "any": zd candidates
+2016-06-14 23:29:52.2274 Debug using fontsize: 2
+2016-06-14 23:29:52.2274 Debug using text renderer module "freetype"
+2016-06-14 23:29:52.2274 Debug looking for video filter2 module matching "any": zd candidates
+2016-06-14 23:29:52.2274 Debug using audio resampler module "samplerate"
+2016-06-14 23:29:52.2274 Debug End of audio preroll
+2016-06-14 23:29:52.2876 Debug 32x32 (32x32) chroma: YUVA -> 16x16 (16x16) chroma: RGBA with scaling using Bicubic (good quality)
+2016-06-14 23:29:52.2876 Debug using video filter2 module "swscale"
+2016-06-14 23:29:52.2876 Debug looking for video filter2 module matching "any": zd candidates
+2016-06-14 23:29:52.4500 Debug YUVP to YUVA converter
+2016-06-14 23:29:52.4500 Debug using video filter2 module "yuvp"
+2016-06-14 23:29:52.4500 Debug Deinterlacing available
+2016-06-14 23:29:52.4500 Debug deinterlace 0, mode blend, is_needed 0
+2016-06-14 23:29:52.4500 Debug Opening vout display wrapper
+2016-06-14 23:29:52.4500 Debug looking for vout display module matching "any": zd candidates
+2016-06-14 23:29:52.5176 Debug creating Vout EventThread
+2016-06-14 23:29:52.5236 Debug Win32VoutCreateWindow
+2016-06-14 23:29:52.5236 Debug looking for vout window hwnd module matching "embed-hwnd,any": zd candidates
+2016-06-14 23:29:52.5377 Debug using vout window hwnd module "drawable"
+2016-06-14 23:29:52.5377 Debug created video sub-window
+2016-06-14 23:29:52.5377 Debug Vout EventThread running
+2016-06-14 23:29:52.5377 Debug disabling screen saver
+2016-06-14 23:29:52.5377 Debug Direct3d Device: Intel(R) HD Graphics Family 32902 2582 11
+2016-06-14 23:29:52.5787 Debug VoutDisplayEvent 'resize' 1296x759 window
+2016-06-14 23:29:52.5787 Warn trying surface pixel format: YV12
+2016-06-14 23:29:52.5787 Debug selected surface pixel format is YV12
+2016-06-14 23:29:52.5787 Debug Using D3DTEXF_LINEAR for minification
+2016-06-14 23:29:52.5787 Debug Using D3DTEXF_LINEAR for magnification
+2016-06-14 23:29:52.5787 Debug Direct3D scene created successfully
+2016-06-14 23:29:52.5787 Debug Direct3D device adapter successfully initialized
+2016-06-14 23:29:52.5787 Debug using vout display module "direct3d"
+2016-06-14 23:29:52.5787 Debug A filter to adapt decoder to display is needed
+2016-06-14 23:29:52.5787 Debug looking for video filter2 module matching "any": zd candidates
+2016-06-14 23:29:52.5807 Debug 1280x720 (1280x738) chroma: I0AL -> 1280x720 (1280x738) chroma: I420 with scaling using Bicubic (good quality)
+2016-06-14 23:29:52.5807 Debug using video filter2 module "swscale"
+2016-06-14 23:29:52.5807 Debug Filter 'Swscale' (0E26AE5C) appended to chain
+2016-06-14 23:29:52.5807 Debug original format sz 1280x738, of (0,0), vsz 1280x720, 4cc I0AL, sar 1:1, msk r0x0 g0x0 b0x0
+2016-06-14 23:29:52.5807 Debug removing module "freetype"
+2016-06-14 23:29:52.5807 Debug VoutDisplayEvent 'resize' 764x613 window
+2016-06-14 23:29:52.5807 Error Failed to set on top
+2016-06-14 23:29:52.5807 Debug looking for text renderer module matching "any": zd candidates
+2016-06-14 23:29:52.5807 Debug Using Arial as font from file C:\WINDOWS\Fonts\arial.ttf
+2016-06-14 23:29:52.5807 Debug Using Courier New as mono-font from file C:\WINDOWS\Fonts\cour.ttf
+2016-06-14 23:29:52.5807 Debug using fontsize: 2
+2016-06-14 23:29:52.5807 Debug using text renderer module "freetype"
+2016-06-14 23:29:52.5807 Warn plane 0 not aligned
+2016-06-14 23:29:52.5807 Warn disabling direct rendering
+2016-06-14 23:29:52.6948 Debug End of video preroll
+2016-06-14 23:29:52.6948 Debug Received first picture
+2016-06-14 23:29:52.7569 Debug Decoder wait done in 685 ms
+2016-06-14 23:29:53.4542 Debug auto hiding mouse cursor
+2016-06-14 23:29:54.1138 Warn early picture skipped
+2016-06-14 23:29:54.1138 Debug seek request to -1 (0.050000%)
+2016-06-14 23:29:54.1138 Debug seek got 67985000 - 17847433
+2016-06-14 23:29:54.1138 Debug Buffering 0%
+2016-06-14 23:29:54.2446 Debug Buffering 0%
+2016-06-14 23:29:54.2446 Debug available software decoder output format 72 (yuv420p10le)
+2016-06-14 23:29:54.2446 Debug Buffering 42%
+2016-06-14 23:29:54.2446 Debug Buffering 84%
+2016-06-14 23:29:54.2446 Debug Stream buffering done (1042 ms in 130 ms)
+2016-06-14 23:29:54.2612 Debug End of audio preroll
+2016-06-14 23:29:54.3424 Debug End of video preroll
+2016-06-14 23:29:54.3424 Debug Received first picture
+2016-06-14 23:29:54.3574 Debug End of video preroll
+2016-06-14 23:29:54.3574 Debug Decoder wait done in 112 ms
+2016-06-14 23:29:54.7995 Debug seek request to -1 (0.100000%)
+2016-06-14 23:29:54.7995 Debug seek got 136094000 - 37157664
+2016-06-14 23:29:54.7995 Debug Buffering 0%
+2016-06-14 23:29:54.8551 Debug available software decoder output format 72 (yuv420p10le)
+2016-06-14 23:29:54.8551 Debug Buffering 0%
+2016-06-14 23:29:54.8551 Debug Buffering 29%
+2016-06-14 23:29:54.8551 Debug Buffering 58%
+2016-06-14 23:29:54.8551 Debug Buffering 86%
+2016-06-14 23:29:54.8551 Debug Stream buffering done (1335 ms in 55 ms)
+2016-06-14 23:29:54.9024 Debug End of audio preroll
+2016-06-14 23:29:55.1425 Debug End of video preroll
+2016-06-14 23:29:55.1425 Debug Received first picture
+2016-06-14 23:29:55.1580 Debug Decoder wait done in 302 ms
+2016-06-14 23:29:56.8759 Debug control: stopping input
+2016-06-14 23:29:56.9210 Debug removing module "avcodec"
+2016-06-14 23:29:56.9260 Debug ffmpeg codec (H264 - MPEG-4 AVC (part 10)) stopped
+2016-06-14 23:29:56.9260 Debug killing decoder fourcc `h264', 0 PES in FIFO
+2016-06-14 23:29:56.9260 Debug saving a free vout
+2016-06-14 23:29:56.9260 Debug reusing provided vout
+2016-06-14 23:29:56.9260 Debug removing module "faad"
+2016-06-14 23:29:56.9260 Debug killing decoder fourcc `mp4a', 0 PES in FIFO
+2016-06-14 23:29:56.9260 Debug removing module "samplerate"
+2016-06-14 23:29:56.9260 Debug removing module "scaletempo"
+2016-06-14 23:29:56.9260 Debug closing audio device
+2016-06-14 23:29:56.9260 Debug removing module "float_mixer"
+2016-06-14 23:29:56.9260 Debug keeping audio output
+2016-06-14 23:29:56.9401 Debug removing module "libass"
+2016-06-14 23:29:56.9401 Debug killing decoder fourcc `ssa ', 0 PES in FIFO
+2016-06-14 23:29:56.9401 Debug removing module "mkv"
+2016-06-14 23:29:56.9401 Debug Program doesn't contain anymore ES
+2016-06-14 23:29:56.9401 Debug Stopping the UI Hook
+2016-06-14 23:29:56.9401 Debug removing module "record"
+2016-06-14 23:29:56.9401 Debug removing module "filesystem"
+2016-06-14 23:29:56.9401 Debug Creating an input for '[NG] Zankyou no Terror - 01.mkv'
+2016-06-14 23:29:56.9401 Debug looking for meta fetcher module matching "any": zd candidates
+2016-06-14 23:29:56.9401 Debug Trying Lua scripts in C:\Users\Richard\AppData\Roaming\vlc\lua\meta\fetcher
+2016-06-14 23:29:56.9401 Debug Trying Lua scripts in C:\Users\Richard\Desktop\vlc\newvlc\nVLC_Demo_WinForms\bin\x86\Debug\lua\meta\fetcher
+2016-06-14 23:29:56.9401 Debug Creating an input for '[NG] Zankyou no Terror - 01.mkv'
+2016-06-14 23:29:56.9401 Debug no meta fetcher modules matched
+2016-06-14 23:29:56.9401 Debug searching art for [NG] Zankyou no Terror - 01.mkv
+2016-06-14 23:29:56.9401 Debug looking for art finder module matching "any": zd candidates
+2016-06-14 23:29:56.9401 Debug using timeshift granularity of 50 MiB, in path 'C:\Users\Richard\AppData\Local\Temp'
+2016-06-14 23:29:56.9401 Debug `file:///C:/Users/Richard/Desktop/%5BNG%5D%20Zankyou%20no%20Terror%20-%2001.mkv' gives access `file' demux `' path `/C:/Users/Richard/Desktop/%5BNG%5D%20Zankyou%20no%20Terror%20-%2001.mkv'
+2016-06-14 23:29:56.9401 Debug specified demux `any'
+2016-06-14 23:29:56.9401 Debug creating demux: access='file' demux='any' location='/C:/Users/Richard/Desktop/%5BNG%5D%20Zankyou%20no%20Terror%20-%2001.mkv' file='C:\Users\Richard\Desktop\[NG] Zankyou no Terror - 01.mkv'
+2016-06-14 23:29:56.9401 Debug looking for access_demux module matching "file": zd candidates
+2016-06-14 23:29:56.9401 Debug no access_demux modules matched
+2016-06-14 23:29:56.9401 Debug creating access 'file' location='/C:/Users/Richard/Desktop/%5BNG%5D%20Zankyou%20no%20Terror%20-%2001.mkv', path='C:\Users\Richard\Desktop\[NG] Zankyou no Terror - 01.mkv'
+2016-06-14 23:29:56.9401 Debug looking for access module matching "file": zd candidates
+2016-06-14 23:29:56.9401 Debug opening file `C:\Users\Richard\Desktop\[NG] Zankyou no Terror - 01.mkv'
+2016-06-14 23:29:56.9401 Debug using access module "filesystem"
+2016-06-14 23:29:56.9401 Debug Using stream method for AStream*
+2016-06-14 23:29:56.9401 Debug starting pre-buffering
+2016-06-14 23:29:56.9401 Debug received first data after 0 ms
+2016-06-14 23:29:56.9401 Debug Trying Lua scripts in C:\Users\Richard\AppData\Roaming\vlc\lua\meta\art
+2016-06-14 23:29:56.9401 Debug pre-buffering done 1024 bytes in 0s - 1000000 KiB/s
+2016-06-14 23:29:56.9401 Debug looking for stream_filter module matching "any": zd candidates
+2016-06-14 23:29:56.9401 Debug Trying Lua scripts in C:\Users\Richard\Desktop\vlc\newvlc\nVLC_Demo_WinForms\bin\x86\Debug\lua\meta\art
+2016-06-14 23:29:56.9401 Debug no stream_filter modules matched
+2016-06-14 23:29:56.9401 Debug looking for stream_filter module matching "record": zd candidates
+2016-06-14 23:29:56.9401 Debug no art finder modules matched
+2016-06-14 23:29:56.9401 Debug using stream_filter module "record"
+2016-06-14 23:29:56.9401 Debug art not found for [NG] Zankyou no Terror - 01.mkv
+2016-06-14 23:29:56.9401 Debug creating demux: access='file' demux='any' location='/C:/Users/Richard/Desktop/%5BNG%5D%20Zankyou%20no%20Terror%20-%2001.mkv' file='C:\Users\Richard\Desktop\[NG] Zankyou no Terror - 01.mkv'
+2016-06-14 23:29:56.9401 Debug looking for demux module matching "mkv": zd candidates
+2016-06-14 23:29:56.9401 Debug |   + Seek head
+2016-06-14 23:29:56.9401 Debug |   |   + Seek
+2016-06-14 23:29:56.9401 Debug |   - info at 4151
+2016-06-14 23:29:56.9401 Debug |   + Information
+2016-06-14 23:29:56.9401 Debug |   |   + TimecodeScale=1000000
+2016-06-14 23:29:56.9401 Debug |   |   + Muxing Application=libebml v1.3.0 + libmatroska v1.4.1
+2016-06-14 23:29:56.9401 Debug |   |   + Writing Application=mkvmerge v7.1.0 ('Good Love') 64bit built on Jul 27 2014 13:06:55
+2016-06-14 23:29:56.9401 Debug |   |   + Duration=1369452
+2016-06-14 23:29:56.9401 Debug |   |   + Date=Sat Aug 09 21:39:09 2014
+2016-06-14 23:29:56.9401 Debug |   |   + UID=1314648989
+2016-06-14 23:29:56.9401 Debug |   |   + Seek
+2016-06-14 23:29:56.9401 Debug |   - tracks at 4307
+2016-06-14 23:29:56.9401 Debug |   + Tracks
+2016-06-14 23:29:56.9401 Debug |   |   + Track Entry
+2016-06-14 23:29:56.9401 Debug |   |   |   + Track Number=1
+2016-06-14 23:29:56.9401 Debug |   |   |   + Track UID=1
+2016-06-14 23:29:56.9401 Debug |   |   |   + Track Type=video
+2016-06-14 23:29:56.9401 Debug |   |   |   + Track Lacing=0
+2016-06-14 23:29:56.9401 Debug |   |   |   + Track MinCache=1
+2016-06-14 23:29:56.9401 Debug |   |   |   + Track CodecId=V_MPEG4/ISO/AVC
+2016-06-14 23:29:56.9401 Debug |   |   |   + Track CodecPrivate size=43
+2016-06-14 23:29:56.9401 Debug |   |   |   + Track Default Duration=41708333
+2016-06-14 23:29:56.9401 Debug |   |   |   + Track Language=`cze'
+2016-06-14 23:29:56.9401 Debug |   |   |   + Track Video
+2016-06-14 23:29:56.9401 Debug |   |   |   |   + width=1280
+2016-06-14 23:29:56.9401 Debug |   |   |   |   + height=720
+2016-06-14 23:29:56.9401 Debug |   |   |   |   + display width=1280
+2016-06-14 23:29:56.9401 Debug |   |   |   |   + display height=720
+2016-06-14 23:29:56.9401 Debug |   |   + Track Entry
+2016-06-14 23:29:56.9401 Debug |   |   |   + Track Number=2
+2016-06-14 23:29:56.9401 Debug |   |   |   + Track UID=1967579547
+2016-06-14 23:29:56.9401 Debug |   |   |   + Track Type=audio
+2016-06-14 23:29:56.9401 Debug |   |   |   + Track CodecId=A_AAC
+2016-06-14 23:29:56.9401 Debug |   |   |   + Track CodecPrivate size=5
+2016-06-14 23:29:56.9401 Debug |   |   |   + Track Default Duration=21333333
+2016-06-14 23:29:56.9401 Debug |   |   |   + Track Language=`jpn'
+2016-06-14 23:29:56.9401 Debug |   |   |   + Track Audio
+2016-06-14 23:29:56.9401 Debug |   |   |   |   + afreq=48000
+2016-06-14 23:29:56.9401 Debug |   |   |   |   + achan=2
+2016-06-14 23:29:56.9401 Debug |   |   |   |   + aoutfreq=96000
+2016-06-14 23:29:56.9401 Debug |   |   + Track Entry
+2016-06-14 23:29:56.9401 Debug |   |   |   + Track Number=3
+2016-06-14 23:29:56.9401 Debug |   |   |   + Track UID=1168029864
+2016-06-14 23:29:56.9401 Debug |   |   |   + Track Type=subtitle
+2016-06-14 23:29:56.9401 Debug |   |   |   + Track Lacing=0
+2016-06-14 23:29:56.9401 Debug |   |   |   + Track CodecId=S_TEXT/ASS
+2016-06-14 23:29:56.9401 Debug |   |   |   + Track CodecPrivate size=1785
+2016-06-14 23:29:56.9401 Debug |   |   |   + Track Language=`cze'
+2016-06-14 23:29:56.9401 Debug |   |   + Seek
+2016-06-14 23:29:56.9401 Debug |   - cues at 362236444
+2016-06-14 23:29:56.9401 Debug |   + Cues
+2016-06-14 23:29:57.0684 Debug VoutDisplayEvent 'mouse button' 2 t=8
+2016-06-14 23:29:57.0819 Debug |   - loading cues done.
+2016-06-14 23:29:57.0819 Debug |   |   + Seek
+2016-06-14 23:29:57.0819 Debug |   - tags at 362341348
+2016-06-14 23:29:57.0819 Debug |   + Tags
+2016-06-14 23:29:57.0819 Debug + Tag
+2016-06-14 23:29:57.0819 Debug |   + Targets
+2016-06-14 23:29:57.0819 Debug |   |   + TargetTypeValue: 50
+2016-06-14 23:29:57.0819 Debug |   |   + TrackUID: 1
+2016-06-14 23:29:57.0819 Debug |   + Simple Tag 
+2016-06-14 23:29:57.0819 Debug |   |   + Meta _STATISTICS_WRITING_APP: mkvmerge v7.1.0 ('Good Love') 64bit built on Jul 27 2014 13:06:55
+2016-06-14 23:29:57.0819 Debug |   + Simple Tag 
+2016-06-14 23:29:57.0819 Debug |   |   + Meta _STATISTICS_WRITING_DATE_UTC: 2014-08-09 21:39:09
+2016-06-14 23:29:57.0819 Debug |   + Simple Tag 
+2016-06-14 23:29:57.0819 Debug |   |   + Meta _STATISTICS_TAGS: BPS DURATION NUMBER_OF_FRAMES NUMBER_OF_BYTES
+2016-06-14 23:29:57.0819 Debug |   + Simple Tag 
+2016-06-14 23:29:57.0819 Debug |   |   + Meta BPS: 1913217
+2016-06-14 23:29:57.0819 Debug |   + Simple Tag 
+2016-06-14 23:29:57.0819 Debug |   |   + Meta DURATION: 00:22:49.452000000
+2016-06-14 23:29:57.0819 Debug |   + Simple Tag 
+2016-06-14 23:29:57.0819 Debug |   |   + Meta NUMBER_OF_FRAMES: 32834
+2016-06-14 23:29:57.0819 Debug |   + Simple Tag 
+2016-06-14 23:29:57.0819 Debug |   |   + Meta NUMBER_OF_BYTES: 327507423
+2016-06-14 23:29:57.0819 Debug + Tag
+2016-06-14 23:29:57.0819 Debug |   + Targets
+2016-06-14 23:29:57.0819 Debug |   |   + TargetTypeValue: 50
+2016-06-14 23:29:57.0819 Debug |   |   + TrackUID: 17145546264059240859
+2016-06-14 23:29:57.0819 Debug |   + Simple Tag 
+2016-06-14 23:29:57.0819 Debug |   |   + Meta _STATISTICS_WRITING_APP: mkvmerge v7.1.0 ('Good Love') 64bit built on Jul 27 2014 13:06:55
+2016-06-14 23:29:57.0819 Debug |   + Simple Tag 
+2016-06-14 23:29:57.0819 Debug |   |   + Meta _STATISTICS_WRITING_DATE_UTC: 2014-08-09 21:39:09
+2016-06-14 23:29:57.0819 Debug |   + Simple Tag 
+2016-06-14 23:29:57.0819 Debug |   |   + Meta _STATISTICS_TAGS: BPS DURATION NUMBER_OF_FRAMES NUMBER_OF_BYTES
+2016-06-14 23:29:57.0819 Debug |   + Simple Tag 
+2016-06-14 23:29:57.0819 Debug |   |   + Meta BPS: 188624
+2016-06-14 23:29:57.0819 Debug |   + Simple Tag 
+2016-06-14 23:29:57.0819 Debug |   |   + Meta DURATION: 00:22:49.451000000
+2016-06-14 23:29:57.0819 Debug |   + Simple Tag 
+2016-06-14 23:29:57.0819 Debug |   |   + Meta NUMBER_OF_FRAMES: 64193
+2016-06-14 23:29:57.0819 Debug |   + Simple Tag 
+2016-06-14 23:29:57.0819 Debug |   |   + Meta NUMBER_OF_BYTES: 32289079
+2016-06-14 23:29:57.0819 Debug + Tag
+2016-06-14 23:29:57.0819 Debug |   + Targets
+2016-06-14 23:29:57.0819 Debug |   |   + TargetTypeValue: 50
+2016-06-14 23:29:57.0819 Debug |   |   + TrackUID: 15062869089026226344
+2016-06-14 23:29:57.0819 Debug |   + Simple Tag 
+2016-06-14 23:29:57.0819 Debug |   |   + Meta BPS: 2428
+2016-06-14 23:29:57.0819 Debug |   + Simple Tag 
+2016-06-14 23:29:57.0819 Debug |   |   + Meta DURATION: 00:22:35.470000000
+2016-06-14 23:29:57.0819 Debug |   + Simple Tag 
+2016-06-14 23:29:57.0819 Debug |   |   + Meta NUMBER_OF_FRAMES: 3771
+2016-06-14 23:29:57.0819 Debug |   + Simple Tag 
+2016-06-14 23:29:57.0819 Debug |   |   + Meta NUMBER_OF_BYTES: 411501
+2016-06-14 23:29:57.0819 Debug |   + Simple Tag 
+2016-06-14 23:29:57.0819 Debug |   |   + Meta _STATISTICS_WRITING_APP: mkvmerge v7.1.0 ('Good Love') 64bit built on Jul 27 2014 13:06:55
+2016-06-14 23:29:57.0819 Debug |   + Simple Tag 
+2016-06-14 23:29:57.0819 Debug |   |   + Meta _STATISTICS_WRITING_DATE_UTC: 2014-08-09 21:39:09
+2016-06-14 23:29:57.0819 Debug |   + Simple Tag 
+2016-06-14 23:29:57.0819 Warn MKV/Ebml Parser: m_el[mi_level] == NULL
+
+2016-06-14 23:29:57.0819 Debug |   |   + Meta _STATISTICS_TAGS: BPS DURATION NUMBER_OF_FRAMES NUMBER_OF_BYTES
+2016-06-14 23:29:57.0819 Warn MKV/Ebml Parser: m_el[mi_level] == NULL
+
+2016-06-14 23:29:57.0819 Warn MKV/Ebml Parser: Up cannot escape itself
+2016-06-14 23:29:57.0819 Debug loading tags done.
+2016-06-14 23:29:57.0819 Debug |   |   + Seek
+2016-06-14 23:29:57.0819 Debug |   - chapters at 1604258
+2016-06-14 23:29:57.0819 Debug |   + Chapters
+2016-06-14 23:29:57.0819 Debug |   |   + EditionEntry
+2016-06-14 23:29:57.0819 Debug |   |   |   + ChapterAtom (level=0)
+2016-06-14 23:29:57.0819 Debug |   |   |   |   + ChapterUID: 1280002216
+2016-06-14 23:29:57.0819 Debug |   |   |   |   + ChapterTimeStart: 0
+2016-06-14 23:29:57.0819 Debug |   |   |   |   + ChapterFlagHidden: no
+2016-06-14 23:29:57.0819 Debug |   |   |   |   + ChapterDisplay
+2016-06-14 23:29:57.0819 Debug |   |   |   |   |    + ChapterString 'A¹vod'
+2016-06-14 23:29:57.0819 Debug |   |   |   |   |    + ChapterLanguage 'cze'
+2016-06-14 23:29:57.0819 Debug |   |   |   + ChapterAtom (level=0)
+2016-06-14 23:29:57.0819 Debug |   |   |   |   + ChapterUID: 991427770
+2016-06-14 23:29:57.0819 Debug |   |   |   |   + ChapterTimeStart: 176927000
+2016-06-14 23:29:57.0819 Debug |   |   |   |   + ChapterFlagHidden: no
+2016-06-14 23:29:57.0819 Debug |   |   |   |   + ChapterDisplay
+2016-06-14 23:29:57.0819 Debug |   |   |   |   |    + ChapterString 'OP'
+2016-06-14 23:29:57.0819 Debug |   |   |   |   |    + ChapterLanguage 'cze'
+2016-06-14 23:29:57.0819 Debug |   |   |   + ChapterAtom (level=0)
+2016-06-14 23:29:57.0819 Debug |   |   |   |   + ChapterUID: 2056155288
+2016-06-14 23:29:57.0819 Debug |   |   |   |   + ChapterTimeStart: 267851000
+2016-06-14 23:29:57.0819 Debug |   |   |   |   + ChapterFlagHidden: no
+2016-06-14 23:29:57.0819 Debug |   |   |   |   + ChapterDisplay
+2016-06-14 23:29:57.0819 Debug |   |   |   |   |    + ChapterString 'DA­l - 01'
+2016-06-14 23:29:57.0819 Debug |   |   |   |   |    + ChapterLanguage 'cze'
+2016-06-14 23:29:57.0819 Debug |   |   |   + ChapterAtom (level=0)
+2016-06-14 23:29:57.0819 Debug |   |   |   |   + ChapterUID: 786499983
+2016-06-14 23:29:57.0819 Debug |   |   |   |   + ChapterTimeStart: 1279528000
+2016-06-14 23:29:57.0819 Debug |   |   |   |   + ChapterFlagHidden: no
+2016-06-14 23:29:57.0819 Debug |   |   |   |   + ChapterDisplay
+2016-06-14 23:29:57.0819 Debug |   |   |   |   |    + ChapterString 'ED'
+2016-06-14 23:29:57.0819 Debug |   |   |   |   |    + ChapterLanguage 'cze'
+2016-06-14 23:29:57.0819 Debug |   |   + Seek
+2016-06-14 23:29:57.0819 Debug |   |   + Unknown (N7libebml8EbmlVoidE)
+2016-06-14 23:29:57.0819 Debug |   - attachments at 7461
+2016-06-14 23:29:57.0819 Debug |   + Attachments
+2016-06-14 23:29:57.0819 Debug |   |   - Candarab.ttf (application/x-truetype-font)
+2016-06-14 23:29:57.0819 Debug |   |   - Candarai.ttf (application/x-truetype-font)
+2016-06-14 23:29:57.0819 Debug |   |   - Candaraz.ttf (application/x-truetype-font)
+2016-06-14 23:29:57.0819 Debug |   |   - Clichee.otf (application/vnd.ms-opentype)
+2016-06-14 23:29:57.0819 Debug |   |   - ClicheeBold.otf (application/vnd.ms-opentype)
+2016-06-14 23:29:57.0819 Debug |   |   - ClicheeBoldItalic.otf (application/vnd.ms-opentype)
+2016-06-14 23:29:57.0819 Debug |   |   - ClicheeItalic.otf (application/vnd.ms-opentype)
+2016-06-14 23:29:57.0819 Debug |   |   - DISTInking-Bold.otf (application/vnd.ms-opentype)
+2016-06-14 23:29:57.0819 Debug |   |   - DISTInking-Regular.otf (application/vnd.ms-opentype)
+2016-06-14 23:29:57.0819 Debug |   |   - octin prison free.ttf (application/x-truetype-font)
+2016-06-14 23:29:57.0819 Debug |   |   - octin stencil rg.ttf (application/x-truetype-font)
+2016-06-14 23:29:57.0819 Debug |   |   - TarragonDOT-Regular.otf (application/vnd.ms-opentype)
+2016-06-14 23:29:57.0819 Debug |   |   - Candara.ttf (application/x-truetype-font)
+2016-06-14 23:29:57.0819 Debug |   + Void
+2016-06-14 23:29:57.0819 Debug |   + Information
+2016-06-14 23:29:57.0819 Debug |   + Tracks
+2016-06-14 23:29:57.0819 Debug |   + Void
+2016-06-14 23:29:57.0819 Debug |   + Attachments
+2016-06-14 23:29:57.0819 Debug |   + Chapters
+2016-06-14 23:29:57.0819 Debug |   + Void
+2016-06-14 23:29:57.0819 Debug |   + Cluster
+2016-06-14 23:29:57.0819 Debug Virtual chapter  A¹vod from 0 to -1 - 
+2016-06-14 23:29:57.0819 Debug Virtual chapter  OP from 176927000 to -1 - 
+2016-06-14 23:29:57.0819 Debug Virtual chapter  DA­l - 01 from 267851000 to -1 - 
+2016-06-14 23:29:57.0819 Debug Virtual chapter  ED from 1279528000 to -1 - 
+2016-06-14 23:29:57.0819 Debug Virtual chapter  from 0 to -1 - 
+2016-06-14 23:29:57.0819 Debug found 3 es
+2016-06-14 23:29:57.0819 Debug selecting program id=0
+2016-06-14 23:29:57.0819 Debug meta ok for (null), need to fetch art
+2016-06-14 23:29:57.0819 Debug Buffering 0%
+2016-06-14 23:29:57.0819 Debug Starting the UI Hook
+2016-06-14 23:29:57.0819 Debug using demux module "mkv"
+2016-06-14 23:29:57.0819 Debug looking for a subtitle file in C:\Users\Richard\Desktop\
+2016-06-14 23:29:57.0819 Debug looking for meta fetcher module matching "any": zd candidates
+2016-06-14 23:29:57.0819 Debug Trying Lua scripts in C:\Users\Richard\AppData\Roaming\vlc\lua\meta\fetcher
+2016-06-14 23:29:57.0819 Debug Trying Lua scripts in C:\Users\Richard\Desktop\vlc\newvlc\nVLC_Demo_WinForms\bin\x86\Debug\lua\meta\fetcher
+2016-06-14 23:29:57.0819 Debug no meta fetcher modules matched
+2016-06-14 23:29:57.0819 Debug searching art for [NG] Zankyou no Terror - 01.mkv
+2016-06-14 23:29:57.0819 Debug looking for art finder module matching "any": zd candidates
+2016-06-14 23:29:57.0819 Debug looking for decoder module matching "any": zd candidates
+2016-06-14 23:29:57.0964 Debug CPU flags: 0x0107d3db
+2016-06-14 23:29:57.0964 Debug Trying Lua scripts in C:\Users\Richard\AppData\Roaming\vlc\lua\meta\art
+2016-06-14 23:29:57.0964 Debug trying to use direct rendering
+2016-06-14 23:29:57.0964 Debug allowing 4 thread(s) for decoding
+2016-06-14 23:29:57.0964 Debug Trying Lua scripts in C:\Users\Richard\Desktop\vlc\newvlc\nVLC_Demo_WinForms\bin\x86\Debug\lua\meta\art
+2016-06-14 23:29:57.0964 Warn threaded frame decoding is not compatible with DXVA2, disabled
+2016-06-14 23:29:57.0964 Debug no art finder modules matched
+2016-06-14 23:29:57.0964 Debug art not found for [NG] Zankyou no Terror - 01.mkv
+2016-06-14 23:29:57.0964 Debug avcodec codec (H264 - MPEG-4 AVC (part 10)) started
+2016-06-14 23:29:57.0964 Debug using slice thread mode with 4 threads
+2016-06-14 23:29:57.0964 Debug using decoder module "avcodec"
+2016-06-14 23:29:57.0964 Debug looking for decoder module matching "any": zd candidates
+2016-06-14 23:29:57.0964 Debug using decoder module "faad"
+2016-06-14 23:29:57.0964 Debug looking for decoder module matching "any": zd candidates
+2016-06-14 23:29:57.0964 Debug adding embedded font Candarab.ttf
+2016-06-14 23:29:57.0964 Debug adding embedded font Candarai.ttf
+2016-06-14 23:29:57.0964 Debug adding embedded font Candaraz.ttf
+2016-06-14 23:29:57.0964 Debug adding embedded font Clichee.otf
+2016-06-14 23:29:57.0964 Debug adding embedded font ClicheeBold.otf
+2016-06-14 23:29:57.0964 Debug adding embedded font ClicheeBoldItalic.otf
+2016-06-14 23:29:57.0964 Debug adding embedded font ClicheeItalic.otf
+2016-06-14 23:29:57.0964 Debug adding embedded font DISTInking-Bold.otf
+2016-06-14 23:29:57.0964 Debug adding embedded font DISTInking-Regular.otf
+2016-06-14 23:29:57.0964 Debug adding embedded font octin prison free.ttf
+2016-06-14 23:29:57.0964 Debug adding embedded font octin stencil rg.ttf
+2016-06-14 23:29:57.0964 Debug adding embedded font TarragonDOT-Regular.otf
+2016-06-14 23:29:57.0964 Debug adding embedded font Candara.ttf
+2016-06-14 23:29:57.1761 Debug VoutDisplayEvent 'mouse button' 2 t=9
+2016-06-14 23:29:57.1761 Debug using decoder module "libass"
+2016-06-14 23:29:57.1761 Debug looking for meta reader module matching "any": zd candidates
+2016-06-14 23:29:57.1761 Debug Trying Lua scripts in C:\Users\Richard\AppData\Roaming\vlc\lua\meta\reader
+2016-06-14 23:29:57.1761 Debug Trying Lua scripts in C:\Users\Richard\Desktop\vlc\newvlc\nVLC_Demo_WinForms\bin\x86\Debug\lua\meta\reader
+2016-06-14 23:29:57.1761 Debug no meta reader modules matched
+2016-06-14 23:29:57.1761 Debug `file:///C:/Users/Richard/Desktop/%5BNG%5D%20Zankyou%20no%20Terror%20-%2001.mkv' successfully opened
+2016-06-14 23:29:57.1761 Debug Buffering 0%
+2016-06-14 23:29:57.1761 Debug Stream buffering done (417 ms in 96 ms)
+2016-06-14 23:29:57.1761 Debug available software decoder output format 72 (yuv420p10le)
+2016-06-14 23:29:57.1912 Debug trying to reuse free vout
+2016-06-14 23:29:57.1912 Debug removing module "freetype"
+2016-06-14 23:29:57.1912 Warn decoded zero sample
+2016-06-14 23:29:57.1912 Debug looking for text renderer module matching "any": zd candidates
+2016-06-14 23:29:57.1912 Debug AAC SBR (channels: 2, samplerate: 96000)
+2016-06-14 23:29:57.1912 Debug reusing audio output
+2016-06-14 23:29:57.1912 Debug Opening DirectSound Audio Output
+2016-06-14 23:29:57.1912 Debug Using Arial as font from file C:\WINDOWS\Fonts\arial.ttf
+2016-06-14 23:29:57.1912 Debug Using Courier New as mono-font from file C:\WINDOWS\Fonts\cour.ttf
+2016-06-14 23:29:57.1912 Debug using fontsize: 2
+2016-06-14 23:29:57.1912 Debug using text renderer module "freetype"
+2016-06-14 23:29:57.1912 Debug reusing provided vout
+2016-06-14 23:29:57.1912 Warn plane 0 not aligned
+2016-06-14 23:29:57.1912 Warn disabling direct rendering
+2016-06-14 23:29:57.2067 Debug Windows speaker config: Stereo and stream has 2 channels, using 2 channels
+2016-06-14 23:29:57.2067 Debug output 'f32l' 96000 Hz Stereo frame=1 samples/8 bytes
+2016-06-14 23:29:57.2067 Debug looking for audio volume module matching "any": zd candidates
+2016-06-14 23:29:57.2067 Debug using audio volume module "float_mixer"
+2016-06-14 23:29:57.2067 Debug input 'f32l' 96000 Hz Stereo frame=1 samples/8 bytes
+2016-06-14 23:29:57.2067 Debug looking for audio filter module matching "scaletempo": zd candidates
+2016-06-14 23:29:57.2067 Debug format: 96000 rate, 2 nch, 4 bps, fl32
+2016-06-14 23:29:57.2067 Debug params: 30 stride, 0.200 overlap, 14 search
+2016-06-14 23:29:57.2067 Debug 1.000 scale, 2880.000 stride_in, 2880 stride_out, 2304 standing, 576 overlap, 1344 search, 4800 queue, fl32 mode
+2016-06-14 23:29:57.2067 Debug using audio filter module "scaletempo"
+2016-06-14 23:29:57.2067 Debug conversion: 'f32l'->'f32l' 96000 Hz->96000 Hz Stereo->Stereo
+2016-06-14 23:29:57.2067 Debug conversion pipeline complete
+2016-06-14 23:29:57.2067 Debug conversion: 'f32l'->'f32l' 96000 Hz->96000 Hz Stereo->Stereo
+2016-06-14 23:29:57.2067 Debug conversion pipeline complete
+2016-06-14 23:29:57.2067 Debug looking for audio resampler module matching "any": zd candidates
+2016-06-14 23:29:57.2067 Debug using audio resampler module "samplerate"
+2016-06-14 23:29:57.2067 Debug End of audio preroll
+2016-06-14 23:29:57.2067 Debug End of video preroll
+2016-06-14 23:29:57.2067 Debug Received first picture
+2016-06-14 23:29:57.2257 Debug Decoder wait done in 37 ms
+2016-06-14 23:29:58.1791 Debug VoutDisplayEvent 'mouse button' 2 t=8
+2016-06-14 23:29:58.3309 Debug VoutDisplayEvent 'mouse button' 2 t=9
+2016-06-14 23:29:58.8082 Debug VoutDisplayEvent 'mouse button' 2 t=8
+2016-06-14 23:29:58.9292 Debug VoutDisplayEvent 'mouse button' 2 t=9
+2016-06-14 23:29:59.0044 Debug VoutDisplayEvent 'mouse button' 0 t=8
+2016-06-14 23:29:59.1620 Debug VoutDisplayEvent 'mouse button' 0 t=9
+2016-06-14 23:29:59.2251 Debug VoutDisplayEvent 'mouse button' 2 t=8
+2016-06-14 23:29:59.3573 Debug VoutDisplayEvent 'mouse button' 2 t=9
+2016-06-14 23:29:59.4594 Debug VoutDisplayEvent 'mouse button' 0 t=8
+2016-06-14 23:29:59.6235 Debug VoutDisplayEvent 'mouse button' 0 t=9
+2016-06-14 23:30:01.6737 Debug auto hiding mouse cursor
+2016-06-14 23:30:03.8068 Debug control: stopping input
+2016-06-14 23:30:03.8443 Debug removing module "avcodec"
+2016-06-14 23:30:03.8484 Debug ffmpeg codec (H264 - MPEG-4 AVC (part 10)) stopped
+2016-06-14 23:30:03.8484 Debug killing decoder fourcc `h264', 0 PES in FIFO
+2016-06-14 23:30:03.8484 Debug saving a free vout
+2016-06-14 23:30:03.8484 Debug reusing provided vout
+2016-06-14 23:30:03.8484 Debug removing module "faad"
+2016-06-14 23:30:03.8484 Debug killing decoder fourcc `mp4a', 0 PES in FIFO
+2016-06-14 23:30:03.8484 Debug removing module "samplerate"
+2016-06-14 23:30:03.8484 Debug removing module "scaletempo"
+2016-06-14 23:30:03.8484 Debug closing audio device
+2016-06-14 23:30:03.8484 Debug removing module "float_mixer"
+2016-06-14 23:30:03.8484 Debug keeping audio output
+2016-06-14 23:30:03.8484 Debug removing module "libass"
+2016-06-14 23:30:03.8484 Debug killing decoder fourcc `ssa ', 0 PES in FIFO
+2016-06-14 23:30:03.8484 Debug removing module "mkv"
+2016-06-14 23:30:03.8484 Debug Program doesn't contain anymore ES
+2016-06-14 23:30:03.8484 Debug Stopping the UI Hook
+2016-06-14 23:30:03.8484 Debug removing module "record"
+2016-06-14 23:30:03.8484 Debug removing module "filesystem"
+2016-06-14 23:30:03.8634 Debug removing module "directsound"
+2016-06-14 23:30:03.8634 Debug destroying useless vout
+2016-06-14 23:30:03.8634 Debug Filter 0E26AE5C removed from chain
+2016-06-14 23:30:03.8634 Debug removing module "swscale"
+2016-06-14 23:30:03.8634 Debug removing module "direct3d"
+2016-06-14 23:30:03.8634 Debug Direct3D scene released successfully
+2016-06-14 23:30:03.8634 Debug Win32 Vout EventThread terminating
+2016-06-14 23:30:03.8634 Debug Win32VoutCloseWindow
+2016-06-14 23:30:03.8634 Debug WinProc WM_DESTROY
+2016-06-14 23:30:03.8634 Debug removing module "freetype"
+2016-06-14 23:30:03.8634 Debug removing module "yuvp"
+2016-06-14 23:30:03.8634 Debug removing module "swscale"
