@@ -101,6 +101,12 @@ namespace RildasApp
             this.metroLabel19 = new MetroFramework.Controls.MetroLabel();
             this._xdccFilterTb = new MetroFramework.Controls.MetroTextBox();
             this.xdccGridView = new MetroFramework.Controls.MetroGrid();
+            this.BotName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FileName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Qualitty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FileSize = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._publish = new MetroFramework.Controls.MetroTabPage();
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
             this.publish_cbMinutes = new MetroFramework.Controls.MetroComboBox();
@@ -129,12 +135,6 @@ namespace RildasApp
             this.chatPanelPrivate = new MetroFramework.Controls.MetroPanel();
             this.chatGroupAdd = new MetroFramework.Controls.MetroButton();
             this.metroScrollBar2 = new MetroFramework.Controls.MetroScrollBar();
-            this.BotName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FileName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Qualitty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FileSize = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).BeginInit();
             this.metroTabControl1.SuspendLayout();
             this._dashboard.SuspendLayout();
@@ -1103,6 +1103,7 @@ namespace RildasApp
             this._xdccFilterTb.UseSelectable = true;
             this._xdccFilterTb.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this._xdccFilterTb.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this._xdccFilterTb.KeyDown += new System.Windows.Forms.KeyEventHandler(this._xdccFilterTb_KeyDown);
             // 
             // xdccGridView
             // 
@@ -1163,6 +1164,49 @@ namespace RildasApp
             this.xdccGridView.TabIndex = 2;
             this.xdccGridView.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.xdccGridView.MouseDown += new System.Windows.Forms.MouseEventHandler(this.metroGrid1_MouseDown);
+            // 
+            // BotName
+            // 
+            this.BotName.Frozen = true;
+            this.BotName.HeaderText = "BotName";
+            this.BotName.Name = "BotName";
+            this.BotName.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.Frozen = true;
+            this.Column2.HeaderText = "PackNumber";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 94;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Fansub group";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Width = 120;
+            // 
+            // FileName
+            // 
+            this.FileName.HeaderText = "FileName";
+            this.FileName.Name = "FileName";
+            this.FileName.ReadOnly = true;
+            this.FileName.Width = 670;
+            // 
+            // Qualitty
+            // 
+            this.Qualitty.HeaderText = "Qualitty";
+            this.Qualitty.Name = "Qualitty";
+            this.Qualitty.ReadOnly = true;
+            this.Qualitty.Width = 70;
+            // 
+            // FileSize
+            // 
+            this.FileSize.HeaderText = "FileSize";
+            this.FileSize.Name = "FileSize";
+            this.FileSize.ReadOnly = true;
+            this.FileSize.Width = 68;
             // 
             // _publish
             // 
@@ -1524,49 +1568,6 @@ namespace RildasApp
             this.metroScrollBar2.UseBarColor = true;
             this.metroScrollBar2.UseSelectable = true;
             this.metroScrollBar2.Scroll += new System.Windows.Forms.ScrollEventHandler(this.metroScrollBar2_Scroll);
-            // 
-            // BotName
-            // 
-            this.BotName.Frozen = true;
-            this.BotName.HeaderText = "BotName";
-            this.BotName.Name = "BotName";
-            this.BotName.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.Frozen = true;
-            this.Column2.HeaderText = "PackNumber";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Width = 94;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Fansub group";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            this.Column3.Width = 120;
-            // 
-            // FileName
-            // 
-            this.FileName.HeaderText = "FileName";
-            this.FileName.Name = "FileName";
-            this.FileName.ReadOnly = true;
-            this.FileName.Width = 670;
-            // 
-            // Qualitty
-            // 
-            this.Qualitty.HeaderText = "Qualitty";
-            this.Qualitty.Name = "Qualitty";
-            this.Qualitty.ReadOnly = true;
-            this.Qualitty.Width = 70;
-            // 
-            // FileSize
-            // 
-            this.FileSize.HeaderText = "FileSize";
-            this.FileSize.Name = "FileSize";
-            this.FileSize.ReadOnly = true;
-            this.FileSize.Width = 68;
             // 
             // Dashboard
             // 

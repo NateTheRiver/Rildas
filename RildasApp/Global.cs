@@ -13,6 +13,7 @@ namespace RildasApp
     {
         static List<ChatWindow> chatWindows = new List<ChatWindow>();
         public static User loggedUser;
+        public static string password;
         private static List<Anime> animes = new List<Anime>();
         private static List<Episode> episodes = new List<Episode>();
         private static List<EpisodeVersion> episodeVersions = new List<EpisodeVersion>();
@@ -45,8 +46,8 @@ namespace RildasApp
             switch (determinator)
             {
                 // CLIENT
-                case "CLIENT_CONNECTION_READY": { if(Dashboard.instance != null) Dashboard.instance.EnableForm(); }; break;
-
+                case "CLIENT_CONNECTION_READY": { if (Dashboard.instance != null) { RildasServerAPI.Login(Global.loggedUser.username, Global.password); } }; break;
+                case "CLIENT_LOGIN_SUCCESS": { if(Dashboard.instance != null) Dashboard.instance.EnableForm(); }; break;
                 // DATA
                 case "DATA_ANIME_FULL": { animes = new List<Anime>(Serializer.Deserialize<Anime[]>(rest)); if (AnimeListUpdated != null) AnimeListUpdated(); } break;
                 case "DATA_EPISODE_FULL": { episodes = new List<Episode>(Serializer.Deserialize<Episode[]>(rest)); if (EpisodeListUpdated != null) EpisodeListUpdated(); }break;

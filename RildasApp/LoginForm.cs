@@ -185,7 +185,11 @@ namespace RildasApp
                 Thread thrd = new Thread(ConnectionManager.Connect);
                 thrd.Start();*/
             }
-            else RildasServerAPI.Login(textUsername.Text, textPassword.Text);
+            else
+            {
+                RildasServerAPI.Login(textUsername.Text, textPassword.Text);
+                Global.password = textPassword.Text;
+            }
         }
         private void Password_KeyDown(object sender, KeyEventArgs e)
         {

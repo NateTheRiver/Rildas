@@ -145,12 +145,12 @@ namespace RildasApp
         }
         public static void Close()
         {
-            sck.Close();
+            sck.Disconnect(true);
             if (Disconnected != null)
             {
                 Disconnected();
             }
-            sck.Disconnect(true);
+            
         }
         public delegate void ServerRecievedHandler(string data);
         public delegate void ServerDisconnectedHandler();

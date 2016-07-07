@@ -1138,6 +1138,15 @@ namespace RildasApp
             }
         }
 
+        private void _xdccFilterTb_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                string replacedString = _xdccFilterTb.Text.Replace(' ', '_');
+                RildasServerAPI.GetFilteredXDCCVersions(replacedString, xdccDirtySearch.Checked);
+            }
+        }
+
         private void timetable_panel_Paint(object sender, PaintEventArgs e)
         {
             var p = sender as Panel;
