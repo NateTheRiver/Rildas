@@ -12,7 +12,7 @@ namespace RildasApp
     public static class ConnectionManager
     {
         private static Socket sck;
-        private static string actualBuffer;
+        private static StringBuilder actualBuffer = new StringBuilder();
         
         public static bool Connect()
         {
@@ -51,18 +51,20 @@ namespace RildasApp
                     try
                     {
                         string decodedString = Encoding.UTF8.GetString(buf);
-                        decodedString = actualBuffer + decodedString;
+                        actualBuffer.Append(decodedString);
+                        //string decodedString = Encoding.UTF8.GetString(buf);
+                        //decodedString = actualBuffer + decodedString;
                         if (decodedString.Contains("_||_"))
                         {
-                            string[] parts = decodedString.Split(new string[] { "_||_" }, StringSplitOptions.None);
+                            string[] parts = actualBuffer.ToString().Split(new string[] { "_||_" }, StringSplitOptions.None);
                             for (int i = 0; i < parts.Length - 1; i++)
                             {
                                 Recieved(parts[i]);
                             }
-                            if (parts[parts.Length - 1] != "") actualBuffer = parts[parts.Length - 1];
-                            else actualBuffer = "";
+                            if (parts[parts.Length - 1] != "") actualBuffer = new StringBuilder(parts[parts.Length - 1]);
+                            else actualBuffer.Clear();
                         }
-                        else actualBuffer = decodedString;
+                        
                     }
                     catch (Exception)
                     {
@@ -143,6 +145,7 @@ namespace RildasApp
         }
         public static void Close()
         {
+            sck.Close();
             if (Disconnected != null)
             {
                 Disconnected();

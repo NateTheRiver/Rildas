@@ -64,7 +64,6 @@ namespace RildasApp
                 case "CLIENT_LOGIN_SUCCESS": LoginSuccess(rest); break;
                 case "CLIENT_LOGIN_FAILED": LoginFailed(); break;
             }
-            System.Diagnostics.Debug.WriteLine("END OF THIS SHIT");
 
         }
         public void LoginSuccess(string userdata)
@@ -94,19 +93,16 @@ namespace RildasApp
             progressBarTimer.Start();
             metroProgressBar1.Invoke(new MethodInvoker(delegate { metroProgressBar1.Visible = true; }));
             nextValue = 15;
-            // metroProgressBar1.Invoke(new MethodInvoker(delegate { metroProgressBar1.Value = 5; }));
             RildasServerAPI.GetAllAnimes();
-            // metroProgressBar1.Invoke(new MethodInvoker(delegate { metroProgressBar1.Value = 25; }));
-            nextValue = 40;
+            nextValue = 35;
             RildasServerAPI.GetAllEpisodes();
-            //  metroProgressBar1.Invoke(new MethodInvoker(delegate { metroProgressBar1.Value = 55; }));
-            nextValue = 60;
+            nextValue = 55;
             RildasServerAPI.GetAllEpisodeVersions();
+            nextValue = 70;
+            RildasServerAPI.GetAllXDCCVersions();
             nextValue = 85;
-            //  metroProgressBar1.Invoke(new MethodInvoker(delegate { metroProgressBar1.Value = 75; }));
             RildasServerAPI.GetAllUsers();
             nextValue = 100;
-            //metroProgressBar1.Invoke(new MethodInvoker(delegate { metroProgressBar1.Value = 99; }));
             System.Threading.Thread.Sleep(50);
             progressBarTimer.Stop();
             ConnectionManager.Recieved -= ConnectionManager_Recieved;

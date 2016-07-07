@@ -12,7 +12,13 @@ namespace RildasApp
     public static class Global
     {
         static List<ChatWindow> chatWindows = new List<ChatWindow>();
-
+        public static User loggedUser;
+        private static List<Anime> animes = new List<Anime>();
+        private static List<Episode> episodes = new List<Episode>();
+        private static List<EpisodeVersion> episodeVersions = new List<EpisodeVersion>();
+        private static List<User> users = new List<User>();
+        private static List<XDCCPackageDetails> xdccPackages = new List<XDCCPackageDetails>();
+        private static List<string> xdccChannels = new List<string>();
         static Global()
         {
 
@@ -46,11 +52,12 @@ namespace RildasApp
                 case "DATA_EPISODE_FULL": { episodes = new List<Episode>(Serializer.Deserialize<Episode[]>(rest)); if (EpisodeListUpdated != null) EpisodeListUpdated(); }break;
                 case "DATA_EPISODEVERSION_FULL": { episodeVersions = new List<EpisodeVersion>(Serializer.Deserialize<EpisodeVersion[]>(rest));if (EpisodeVersionListUpdated != null) EpisodeVersionListUpdated(); } break;
                 case "DATA_USER_FULL": { users = new List<User>(Serializer.Deserialize<User[]>(rest)); if (UsersListUpdated != null) UsersListUpdated(); }break;
-
+                case "DATA_IRCXDCCDATA_VERSIONS": { xdccPackages = Serializer.Deserialize<List<XDCCPackageDetails>>(rest); if (XDCCPackagesListUpdated != null) XDCCPackagesListUpdated(); } break;
+                case "DATA_IRCXDCCDATA_CHANNELS": { xdccChannels = Serializer.Deserialize<List<string>>(rest); if (XDCCChannelsListUpdated != null) XDCCChannelsListUpdated(); } break;
                 // CHANGEDATA
                 case "CHANGEDATA_UPDATE_EPISODEVERSION": UpdateEpisodeVersion(Serializer.Deserialize<EpisodeVersion>(rest)); break;
                 case "CHANGEDATA_ADD_EPISODEVERSION": AddEpisodeVersion(Serializer.Deserialize<EpisodeVersion>(rest)); break;
-
+                case "CHANGEDATA_ADD_IRCXDCCPACKAGE": AddXDCCPackage(Serializer.Deserialize<XDCCPackageDetails>(rest)); break;
                 //FILE
                 case "FILE_DOWNLOAD_FILEVERSION": DownloadVersion(rest); break;
                 // CHAT
@@ -58,6 +65,12 @@ namespace RildasApp
                 case "CHAT_ALERT_REQUEST": ChatRequestAlert(rest); break;
             }
 
+        }
+
+        private static void AddXDCCPackage(XDCCPackageDetails xDCCPackageDetails)
+        {
+            xdccPackages.Add(xDCCPackageDetails);
+            if (XDCCPackagesListUpdated != null) XDCCPackagesListUpdated();
         }
 
         private static void ChatRequestAlert(string rest)
@@ -76,6 +89,8 @@ namespace RildasApp
             GetMessage(sender, text, sendTime);
             
         }
+
+   
         public static DateTime UnixTimeStampToDateTime(double unixTimeStamp)
         {
             // Unix timestamp is seconds past epoch
@@ -83,6 +98,9 @@ namespace RildasApp
             dtDateTime = dtDateTime.AddSeconds(unixTimeStamp).ToLocalTime();
             return dtDateTime;
         }
+
+     
+
         public static double DateTimeToUnixTimestamp(DateTime dateTime)
         {
             return (TimeZoneInfo.ConvertTimeToUtc(dateTime) -
@@ -128,11 +146,7 @@ namespace RildasApp
                 }
             }
         }
-        public static User loggedUser;
-        private static List<Anime> animes= new List<Anime>();
-        private static List<Episode> episodes = new List<Episode>();
-        private static List<EpisodeVersion> episodeVersions = new List<EpisodeVersion>();
-        private static List<User> users = new List<User>();
+
         public static List<Anime> GetAnimes()
         {
             return animes;
@@ -149,7 +163,14 @@ namespace RildasApp
             }
             return result.ToArray();
         }
-
+        internal static List<XDCCPackageDetails> GetXDCCPackages()
+        {
+            return xdccPackages;
+        }
+        internal static List<string> GetXDCCChannels()
+        {
+            return xdccChannels;
+        }
         public static List<Episode> GetEpisodes()
         {
             return episodes;
@@ -266,5 +287,9 @@ namespace RildasApp
         public static event EpisodeVersionListUpdatedHandler EpisodeVersionListUpdated;
         public delegate void UsersListUpdatedHandler();
         public static event UsersListUpdatedHandler UsersListUpdated;
+        public delegate void XDCCChannelsUpdatedHandler();
+        public static event XDCCChannelsUpdatedHandler XDCCChannelsListUpdated;
+        public delegate void XDCCPackagessUpdatedHandler();
+        public static event XDCCPackagessUpdatedHandler XDCCPackagesListUpdated;
     }
 }

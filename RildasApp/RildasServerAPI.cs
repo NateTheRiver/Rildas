@@ -88,5 +88,20 @@ namespace RildasApp
                 System.Threading.Thread.Sleep(50);
             }
         }
+
+        internal static void GetAllXDCCVersions()
+        {
+            GetFilteredXDCCVersions("", false);
+            ConnectionManager.Send("GETDATA_IRCXDCCDATA_CHANNELSTOJOIN");
+            while (Global.GetXDCCChannels().Count == 0)
+            {
+                System.Threading.Thread.Sleep(50);
+            }
+
+        }
+        internal static void GetFilteredXDCCVersions(string filter, bool dirty)
+        {
+            ConnectionManager.Send(String.Format("GETDATA_IRCXDCCDATA_PACKAGES_{0}_{1}", dirty?"DIRTY": "NONDIRTY", filter));
+        }
     }
 }
