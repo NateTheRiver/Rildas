@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RildasApp.Models;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
@@ -71,6 +72,18 @@ namespace RildasApp.Timetable
         private List<Event> GetEvents()
         {
             List<Event> events = new List<Event>();
+            // TODO: Nemáme jak zjistit jiné akce, než ty týkající se překladů (sraz)
+
+            /*var list = Global.GetEpisodeVersions();
+            foreach (EpisodeVersion ep in list)
+            {
+                Type type;
+                switch (ep.state)
+                {
+                    case
+                }
+            }*/
+
             // TODO: Opravit Events
             /*var result = Global.Query("SELECT app_events.id,`type`,`added`,`deadline`,`anime_id`,`user_id`,`file_id`,`title`,`description`,`lateDeadline`, app_events.state, `creatorID`, anime.name, users.username FROM `app_events` LEFT OUTER JOIN anime ON (anime.id = app_events.anime_id) LEFT OUTER JOIN users ON (app_events.user_id = users.id) WHERE app_events.state='NEW' OR app_events.state='UNFINISHED'");
             Type type;

@@ -79,16 +79,17 @@ namespace RildasApp
             this.cb2Anime = new MetroFramework.Controls.MetroComboBox();
             this.metroLabel8 = new MetroFramework.Controls.MetroLabel();
             this._calendar = new MetroFramework.Controls.MetroTabPage();
-            this.metroCheckBox5 = new MetroFramework.Controls.MetroCheckBox();
-            this.metroCheckBox4 = new MetroFramework.Controls.MetroCheckBox();
+            this.calendar_check_all = new MetroFramework.Controls.MetroCheckBox();
+            this.calendar_check_translates = new MetroFramework.Controls.MetroCheckBox();
             this.metroLabel12 = new MetroFramework.Controls.MetroLabel();
-            this.metroCheckBox3 = new MetroFramework.Controls.MetroCheckBox();
-            this.metroCheckBox2 = new MetroFramework.Controls.MetroCheckBox();
-            this.metroCheckBox1 = new MetroFramework.Controls.MetroCheckBox();
+            this.calendar_check_unaddCorrections = new MetroFramework.Controls.MetroCheckBox();
+            this.calendar_check_myActions = new MetroFramework.Controls.MetroCheckBox();
+            this.calendar_check_rildasAction = new MetroFramework.Controls.MetroCheckBox();
             this.tabPage2 = new MetroFramework.Controls.MetroTabPage();
             this.metroTabControl2 = new MetroFramework.Controls.MetroTabControl();
             this.tab2Page1 = new MetroFramework.Controls.MetroTabPage();
             this.Přehrávač = new MetroFramework.Controls.MetroTabPage();
+            this._xdccCenter = new MetroFramework.Controls.MetroTabPage();
             this._publish = new MetroFramework.Controls.MetroTabPage();
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
             this.publish_cbMinutes = new MetroFramework.Controls.MetroComboBox();
@@ -117,7 +118,6 @@ namespace RildasApp
             this.chatPanelPrivate = new MetroFramework.Controls.MetroPanel();
             this.chatGroupAdd = new MetroFramework.Controls.MetroButton();
             this.metroScrollBar2 = new MetroFramework.Controls.MetroScrollBar();
-            this._xdccCenter = new MetroFramework.Controls.MetroTabPage();
             ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).BeginInit();
             this.metroTabControl1.SuspendLayout();
             this._dashboard.SuspendLayout();
@@ -150,7 +150,7 @@ namespace RildasApp
             this.metroTabControl1.Controls.Add(this._stats);
             this.metroTabControl1.Location = new System.Drawing.Point(23, 63);
             this.metroTabControl1.Name = "metroTabControl1";
-            this.metroTabControl1.SelectedIndex = 5;
+            this.metroTabControl1.SelectedIndex = 3;
             this.metroTabControl1.Size = new System.Drawing.Size(1455, 625);
             this.metroTabControl1.TabIndex = 0;
             this.metroTabControl1.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -805,12 +805,12 @@ namespace RildasApp
             // 
             // _calendar
             // 
-            this._calendar.Controls.Add(this.metroCheckBox5);
-            this._calendar.Controls.Add(this.metroCheckBox4);
+            this._calendar.Controls.Add(this.calendar_check_all);
+            this._calendar.Controls.Add(this.calendar_check_translates);
             this._calendar.Controls.Add(this.metroLabel12);
-            this._calendar.Controls.Add(this.metroCheckBox3);
-            this._calendar.Controls.Add(this.metroCheckBox2);
-            this._calendar.Controls.Add(this.metroCheckBox1);
+            this._calendar.Controls.Add(this.calendar_check_unaddCorrections);
+            this._calendar.Controls.Add(this.calendar_check_myActions);
+            this._calendar.Controls.Add(this.calendar_check_rildasAction);
             this._calendar.HorizontalScrollbarBarColor = true;
             this._calendar.HorizontalScrollbarHighlightOnWheel = false;
             this._calendar.HorizontalScrollbarSize = 10;
@@ -824,27 +824,29 @@ namespace RildasApp
             this._calendar.VerticalScrollbarHighlightOnWheel = false;
             this._calendar.VerticalScrollbarSize = 10;
             // 
-            // metroCheckBox5
+            // calendar_check_all
             // 
-            this.metroCheckBox5.AutoSize = true;
-            this.metroCheckBox5.Location = new System.Drawing.Point(711, 156);
-            this.metroCheckBox5.Name = "metroCheckBox5";
-            this.metroCheckBox5.Size = new System.Drawing.Size(86, 15);
-            this.metroCheckBox5.TabIndex = 19;
-            this.metroCheckBox5.Text = "Zobrazit vše";
-            this.metroCheckBox5.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroCheckBox5.UseSelectable = true;
+            this.calendar_check_all.AutoSize = true;
+            this.calendar_check_all.Location = new System.Drawing.Point(711, 156);
+            this.calendar_check_all.Name = "calendar_check_all";
+            this.calendar_check_all.Size = new System.Drawing.Size(86, 15);
+            this.calendar_check_all.TabIndex = 19;
+            this.calendar_check_all.Text = "Zobrazit vše";
+            this.calendar_check_all.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.calendar_check_all.UseSelectable = true;
+            this.calendar_check_all.MouseClick += new System.Windows.Forms.MouseEventHandler(this.calendar_check_all_CheckedChanged);
             // 
-            // metroCheckBox4
+            // calendar_check_translates
             // 
-            this.metroCheckBox4.AutoSize = true;
-            this.metroCheckBox4.Location = new System.Drawing.Point(711, 135);
-            this.metroCheckBox4.Name = "metroCheckBox4";
-            this.metroCheckBox4.Size = new System.Drawing.Size(114, 15);
-            this.metroCheckBox4.TabIndex = 18;
-            this.metroCheckBox4.Text = "Zobrazit překlady";
-            this.metroCheckBox4.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroCheckBox4.UseSelectable = true;
+            this.calendar_check_translates.AutoSize = true;
+            this.calendar_check_translates.Location = new System.Drawing.Point(711, 135);
+            this.calendar_check_translates.Name = "calendar_check_translates";
+            this.calendar_check_translates.Size = new System.Drawing.Size(114, 15);
+            this.calendar_check_translates.TabIndex = 18;
+            this.calendar_check_translates.Text = "Zobrazit překlady";
+            this.calendar_check_translates.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.calendar_check_translates.UseSelectable = true;
+            this.calendar_check_translates.MouseClick += new System.Windows.Forms.MouseEventHandler(this.calendar_check_CheckedChanged);
             // 
             // metroLabel12
             // 
@@ -856,38 +858,41 @@ namespace RildasApp
             this.metroLabel12.Text = "FIltr:";
             this.metroLabel12.Theme = MetroFramework.MetroThemeStyle.Dark;
             // 
-            // metroCheckBox3
+            // calendar_check_unaddCorrections
             // 
-            this.metroCheckBox3.AutoSize = true;
-            this.metroCheckBox3.Location = new System.Drawing.Point(711, 114);
-            this.metroCheckBox3.Name = "metroCheckBox3";
-            this.metroCheckBox3.Size = new System.Drawing.Size(175, 15);
-            this.metroCheckBox3.TabIndex = 16;
-            this.metroCheckBox3.Text = "Zobrazit nepřidělené korekce";
-            this.metroCheckBox3.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroCheckBox3.UseSelectable = true;
+            this.calendar_check_unaddCorrections.AutoSize = true;
+            this.calendar_check_unaddCorrections.Location = new System.Drawing.Point(711, 114);
+            this.calendar_check_unaddCorrections.Name = "calendar_check_unaddCorrections";
+            this.calendar_check_unaddCorrections.Size = new System.Drawing.Size(175, 15);
+            this.calendar_check_unaddCorrections.TabIndex = 16;
+            this.calendar_check_unaddCorrections.Text = "Zobrazit nepřidělené korekce";
+            this.calendar_check_unaddCorrections.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.calendar_check_unaddCorrections.UseSelectable = true;
+            this.calendar_check_unaddCorrections.MouseClick += new System.Windows.Forms.MouseEventHandler(this.calendar_check_CheckedChanged);
             // 
-            // metroCheckBox2
+            // calendar_check_myActions
             // 
-            this.metroCheckBox2.AutoSize = true;
-            this.metroCheckBox2.Location = new System.Drawing.Point(711, 93);
-            this.metroCheckBox2.Name = "metroCheckBox2";
-            this.metroCheckBox2.Size = new System.Drawing.Size(123, 15);
-            this.metroCheckBox2.TabIndex = 15;
-            this.metroCheckBox2.Text = "Zobrazit moje akce";
-            this.metroCheckBox2.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroCheckBox2.UseSelectable = true;
+            this.calendar_check_myActions.AutoSize = true;
+            this.calendar_check_myActions.Location = new System.Drawing.Point(711, 93);
+            this.calendar_check_myActions.Name = "calendar_check_myActions";
+            this.calendar_check_myActions.Size = new System.Drawing.Size(123, 15);
+            this.calendar_check_myActions.TabIndex = 15;
+            this.calendar_check_myActions.Text = "Zobrazit moje akce";
+            this.calendar_check_myActions.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.calendar_check_myActions.UseSelectable = true;
+            this.calendar_check_myActions.MouseClick += new System.Windows.Forms.MouseEventHandler(this.calendar_check_CheckedChanged);
             // 
-            // metroCheckBox1
+            // calendar_check_rildasAction
             // 
-            this.metroCheckBox1.AutoSize = true;
-            this.metroCheckBox1.Location = new System.Drawing.Point(711, 72);
-            this.metroCheckBox1.Name = "metroCheckBox1";
-            this.metroCheckBox1.Size = new System.Drawing.Size(127, 15);
-            this.metroCheckBox1.TabIndex = 14;
-            this.metroCheckBox1.Text = "Zobrazit Rildas akce";
-            this.metroCheckBox1.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroCheckBox1.UseSelectable = true;
+            this.calendar_check_rildasAction.AutoSize = true;
+            this.calendar_check_rildasAction.Location = new System.Drawing.Point(711, 72);
+            this.calendar_check_rildasAction.Name = "calendar_check_rildasAction";
+            this.calendar_check_rildasAction.Size = new System.Drawing.Size(127, 15);
+            this.calendar_check_rildasAction.TabIndex = 14;
+            this.calendar_check_rildasAction.Text = "Zobrazit Rildas akce";
+            this.calendar_check_rildasAction.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.calendar_check_rildasAction.UseSelectable = true;
+            this.calendar_check_rildasAction.MouseClick += new System.Windows.Forms.MouseEventHandler(this.calendar_check_CheckedChanged);
             // 
             // tabPage2
             // 
@@ -947,6 +952,20 @@ namespace RildasApp
             this.Přehrávač.VerticalScrollbarHighlightOnWheel = false;
             this.Přehrávač.VerticalScrollbarSize = 10;
             this.Přehrávač.Click += new System.EventHandler(this.Přehrávač_Click);
+            // 
+            // _xdccCenter
+            // 
+            this._xdccCenter.HorizontalScrollbarBarColor = true;
+            this._xdccCenter.HorizontalScrollbarHighlightOnWheel = false;
+            this._xdccCenter.HorizontalScrollbarSize = 10;
+            this._xdccCenter.Location = new System.Drawing.Point(4, 38);
+            this._xdccCenter.Name = "_xdccCenter";
+            this._xdccCenter.Size = new System.Drawing.Size(1447, 583);
+            this._xdccCenter.TabIndex = 9;
+            this._xdccCenter.Text = "XDCC Centrum";
+            this._xdccCenter.VerticalScrollbarBarColor = true;
+            this._xdccCenter.VerticalScrollbarHighlightOnWheel = false;
+            this._xdccCenter.VerticalScrollbarSize = 10;
             // 
             // _publish
             // 
@@ -1017,7 +1036,7 @@ namespace RildasApp
             // 
             this.metroDateTime1.CalendarMonthBackground = System.Drawing.SystemColors.WindowText;
             this.metroDateTime1.Location = new System.Drawing.Point(315, 331);
-            this.metroDateTime1.MinimumSize = new System.Drawing.Size(0, 29);
+            this.metroDateTime1.MinimumSize = new System.Drawing.Size(4, 29);
             this.metroDateTime1.Name = "metroDateTime1";
             this.metroDateTime1.Size = new System.Drawing.Size(200, 29);
             this.metroDateTime1.Style = MetroFramework.MetroColorStyle.Blue;
@@ -1309,19 +1328,11 @@ namespace RildasApp
             this.metroScrollBar2.UseSelectable = true;
             this.metroScrollBar2.Scroll += new System.Windows.Forms.ScrollEventHandler(this.metroScrollBar2_Scroll);
             // 
-            // _xdccCenter
-            // 
-            this._xdccCenter.Location = new System.Drawing.Point(4, 38);
-            this._xdccCenter.Name = "_xdccCenter";
-            this._xdccCenter.Size = new System.Drawing.Size(1447, 583);
-            this._xdccCenter.TabIndex = 9;
-            this._xdccCenter.Text = "XDCC Centrum";
-            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1655, 735);
+            this.ClientSize = new System.Drawing.Size(1378, 735);
             this.Controls.Add(this.metroScrollBar2);
             this.Controls.Add(this.chatGroupAdd);
             this.Controls.Add(this.chatPanelPrivate);
@@ -1415,12 +1426,12 @@ namespace RildasApp
         private MetroFramework.Controls.MetroLabel metroLabel14;
         private MetroFramework.Controls.MetroComboBox metroComboBox1;
         private MetroFramework.Controls.MetroTabControl metroTabControl2;
-        private MetroFramework.Controls.MetroCheckBox metroCheckBox5;
-        private MetroFramework.Controls.MetroCheckBox metroCheckBox4;
+        private MetroFramework.Controls.MetroCheckBox calendar_check_all;
+        private MetroFramework.Controls.MetroCheckBox calendar_check_translates;
         private MetroFramework.Controls.MetroLabel metroLabel12;
-        private MetroFramework.Controls.MetroCheckBox metroCheckBox3;
-        private MetroFramework.Controls.MetroCheckBox metroCheckBox2;
-        private MetroFramework.Controls.MetroCheckBox metroCheckBox1;
+        private MetroFramework.Controls.MetroCheckBox calendar_check_unaddCorrections;
+        private MetroFramework.Controls.MetroCheckBox calendar_check_myActions;
+        private MetroFramework.Controls.MetroCheckBox calendar_check_rildasAction;
         private MetroFramework.Controls.MetroTabPage _calendar;
         private MetroFramework.Controls.MetroScrollBar metroScrollBar1;
         private MetroFramework.Controls.MetroLabel metroLabel1;
@@ -1450,6 +1461,6 @@ namespace RildasApp
         private MetroFramework.Controls.MetroPanel panel3;
         private MetroFramework.Controls.MetroTabPage tab2Page1;
         private MetroFramework.Controls.MetroTabPage Přehrávač;
-        private System.Windows.Forms.TabPage _xdccCenter;
+        private MetroFramework.Controls.MetroTabPage _xdccCenter;
     }
 }

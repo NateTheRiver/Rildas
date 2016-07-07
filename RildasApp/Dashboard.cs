@@ -467,7 +467,7 @@ namespace RildasApp
                 picture.Load("http://anime.rildas.cz/" + animeList[i].animelist_img);
                 panel.Controls.Add(picture);
 
-                label.Text = animeList[i].name + "\r\n" + "0" + "/" + animeList[i].ep_count; // TODO: Count translated episodes
+                label.Text = animeList[i].name + "\r\n" + animeList[i].status + "\r\n" + "0" + "/" + animeList[i].ep_count; // TODO: Count translated episodes
                 label.Location = new Point(picture.Location.X, picture.Location.Y + picture.Height + 5);
                 label.Size = new Size(picture.Width, 60);
                 label.ForeColor = Color.White;
@@ -822,7 +822,6 @@ namespace RildasApp
             IEnumerable<User> users = Global.GetUsers().Where(x => x.access > 1);
             users = users.OrderBy(x => x.username);
 
-
             int positionIterator = 0;
 
             foreach (User user in users)
@@ -860,9 +859,7 @@ namespace RildasApp
         {
             User user = (sender as MetroLink).Tag as User;
             Global.OpenIfNeeded(user);
-        }
-      
-  
+        }  
 
         private void Name_Click(object sender, EventArgs e)
         {
@@ -961,11 +958,6 @@ namespace RildasApp
 
         }
 
-        private void metroScrollBar1_Scroll_1(object sender, ScrollEventArgs e)
-        {
-
-        }
-
         private void metroScrollBar2_Scroll(object sender, ScrollEventArgs e)
         {
             chatPanelPrivate.VerticalScroll.Value = (chatPanelPrivate.PreferredSize.Height - chatPanelPrivate.Size.Height) < 0 ? 0 : ((chatPanelPrivate.PreferredSize.Height - chatPanelPrivate.Size.Height) * metroScrollBar2.Value) / 100;
@@ -1026,6 +1018,33 @@ namespace RildasApp
         private void publish_publishPlan_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void calendar_check_CheckedChanged(object sender, MouseEventArgs e)
+        {
+            if (calendar_check_myActions.Checked && calendar_check_myActions.Checked && calendar_check_rildasAction.Checked && calendar_check_translates.Checked && calendar_check_unaddCorrections.Checked)
+            {
+                calendar_check_all.Checked = true;
+            }
+            else
+                calendar_check_all.Checked = false;
+        }
+        private void calendar_check_all_CheckedChanged(object sender, MouseEventArgs e)
+        {
+            if (calendar_check_all.Checked)
+            {
+                calendar_check_myActions.Checked = true;
+                calendar_check_rildasAction.Checked = true;
+                calendar_check_translates.Checked = true;
+                calendar_check_unaddCorrections.Checked = true;
+            }
+            else
+            {                
+                calendar_check_myActions.Checked = false;
+                calendar_check_rildasAction.Checked = false;
+                calendar_check_translates.Checked = false;
+                calendar_check_unaddCorrections.Checked = false;
+            }
         }
 
         private void timetable_panel_Paint(object sender, PaintEventArgs e)
