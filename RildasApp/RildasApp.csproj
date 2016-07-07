@@ -129,6 +129,7 @@
     <Compile Include="Models\Event.cs" />
     <Compile Include="Models\EventFile.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="Models\XDCCPackageDetails.cs" />
     <Compile Include="MyPanel.cs">
       <SubType>Component</SubType>
     </Compile>

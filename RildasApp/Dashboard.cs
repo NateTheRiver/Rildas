@@ -6,6 +6,7 @@ using RildasApp.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.IO;
@@ -89,8 +90,18 @@ namespace RildasApp
             {
                 publish_cbMinutes.Items.Add(i);
             }
+            DataGridViewLinkColumn link = new DataGridViewLinkColumn();
+            link.Text = "Download";
+            link.Name = "Download";
+            link.VisitedLinkColor = Color.DarkGreen;
+            link.LinkColor = Color.DarkGreen;
+            link.ActiveLinkColor = Color.DarkGreen;
+            link.LinkBehavior = LinkBehavior.HoverUnderline;
+            link.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            link.UseColumnTextForLinkValue = true;
+            xdccGridView.Columns.Add(link);
 
-
+            
         }
 
         private void publishPanel_MouseLeave(object sender, EventArgs e)
@@ -188,7 +199,12 @@ namespace RildasApp
         {
             metroComboBox1.SelectedIndex = 0;
             Global.EpisodeVersionListUpdated += Global_EpisodeVersionListUpdated;
+            Global.XDCCPackagesListUpdated += FilterXDCCPackages;
             LoadTeamMembers();
+            if (!String.IsNullOrEmpty(ConfigurationManager.AppSettings["xdccSaveDir"])) _xdccSaveDir.Text = ConfigurationManager.AppSettings["xdccSaveDir"];
+            else _xdccSaveDir.Text = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Rildas Anime Files");
+            FilterXDCCPackages();
+
         }
 
         private void MetroScrollBar1_Scroll(object sender, ScrollEventArgs e)
@@ -1026,6 +1042,66 @@ namespace RildasApp
         private void publish_publishPlan_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void metroGrid1_MouseDown(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void metroButton2_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog fbd = new FolderBrowserDialog();
+            DialogResult result = fbd.ShowDialog();
+            if (!string.IsNullOrWhiteSpace(fbd.SelectedPath))
+            {
+                _xdccSaveDir.Text = fbd.SelectedPath;
+                setSetting("xdccSaveDir", fbd.SelectedPath);
+            }
+        }
+        public bool setSetting(string pstrKey, string pstrValue)
+        {
+            Configuration objConfigFile =
+                ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+            bool blnKeyExists = false;
+
+            foreach (string strKey in objConfigFile.AppSettings.Settings.AllKeys)
+            {
+                if (strKey == pstrKey)
+                {
+                    blnKeyExists = true;
+                    objConfigFile.AppSettings.Settings[pstrKey].Value = pstrValue;
+                    break;
+                }
+            }
+            if (!blnKeyExists)
+            {
+                objConfigFile.AppSettings.Settings.Add(pstrKey, pstrValue);
+            }
+            objConfigFile.Save(ConfigurationSaveMode.Modified);
+            ConfigurationManager.RefreshSection("appSettings");
+            return true;
+        }
+        private void FilterXDCCPackages()
+        {
+            DisableForm();
+            List<XDCCPackageDetails> filteredPackages = Global.GetXDCCPackages();
+            string[] split = _xdccFilterTb.Text.Split(' ');
+            xdccGridView.Invoke(new MethodInvoker(delegate
+            {
+            xdccGridView.Rows.Clear();
+            foreach (XDCCPackageDetails package in filteredPackages)
+            {                
+                    xdccGridView.Rows.Add(package.botName, package.packageNum, package.fansubGroup, package.filename, package.quality, package.packageSize);
+            }
+            }));
+            EnableForm();
+        }
+
+        private void searcXDCCButton_Click(object sender, EventArgs e)
+        {
+            string replacedString = _xdccFilterTb.Text.Replace(' ', '_');
+            RildasServerAPI.GetFilteredXDCCVersions(replacedString, xdccDirtySearch.Checked);
         }
 
         private void timetable_panel_Paint(object sender, PaintEventArgs e)

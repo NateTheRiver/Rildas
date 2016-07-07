@@ -31,6 +31,9 @@ namespace RildasApp
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
             this.metroStyleManager1 = new MetroFramework.Components.MetroStyleManager(this.components);
             this.metroTabControl1 = new MetroFramework.Controls.MetroTabControl();
@@ -89,6 +92,21 @@ namespace RildasApp
             this.metroTabControl2 = new MetroFramework.Controls.MetroTabControl();
             this.tab2Page1 = new MetroFramework.Controls.MetroTabPage();
             this.Přehrávač = new MetroFramework.Controls.MetroTabPage();
+            this._xdccCenter = new MetroFramework.Controls.MetroTabPage();
+            this.xdccDirtySearch = new MetroFramework.Controls.MetroCheckBox();
+            this.searcXDCCButton = new MetroFramework.Controls.MetroButton();
+            this.metroButton2 = new MetroFramework.Controls.MetroButton();
+            this.metroLink1 = new MetroFramework.Controls.MetroLink();
+            this._xdccSaveDir = new MetroFramework.Controls.MetroTextBox();
+            this.metroLabel19 = new MetroFramework.Controls.MetroLabel();
+            this._xdccFilterTb = new MetroFramework.Controls.MetroTextBox();
+            this.xdccGridView = new MetroFramework.Controls.MetroGrid();
+            this.BotName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FileName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Qualitty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FileSize = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._publish = new MetroFramework.Controls.MetroTabPage();
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
             this.publish_cbMinutes = new MetroFramework.Controls.MetroComboBox();
@@ -117,7 +135,6 @@ namespace RildasApp
             this.chatPanelPrivate = new MetroFramework.Controls.MetroPanel();
             this.chatGroupAdd = new MetroFramework.Controls.MetroButton();
             this.metroScrollBar2 = new MetroFramework.Controls.MetroScrollBar();
-            this._xdccCenter = new MetroFramework.Controls.MetroTabPage();
             ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).BeginInit();
             this.metroTabControl1.SuspendLayout();
             this._dashboard.SuspendLayout();
@@ -127,6 +144,8 @@ namespace RildasApp
             this._calendar.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.metroTabControl2.SuspendLayout();
+            this._xdccCenter.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.xdccGridView)).BeginInit();
             this._publish.SuspendLayout();
             this.metroPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.publish_animePicturebox)).BeginInit();
@@ -948,6 +967,242 @@ namespace RildasApp
             this.Přehrávač.VerticalScrollbarSize = 10;
             this.Přehrávač.Click += new System.EventHandler(this.Přehrávač_Click);
             // 
+            // _xdccCenter
+            // 
+            this._xdccCenter.Controls.Add(this.xdccDirtySearch);
+            this._xdccCenter.Controls.Add(this.searcXDCCButton);
+            this._xdccCenter.Controls.Add(this.metroButton2);
+            this._xdccCenter.Controls.Add(this.metroLink1);
+            this._xdccCenter.Controls.Add(this._xdccSaveDir);
+            this._xdccCenter.Controls.Add(this.metroLabel19);
+            this._xdccCenter.Controls.Add(this._xdccFilterTb);
+            this._xdccCenter.Controls.Add(this.xdccGridView);
+            this._xdccCenter.HorizontalScrollbarBarColor = true;
+            this._xdccCenter.HorizontalScrollbarHighlightOnWheel = false;
+            this._xdccCenter.HorizontalScrollbarSize = 10;
+            this._xdccCenter.Location = new System.Drawing.Point(4, 38);
+            this._xdccCenter.Name = "_xdccCenter";
+            this._xdccCenter.Size = new System.Drawing.Size(1447, 583);
+            this._xdccCenter.TabIndex = 9;
+            this._xdccCenter.Text = "XDCC Centrum";
+            this._xdccCenter.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._xdccCenter.VerticalScrollbarBarColor = true;
+            this._xdccCenter.VerticalScrollbarHighlightOnWheel = false;
+            this._xdccCenter.VerticalScrollbarSize = 10;
+            // 
+            // xdccDirtySearch
+            // 
+            this.xdccDirtySearch.AutoSize = true;
+            this.xdccDirtySearch.Location = new System.Drawing.Point(476, 46);
+            this.xdccDirtySearch.Name = "xdccDirtySearch";
+            this.xdccDirtySearch.Size = new System.Drawing.Size(289, 15);
+            this.xdccDirtySearch.TabIndex = 9;
+            this.xdccDirtySearch.Text = "Dirty Search (Může obsahovat nesprávné výsledky)";
+            this.xdccDirtySearch.UseSelectable = true;
+            // 
+            // searcXDCCButton
+            // 
+            this.searcXDCCButton.Location = new System.Drawing.Point(384, 38);
+            this.searcXDCCButton.Name = "searcXDCCButton";
+            this.searcXDCCButton.Size = new System.Drawing.Size(86, 23);
+            this.searcXDCCButton.TabIndex = 8;
+            this.searcXDCCButton.Text = "Hledat";
+            this.searcXDCCButton.UseSelectable = true;
+            this.searcXDCCButton.Click += new System.EventHandler(this.searcXDCCButton_Click);
+            // 
+            // metroButton2
+            // 
+            this.metroButton2.Location = new System.Drawing.Point(397, 488);
+            this.metroButton2.Name = "metroButton2";
+            this.metroButton2.Size = new System.Drawing.Size(73, 23);
+            this.metroButton2.TabIndex = 7;
+            this.metroButton2.Text = "Změnit";
+            this.metroButton2.UseSelectable = true;
+            this.metroButton2.Click += new System.EventHandler(this.metroButton2_Click);
+            // 
+            // metroLink1
+            // 
+            this.metroLink1.Location = new System.Drawing.Point(30, 488);
+            this.metroLink1.Name = "metroLink1";
+            this.metroLink1.Size = new System.Drawing.Size(75, 23);
+            this.metroLink1.TabIndex = 6;
+            this.metroLink1.Text = "Ukládat do:";
+            this.metroLink1.UseSelectable = true;
+            // 
+            // _xdccSaveDir
+            // 
+            // 
+            // 
+            // 
+            this._xdccSaveDir.CustomButton.Image = null;
+            this._xdccSaveDir.CustomButton.Location = new System.Drawing.Point(258, 1);
+            this._xdccSaveDir.CustomButton.Name = "";
+            this._xdccSaveDir.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this._xdccSaveDir.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this._xdccSaveDir.CustomButton.TabIndex = 1;
+            this._xdccSaveDir.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this._xdccSaveDir.CustomButton.UseSelectable = true;
+            this._xdccSaveDir.CustomButton.Visible = false;
+            this._xdccSaveDir.Lines = new string[] {
+        "metroTextBox1"};
+            this._xdccSaveDir.Location = new System.Drawing.Point(111, 488);
+            this._xdccSaveDir.MaxLength = 32767;
+            this._xdccSaveDir.Name = "_xdccSaveDir";
+            this._xdccSaveDir.PasswordChar = '\0';
+            this._xdccSaveDir.ReadOnly = true;
+            this._xdccSaveDir.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this._xdccSaveDir.SelectedText = "";
+            this._xdccSaveDir.SelectionLength = 0;
+            this._xdccSaveDir.SelectionStart = 0;
+            this._xdccSaveDir.Size = new System.Drawing.Size(280, 23);
+            this._xdccSaveDir.TabIndex = 5;
+            this._xdccSaveDir.Text = "metroTextBox1";
+            this._xdccSaveDir.UseSelectable = true;
+            this._xdccSaveDir.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this._xdccSaveDir.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // metroLabel19
+            // 
+            this.metroLabel19.AutoSize = true;
+            this.metroLabel19.Location = new System.Drawing.Point(3, 38);
+            this.metroLabel19.Name = "metroLabel19";
+            this.metroLabel19.Size = new System.Drawing.Size(35, 19);
+            this.metroLabel19.TabIndex = 4;
+            this.metroLabel19.Text = "Filtr:";
+            // 
+            // _xdccFilterTb
+            // 
+            // 
+            // 
+            // 
+            this._xdccFilterTb.CustomButton.Image = null;
+            this._xdccFilterTb.CustomButton.Location = new System.Drawing.Point(312, 1);
+            this._xdccFilterTb.CustomButton.Name = "";
+            this._xdccFilterTb.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this._xdccFilterTb.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this._xdccFilterTb.CustomButton.TabIndex = 1;
+            this._xdccFilterTb.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this._xdccFilterTb.CustomButton.UseSelectable = true;
+            this._xdccFilterTb.CustomButton.Visible = false;
+            this._xdccFilterTb.Lines = new string[0];
+            this._xdccFilterTb.Location = new System.Drawing.Point(44, 38);
+            this._xdccFilterTb.MaxLength = 32767;
+            this._xdccFilterTb.Name = "_xdccFilterTb";
+            this._xdccFilterTb.PasswordChar = '\0';
+            this._xdccFilterTb.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this._xdccFilterTb.SelectedText = "";
+            this._xdccFilterTb.SelectionLength = 0;
+            this._xdccFilterTb.SelectionStart = 0;
+            this._xdccFilterTb.Size = new System.Drawing.Size(334, 23);
+            this._xdccFilterTb.TabIndex = 3;
+            this._xdccFilterTb.UseSelectable = true;
+            this._xdccFilterTb.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this._xdccFilterTb.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // xdccGridView
+            // 
+            this.xdccGridView.AllowUserToAddRows = false;
+            this.xdccGridView.AllowUserToDeleteRows = false;
+            this.xdccGridView.AllowUserToOrderColumns = true;
+            this.xdccGridView.AllowUserToResizeRows = false;
+            this.xdccGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.xdccGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.xdccGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.xdccGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.xdccGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.xdccGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.xdccGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.xdccGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.BotName,
+            this.Column2,
+            this.Column3,
+            this.FileName,
+            this.Qualitty,
+            this.FileSize});
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.xdccGridView.DefaultCellStyle = dataGridViewCellStyle5;
+            this.xdccGridView.EnableHeadersVisualStyles = false;
+            this.xdccGridView.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.xdccGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.xdccGridView.Location = new System.Drawing.Point(3, 81);
+            this.xdccGridView.MultiSelect = false;
+            this.xdccGridView.Name = "xdccGridView";
+            this.xdccGridView.ReadOnly = true;
+            this.xdccGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.xdccGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.xdccGridView.RowHeadersWidth = 25;
+            this.xdccGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.xdccGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.xdccGridView.ShowEditingIcon = false;
+            this.xdccGridView.Size = new System.Drawing.Size(1241, 401);
+            this.xdccGridView.Style = MetroFramework.MetroColorStyle.Blue;
+            this.xdccGridView.TabIndex = 2;
+            this.xdccGridView.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.xdccGridView.MouseDown += new System.Windows.Forms.MouseEventHandler(this.metroGrid1_MouseDown);
+            // 
+            // BotName
+            // 
+            this.BotName.HeaderText = "BotName";
+            this.BotName.Name = "BotName";
+            this.BotName.ReadOnly = true;
+            this.BotName.Width = 77;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "PackNumber";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 94;
+            // 
+            // Column3
+            // 
+            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column3.HeaderText = "Fansub group";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Width = 94;
+            // 
+            // FileName
+            // 
+            this.FileName.HeaderText = "FileName";
+            this.FileName.Name = "FileName";
+            this.FileName.ReadOnly = true;
+            this.FileName.Width = 77;
+            // 
+            // Qualitty
+            // 
+            this.Qualitty.HeaderText = "Qualitty";
+            this.Qualitty.Name = "Qualitty";
+            this.Qualitty.ReadOnly = true;
+            this.Qualitty.Width = 70;
+            // 
+            // FileSize
+            // 
+            this.FileSize.HeaderText = "FileSize";
+            this.FileSize.Name = "FileSize";
+            this.FileSize.ReadOnly = true;
+            this.FileSize.Width = 68;
+            // 
             // _publish
             // 
             this._publish.Controls.Add(this.metroPanel1);
@@ -1017,7 +1272,7 @@ namespace RildasApp
             // 
             this.metroDateTime1.CalendarMonthBackground = System.Drawing.SystemColors.WindowText;
             this.metroDateTime1.Location = new System.Drawing.Point(315, 331);
-            this.metroDateTime1.MinimumSize = new System.Drawing.Size(0, 29);
+            this.metroDateTime1.MinimumSize = new System.Drawing.Size(4, 29);
             this.metroDateTime1.Name = "metroDateTime1";
             this.metroDateTime1.Size = new System.Drawing.Size(200, 29);
             this.metroDateTime1.Style = MetroFramework.MetroColorStyle.Blue;
@@ -1309,14 +1564,6 @@ namespace RildasApp
             this.metroScrollBar2.UseSelectable = true;
             this.metroScrollBar2.Scroll += new System.Windows.Forms.ScrollEventHandler(this.metroScrollBar2_Scroll);
             // 
-            // _xdccCenter
-            // 
-            this._xdccCenter.Location = new System.Drawing.Point(4, 38);
-            this._xdccCenter.Name = "_xdccCenter";
-            this._xdccCenter.Size = new System.Drawing.Size(1447, 583);
-            this._xdccCenter.TabIndex = 9;
-            this._xdccCenter.Text = "XDCC Centrum";
-            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1351,6 +1598,9 @@ namespace RildasApp
             this._calendar.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.metroTabControl2.ResumeLayout(false);
+            this._xdccCenter.ResumeLayout(false);
+            this._xdccCenter.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.xdccGridView)).EndInit();
             this._publish.ResumeLayout(false);
             this._publish.PerformLayout();
             this.metroPanel1.ResumeLayout(false);
@@ -1450,6 +1700,20 @@ namespace RildasApp
         private MetroFramework.Controls.MetroPanel panel3;
         private MetroFramework.Controls.MetroTabPage tab2Page1;
         private MetroFramework.Controls.MetroTabPage Přehrávač;
-        private System.Windows.Forms.TabPage _xdccCenter;
+        private MetroFramework.Controls.MetroGrid xdccGridView;
+        private MetroFramework.Controls.MetroTabPage _xdccCenter;
+        private MetroFramework.Controls.MetroLabel metroLabel19;
+        private MetroFramework.Controls.MetroTextBox _xdccFilterTb;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BotName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FileName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Qualitty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FileSize;
+        private MetroFramework.Controls.MetroButton metroButton2;
+        private MetroFramework.Controls.MetroLink metroLink1;
+        private MetroFramework.Controls.MetroTextBox _xdccSaveDir;
+        private MetroFramework.Controls.MetroButton searcXDCCButton;
+        private MetroFramework.Controls.MetroCheckBox xdccDirtySearch;
     }
 }
