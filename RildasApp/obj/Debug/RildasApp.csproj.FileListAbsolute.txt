@@ -37,3 +37,5 @@ C:\Users\Deny\Source\Repos\Rildas\RildasApp\obj\Debug\RildasApp.LoginForm.resour
 C:\Users\Deny\Source\Repos\Rildas\RildasApp\obj\Debug\RildasApp.MainForm.resources
 C:\Users\Deny\Source\Repos\Rildas\RildasApp\obj\Debug\RildasApp.Properties.Resources.resources
 C:\Users\Deny\Source\Repos\Rildas\RildasApp\obj\Debug\RildasApp.csproj.GenerateResource.Cache
+C:\Users\Richard\Rildas\Aplikace\RildasApp\bin\Debug\ChatSharp.dll
+C:\Users\Richard\Rildas\Aplikace\RildasApp\obj\Debug\RildasApp.XDCCDownloadingForm.resources

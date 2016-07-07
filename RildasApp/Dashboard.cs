@@ -97,11 +97,26 @@ namespace RildasApp
             link.LinkColor = Color.DarkGreen;
             link.ActiveLinkColor = Color.DarkGreen;
             link.LinkBehavior = LinkBehavior.HoverUnderline;
+            
             link.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             link.UseColumnTextForLinkValue = true;
             xdccGridView.Columns.Add(link);
+            xdccGridView.CellContentClick += XdccGridView_CellContentClick;
 
+        }
 
+        private void XdccGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+           if(e.ColumnIndex == 6)
+            {
+                string botName = (string)xdccGridView[0, e.RowIndex].Value;
+                string packNumber = (string)xdccGridView[1, e.RowIndex].Value;
+                XDCCDownloadingForm downloadingForm = new XDCCDownloadingForm(botName, packNumber, _xdccSaveDir.Text);
+                downloadingForm.Show();
+                downloadingForm.Activate();
+                
+
+            }
         }
 
         private void publishPanel_MouseLeave(object sender, EventArgs e)

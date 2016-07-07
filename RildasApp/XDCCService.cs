@@ -26,6 +26,7 @@ namespace RildasApp
             public string botname;
             public string packNumber;
             public DownloadStatus status;
+            public string fileName;
         }
         public static IrcClient client;
         private static string nickname;
@@ -278,6 +279,8 @@ namespace RildasApp
                         using (FileStream writeStream = new FileStream(finalFileName, FileMode.Append, FileAccess.Write, FileShare.Read))
                         {
                             isDownloading = true;
+                            DownloadInfo info = new DownloadInfo();
+                            info.botname = botName;
                             //download while connected and filesize is not reached
                             while (dltcp.Connected && bytesReceived < newFileSize)
                             {
@@ -289,7 +292,7 @@ namespace RildasApp
 
                                 //count bytes received
                                 bytesReceived += count;
-
+                                
                                 Progress = (int)(bytesReceived / oneprocent);
 
 
@@ -297,11 +300,10 @@ namespace RildasApp
                                 DateTime end = DateTime.Now;
                                 if (start.Second != end.Second)
                                 {
-                                    DownloadInfo info = new DownloadInfo();
-                                    info.botname = botName;
                                     info.Bytes_Seconds = bytesReceived - oldBytesReceived;
                                     info.downloadedBytes = bytesReceived;
                                     info.fileSize = newFileSize;
+                                    info.fileName = newFileName;
                                     info.KBytes_Seconds = (int)(info.Bytes_Seconds / 1024);
                                     info.MBytes_Seconds = (info.KBytes_Seconds / 1024);
                                     info.packNumber = packNum;
@@ -309,6 +311,7 @@ namespace RildasApp
                                     info.status = DownloadInfo.DownloadStatus.DOWNLOADING;
                                     if (UpdateProgess != null) UpdateProgess(info);
                                     start = DateTime.Now;
+                                    oldBytesReceived = bytesReceived;
                                 }
 
 
@@ -347,7 +350,6 @@ namespace RildasApp
                                 if (DebugMessage != null) DebugMessage("Download stopped at < 95 % finished, deleting file: " + newFileName + " \n");
                                 File.Delete(finalFileName);
                                 timedOut = false;
-                                DownloadInfo info = new DownloadInfo();
                                 info.botname = botName;
                                 info.downloadedBytes = bytesReceived;
                                 info.fileSize = newFileSize;
@@ -359,7 +361,6 @@ namespace RildasApp
                             }
                             else if (timedOut && Progress < 95)
                             {
-                                DownloadInfo info = new DownloadInfo();
                                 info.botname = botName;
                                 info.downloadedBytes = bytesReceived;
                                 info.fileSize = newFileSize;
@@ -373,7 +374,6 @@ namespace RildasApp
                             }
                             else
                             {
-                                DownloadInfo info = new DownloadInfo();
                                 info.botname = botName;
                                 info.downloadedBytes = bytesReceived;
                                 info.fileSize = newFileSize;
@@ -419,7 +419,7 @@ namespace RildasApp
             isProcessing = false;
         }
         //stops the downloader
-        public void abortDownloader()
+        public static void AbortDownloader()
         {
             //   simpleirc.DebugCallBack("Downloader Stopped");
             isDownloading = false;
