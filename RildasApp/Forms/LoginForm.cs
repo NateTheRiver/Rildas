@@ -13,6 +13,7 @@ using System.Configuration;
 using RildasApp.Models;
 using System.Net;
 using System.Diagnostics;
+using System.IO;
 
 namespace RildasApp.Forms
 {
@@ -77,7 +78,13 @@ namespace RildasApp.Forms
                 DialogResult result = MetroFramework.MetroMessageBox.Show(this, String.Format("New version found. Your version: {0}. Current version: {1}. You can continue with old version, but there is no guarantee that it will work properly.", fvi.FileVersion, version.version),  "New version", MessageBoxButtons.YesNo);
                 if(result == DialogResult.Yes)
                 {
-
+                    ApplicationUpdateInformationForm updateForm = new ApplicationUpdateInformationForm(version);
+                    Process p = new Process();
+                    p.StartInfo.FileName = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "RildasAppUpdater.exe");
+                    p.StartInfo.Arguments = version.downloadLocation;
+                    p.StartInfo.CreateNoWindow = true;
+                    p.Start();
+                    
                 }
                 else
                 {

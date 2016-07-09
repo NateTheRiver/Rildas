@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this._lbCurr = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
+            this._lbServerVersion = new MetroFramework.Controls.MetroLabel();
             this.metroLabel13 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this._tbPatchNotes = new MetroFramework.Controls.MetroTextBox();
@@ -40,20 +40,20 @@
             this._lbCurr.AutoSize = true;
             this._lbCurr.Location = new System.Drawing.Point(23, 85);
             this._lbCurr.Name = "_lbCurr";
-            this._lbCurr.Size = new System.Drawing.Size(141, 19);
+            this._lbCurr.Size = new System.Drawing.Size(106, 19);
             this._lbCurr.TabIndex = 0;
-            this._lbCurr.Text = "Current Version: 0.1.0.0";
+            this._lbCurr.Text = "Current Version: ";
             this._lbCurr.Theme = MetroFramework.MetroThemeStyle.Dark;
             // 
-            // metroLabel1
+            // _lbServerVersion
             // 
-            this.metroLabel1.AutoSize = true;
-            this.metroLabel1.Location = new System.Drawing.Point(23, 104);
-            this.metroLabel1.Name = "metroLabel1";
-            this.metroLabel1.Size = new System.Drawing.Size(148, 19);
-            this.metroLabel1.TabIndex = 1;
-            this.metroLabel1.Text = "Server Version:  0.5.0.0a";
-            this.metroLabel1.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._lbServerVersion.AutoSize = true;
+            this._lbServerVersion.Location = new System.Drawing.Point(23, 104);
+            this._lbServerVersion.Name = "_lbServerVersion";
+            this._lbServerVersion.Size = new System.Drawing.Size(104, 19);
+            this._lbServerVersion.TabIndex = 1;
+            this._lbServerVersion.Text = "Server Version:  ";
+            this._lbServerVersion.Theme = MetroFramework.MetroThemeStyle.Dark;
             // 
             // metroLabel13
             // 
@@ -121,7 +121,7 @@
             this.Controls.Add(this._tbPatchNotes);
             this.Controls.Add(this.metroLabel2);
             this.Controls.Add(this.metroLabel13);
-            this.Controls.Add(this.metroLabel1);
+            this.Controls.Add(this._lbServerVersion);
             this.Controls.Add(this._lbCurr);
             this.Name = "ApplicationUpdateInformationForm";
             this.Text = "Updating to new version";
@@ -134,7 +134,7 @@
         #endregion
 
         private MetroFramework.Controls.MetroLabel _lbCurr;
-        private MetroFramework.Controls.MetroLabel metroLabel1;
+        private MetroFramework.Controls.MetroLabel _lbServerVersion;
         private MetroFramework.Controls.MetroLabel metroLabel13;
         private MetroFramework.Controls.MetroLabel metroLabel2;
         private MetroFramework.Controls.MetroTextBox _tbPatchNotes;
