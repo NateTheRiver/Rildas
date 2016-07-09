@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("RildasApp")]
+[assembly: AssemblyTitle("RildasAppUpdater")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Richard Strnad & Daniel Ondřej")]
-[assembly: AssemblyProduct("RildasApp")]
-[assembly: AssemblyCopyright("Copyright © Rildas 2016")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("RildasAppUpdater")]
+[assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("b28c27c1-5d1a-4947-8cc9-3464d83aeb6a")]
+[assembly: Guid("5aa7a501-31a2-4b2c-b3d4-dd01f577c258")]
 
 // Version information for an assembly consists of the following four values:
 //
@@ -33,4 +33,4 @@ using System.Runtime.InteropServices;
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("0.1.0.0")]
+[assembly: AssemblyFileVersion("1.0.0.0")]

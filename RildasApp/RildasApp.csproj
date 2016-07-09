@@ -47,9 +47,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AutoUpdater">
-      <HintPath>..\..\..\..\..\Desktop\autoUpdater\bin\Debug\AutoUpdater.dll</HintPath>
-    </Reference>
     <Reference Include="ChatSharp">
       <HintPath>..\..\..\Documents\Visual Studio 2015\Projects\Host\Host\bin\Debug\ChatSharp.dll</HintPath>
     </Reference>
@@ -69,10 +66,6 @@
       <HintPath>..\packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="nVLC_Demo_WinForms, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\nVLC_Demo_WinForms.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -87,45 +80,46 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ChatWindow.cs">
+    <Compile Include="Forms\ApplicationUpdateInformationForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ChatWindow.Designer.cs">
+    <Compile Include="Forms\ApplicationUpdateInformationForm.Designer.cs">
+      <DependentUpon>ApplicationUpdateInformationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ChatWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ChatWindow.Designer.cs">
       <DependentUpon>ChatWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="ConnectionManager.cs" />
-    <Compile Include="Dashboard.cs">
+    <Compile Include="Forms\Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Dashboard.Designer.cs">
+    <Compile Include="Forms\Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="EventControler.cs">
+    <Compile Include="Forms\EventControler.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EventControler.Designer.cs">
+    <Compile Include="Forms\EventControler.Designer.cs">
       <DependentUpon>EventControler.cs</DependentUpon>
     </Compile>
-    <Compile Include="EventEdit.cs">
+    <Compile Include="Forms\EventEdit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EventEdit.Designer.cs">
+    <Compile Include="Forms\EventEdit.Designer.cs">
       <DependentUpon>EventEdit.cs</DependentUpon>
     </Compile>
     <Compile Include="Global.cs" />
     <Compile Include="Models\Anime.cs" />
-    <Compile Include="LoginForm.cs">
+    <Compile Include="Forms\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LoginForm.Designer.cs">
+    <Compile Include="Forms\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MainForm.Designer.cs">
-      <DependentUpon>MainForm.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Models\ApplicationVersion.cs" />
     <Compile Include="Models\ChatGroup.cs" />
     <Compile Include="Models\Episode.cs" />
     <Compile Include="Models\EpisodeVersion.cs" />
@@ -157,27 +151,27 @@
       <DependentUpon>VlcUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="VLC\IPlayer.cs" />
-    <Compile Include="XDCCDownloadingForm.cs">
+    <Compile Include="Forms\XDCCDownloadingForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="XDCCDownloadingForm.Designer.cs">
+    <Compile Include="Forms\XDCCDownloadingForm.Designer.cs">
       <DependentUpon>XDCCDownloadingForm.cs</DependentUpon>
     </Compile>
     <Compile Include="XDCCService.cs" />
-    <EmbeddedResource Include="ChatWindow.resx">
+    <EmbeddedResource Include="Forms\ApplicationUpdateInformationForm.resx">
+      <DependentUpon>ApplicationUpdateInformationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ChatWindow.resx">
       <DependentUpon>ChatWindow.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Dashboard.resx">
+    <EmbeddedResource Include="Forms\Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EventEdit.resx">
+    <EmbeddedResource Include="Forms\EventEdit.resx">
       <DependentUpon>EventEdit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LoginForm.resx">
+    <EmbeddedResource Include="Forms\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.resx">
-      <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -188,7 +182,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="XDCCDownloadingForm.resx">
+    <EmbeddedResource Include="Forms\XDCCDownloadingForm.resx">
       <DependentUpon>XDCCDownloadingForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
@@ -216,17 +210,6 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
-    <COMReference Include="AXVLC">
-      <Guid>{DF2BBE39-40A8-433B-A279-073F48DA94B6}</Guid>
-      <VersionMajor>1</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Timetable.html" />
