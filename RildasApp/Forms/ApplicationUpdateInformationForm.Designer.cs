@@ -30,7 +30,7 @@
         {
             this._lbCurr = new MetroFramework.Controls.MetroLabel();
             this._lbServerVersion = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel13 = new MetroFramework.Controls.MetroLabel();
+            this._lbDownloading = new MetroFramework.Controls.MetroLabel();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this._tbPatchNotes = new MetroFramework.Controls.MetroTextBox();
             this.SuspendLayout();
@@ -55,21 +55,21 @@
             this._lbServerVersion.Text = "Server Version:  ";
             this._lbServerVersion.Theme = MetroFramework.MetroThemeStyle.Dark;
             // 
-            // metroLabel13
+            // _lbDownloading
             // 
-            this.metroLabel13.AutoSize = true;
-            this.metroLabel13.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.metroLabel13.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.metroLabel13.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.metroLabel13.Location = new System.Drawing.Point(95, 378);
-            this.metroLabel13.Name = "metroLabel13";
-            this.metroLabel13.Size = new System.Drawing.Size(689, 25);
-            this.metroLabel13.Style = MetroFramework.MetroColorStyle.Blue;
-            this.metroLabel13.TabIndex = 2;
-            this.metroLabel13.Text = "Po dokončení updatu se aplikace sama restartuje. Sit back and get some coffee.";
-            this.metroLabel13.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroLabel13.UseStyleColors = true;
-            this.metroLabel13.Visible = false;
+            this._lbDownloading.AutoSize = true;
+            this._lbDownloading.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this._lbDownloading.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this._lbDownloading.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this._lbDownloading.Location = new System.Drawing.Point(95, 378);
+            this._lbDownloading.Name = "_lbDownloading";
+            this._lbDownloading.Size = new System.Drawing.Size(689, 25);
+            this._lbDownloading.Style = MetroFramework.MetroColorStyle.Blue;
+            this._lbDownloading.TabIndex = 2;
+            this._lbDownloading.Text = "Po dokončení updatu se aplikace sama restartuje. Sit back and get some coffee.";
+            this._lbDownloading.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._lbDownloading.UseStyleColors = true;
+            this._lbDownloading.Visible = false;
             // 
             // metroLabel2
             // 
@@ -120,7 +120,7 @@
             this.ClientSize = new System.Drawing.Size(807, 423);
             this.Controls.Add(this._tbPatchNotes);
             this.Controls.Add(this.metroLabel2);
-            this.Controls.Add(this.metroLabel13);
+            this.Controls.Add(this._lbDownloading);
             this.Controls.Add(this._lbServerVersion);
             this.Controls.Add(this._lbCurr);
             this.Name = "ApplicationUpdateInformationForm";
@@ -135,7 +135,7 @@
 
         private MetroFramework.Controls.MetroLabel _lbCurr;
         private MetroFramework.Controls.MetroLabel _lbServerVersion;
-        private MetroFramework.Controls.MetroLabel metroLabel13;
+        private MetroFramework.Controls.MetroLabel _lbDownloading;
         private MetroFramework.Controls.MetroLabel metroLabel2;
         private MetroFramework.Controls.MetroTextBox _tbPatchNotes;
     }

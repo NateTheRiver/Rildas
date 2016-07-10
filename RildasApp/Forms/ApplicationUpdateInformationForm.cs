@@ -17,12 +17,14 @@ namespace RildasApp.Forms
     {
         public ApplicationUpdateInformationForm(ApplicationVersion version)
         {
+            InitializeComponent();
             System.Reflection.Assembly assembly = System.Reflection.Assembly.GetExecutingAssembly();
             FileVersionInfo fvi = FileVersionInfo.GetVersionInfo(assembly.Location);
             this._lbCurr.Text += fvi.FileVersion;
             this._lbServerVersion.Text += version.version;
             this._tbPatchNotes.Text = version.description;
-            InitializeComponent();
+            if (fvi.FileVersion == version.version) _lbDownloading.Visible = false;
+           
 
         }
     }

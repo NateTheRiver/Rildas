@@ -21,33 +21,64 @@ namespace RildasApp.Forms
     {
         System.Timers.Timer timer = new System.Timers.Timer();
         System.Timers.Timer progressBarTimer = new System.Timers.Timer();
-
+        private const string CONNECTION_FAILED = "Připojení selhalo, aplikace se pokusí spojení obnovit.";
+        private const string LOGIN_FAILED = "Chybné uživatelské jméno nebo heslo, zkuste to prosím znovu.";
         int nextValue = 0;
         public LoginForm()
         {
-            Global.Init();
-            timer.Elapsed += Timer_Elapsed;
-            timer.Interval = 15000;
-            ConnectionManager.Connect();
             InitializeComponent();
+            Global.Init();
+            ConnectionManager.Recieved += ConnectionManager_Recieved;
+            ConnectionManager.Disconnected += ConnectionManager_Disconnected;
+            timer.Elapsed += Timer_Elapsed;
+            timer.Interval = 10000;
+            if(!ConnectionManager.Connect())
+            {
+                label_fail.Text = CONNECTION_FAILED;
+                label_fail.Visible = true;
+            }
+            else
+            {
+
+            }
+            timer.Start();
+            
+            
         }
 
         private void Timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
-            if (!ConnectionManager.IsConnected) LoginFailed();
+            if (!ConnectionManager.Connect())
+            {
+                label_fail.Invoke(new MethodInvoker(delegate { 
+                label_fail.Text = CONNECTION_FAILED;
+                label_fail.Visible = true;
+                }));
+                metroButton1.Invoke(new MethodInvoker(delegate {
+                    metroButton1.Enabled = false;
+                }));
+            }
+            else
+            {
+                label_fail.Invoke(new MethodInvoker(delegate {
+                    if (label_fail.Text == CONNECTION_FAILED) label_fail.Visible = false;
+                }));
+            }
         }
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
             if (ConfigurationManager.AppSettings["username"] != "") cbSave.Checked = true;
             textUsername.Text = ConfigurationManager.AppSettings["username"];
-            ConnectionManager.Recieved += ConnectionManager_Recieved;
-            ConnectionManager.Disconnected += ConnectionManager_Disconnected;
+
         }
 
         private void ConnectionManager_Disconnected()
         {
-            LoginFailed();
+            label_fail.Invoke(new MethodInvoker(delegate {
+                label_fail.Text = CONNECTION_FAILED;
+                label_fail.Visible = true;
+            }));
         }
 
         private void ConnectionManager_Recieved(string data)
@@ -70,6 +101,10 @@ namespace RildasApp.Forms
 
         private void CheckVersion(string rest)
         {
+#if DEBUG
+            metroButton1.Invoke(new MethodInvoker(delegate { metroButton1.Enabled = true; }));
+            return;
+#endif
             ApplicationVersion version = Serializer.Deserialize<ApplicationVersion>(rest);
             System.Reflection.Assembly assembly = System.Reflection.Assembly.GetExecutingAssembly();
             FileVersionInfo fvi = FileVersionInfo.GetVersionInfo(assembly.Location);
@@ -79,15 +114,26 @@ namespace RildasApp.Forms
                 if(result == DialogResult.Yes)
                 {
                     ApplicationUpdateInformationForm updateForm = new ApplicationUpdateInformationForm(version);
+                    updateForm.Show();
+                    updateForm.Activate();
                     Process p = new Process();
                     p.StartInfo.FileName = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "RildasAppUpdater.exe");
                     p.StartInfo.Arguments = version.downloadLocation;
                     p.StartInfo.CreateNoWindow = true;
+                    p.StartInfo.Verb = "runas";
                     p.Start();
                     
                 }
                 else
                 {
+                    if (Properties.Settings.Default.FirstRun == true)
+                    {
+                        Properties.Settings.Default.FirstRun = false;
+                        Properties.Settings.Default.Save();
+                        ApplicationUpdateInformationForm updateForm = new ApplicationUpdateInformationForm(version);
+                        updateForm.Show();
+                        updateForm.Activate();
+                    }
                     metroButton1.Invoke(new MethodInvoker(delegate { metroButton1.Enabled = true; }));
                 }
             }
@@ -167,7 +213,7 @@ namespace RildasApp.Forms
 
         public void LoginFailed()
         {
-            label_fail.Invoke(new MethodInvoker(delegate { label_fail.Visible = true; }));
+            label_fail.Invoke(new MethodInvoker(delegate { label_fail.Text = LOGIN_FAILED; label_fail.Visible = true; }));
             metroButton1.Invoke(new MethodInvoker(delegate { metroButton1.Visible = true; }));
             loginSpinner.Invoke(new MethodInvoker(delegate { loginSpinner.Visible = false; }));
         }
@@ -196,6 +242,7 @@ namespace RildasApp.Forms
         }
         private void metroButton1_Click(object sender, EventArgs e)
         {
+            
             label_fail.Visible = false;
             metroButton1.Visible = false;
             loginSpinner.Visible = true;
@@ -208,7 +255,6 @@ namespace RildasApp.Forms
         }
         private void Auth()
         {
-            timer.Start();
             if (!ConnectionManager.IsConnected)
             {
                 ConnectionManager.Connect();

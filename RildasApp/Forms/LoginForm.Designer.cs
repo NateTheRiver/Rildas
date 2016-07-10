@@ -151,11 +151,11 @@
             // 
             this.label_fail.AutoSize = true;
             this.label_fail.ForeColor = System.Drawing.Color.Red;
-            this.label_fail.Location = new System.Drawing.Point(30, 188);
+            this.label_fail.Location = new System.Drawing.Point(11, 210);
             this.label_fail.Name = "label_fail";
-            this.label_fail.Size = new System.Drawing.Size(252, 19);
+            this.label_fail.Size = new System.Drawing.Size(346, 19);
             this.label_fail.TabIndex = 6;
-            this.label_fail.Text = "Přihlášení selhalo, zkuste to prosím znovu.";
+            this.label_fail.Text = "Připojení selhalo, aplikace se pokusí o opětovné připojení.";
             this.label_fail.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.label_fail.UseStyleColors = true;
             this.label_fail.Visible = false;
@@ -173,7 +173,7 @@
             // 
             // metroProgressBar1
             // 
-            this.metroProgressBar1.Location = new System.Drawing.Point(23, 210);
+            this.metroProgressBar1.Location = new System.Drawing.Point(23, 184);
             this.metroProgressBar1.Name = "metroProgressBar1";
             this.metroProgressBar1.Size = new System.Drawing.Size(259, 23);
             this.metroProgressBar1.TabIndex = 8;
@@ -199,7 +199,6 @@
             this.Resizable = false;
             this.Text = "Přihlášení - Rildas.cz";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.TopMost = true;
             this.Load += new System.EventHandler(this.LoginForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

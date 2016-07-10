@@ -11,7 +11,6 @@ C:\Users\Richard\Rildas\Aplikace\RildasApp\obj\Release\RildasApp.Properties.Reso
 C:\Users\Richard\Rildas\Aplikace\RildasApp\obj\Release\RildasApp.csproj.GenerateResource.Cache
 C:\Users\Richard\Rildas\Aplikace\RildasApp\obj\Release\RildasApp.exe
 C:\Users\Richard\Rildas\Aplikace\RildasApp\obj\Release\RildasApp.pdb
-C:\Users\Richard\Rildas\Aplikace\RildasApp\obj\Release\RildasApp.csprojResolveAssemblyReference.cache
 C:\Users\Richard\Rildas\Aplikace\RildasApp\obj\Release\RildasApp.Forms.ChatWindow.resources
 C:\Users\Richard\Rildas\Aplikace\RildasApp\obj\Release\RildasApp.Forms.Dashboard.resources
 C:\Users\Richard\Rildas\Aplikace\RildasApp\obj\Release\RildasApp.Forms.EventEdit.resources

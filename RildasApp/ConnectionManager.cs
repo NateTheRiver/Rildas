@@ -125,9 +125,16 @@ namespace RildasApp
         }
         public static void Send(string text)
         {
-            byte[] buf = Encoding.UTF8.GetBytes(text + "_||_");
-            sck.BeginSend(buf, 0, buf.Length, SocketFlags.None,
-            new AsyncCallback(SendCallback), sck);
+            try
+            {
+                byte[] buf = Encoding.UTF8.GetBytes(text + "_||_");
+                sck.BeginSend(buf, 0, buf.Length, SocketFlags.None,
+                new AsyncCallback(SendCallback), sck);
+            }
+            catch(Exception e)
+            {
+
+            }
         }
         private static void SendCallback(IAsyncResult ar)
         {
