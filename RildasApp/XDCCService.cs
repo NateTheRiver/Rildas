@@ -46,6 +46,11 @@ namespace RildasApp
         private static string downloadPath;
         private static double Progress;
         private static bool gotResponse;
+        public static bool isAborted
+        {
+            get; private set;
+        }
+
         static XDCCService()
         {
             isConnected = false;
@@ -54,6 +59,7 @@ namespace RildasApp
         }
         public static void Connect(string nickname)
         {
+            isAborted = false;
             if (isConnected) return;
             XDCCService.nickname = nickname;
             client = new IrcClient("irc.rizon.net", new IrcUser(nickname, nickname));
@@ -64,6 +70,10 @@ namespace RildasApp
                 Console.WriteLine("Connected.");
                 Console.ForegroundColor = ConsoleColor.White;
                 isConnected = true;
+                foreach (string channel in Global.GetXDCCChannels())
+                {
+                    client.JoinChannel(channel);
+                }
             };
             client.NetworkError += (s, e) =>
             {
@@ -101,7 +111,7 @@ namespace RildasApp
             gotResponse = false;
             client.SendMessage("xdcc send " + package, bot);
             Thread.Sleep(5000);
-            if (!gotResponse)
+            if (!gotResponse || isAborted)
             {
                 isProcessing = false;
                 client.RawMessageRecieved -= Client_RawMessageRecieved;
@@ -127,7 +137,7 @@ namespace RildasApp
                 newDccString = dccString;
                 curDownloadDir = downloaddir;
                 bool isParsed = parseData();
-                if (isParsed)
+                if (isParsed && !isAborted)
                 {
                     downloader = new Thread(new ThreadStart(Downloader));
                     downloader.Start();
@@ -424,7 +434,12 @@ namespace RildasApp
             //   simpleirc.DebugCallBack("Downloader Stopped");
             isDownloading = false;
             isProcessing = false;
-            downloader.Abort();
+            isAborted = true;
+            try
+            {
+                downloader.Abort();
+            }
+            catch (Exception) { }
         }
         public delegate void DownloadCompletedHandler(string filePath);
         public static event DownloadCompletedHandler DownloadCompleted;

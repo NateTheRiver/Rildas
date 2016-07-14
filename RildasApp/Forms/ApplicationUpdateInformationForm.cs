@@ -24,7 +24,7 @@ namespace RildasApp.Forms
             this._lbServerVersion.Text += version.version;
             this._tbPatchNotes.Text = version.description;
             if (fvi.FileVersion == version.version) _lbDownloading.Visible = false;
-           
+            else this.Text = "Updating to new version";
 
         }
     }

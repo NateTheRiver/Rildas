@@ -86,13 +86,19 @@
     <Compile Include="Forms\ApplicationUpdateInformationForm.Designer.cs">
       <DependentUpon>ApplicationUpdateInformationForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\ChatWindow.cs">
+    <Compile Include="ConnectionManager.cs" />
+    <Compile Include="Forms\ChatWindowGroup.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\ChatWindow.Designer.cs">
-      <DependentUpon>ChatWindow.cs</DependentUpon>
+    <Compile Include="Forms\ChatWindowGroup.Designer.cs">
+      <DependentUpon>ChatWindowGroup.cs</DependentUpon>
     </Compile>
-    <Compile Include="ConnectionManager.cs" />
+    <Compile Include="Forms\ChatWindowPrivate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ChatWindowPrivate.Designer.cs">
+      <DependentUpon>ChatWindowPrivate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -161,8 +167,11 @@
     <EmbeddedResource Include="Forms\ApplicationUpdateInformationForm.resx">
       <DependentUpon>ApplicationUpdateInformationForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ChatWindow.resx">
-      <DependentUpon>ChatWindow.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\ChatWindowGroup.resx">
+      <DependentUpon>ChatWindowGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ChatWindowPrivate.resx">
+      <DependentUpon>ChatWindowPrivate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>

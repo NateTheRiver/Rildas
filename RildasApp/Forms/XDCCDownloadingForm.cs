@@ -81,55 +81,65 @@ namespace RildasApp.Forms
         }
         private void StartConnecting()
         {
-            _lbState.Invoke(new MethodInvoker(delegate
-            {
-                _lbState.Text = "State: Trying to connect";
-            }));
-            XDCCService.IRCNetworkError += XDCCService_IRCNetworkError;
-            XDCCService.UpdateProgess += XDCCService_UpdateProgess;
-            XDCCService.Connect(Global.loggedUser.username + "Rildas");
-            while (!XDCCService.isConnected) System.Threading.Thread.Sleep(500);
-            _lbState.Invoke(new MethodInvoker(delegate
-            {
-                _lbState.Text = "State: Connected. Preparing to download.";
-            }));
-            foreach (string channel in Global.GetXDCCChannels())
-            {
-                XDCCService.client.JoinChannel(channel);
-            }
-            System.Threading.Thread.Sleep(100);
-            if (XDCCService.isProcessing)
-            {
-                System.Threading.Thread.Sleep(5000);
-            }
-            if (!XDCCService.GetPackage(botName, packNum, downloadPath))
+            try
             {
                 _lbState.Invoke(new MethodInvoker(delegate
                 {
-                    _lbState.Text = "State: XDCC Bot is not responding. Retrying in 5s.";
+                    _lbState.Text = "State: Trying to connect";
                 }));
-                System.Threading.Thread.Sleep(5000);
+                XDCCService.IRCNetworkError += XDCCService_IRCNetworkError;
+                XDCCService.UpdateProgess += XDCCService_UpdateProgess;
+                XDCCService.Connect(Global.loggedUser.username + "Rildas");
+                while (!XDCCService.isConnected) System.Threading.Thread.Sleep(500);
+                _lbState.Invoke(new MethodInvoker(delegate
+                {
+                    _lbState.Text = "State: Connected. Preparing to download.";
+                }));
+                
+                System.Threading.Thread.Sleep(100);
+                if (XDCCService.isProcessing)
+                {
+                    System.Threading.Thread.Sleep(5000);
+                }
                 if (!XDCCService.GetPackage(botName, packNum, downloadPath))
                 {
+
                     _lbState.Invoke(new MethodInvoker(delegate
                     {
-                        _lbState.Text = "State: Failed to contact XDCC Bot. Please try different bot or try again in a while.";
+                        if (XDCCService.isAborted)
+                        {
+                            _lbState.Text = "State: Aborted.";
+                            return;
+                        }
+                        _lbState.Text = "State: XDCC Bot is not responding. Retrying in 5s.";
                     }));
+                    System.Threading.Thread.Sleep(5000);
+                    if (!XDCCService.GetPackage(botName, packNum, downloadPath))
+                    {
+                        _lbState.Invoke(new MethodInvoker(delegate
+                        {
+                            _lbState.Text = "State: Failed to contact XDCC Bot. Please try different bot or try again in a while.";
+                        }));
+                    }
+                    else
+                    {
+                        _lbState.Invoke(new MethodInvoker(delegate
+                       {
+                           _lbState.Text = "State: Preparation completed. Starting download.";
+                       }));
+                    }
                 }
                 else
                 {
                     _lbState.Invoke(new MethodInvoker(delegate
-                   {
-                       _lbState.Text = "State: Preparation completed. Starting download.";
-                   }));
+                    {
+                        _lbState.Text = "State: Preparation completed. Starting download.";
+                    }));
                 }
             }
-            else
+            catch (Exception e)
             {
-                _lbState.Invoke(new MethodInvoker(delegate
-                {
-                    _lbState.Text = "State: Preparation completed. Starting download.";
-                }));
+
             }
         }
         private void XDCCDownloadingForm_Shown(object sender, EventArgs e)
@@ -141,6 +151,12 @@ namespace RildasApp.Forms
         private void metroButton2_Click(object sender, EventArgs e)
         {
             Process.Start("explorer.exe", downloadPath);
+        }
+
+        private void XDCCDownloadingForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            XDCCService.IRCNetworkError -= XDCCService_IRCNetworkError;
+            XDCCService.UpdateProgess -= XDCCService_UpdateProgess;
         }
 
         private void XDCCService_IRCNetworkError(string message)

@@ -3,3 +3,4 @@ C:\Users\Richard\Rildas\Aplikace\RildasAppUpdater\bin\Release\RildasAppUpdater.e
 C:\Users\Richard\Rildas\Aplikace\RildasAppUpdater\bin\Release\RildasAppUpdater.pdb
 C:\Users\Richard\Rildas\Aplikace\RildasAppUpdater\obj\Release\RildasAppUpdater.exe
 C:\Users\Richard\Rildas\Aplikace\RildasAppUpdater\obj\Release\RildasAppUpdater.pdb
+C:\Users\Richard\Rildas\Aplikace\RildasAppUpdater\obj\Release\RildasAppUpdater.csprojResolveAssemblyReference.cache

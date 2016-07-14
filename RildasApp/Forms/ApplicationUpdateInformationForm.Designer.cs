@@ -69,7 +69,6 @@
             this._lbDownloading.Text = "Po dokončení updatu se aplikace sama restartuje. Sit back and get some coffee.";
             this._lbDownloading.Theme = MetroFramework.MetroThemeStyle.Dark;
             this._lbDownloading.UseStyleColors = true;
-            this._lbDownloading.Visible = false;
             // 
             // metroLabel2
             // 

@@ -211,12 +211,19 @@ namespace RildasApp.Forms
         {
             metroComboBox1.SelectedIndex = 0;
             Global.EpisodeVersionListUpdated += Global_EpisodeVersionListUpdated;
+            Global.AnimeListUpdated += Global_AnimeListUpdated;
             Global.XDCCPackagesListUpdated += FilterXDCCPackages;
             LoadTeamMembers();
             if (!String.IsNullOrEmpty(ConfigurationManager.AppSettings["xdccSaveDir"])) _xdccSaveDir.Text = ConfigurationManager.AppSettings["xdccSaveDir"];
             else _xdccSaveDir.Text = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Rildas Anime Files");
             FilterXDCCPackages();
+            MakeStates();
+            LoadImportantFiles();
+        }
 
+        private void Global_AnimeListUpdated()
+        {
+            MakeStates();
         }
 
         private void MetroScrollBar1_Scroll(object sender, ScrollEventArgs e)
@@ -466,11 +473,11 @@ namespace RildasApp.Forms
 
         public void MakeStates()
         {
-            metroTabControl1.SelectedTab.Controls.Clear();
+            _states.Controls.Clear();
             const int imageSize = 204;
             const int rightPadding = 20;
             const int downPadding = 70;
-            int animesInRow = (metroTabControl1.SelectedTab.Width / (imageSize + rightPadding));
+            int animesInRow = (_states.Width / (imageSize + rightPadding));
             List<Anime> animeList = Global.GetAnimes();
 
             Panel panel = new Panel();
@@ -479,7 +486,7 @@ namespace RildasApp.Forms
             panel.AutoScroll = true;
             panel.Location = new Point(0, 0);
 
-            metroTabControl1.SelectedTab.Controls.Add(panel);
+            _states.Controls.Add(panel);
 
 
             for (int i = 0; i < animeList.Count; ++i)
@@ -526,10 +533,6 @@ namespace RildasApp.Forms
                     }
                 }
             }
-            if (metroTabControl1.SelectedTab.Name == "_states")
-            {
-                MakeStates();
-            }
         }
 
         private void CheckAnimeList(object sender, EventArgs e)
@@ -570,7 +573,7 @@ namespace RildasApp.Forms
         {
             if(cbReady.Checked == true)
             {
-                DialogResult dr = MetroMessageBox.Show(this, "Při zaškrtnutí této možnosti bude překlad bez další kontroly odeslán na enkód. Jste si tím jisti?", "Enkód?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult dr = MetroMessageBox.Show(this, "Při zaškrtnutí této možnosti bude překlad odeslán ke schválení. Jste si tím jisti?", "Schválit?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dr == DialogResult.No) cbReady.Checked = false;
             }
         }
@@ -777,7 +780,8 @@ namespace RildasApp.Forms
                     labelDone.Text = (epver.state == 1) ? "Připraveno na enkód" : "Vyžaduje korekci";
                     switch (epver.state)
                     {
-                        case -3: labelDone.Text = "Čeká se na schválení překladatelem"; break;
+                        case -4: labelDone.Text = "Čeká na schválení překladatelem"; break;
+                        case -3: labelDone.Text = "Čeká se na schválení"; break;
                         case -2: labelDone.Text = "Existuje novější verze souboru"; break;
                         case -1: labelDone.Text = "Korekce zamluvena: " + Global.GetUser(epver.reservedBy).username; break;
                         case 0: labelDone.Text = "Vyžaduje korekci"; break;
@@ -799,7 +803,12 @@ namespace RildasApp.Forms
                     button.UseSelectable = true;
                     button.Click += new System.EventHandler(NewsButton_Click);
                     button.Tag = epver;
-                    if (epver.state == -3 && (Global.loggedUser.access > 5 || anime.translatorid == Global.loggedUser.id))
+                    if (epver.state == -3 && Global.loggedUser.access > 5)
+                    {
+                        button.Text = "Schválit";
+                        panel.Controls.Add(button);
+                    }
+                    if (epver.state == -4 && (anime.translatorid == Global.loggedUser.id))
                     {
                         button.Text = "Schválit";
                         panel.Controls.Add(button);
@@ -912,7 +921,8 @@ namespace RildasApp.Forms
             EpisodeVersion epVersion = (EpisodeVersion)((sender as MetroButton).Tag);
              if (buttonText == "Schválit")
             {
-                epVersion.state = 1;
+                if (epVersion.state == -3) epVersion.state = -4;
+                else epVersion.state = 1;
             }
             if ((sender as Button).Text == "Zřeknout se korekce")
             {
@@ -959,6 +969,255 @@ namespace RildasApp.Forms
         private void Global_EpisodeVersionListUpdated()
         {
             LoadNews();
+            LoadImportantFiles();
+        }
+        
+        private void LoadImportantFiles()
+        { 
+            List<EpisodeVersion> filteredVersions = new List<EpisodeVersion>();
+            System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
+            sw.Start();
+                List<EpisodeVersion> epVersions = Global.GetEpisodeVersions();
+                
+                foreach (EpisodeVersion epver in epVersions)
+                {
+                    Anime anime = Global.GetAnime(epver.animeId);
+                    if ((anime.translatorid == Global.loggedUser.id && epver.state == -4) ||
+                        (Global.loggedUser.access > 5 && epver.state == -3) ||
+                        (epver.reservedBy == Global.loggedUser.id && epver.state == -1) ||
+                        (anime.correctorid == Global.loggedUser.id && epver.state == 0) ||
+                        (Global.loggedUser.id == 4 && epver.state == 1) || // Sorry Dane. :D
+                        (anime.translatorid == Global.loggedUser.id && epver.state == 2))
+                        filteredVersions.Add(epver);
+
+                }
+                            
+            
+            sw.Stop();
+            System.Diagnostics.Debug.WriteLine("Elapsed: " + sw.ElapsedMilliseconds);
+            List<Anime> animes = Global.GetAnimes();
+            MetroLink metroLink = new MetroLink();
+            metroLink.Location = new System.Drawing.Point(179, 188);
+            metroLink.Name = "metroProgressr1";
+            metroLink.AutoSize = true;
+            metroLink.Text = "Načítání";
+            metroLink.Style = MetroFramework.MetroColorStyle.Blue;
+            metroLink.TabIndex = 2;
+            metroLink.Theme = MetroFramework.MetroThemeStyle.Dark;
+            metroLink.UseSelectable = true;
+            importantFiles.Invoke(new MethodInvoker(delegate
+            {
+
+                importantFiles.Controls.Clear();
+                importantFiles.Refresh();
+
+                importantFiles.Controls.Add(metroLink);
+                metroLink.Visible = true;
+                importantFiles.Refresh();
+            }));
+
+            int positionIterator = 0;
+            List<Panel> panels = new List<Panel>();
+            this.Invoke((MethodInvoker)delegate
+            {
+
+                foreach (EpisodeVersion epver in filteredVersions)
+                {
+                    Anime anime = animes.FirstOrDefault(x => x.id == epver.animeId);
+
+                    if (anime == null) continue;
+                    MetroLabel label2 = new MetroLabel();
+                    MetroLabel label1 = new MetroLabel();
+                    MetroLabel labelTime = new MetroLabel();
+                    MetroLabel labelDone = new MetroLabel();
+                    MetroLink name = new MetroLink();
+                    MetroPanel panel = new MetroPanel();
+                    PictureBox picture = new PictureBox();
+
+
+                    panel.Location = new System.Drawing.Point(0, positionIterator * 100);
+                    panel.Name = "metroPanel1" + epver.id;
+                    panel.Size = new System.Drawing.Size(475, 110);
+                    panel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+                    panel.TabIndex = 2;
+                    panel.Theme = MetroThemeStyle.Dark;
+
+
+                    picture.Location = new System.Drawing.Point(3, 3);
+                    picture.Name = "pictureBox1";
+                    picture.Size = new System.Drawing.Size(99, 103);
+                    picture.TabIndex = 2;
+                    picture.TabStop = false;
+                    picture.Load("http://anime.rildas.cz/" + anime.animelist_img);
+                    picture.SizeMode = PictureBoxSizeMode.StretchImage;
+                    // 
+                    // metroLink1
+                    // 
+                    name.FontSize = MetroFramework.MetroLinkSize.Medium;
+                    name.Location = new System.Drawing.Point(108, 13);
+                    name.Name = "nameInNews" + epver.id;
+                    name.Size = new System.Drawing.Size(350, 23);
+                    name.TabIndex = 3;
+                    name.Text = (epver.type == EpisodeVersion.Type.KOREKCE ? "Korekce" : "Překlad") + " " + anime.name + " " + epver.episode;
+                    System.Windows.Forms.ToolTip ToolTip1 = new System.Windows.Forms.ToolTip();
+                    ToolTip1.SetToolTip(name, (epver.type == EpisodeVersion.Type.KOREKCE ? "Korekce" : "Překlad") + " " + anime.name + " " + epver.episode);
+                    name.Theme = MetroFramework.MetroThemeStyle.Dark;
+                    name.UseSelectable = true;
+                    name.Tag = epver;
+                    name.Click += Name_Click;
+                    name.TextAlign = ContentAlignment.TopLeft;
+                    // 
+                    // metroLabel15
+                    // 
+                    label1.AutoSize = true;
+                    label1.Location = new System.Drawing.Point(108, 34);
+                    label1.Name = "labelInNews1" + epver.id;
+                    label1.Size = new System.Drawing.Size(88, 19);
+                    label1.Theme = MetroThemeStyle.Dark;
+
+                    label1.TabIndex = 4;
+                    label1.Text = "Soubor nahrál: " + Global.GetUser(epver.addedBy).username;
+                    // 
+                    // metroLabel16
+                    // 
+                    label2.AutoSize = true;
+                    label2.Location = new System.Drawing.Point(108, 88);
+                    label2.Name = "labelInNews2" + epver.id;
+                    label2.Size = new System.Drawing.Size(88, 19);
+                    label2.TabIndex = 5;
+                    label2.Theme = MetroThemeStyle.Dark;
+
+                    label2.Text = "Komentář: " + epver.comment;
+
+                    // 
+                    // labelTime
+                    // 
+                    labelTime.AutoSize = true;
+
+                    labelTime.Location = new System.Drawing.Point(108, 70);
+                    labelTime.Name = "labelInNews3" + epver.id;
+                    labelTime.Size = new System.Drawing.Size(200, 19);
+                    labelTime.TabIndex = 6;
+                    labelTime.Theme = MetroThemeStyle.Dark;
+                    labelTime.TextAlign = ContentAlignment.BottomRight;
+                    labelTime.Text = "Přidáno: " + epver.added.ToString("dd.MM.yyyy");
+                    // 
+                    // labelDone
+                    // 
+                    labelDone.AutoSize = true;
+
+
+                    labelDone.Location = new System.Drawing.Point(108, 52);
+                    labelDone.Name = "labelInNews3" + epver.id;
+                    labelDone.Size = new System.Drawing.Size(140, 19);
+                    labelDone.TabIndex = 6;
+                    labelDone.Theme = MetroThemeStyle.Dark;
+                    labelDone.TextAlign = ContentAlignment.BottomRight;
+                    labelDone.Text = (epver.state == 1) ? "Připraveno na enkód" : "Vyžaduje korekci";
+                    switch (epver.state)
+                    {
+                        case -4: labelDone.Text = "Čeká na schválení překladatelem"; break;
+                        case -3: labelDone.Text = "Čeká se na schválení"; break;
+                        case -2: labelDone.Text = "Existuje novější verze souboru"; break;
+                        case -1: labelDone.Text = "Korekce zamluvena: " + Global.GetUser(epver.reservedBy).username; break;
+                        case 0: labelDone.Text = "Vyžaduje korekci"; break;
+                        case 1: labelDone.Text = "Připraveno na enkód"; break;
+                        case 2: labelDone.Text = "Připraveno ke zveřejnění"; break;
+                        case 3: labelDone.Text = "Zveřejněno"; break;
+                    }
+                    //
+                    // Button
+                    //
+
+                    MetroFramework.Controls.MetroButton button = new MetroFramework.Controls.MetroButton();
+                    button.Location = new System.Drawing.Point(350, 36);
+                    button.Name = "newsButton" + epver.id;
+                    button.Size = new System.Drawing.Size(125, 23);
+                    //button.AutoSize = true;
+                    button.Theme = MetroThemeStyle.Dark;
+                    button.TabIndex = 9;
+                    button.UseSelectable = true;
+                    button.Click += new System.EventHandler(NewsButton_Click);
+                    button.Tag = epver;
+                    if (epver.state == -3 && Global.loggedUser.access > 5)
+                    {
+                        button.Text = "Schválit";
+                        panel.Controls.Add(button);
+                    }
+                    if (epver.state == -4 && (anime.translatorid == Global.loggedUser.id))
+                    {
+                        button.Text = "Schválit";
+                        panel.Controls.Add(button);
+                    }
+                    if (epver.state == -1 && epver.reservedBy == Global.loggedUser.id)
+                    {
+                        button.Text = "Zřeknout se korekce";
+                        panel.Controls.Add(button);
+                    }
+                    if (epver.state == 0)
+                    {
+                        button.Text = "Zamluvit korekci";
+                        panel.Controls.Add(button);
+                    }
+                    if (epver.state == 1 && Global.loggedUser.access > 5)
+                    {
+                        button.Text = "Enkódovat";
+                        panel.Controls.Add(button);
+                    }
+                    if (epver.state == 2 && (Global.loggedUser.access > 5 || anime.translatorid == Global.loggedUser.id))
+                    {
+                        button.Text = "Zveřejnit";
+                        panel.Controls.Add(button);
+                    }
+                    // BUTTON 2
+                    MetroFramework.Controls.MetroButton button2 = new MetroFramework.Controls.MetroButton();
+                    button2.Location = new System.Drawing.Point(350, 64);
+                    button2.Name = "newsButton" + epver.id;
+                    button2.Size = new System.Drawing.Size(125, 23);
+                    //button.AutoSize = true;
+                    button2.Theme = MetroThemeStyle.Dark;
+                    button2.TabIndex = 9;
+                    button2.UseSelectable = true;
+                    button2.Click += new System.EventHandler(NewsButton_Click);
+                    if (epver.state == -3 && Global.loggedUser.access > 5)
+                    {
+                        button2.Text = "Stáhnout";
+                        panel.Controls.Add(button2);
+                    }
+                    if (epver.state == -4 && (anime.translatorid == Global.loggedUser.id))
+                    {
+                        button2.Text = "Stáhnout";
+                        panel.Controls.Add(button2);
+                    }
+                    if (epver.state == -1 && epver.reservedBy == Global.loggedUser.id)
+                    {
+                        button2.Text = "Stáhnout";
+                        panel.Controls.Add(button2);
+                    }
+                    if (epver.state == 1 && Global.loggedUser.access > 5)
+                    {
+                        button2.Text = "Stáhnout";
+                        panel.Controls.Add(button2);
+                    }
+                    panel.Controls.Add(labelDone);
+                    panel.Controls.Add(button2);
+                    panel.Controls.Add(label1);
+                    panel.Controls.Add(label2);
+                    panel.Controls.Add(labelTime);
+
+                    panel.Controls.Add(name);
+                    panel.Controls.Add(picture);
+
+                    panels.Add(panel);
+                    positionIterator++;
+                }
+            });
+            importantFiles.Invoke(new MethodInvoker(delegate
+            {
+                panels.ForEach(x=> importantFiles.Controls.Add(x));
+                metroLink.Visible = false;
+                importantFiles.Refresh();
+            }));
         }
 
         private void _translate_Scroll(object sender, ScrollEventArgs e)

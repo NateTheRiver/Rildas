@@ -110,29 +110,41 @@ namespace RildasApp.Forms
             FileVersionInfo fvi = FileVersionInfo.GetVersionInfo(assembly.Location);
             if (fvi.FileVersion != version.version)
             {
-                DialogResult result = MetroFramework.MetroMessageBox.Show(this, String.Format("New version found. Your version: {0}. Current version: {1}. You can continue with old version, but there is no guarantee that it will work properly.", fvi.FileVersion, version.version),  "New version", MessageBoxButtons.YesNo);
+                DialogResult result = MetroFramework.MetroMessageBox.Show(new Form { TopMost = true, StartPosition = FormStartPosition.CenterParent }, String.Format("New version found. Your version: {0}. Current version: {1}. You can continue with old version, but there is no guarantee that it will work properly.", fvi.FileVersion, version.version),  "New version", MessageBoxButtons.YesNo);
                 if(result == DialogResult.Yes)
                 {
-                    ApplicationUpdateInformationForm updateForm = new ApplicationUpdateInformationForm(version);
-                    updateForm.Show();
-                    updateForm.Activate();
+                    this.Invoke(new MethodInvoker(delegate
+                    {
+                        ApplicationUpdateInformationForm updateForm = new ApplicationUpdateInformationForm(version);
+                        updateForm.Show();
+                        updateForm.Activate();
+                    }));
+                    Properties.Settings.Default.FirstRun = true;
+                    Properties.Settings.Default.Save();
+
                     Process p = new Process();
                     p.StartInfo.FileName = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "RildasAppUpdater.exe");
                     p.StartInfo.Arguments = version.downloadLocation;
                     p.StartInfo.CreateNoWindow = true;
                     p.StartInfo.Verb = "runas";
                     p.Start();
-                    
+                   
+
                 }
                 else
                 {
-                    if (Properties.Settings.Default.FirstRun == true)
+                    if (Properties.Settings.Default.FirstRun)
                     {
                         Properties.Settings.Default.FirstRun = false;
                         Properties.Settings.Default.Save();
-                        ApplicationUpdateInformationForm updateForm = new ApplicationUpdateInformationForm(version);
-                        updateForm.Show();
-                        updateForm.Activate();
+                        this.Invoke(new MethodInvoker(delegate
+                        {
+                            ApplicationUpdateInformationForm updateForm = new ApplicationUpdateInformationForm(version);
+                            updateForm.Show();
+                            updateForm.Activate();
+                        }));
+
+
                     }
                     metroButton1.Invoke(new MethodInvoker(delegate { metroButton1.Enabled = true; }));
                 }

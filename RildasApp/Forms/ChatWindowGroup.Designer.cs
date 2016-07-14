@@ -1,9 +1,6 @@
-﻿using System;
-using System.Drawing;
-
-namespace RildasApp.Forms
+﻿namespace RildasApp.Forms
 {
-    partial class ChatWindow
+    partial class ChatWindowGroup
     {
         /// <summary>
         /// Required designer variable.
@@ -34,9 +31,9 @@ namespace RildasApp.Forms
             this.tbMessage = new MetroFramework.Controls.MetroTextBox();
             this.cbAlwaysOnTop = new MetroFramework.Controls.MetroCheckBox();
             this.btnSend = new MetroFramework.Controls.MetroButton();
-            this.btnNotice = new MetroFramework.Controls.MetroButton();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.metroLabel13 = new MetroFramework.Controls.MetroLabel();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -46,16 +43,16 @@ namespace RildasApp.Forms
             // 
             // 
             this.tbMessage.CustomButton.Image = null;
-            this.tbMessage.CustomButton.Location = new System.Drawing.Point(392, 1);
+            this.tbMessage.CustomButton.Location = new System.Drawing.Point(400, 2);
             this.tbMessage.CustomButton.Name = "";
-            this.tbMessage.CustomButton.Size = new System.Drawing.Size(67, 67);
+            this.tbMessage.CustomButton.Size = new System.Drawing.Size(57, 57);
             this.tbMessage.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.tbMessage.CustomButton.TabIndex = 1;
             this.tbMessage.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.tbMessage.CustomButton.UseSelectable = true;
             this.tbMessage.CustomButton.Visible = false;
             this.tbMessage.Lines = new string[0];
-            this.tbMessage.Location = new System.Drawing.Point(23, 305);
+            this.tbMessage.Location = new System.Drawing.Point(23, 323);
             this.tbMessage.MaxLength = 32767;
             this.tbMessage.Multiline = true;
             this.tbMessage.Name = "tbMessage";
@@ -64,7 +61,7 @@ namespace RildasApp.Forms
             this.tbMessage.SelectedText = "";
             this.tbMessage.SelectionLength = 0;
             this.tbMessage.SelectionStart = 0;
-            this.tbMessage.Size = new System.Drawing.Size(460, 69);
+            this.tbMessage.Size = new System.Drawing.Size(460, 51);
             this.tbMessage.Style = MetroFramework.MetroColorStyle.Lime;
             this.tbMessage.TabIndex = 0;
             this.tbMessage.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -89,27 +86,15 @@ namespace RildasApp.Forms
             // 
             // btnSend
             // 
-            this.btnSend.Location = new System.Drawing.Point(489, 305);
+            this.btnSend.Location = new System.Drawing.Point(489, 323);
             this.btnSend.Name = "btnSend";
-            this.btnSend.Size = new System.Drawing.Size(109, 42);
+            this.btnSend.Size = new System.Drawing.Size(109, 51);
             this.btnSend.Style = MetroFramework.MetroColorStyle.Lime;
             this.btnSend.TabIndex = 2;
             this.btnSend.Text = "Send";
             this.btnSend.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.btnSend.UseSelectable = true;
             this.btnSend.Click += new System.EventHandler(this.metroButton1_Click);
-            // 
-            // btnNotice
-            // 
-            this.btnNotice.Location = new System.Drawing.Point(489, 353);
-            this.btnNotice.Name = "btnNotice";
-            this.btnNotice.Size = new System.Drawing.Size(109, 21);
-            this.btnNotice.Style = MetroFramework.MetroColorStyle.Lime;
-            this.btnNotice.TabIndex = 3;
-            this.btnNotice.Text = "Notice me senpai";
-            this.btnNotice.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.btnNotice.UseSelectable = true;
-            this.btnNotice.Click += new System.EventHandler(this.btnNotice_Click);
             // 
             // richTextBox1
             // 
@@ -118,7 +103,7 @@ namespace RildasApp.Forms
             this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.richTextBox1.Location = new System.Drawing.Point(1, 1);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(572, 230);
+            this.richTextBox1.Size = new System.Drawing.Size(572, 253);
             this.richTextBox1.TabIndex = 5;
             this.richTextBox1.Text = "";
             // 
@@ -132,19 +117,35 @@ namespace RildasApp.Forms
             this.panel1.Size = new System.Drawing.Size(574, 232);
             this.panel1.TabIndex = 6;
             // 
-            // ChatWindow
+            // metroLabel13
+            // 
+            this.metroLabel13.AutoSize = true;
+            this.metroLabel13.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel13.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabel13.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.metroLabel13.Location = new System.Drawing.Point(617, 22);
+            this.metroLabel13.Name = "metroLabel13";
+            this.metroLabel13.Size = new System.Drawing.Size(129, 25);
+            this.metroLabel13.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroLabel13.TabIndex = 7;
+            this.metroLabel13.Text = "Seznam členů";
+            this.metroLabel13.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel13.UseStyleColors = true;
+            this.metroLabel13.Visible = false;
+            // 
+            // ChatWindowGroup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(624, 408);
+            this.ClientSize = new System.Drawing.Size(865, 408);
+            this.Controls.Add(this.metroLabel13);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.btnNotice);
             this.Controls.Add(this.btnSend);
             this.Controls.Add(this.cbAlwaysOnTop);
             this.Controls.Add(this.tbMessage);
-            this.Name = "ChatWindow";
+            this.Name = "ChatWindowGroup";
             this.Style = MetroFramework.MetroColorStyle.Lime;
-            this.Text = "Private chat - NateTheRiver";
+            this.Text = "Group Chat - Rildas";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.TopMost = true;
             this.Resize += new System.EventHandler(this.ChatWindow_Resize);
@@ -158,10 +159,8 @@ namespace RildasApp.Forms
         private MetroFramework.Controls.MetroTextBox tbMessage;
         private MetroFramework.Controls.MetroCheckBox cbAlwaysOnTop;
         private MetroFramework.Controls.MetroButton btnSend;
-        private MetroFramework.Controls.MetroButton btnNotice;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Panel panel1;
-
-       
+        private MetroFramework.Controls.MetroLabel metroLabel13;
     }
 }

@@ -14,7 +14,7 @@ using Microsoft.Win32;
 
 namespace RildasApp.Forms
 {
-    public partial class ChatWindow : MetroFramework.Forms.MetroForm
+    public partial class ChatWindowPrivate : MetroFramework.Forms.MetroForm
     {
         // To support flashing.
         [DllImport("user32.dll")]
@@ -27,7 +27,7 @@ namespace RildasApp.Forms
         // Flash continuously until the window comes to the foreground. 
         public const UInt32 FLASHW_TIMERNOFG = 12;
 
-        public ChatWindow()
+        public ChatWindowPrivate()
         {
             InitializeComponent();
             richTextBox1.Location = new Point(1, 1);
@@ -35,22 +35,22 @@ namespace RildasApp.Forms
         }
 
 
-    [StructLayout(LayoutKind.Sequential)]
-    public struct FLASHWINFO
-    {
-        public UInt32 cbSize;
-        public IntPtr hwnd;
-        public UInt32 dwFlags;
-        public UInt32 uCount;
-        public UInt32 dwTimeout;
-    }
+        [StructLayout(LayoutKind.Sequential)]
+        public struct FLASHWINFO
+        {
+            public UInt32 cbSize;
+            public IntPtr hwnd;
+            public UInt32 dwFlags;
+            public UInt32 uCount;
+            public UInt32 dwTimeout;
+        }
 
-    // Do the flashing - this does not involve a raincoat.
-    public bool FlashWindowEx()
-    {
+        // Do the flashing - this does not involve a raincoat.
+        public bool FlashWindowEx()
+        {
             try
             {
-                FLASHWINFO fInfo  = new FLASHWINFO();
+                FLASHWINFO fInfo = new FLASHWINFO();
                 this.Invoke(new MethodInvoker(delegate
                 {
                     IntPtr hWnd = this.Handle;
@@ -60,17 +60,17 @@ namespace RildasApp.Forms
                     fInfo.uCount = UInt32.MaxValue;
                     fInfo.dwTimeout = 0;
 
-                    
+
                 }));
                 return FlashWindowEx(ref fInfo);
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 return false;
             }
-    }
+        }
 
-    private void ChatWindow_Resize(object sender, EventArgs e)
+        private void ChatWindow_Resize(object sender, EventArgs e)
         {
             // TODO: Resize všech komponent
         }
@@ -84,7 +84,7 @@ namespace RildasApp.Forms
                 Append(richTextBox1, Environment.NewLine, Color.White);
                 richTextBox1.ScrollToCaret();
             }));
-            
+
 
         }
         private static void Append(RichTextBox box, string text, Color color)
@@ -136,10 +136,10 @@ namespace RildasApp.Forms
                 Append(richTextBox1, Environment.NewLine, Color.White);
                 richTextBox1.ScrollToCaret();
                 this.Activate();
-                
+
             }));
         }
-            
+
         private void tbMessage_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)

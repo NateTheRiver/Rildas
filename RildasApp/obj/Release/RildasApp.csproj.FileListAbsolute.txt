@@ -11,9 +11,11 @@ C:\Users\Richard\Rildas\Aplikace\RildasApp\obj\Release\RildasApp.Properties.Reso
 C:\Users\Richard\Rildas\Aplikace\RildasApp\obj\Release\RildasApp.csproj.GenerateResource.Cache
 C:\Users\Richard\Rildas\Aplikace\RildasApp\obj\Release\RildasApp.exe
 C:\Users\Richard\Rildas\Aplikace\RildasApp\obj\Release\RildasApp.pdb
-C:\Users\Richard\Rildas\Aplikace\RildasApp\obj\Release\RildasApp.Forms.ChatWindow.resources
 C:\Users\Richard\Rildas\Aplikace\RildasApp\obj\Release\RildasApp.Forms.Dashboard.resources
 C:\Users\Richard\Rildas\Aplikace\RildasApp\obj\Release\RildasApp.Forms.EventEdit.resources
 C:\Users\Richard\Rildas\Aplikace\RildasApp\obj\Release\RildasApp.Forms.LoginForm.resources
 C:\Users\Richard\Rildas\Aplikace\RildasApp\obj\Release\RildasApp.Forms.XDCCDownloadingForm.resources
 C:\Users\Richard\Rildas\Aplikace\RildasApp\obj\Release\RildasApp.Forms.ApplicationUpdateInformationForm.resources
+C:\Users\Richard\Rildas\Aplikace\RildasApp\obj\Release\RildasApp.csprojResolveAssemblyReference.cache
+C:\Users\Richard\Rildas\Aplikace\RildasApp\obj\Release\RildasApp.Forms.ChatWindowGroup.resources
+C:\Users\Richard\Rildas\Aplikace\RildasApp\obj\Release\RildasApp.Forms.ChatWindowPrivate.resources

@@ -15,7 +15,7 @@ namespace RildasAppUpdater
         {
             try
             {
-                foreach (string arg in args) Console.WriteLine("Arg: " + arg);
+                Console.WriteLine("Updating to the new version.");
                 if (args.Length == 0 || string.IsNullOrEmpty(args[0])) throw new ArgumentNullException("Missing argument: download location");
                 using (var client = new WebClient())
                 {

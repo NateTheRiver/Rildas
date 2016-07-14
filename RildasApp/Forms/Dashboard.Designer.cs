@@ -39,7 +39,7 @@ namespace RildasApp.Forms
             this.metroTabControl1 = new MetroFramework.Controls.MetroTabControl();
             this._dashboard = new MetroFramework.Controls.MetroTabPage();
             this.metroLabel18 = new MetroFramework.Controls.MetroLabel();
-            this.metroPanel2 = new MetroFramework.Controls.MetroPanel();
+            this.importantFiles = new MetroFramework.Controls.MetroPanel();
             this.metroLabel17 = new MetroFramework.Controls.MetroLabel();
             this.dashboard_notificationsPanel = new MetroFramework.Controls.MetroPanel();
             this.metroScrollBar1 = new MetroFramework.Controls.MetroScrollBar();
@@ -169,7 +169,7 @@ namespace RildasApp.Forms
             this.metroTabControl1.Controls.Add(this._stats);
             this.metroTabControl1.Location = new System.Drawing.Point(23, 63);
             this.metroTabControl1.Name = "metroTabControl1";
-            this.metroTabControl1.SelectedIndex = 5;
+            this.metroTabControl1.SelectedIndex = 0;
             this.metroTabControl1.Size = new System.Drawing.Size(1455, 649);
             this.metroTabControl1.TabIndex = 0;
             this.metroTabControl1.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -179,7 +179,7 @@ namespace RildasApp.Forms
             // _dashboard
             // 
             this._dashboard.Controls.Add(this.metroLabel18);
-            this._dashboard.Controls.Add(this.metroPanel2);
+            this._dashboard.Controls.Add(this.importantFiles);
             this._dashboard.Controls.Add(this.metroLabel17);
             this._dashboard.Controls.Add(this.dashboard_notificationsPanel);
             this._dashboard.Controls.Add(this.metroScrollBar1);
@@ -206,7 +206,7 @@ namespace RildasApp.Forms
             this.metroLabel18.FontSize = MetroFramework.MetroLabelSize.Tall;
             this.metroLabel18.FontWeight = MetroFramework.MetroLabelWeight.Bold;
             this.metroLabel18.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.metroLabel18.Location = new System.Drawing.Point(477, 10);
+            this.metroLabel18.Location = new System.Drawing.Point(450, 10);
             this.metroLabel18.Name = "metroLabel18";
             this.metroLabel18.Size = new System.Drawing.Size(227, 25);
             this.metroLabel18.Style = MetroFramework.MetroColorStyle.Blue;
@@ -215,19 +215,19 @@ namespace RildasApp.Forms
             this.metroLabel18.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.metroLabel18.UseStyleColors = true;
             // 
-            // metroPanel2
+            // importantFiles
             // 
-            this.metroPanel2.HorizontalScrollbarBarColor = true;
-            this.metroPanel2.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroPanel2.HorizontalScrollbarSize = 10;
-            this.metroPanel2.Location = new System.Drawing.Point(477, 38);
-            this.metroPanel2.Name = "metroPanel2";
-            this.metroPanel2.Size = new System.Drawing.Size(441, 531);
-            this.metroPanel2.TabIndex = 13;
-            this.metroPanel2.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroPanel2.VerticalScrollbarBarColor = true;
-            this.metroPanel2.VerticalScrollbarHighlightOnWheel = false;
-            this.metroPanel2.VerticalScrollbarSize = 10;
+            this.importantFiles.HorizontalScrollbarBarColor = true;
+            this.importantFiles.HorizontalScrollbarHighlightOnWheel = false;
+            this.importantFiles.HorizontalScrollbarSize = 10;
+            this.importantFiles.Location = new System.Drawing.Point(450, 38);
+            this.importantFiles.Name = "importantFiles";
+            this.importantFiles.Size = new System.Drawing.Size(482, 531);
+            this.importantFiles.TabIndex = 13;
+            this.importantFiles.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.importantFiles.VerticalScrollbarBarColor = true;
+            this.importantFiles.VerticalScrollbarHighlightOnWheel = false;
+            this.importantFiles.VerticalScrollbarSize = 10;
             // 
             // metroLabel17
             // 
@@ -1698,7 +1698,7 @@ namespace RildasApp.Forms
         private MetroFramework.Controls.MetroComboBox publish_AnimeComboBox;
         private MetroFramework.Controls.MetroComboBox publish_cbMinutes;
         private MetroFramework.Controls.MetroComboBox publish_cbHours;
-        private MetroFramework.Controls.MetroPanel metroPanel2;
+        private MetroFramework.Controls.MetroPanel importantFiles;
         private MetroFramework.Controls.MetroLabel metroLabel17;
         private MetroFramework.Controls.MetroPanel dashboard_notificationsPanel;
         private MetroFramework.Controls.MetroLabel metroLabel18;

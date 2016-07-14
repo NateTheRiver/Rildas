@@ -11,7 +11,7 @@ namespace RildasApp
 {
     public static class Global
     {
-        static List<ChatWindow> chatWindows = new List<ChatWindow>();
+        static List<ChatWindowPrivate> chatWindows = new List<ChatWindowPrivate>();
         public static User loggedUser;
         public static string password;
         private static List<Anime> animes = new List<Anime>();
@@ -154,7 +154,7 @@ namespace RildasApp
         }
         internal static EpisodeVersion[] GetLastEpisodeVersions(int start = 0, int count = 20)
         {
-            List<EpisodeVersion> epVersions = GetEpisodeVersions();
+            List<EpisodeVersion> epVersions = GetEpisodeVersions().ToList();
             epVersions.Sort(delegate (EpisodeVersion x, EpisodeVersion y) { return y.id - x.id; });
             List<EpisodeVersion> result = new List<EpisodeVersion>();
             int max = epVersions.Count < start + count ? epVersions.Count : start + count;
@@ -233,10 +233,10 @@ namespace RildasApp
             if (reverse) epVers.Reverse();
             return epVers.ToArray();
         }
-        public static ChatWindow OpenIfNeeded(User user)
+        public static ChatWindowPrivate OpenIfNeeded(User user)
         {
 
-            foreach (ChatWindow chat in chatWindows)
+            foreach (ChatWindowPrivate chat in chatWindows)
             {
                 if ((chat.Tag as User).id == user.id)
                 {
@@ -244,7 +244,7 @@ namespace RildasApp
                 }
 
             }
-            ChatWindow window = new ChatWindow();
+            ChatWindowPrivate window = new ChatWindowPrivate();
             window.Tag = user;
             window.Text = "Private Chat - " + user.username;
             window.FormClosed += Window_FormClosed;
@@ -256,7 +256,7 @@ namespace RildasApp
         public static void GetMessage(int from, string text, DateTime time)
         {
             User user = Global.GetUser(from);
-            ChatWindow wind = OpenIfNeeded(user);
+            ChatWindowPrivate wind = OpenIfNeeded(user);
             wind.AppendMessage(text, time);
             wind.FlashWindowEx();
         }
@@ -264,7 +264,7 @@ namespace RildasApp
         {
             for (int i = 0; i < chatWindows.Count; i++)
             {
-                if (chatWindows[i] == (sender as ChatWindow))
+                if (chatWindows[i] == (sender as ChatWindowPrivate))
                 {
                     chatWindows.Remove(chatWindows[i]);
                     return;
@@ -274,7 +274,7 @@ namespace RildasApp
         internal static void RequestAlert(int id)
         {
             User user = Global.GetUser(id);
-            ChatWindow wind = OpenIfNeeded(user);
+            ChatWindowPrivate wind = OpenIfNeeded(user);
             wind.NoticeRequest();
             
 

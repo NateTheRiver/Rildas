@@ -170,6 +170,7 @@
             this.Text = "Downloading #11674 from HelloKittyBot";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.TopMost = true;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.XDCCDownloadingForm_FormClosing);
             this.Shown += new System.EventHandler(this.XDCCDownloadingForm_Shown);
             this.ResumeLayout(false);
             this.PerformLayout();

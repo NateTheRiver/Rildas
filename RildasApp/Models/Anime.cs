@@ -22,6 +22,7 @@ namespace RildasApp.Models
         public string plot;
         public int age;
         public int translatorid;
+        internal int correctorid;
         public string imagepath;
         public enum Status { PŘELOŽENO, PŘEKLÁDÁ_SE, POZASTAVENO }
         public Status status;
