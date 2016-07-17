@@ -47,35 +47,51 @@ namespace RildasApp
             if (determinator.Length == data.Length) rest = "";
             else rest = data.Substring(determinator.Length + 1, data.Length - determinator.Length - 1);
             split = split.Skip(3).ToArray();
-            switch (determinator)
+            try
             {
-                // CLIENT
-                case "CLIENT_CONNECTION_READY": { if (Dashboard.instance != null) { RildasServerAPI.Login(Global.loggedUser.username, Global.password); } }; break;
-                case "CLIENT_LOGIN_SUCCESS": { if(Dashboard.instance != null) Dashboard.instance.EnableForm(); }; break;
-                // DATA
-                case "DATA_ANIME_FULL": { animes = new List<Anime>(Serializer.Deserialize<Anime[]>(rest)); if (AnimeListUpdated != null) AnimeListUpdated(); } break;
-                case "DATA_CHATGROUPS_FULL": { chatGroups = new List<ChatGroup>(Serializer.Deserialize<ChatGroup[]>(rest)); if (ChatGroupListUpdated != null) ChatGroupListUpdated(); }; break;
-                case "DATA_EPISODE_FULL": { episodes = new List<Episode>(Serializer.Deserialize<Episode[]>(rest)); if (EpisodeListUpdated != null) EpisodeListUpdated(); }break;
-                case "DATA_EPISODEVERSION_FULL": { episodeVersions = new List<EpisodeVersion>(Serializer.Deserialize<EpisodeVersion[]>(rest));if (EpisodeVersionListUpdated != null) EpisodeVersionListUpdated(); } break;
-                case "DATA_USER_FULL": { users = new List<User>(Serializer.Deserialize<User[]>(rest)); if (UsersListUpdated != null) UsersListUpdated(); }break;
-                case "DATA_IRCXDCCDATA_VERSIONS": { xdccPackages = Serializer.Deserialize<List<XDCCPackageDetails>>(rest); if (XDCCPackagesListUpdated != null) XDCCPackagesListUpdated(); } break;
-                case "DATA_IRCXDCCDATA_CHANNELS": { xdccChannels = Serializer.Deserialize<List<string>>(rest); if (XDCCChannelsListUpdated != null) XDCCChannelsListUpdated(); } break;
-                // CHANGEDATA
-                case "CHANGEDATA_UPDATE_EPISODEVERSION": UpdateEpisodeVersion(Serializer.Deserialize<EpisodeVersion>(rest)); break;
-                case "CHANGEDATA_ADD_EPISODEVERSION": AddEpisodeVersion(Serializer.Deserialize<EpisodeVersion>(rest)); break;
-                case "CHANGEDATA_ADD_IRCXDCCPACKAGE": AddXDCCPackage(Serializer.Deserialize<XDCCPackageDetails>(rest)); break;
-                //FILE
-                case "FILE_DOWNLOAD_FILEVERSION": DownloadVersion(rest); break;
-                // CHAT
-                case "CHAT_RECEIVE_MESSAGE": ChatReceiveMessage(rest); break;
-                case "CHAT_RECEIVE_GROUPMESSAGE": ChatReceiveGroupMessage(int.Parse(split[0]), int.Parse(split[1]), Global.UnixTimeStampToDateTime(double.Parse(split[2])), String.Join("_", split.Skip(3).ToArray())); break;
-                case "CHAT_ALERT_REQUEST": ChatRequestAlert(rest); break;
+                switch (determinator)
+                {
+                    // CLIENT
+                    case "CLIENT_CONNECTION_READY": { if (Dashboard.instance != null) { RildasServerAPI.Login(Global.loggedUser.username, Global.password); } }; break;
+                    case "CLIENT_LOGIN_SUCCESS": { if (Dashboard.instance != null) Dashboard.instance.EnableForm(); }; break;
+                    // DATA
+                    case "DATA_ANIME_FULL": { animes = new List<Anime>(Serializer.Deserialize<Anime[]>(rest)); if (AnimeListUpdated != null) AnimeListUpdated(); } break;
+                    case "DATA_CHATGROUPS_FULL": { chatGroups = new List<ChatGroup>(Serializer.Deserialize<ChatGroup[]>(rest)); if (ChatGroupListUpdated != null) ChatGroupListUpdated(); }; break;
+                    case "DATA_EPISODE_FULL": { episodes = new List<Episode>(Serializer.Deserialize<Episode[]>(rest)); if (EpisodeListUpdated != null) EpisodeListUpdated(); } break;
+                    case "DATA_EPISODEVERSION_FULL": { episodeVersions = new List<EpisodeVersion>(Serializer.Deserialize<EpisodeVersion[]>(rest)); if (EpisodeVersionListUpdated != null) EpisodeVersionListUpdated(); } break;
+                    case "DATA_USER_FULL": { users = new List<User>(Serializer.Deserialize<User[]>(rest)); if (UsersListUpdated != null) UsersListUpdated(); } break;
+                    case "DATA_IRCXDCCDATA_VERSIONS": { xdccPackages = Serializer.Deserialize<List<XDCCPackageDetails>>(rest); if (XDCCPackagesListUpdated != null) XDCCPackagesListUpdated(); } break;
+                    case "DATA_IRCXDCCDATA_CHANNELS": { xdccChannels = Serializer.Deserialize<List<string>>(rest); if (XDCCChannelsListUpdated != null) XDCCChannelsListUpdated(); } break;
+                    case "DATA_TEAMMEMBER_FULL": AddMembers(Serializer.Deserialize<User[]>(rest)); break;
+                        // CHANGEDATA
+                    case "CHANGEDATA_UPDATE_EPISODEVERSION": UpdateEpisodeVersion(Serializer.Deserialize<EpisodeVersion>(rest)); break;
+                    case "CHANGEDATA_ADD_EPISODEVERSION": AddEpisodeVersion(Serializer.Deserialize<EpisodeVersion>(rest)); break;
+                    case "CHANGEDATA_ADD_IRCXDCCPACKAGE": AddXDCCPackage(Serializer.Deserialize<XDCCPackageDetails>(rest)); break;
+                    //FILE
+                    case "FILE_DOWNLOAD_FILEVERSION": DownloadVersion(rest); break;
+                    // CHAT
+                    case "CHAT_RECEIVE_MESSAGE": ChatReceiveMessage(rest); break;
+                    case "CHAT_RECEIVE_GROUPMESSAGE": ChatReceiveGroupMessage(int.Parse(split[0]), int.Parse(split[1]), Global.UnixTimeStampToDateTime(double.Parse(split[2])), String.Join("_", split.Skip(3).ToArray())); break;
+                    case "CHAT_ALERT_REQUEST": ChatRequestAlert(rest); break;
 
-                case "CHAT_USER_DISCONNECTED": ChatUserDisconnected(int.Parse(rest)); break;
-                case "CHAT_USER_CONNECTED": ChatUserConnected(int.Parse(rest)); break;
-                case "CHAT_USER_ONLINELIST": { loggedUsers = new List<User>(Serializer.Deserialize<User[]>(rest)); if (OnlineUsersListUpdated != null) OnlineUsersListUpdated(); }; break;
+                    case "CHAT_USER_DISCONNECTED": ChatUserDisconnected(int.Parse(rest)); break;
+                    case "CHAT_USER_CONNECTED": ChatUserConnected(int.Parse(rest)); break;
+                    case "CHAT_USER_ONLINELIST": { loggedUsers = new List<User>(Serializer.Deserialize<User[]>(rest)); if (OnlineUsersListUpdated != null) OnlineUsersListUpdated(); }; break;
+                }
+            }
+            catch(Exception e)
+            {
+                ;
             }
 
+        }
+
+        private static void AddMembers(User[] newUsers)
+        {
+            foreach(User user in newUsers)
+            {
+                if (!users.Exists(x => x.id == user.id)) users.Add(user);
+            }
         }
 
         private static void ChatUserConnected(int id)

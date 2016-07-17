@@ -194,7 +194,7 @@ namespace RildasApp.Forms
             nextValue = 80;
             RildasServerAPI.GetAllChatGroups();
             nextValue = 85;
-            RildasServerAPI.GetAllUsers();
+            RildasServerAPI.GetTeamMembers();
             nextValue = 100;
             RildasServerAPI.GetLoggedUsers();
             System.Threading.Thread.Sleep(50);

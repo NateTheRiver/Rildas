@@ -119,5 +119,14 @@ namespace RildasApp
         {
             ConnectionManager.Send("GETDATA_LOGGEDUSERS");
         }
+
+        internal static void GetTeamMembers()
+        {
+            ConnectionManager.Send("GETDATA_TEAMMEMBER_ALL");
+            while (Global.GetUsers().Count == 0)
+            {
+                System.Threading.Thread.Sleep(50);
+            }
+        }
     }
 }

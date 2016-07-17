@@ -273,12 +273,9 @@ namespace RildasApp.Forms
         private void Dashboard_Shown(object sender, EventArgs e)
         {
 
-            LoadTeamMembers();
-            LoadChatGroups();
-
             FilterXDCCPackages();
             MakeStates();
-            LoadImportantFiles();
+
         }
 
         private void Global_AnimeListUpdated()
@@ -1489,6 +1486,14 @@ namespace RildasApp.Forms
                 string replacedString = _xdccFilterTb.Text.Replace(' ', '_');
                 RildasServerAPI.GetFilteredXDCCVersions(replacedString, xdccDirtySearch.Checked);
             }
+        }
+
+        private void Dashboard_Load(object sender, EventArgs e)
+        {
+
+            LoadTeamMembers();
+            LoadChatGroups();
+            LoadImportantFiles();
         }
 
         private void timetable_panel_Paint(object sender, PaintEventArgs e)
