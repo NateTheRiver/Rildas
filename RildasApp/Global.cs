@@ -20,6 +20,7 @@ namespace RildasApp
         private static List<EpisodeVersion> episodeVersions = new List<EpisodeVersion>();
         private static List<ChatGroup> chatGroups = new List<ChatGroup>();
         private static List<User> users = new List<User>();
+        private static List<User> loggedUsers = new List<User>();
         private static List<XDCCPackageDetails> xdccPackages = new List<XDCCPackageDetails>();
         private static List<string> xdccChannels = new List<string>();
         static Global()
@@ -69,8 +70,26 @@ namespace RildasApp
                 case "CHAT_RECEIVE_MESSAGE": ChatReceiveMessage(rest); break;
                 case "CHAT_RECEIVE_GROUPMESSAGE": ChatReceiveGroupMessage(int.Parse(split[0]), int.Parse(split[1]), Global.UnixTimeStampToDateTime(double.Parse(split[2])), String.Join("_", split.Skip(3).ToArray())); break;
                 case "CHAT_ALERT_REQUEST": ChatRequestAlert(rest); break;
+
+                case "CHAT_USER_DISCONNECTED": ChatUserDisconnected(int.Parse(rest)); break;
+                case "CHAT_USER_CONNECTED": ChatUserConnected(int.Parse(rest)); break;
+                case "CHAT_USER_ONLINELIST": { loggedUsers = new List<User>(Serializer.Deserialize<User[]>(rest)); if (OnlineUsersListUpdated != null) OnlineUsersListUpdated(); }; break;
             }
 
+        }
+
+        private static void ChatUserConnected(int id)
+        {
+            User user = Global.GetUser(id);
+            if (UserConnected != null) UserConnected(user);
+            loggedUsers.Add(user);
+        }
+
+        private static void ChatUserDisconnected(int id)
+        {
+            User user = Global.GetUser(id);
+            if (UserDisconnected != null) UserDisconnected(user);
+            loggedUsers.Remove(user);
         }
 
         internal static List<ChatGroup> GetChatGroups()
@@ -350,10 +369,10 @@ namespace RildasApp
         public delegate void OnlineUsersListUpdatedHandler();
         public static event OnlineUsersListUpdatedHandler OnlineUsersListUpdated;
 
-        public delegate void UserConnectedHandler();
+        public delegate void UserConnectedHandler(User user);
         public static event UserConnectedHandler UserConnected;
 
-        public delegate void UserDisconnectedHandler();
+        public delegate void UserDisconnectedHandler(User user);
         public static event UserDisconnectedHandler UserDisconnected;
 
         public delegate void ChatGroupListUpdatedHandler();
