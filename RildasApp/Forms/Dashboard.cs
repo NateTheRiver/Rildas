@@ -37,8 +37,7 @@ namespace RildasApp.Forms
         int month;
         int year;
         public Dashboard()
-        {
-            
+        {            
             InitializeComponent();
             mouseX = 0;
             mouseY = 0;
@@ -75,6 +74,9 @@ namespace RildasApp.Forms
             myPanel2.Cursor = Cursors.Hand;
             _publish.Controls.Add(myPanel2);
             /*--------------*/
+
+            SetApplicationSize();
+
             this.News.MouseWheel += News_MouseWheel;
             this.chatPanelPrivate.MouseWheel += ChatPanelPrivate_MouseWheel;
             metroScrollBar1.Scroll += MetroScrollBar1_Scroll;
@@ -100,6 +102,62 @@ namespace RildasApp.Forms
             xdccGridView.Columns.Add(link);
             xdccGridView.CellContentClick += XdccGridView_CellContentClick;
 
+        }
+
+        private void SetApplicationSize()
+        {
+            if (ConfigApp.screenWidth < 1920)
+            {
+                this.Size = new Size(1366, 740);
+                metroLabel_ConnectionLost.Location = new Point(this.Width - metroLabel_ConnectionLost.Width, metroLabel_ConnectionLost.Location.Y);
+                MetroButton button = new MetroButton();
+                button.Size = new Size(20, metroTabControl1.Height - 15);
+                button.Location = new Point(this.Width - button.Width, metroTabControl1.Location.Y + 40);
+                button.Theme = MetroThemeStyle.Dark;
+                button.Text = "<";
+                button.Name = "button_chatShow";
+                button.Click += Button_ChatShow_Click;
+                this.Controls.Add(button);
+                News.Visible = false;
+                metroComboBox_Last20.Visible = false;
+                metroLabel_Last20.Visible = false;
+                chatPanelGroups.Location = new Point(this.Width - chatPanelGroups.Width, chatPanelGroups.Location.Y);
+                chatPanelPrivate.Location = new Point(this.Width - chatPanelPrivate.Width, chatPanelPrivate.Location.Y);
+                metroLabel1.Location = new Point(this.Width - metroLabel1.Width, metroLabel1.Location.Y);
+                metroLabel15.Location = new Point(this.Width - metroLabel15.Width, metroLabel15.Location.Y);
+                metroLabel1.Visible = false;
+                metroLabel15.Visible = false;
+                chatPanelGroups.Visible = false;
+                chatPanelPrivate.Visible = false;
+                button.BringToFront();
+            }
+        }
+
+        private void Button_ChatShow_Click(object sender, EventArgs e)
+        {
+            if ((sender as MetroButton).Text == "<")
+            {
+                (sender as MetroButton).Text = ">";
+
+                chatPanelGroups.Visible = true;
+                chatPanelPrivate.Visible = true;
+                metroLabel1.Visible = true;
+                metroLabel15.Visible = true;
+                chatPanelGroups.BringToFront();
+                chatPanelPrivate.BringToFront();
+                metroLabel1.BringToFront();
+                metroLabel15.BringToFront();
+                (sender as MetroButton).Location = new Point(this.Width - (sender as MetroButton).Width - chatPanelGroups.Width, metroTabControl1.Location.Y + 40);
+            }
+            else
+            {
+                (sender as MetroButton).Text = "<";
+                chatPanelGroups.Visible = false;
+                chatPanelPrivate.Visible = false;
+                metroLabel1.Visible = false;
+                metroLabel15.Visible = false;
+                (sender as MetroButton).Location = new Point(this.Width - (sender as MetroButton).Width, metroTabControl1.Location.Y + 40);
+            }
         }
 
         private void XdccGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -209,7 +267,7 @@ namespace RildasApp.Forms
 
         private void Dashboard_Load(object sender, EventArgs e)
         {
-            metroComboBox1.SelectedIndex = 0;
+            metroComboBox_Last20.SelectedIndex = 0;
             Global.EpisodeVersionListUpdated += Global_EpisodeVersionListUpdated;
             Global.AnimeListUpdated += Global_AnimeListUpdated;
             Global.XDCCPackagesListUpdated += FilterXDCCPackages;
@@ -410,8 +468,8 @@ namespace RildasApp.Forms
                 c.Invoke(new MethodInvoker(delegate { c.Enabled = false; }));
             }
 
-            metroLabel13.Invoke(new MethodInvoker(delegate { metroLabel13.Visible = true; }));
-            metroLabel13.Invoke(new MethodInvoker(delegate { metroLabel13.Enabled = true; }));
+            metroLabel_ConnectionLost.Invoke(new MethodInvoker(delegate { metroLabel_ConnectionLost.Visible = true; }));
+            metroLabel_ConnectionLost.Invoke(new MethodInvoker(delegate { metroLabel_ConnectionLost.Enabled = true; }));
         }
         public void EnableForm()
         {
@@ -419,7 +477,7 @@ namespace RildasApp.Forms
             {
                 c.Invoke(new MethodInvoker(delegate { c.Enabled = true; }));
             }
-            metroLabel13.Invoke(new MethodInvoker(delegate { metroLabel13.Visible = false; }));
+            metroLabel_ConnectionLost.Invoke(new MethodInvoker(delegate { metroLabel_ConnectionLost.Visible = false; }));
         }
 
         private void cb2Version_SelectedIndexChanged(object sender, EventArgs e)
@@ -643,7 +701,7 @@ namespace RildasApp.Forms
                 foreach (EpisodeVersion epver in epVersions)
                 {
                     string text = "";
-                    metroComboBox1.Invoke(new MethodInvoker(delegate { text = metroComboBox1.SelectedItem.ToString(); }));
+                    metroComboBox_Last20.Invoke(new MethodInvoker(delegate { text = metroComboBox_Last20.SelectedItem.ToString(); }));
                     switch (text)
                     {
                         case "Vše": filteredVersions.Add(epver); break;

@@ -80,6 +80,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="config.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>config.settings</DependentUpon>
+    </Compile>
+    <Compile Include="ConfigApp.cs" />
     <Compile Include="Forms\ApplicationUpdateInformationForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -194,6 +200,10 @@
     <EmbeddedResource Include="Forms\XDCCDownloadingForm.resx">
       <DependentUpon>XDCCDownloadingForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="config.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>config.Designer.cs</LastGenOutput>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
