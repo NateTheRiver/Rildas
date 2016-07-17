@@ -97,6 +97,11 @@ namespace RildasApp
             return chatGroups;
         }
 
+        internal static List<User> GetLoggedUsers()
+        {
+            return loggedUsers; 
+        }
+
         private static void AddXDCCPackage(XDCCPackageDetails xDCCPackageDetails)
         {
             xdccPackages.Add(xDCCPackageDetails);
