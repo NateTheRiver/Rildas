@@ -114,5 +114,10 @@ namespace RildasApp
         {
             ConnectionManager.Send(String.Format("GETDATA_IRCXDCCDATA_PACKAGES_{0}_{1}", dirty?"DIRTY": "NONDIRTY", filter));
         }
+
+        internal static void GetLoggedUsers()
+        {
+            ConnectionManager.Send("GETDATA_LOGGEDUSERS");
+        }
     }
 }

@@ -166,6 +166,7 @@ namespace RildasApp.Forms
             }
             else
             {
+
                 Global.loggedUser = user;
                 if (cbSave.Checked) setSetting("username", textUsername.Text);
                 else setSetting("username", "");
@@ -177,6 +178,11 @@ namespace RildasApp.Forms
         }
         public void LoadAllComponents()
         {
+            Dashboard dash = null;
+            this.Invoke(new MethodInvoker(delegate
+            {
+                dash = new Dashboard();
+            }));
             progressBarTimer.Interval = 30;
             progressBarTimer.Elapsed += ProgressBarTimer_Elapsed;
             progressBarTimer.Start();
@@ -194,11 +200,12 @@ namespace RildasApp.Forms
             nextValue = 85;
             RildasServerAPI.GetAllUsers();
             nextValue = 100;
+            RildasServerAPI.GetLoggedUsers();
             System.Threading.Thread.Sleep(50);
             progressBarTimer.Stop();
             ConnectionManager.Recieved -= ConnectionManager_Recieved;
             ConnectionManager.Disconnected -= ConnectionManager_Disconnected;
-            LoadDone();
+            LoadDone(dash);
         }
 
         private void ProgressBarTimer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
@@ -208,16 +215,15 @@ namespace RildasApp.Forms
                 if (metroProgressBar1.Value < nextValue) metroProgressBar1.Value++; }));
         }
 
-        public void LoadDone()
+        public void LoadDone(Dashboard dash)
         {
             this.Invoke(new MethodInvoker(delegate
             {
-                Dashboard dash = new Dashboard();
                 dash.Show();
                 dash.Activate();
                 dash.FormClosed += Dash_FormClosed;
+                this.Visible = false;
             }));
-            this.Invoke(new MethodInvoker(delegate { this.Visible = false; }));
         }
 
         private void Dash_FormClosed(object sender, FormClosedEventArgs e)
