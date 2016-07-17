@@ -43,5 +43,17 @@ namespace RildasApp.Properties {
                 return ((string)(this["PatchNotes"]));
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool DataPreload {
+            get {
+                return ((bool)(this["DataPreload"]));
+            }
+            set {
+                this["DataPreload"] = value;
+            }
+        }
     }
 }

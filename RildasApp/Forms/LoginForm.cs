@@ -166,6 +166,7 @@ namespace RildasApp.Forms
             }
             else
             {
+
                 Global.loggedUser = user;
                 if (cbSave.Checked) setSetting("username", textUsername.Text);
                 else setSetting("username", "");
@@ -177,6 +178,7 @@ namespace RildasApp.Forms
         }
         public void LoadAllComponents()
         {
+
             progressBarTimer.Interval = 30;
             progressBarTimer.Elapsed += ProgressBarTimer_Elapsed;
             progressBarTimer.Start();
@@ -192,8 +194,9 @@ namespace RildasApp.Forms
             nextValue = 80;
             RildasServerAPI.GetAllChatGroups();
             nextValue = 85;
-            RildasServerAPI.GetAllUsers();
+            RildasServerAPI.GetTeamMembers();
             nextValue = 100;
+            RildasServerAPI.GetLoggedUsers();
             System.Threading.Thread.Sleep(50);
             progressBarTimer.Stop();
             ConnectionManager.Recieved -= ConnectionManager_Recieved;
@@ -223,8 +226,8 @@ namespace RildasApp.Forms
                 dash.Show();
                 dash.Activate();
                 dash.FormClosed += Dash_FormClosed;
+                this.Visible = false;
             }));
-            this.Invoke(new MethodInvoker(delegate { this.Visible = false; }));
         }
 
         private void Dash_FormClosed(object sender, FormClosedEventArgs e)
