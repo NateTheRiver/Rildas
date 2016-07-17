@@ -109,9 +109,10 @@ namespace RildasApp.Forms
             if (ConfigApp.screenWidth < 1920)
             {
                 this.Size = new Size(1366, 740);
+                metroTabControl1.Size = new Size(1325, metroTabControl1.Height);
                 metroLabel_ConnectionLost.Location = new Point(this.Width - metroLabel_ConnectionLost.Width, metroLabel_ConnectionLost.Location.Y);
                 MetroButton button = new MetroButton();
-                button.Size = new Size(20, metroTabControl1.Height - 15);
+                button.Size = new Size(15, metroTabControl1.Height - 15);
                 button.Location = new Point(this.Width - button.Width, metroTabControl1.Location.Y + 40);
                 button.Theme = MetroThemeStyle.Dark;
                 button.Text = "<";
@@ -123,10 +124,12 @@ namespace RildasApp.Forms
                 metroLabel_Last20.Visible = false;
                 chatPanelGroups.Location = new Point(this.Width - chatPanelGroups.Width, chatPanelGroups.Location.Y);
                 chatPanelPrivate.Location = new Point(this.Width - chatPanelPrivate.Width, chatPanelPrivate.Location.Y);
-                metroLabel1.Location = new Point(this.Width - metroLabel1.Width, metroLabel1.Location.Y);
-                metroLabel15.Location = new Point(this.Width - metroLabel15.Width, metroLabel15.Location.Y);
+                metroLabel1.Location = new Point(chatPanelPrivate.Location.X, metroLabel1.Location.Y);
+                metroLabel15.Location = new Point(chatPanelPrivate.Location.X, metroLabel15.Location.Y);
+                metroScrollBar2.Location = new Point(this.Width - metroScrollBar2.Width, metroScrollBar2.Location.Y);
                 metroLabel1.Visible = false;
                 metroLabel15.Visible = false;
+                metroScrollBar2.Visible = false;
                 chatPanelGroups.Visible = false;
                 chatPanelPrivate.Visible = false;
                 button.BringToFront();
@@ -143,10 +146,12 @@ namespace RildasApp.Forms
                 chatPanelPrivate.Visible = true;
                 metroLabel1.Visible = true;
                 metroLabel15.Visible = true;
+                metroScrollBar2.Visible = true;
                 chatPanelGroups.BringToFront();
                 chatPanelPrivate.BringToFront();
                 metroLabel1.BringToFront();
                 metroLabel15.BringToFront();
+                metroScrollBar2.BringToFront();
                 (sender as MetroButton).Location = new Point(this.Width - (sender as MetroButton).Width - chatPanelGroups.Width, metroTabControl1.Location.Y + 40);
             }
             else
@@ -156,6 +161,7 @@ namespace RildasApp.Forms
                 chatPanelPrivate.Visible = false;
                 metroLabel1.Visible = false;
                 metroLabel15.Visible = false;
+                metroScrollBar2.Visible = false;
                 (sender as MetroButton).Location = new Point(this.Width - (sender as MetroButton).Width, metroTabControl1.Location.Y + 40);
             }
         }
@@ -532,8 +538,8 @@ namespace RildasApp.Forms
         public void MakeStates()
         {
             _states.Controls.Clear();
-            const int imageSize = 204;
-            const int rightPadding = 20;
+            const int imageSize = 200;
+            const int rightPadding = 15;
             const int downPadding = 70;
             int animesInRow = (_states.Width / (imageSize + rightPadding));
             List<Anime> animeList = Global.GetAnimes();
