@@ -12,11 +12,13 @@ namespace RildasApp
     public static class Global
     {
         static List<ChatWindowPrivate> chatWindows = new List<ChatWindowPrivate>();
+        static List<ChatWindowGroup> groupChatWindows = new List<ChatWindowGroup>();
         public static User loggedUser;
         public static string password;
         private static List<Anime> animes = new List<Anime>();
         private static List<Episode> episodes = new List<Episode>();
         private static List<EpisodeVersion> episodeVersions = new List<EpisodeVersion>();
+        private static List<ChatGroup> chatGroups = new List<ChatGroup>();
         private static List<User> users = new List<User>();
         private static List<XDCCPackageDetails> xdccPackages = new List<XDCCPackageDetails>();
         private static List<string> xdccChannels = new List<string>();
@@ -43,6 +45,7 @@ namespace RildasApp
             string rest;
             if (determinator.Length == data.Length) rest = "";
             else rest = data.Substring(determinator.Length + 1, data.Length - determinator.Length - 1);
+            split = split.Skip(3).ToArray();
             switch (determinator)
             {
                 // CLIENT
@@ -50,6 +53,7 @@ namespace RildasApp
                 case "CLIENT_LOGIN_SUCCESS": { if(Dashboard.instance != null) Dashboard.instance.EnableForm(); }; break;
                 // DATA
                 case "DATA_ANIME_FULL": { animes = new List<Anime>(Serializer.Deserialize<Anime[]>(rest)); if (AnimeListUpdated != null) AnimeListUpdated(); } break;
+                case "DATA_CHATGROUPS_FULL": { chatGroups = new List<ChatGroup>(Serializer.Deserialize<ChatGroup[]>(rest)); if (ChatGroupListUpdated != null) ChatGroupListUpdated(); }; break;
                 case "DATA_EPISODE_FULL": { episodes = new List<Episode>(Serializer.Deserialize<Episode[]>(rest)); if (EpisodeListUpdated != null) EpisodeListUpdated(); }break;
                 case "DATA_EPISODEVERSION_FULL": { episodeVersions = new List<EpisodeVersion>(Serializer.Deserialize<EpisodeVersion[]>(rest));if (EpisodeVersionListUpdated != null) EpisodeVersionListUpdated(); } break;
                 case "DATA_USER_FULL": { users = new List<User>(Serializer.Deserialize<User[]>(rest)); if (UsersListUpdated != null) UsersListUpdated(); }break;
@@ -63,9 +67,15 @@ namespace RildasApp
                 case "FILE_DOWNLOAD_FILEVERSION": DownloadVersion(rest); break;
                 // CHAT
                 case "CHAT_RECEIVE_MESSAGE": ChatReceiveMessage(rest); break;
+                case "CHAT_RECEIVE_GROUPMESSAGE": ChatReceiveGroupMessage(int.Parse(split[0]), int.Parse(split[1]), Global.UnixTimeStampToDateTime(double.Parse(split[2])), String.Join("_", split.Skip(3).ToArray())); break;
                 case "CHAT_ALERT_REQUEST": ChatRequestAlert(rest); break;
             }
 
+        }
+
+        internal static List<ChatGroup> GetChatGroups()
+        {
+            return chatGroups;
         }
 
         private static void AddXDCCPackage(XDCCPackageDetails xDCCPackageDetails)
@@ -79,7 +89,13 @@ namespace RildasApp
             int id = int.Parse(rest);
             RequestAlert(id);
         }
-
+        private static void ChatReceiveGroupMessage(int groupId, int senderId, DateTime sendTime, string text)
+        {
+            ChatGroup chatGroup = Global.GetChatGroup(groupId);
+            ChatWindowGroup wind = OpenIfNeeded(chatGroup);
+            wind.AppendMessage(GetUser(senderId).username, text, sendTime);
+            wind.FlashWindowEx();
+        }
         private static void ChatReceiveMessage(string rest)
         {
             string[] split = rest.Split('_');
@@ -185,6 +201,16 @@ namespace RildasApp
             return episodeVersions.FirstOrDefault(x => x.id == id);
 
         }
+        public static ChatGroup GetChatGroup(int id)
+        {
+            return chatGroups.FirstOrDefault(x => x.id == id);
+        }
+        public static ChatGroup GetChatGroup(string name)
+        {
+            return chatGroups.FirstOrDefault(x => x.name == name);
+        }
+
+
         public static List<User> GetUsers()
         {
             return users;
@@ -244,15 +270,55 @@ namespace RildasApp
                 }
 
             }
-            ChatWindowPrivate window = new ChatWindowPrivate();
+            ChatWindowPrivate window = null;
+            Dashboard.instance.Invoke(new MethodInvoker(delegate {
+            window = new ChatWindowPrivate();
             window.Tag = user;
             window.Text = "Private Chat - " + user.username;
             window.FormClosed += Window_FormClosed;
             window.Show();
             window.Activate();
             chatWindows.Add(window);
-            return window;
+           
+            }));
+             return window;
         }
+        public static ChatWindowGroup OpenIfNeeded(ChatGroup chatGroup)
+        {
+            foreach (ChatWindowGroup chat in groupChatWindows)
+            {
+                if ((chat.Tag as ChatGroup).id == chatGroup.id)
+                {
+                    return chat;
+                }
+            }
+
+            ChatWindowGroup window = null;
+            Dashboard.instance.Invoke(new MethodInvoker(delegate
+            {
+                window = new ChatWindowGroup();
+                window.Tag = chatGroup;
+                window.Text = "Group Chat - " + chatGroup.name;
+                window.FormClosed += GroupWindow_FormClosed;
+                window.Show();
+                window.Activate();
+                groupChatWindows.Add(window);
+            }));
+            return window;
+
+        }
+        private static void GroupWindow_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            for (int i = 0; i < groupChatWindows.Count; i++)
+            {
+                if (groupChatWindows[i] == (sender as ChatWindowGroup))
+                {
+                    groupChatWindows.Remove(groupChatWindows[i]);
+                    return;
+                }
+            }
+        }
+
         public static void GetMessage(int from, string text, DateTime time)
         {
             User user = Global.GetUser(from);
@@ -260,6 +326,7 @@ namespace RildasApp
             wind.AppendMessage(text, time);
             wind.FlashWindowEx();
         }
+        
         private static void Window_FormClosed(object sender, FormClosedEventArgs e)
         {
             for (int i = 0; i < chatWindows.Count; i++)
@@ -280,6 +347,17 @@ namespace RildasApp
 
         }
 
+        public delegate void OnlineUsersListUpdatedHandler();
+        public static event OnlineUsersListUpdatedHandler OnlineUsersListUpdated;
+
+        public delegate void UserConnectedHandler();
+        public static event UserConnectedHandler UserConnected;
+
+        public delegate void UserDisconnectedHandler();
+        public static event UserDisconnectedHandler UserDisconnected;
+
+        public delegate void ChatGroupListUpdatedHandler();
+        public static event ChatGroupListUpdatedHandler ChatGroupListUpdated;
         public delegate void AnimeListUpdatedHandler();
         public static event AnimeListUpdatedHandler AnimeListUpdated;
         public delegate void EpisodeListUpdatedHandler();

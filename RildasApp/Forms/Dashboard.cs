@@ -214,6 +214,7 @@ namespace RildasApp.Forms
             Global.AnimeListUpdated += Global_AnimeListUpdated;
             Global.XDCCPackagesListUpdated += FilterXDCCPackages;
             LoadTeamMembers();
+            LoadChatGroups();
             if (!String.IsNullOrEmpty(ConfigurationManager.AppSettings["xdccSaveDir"])) _xdccSaveDir.Text = ConfigurationManager.AppSettings["xdccSaveDir"];
             else _xdccSaveDir.Text = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Rildas Anime Files");
             FilterXDCCPackages();
@@ -854,25 +855,58 @@ namespace RildasApp.Forms
             }));
 
         }
+        private void LoadChatGroups()
+        {
+            List<ChatGroup> chatGroups = Global.GetChatGroups();
+            int positionIterator = 0;
+            foreach (ChatGroup chatGroup in chatGroups)
+            {
+                MetroLink name = new MetroLink();
+                MetroPanel panel = new MetroPanel();
+                panel.Location = new System.Drawing.Point(0, positionIterator * 25);
+                panel.Name = "groupChat" + chatGroup.id;
+                panel.Size = new System.Drawing.Size(150, 25);
+                panel.BorderStyle = System.Windows.Forms.BorderStyle.None;
+                panel.Theme = MetroThemeStyle.Dark;
+                name.FontSize = MetroFramework.MetroLinkSize.Medium;
+                name.Location = new System.Drawing.Point(0, 1);
+                name.Name = "nameGroupChat" + chatGroup.id;
+                name.Size = new System.Drawing.Size(150, 23);
+                name.TabIndex = 3;
+                name.Text = chatGroup.name;
+                name.Theme = MetroFramework.MetroThemeStyle.Dark;
+                name.UseSelectable = true;
+                name.Tag = chatGroup;
+                name.Click += ChatGroup_Click;
+                name.TextAlign = ContentAlignment.TopLeft;
+                panel.Controls.Add(name);
+                positionIterator++;
+                chatPanelGroups.Controls.Add(panel);
+            }
+            chatPanelGroups.Refresh();
+        }
+
+        private void ChatGroup_Click(object sender, EventArgs e)
+        {
+            ChatGroup group = (sender as MetroLink).Tag as ChatGroup;
+            Global.OpenIfNeeded(group);
+        }
+
         private void LoadTeamMembers()
         {
             IEnumerable<User> users = Global.GetUsers().Where(x => x.access > 1);
             users = users.OrderBy(x => x.username);
 
             int positionIterator = 0;
-
             foreach (User user in users)
             {
                 MetroLink name = new MetroLink();
                 MetroPanel panel = new MetroPanel();
-
-
                 panel.Location = new System.Drawing.Point(0, positionIterator * 25);
                 panel.Name = "privateChat" + user.username;
                 panel.Size = new System.Drawing.Size(150, 25);
                 panel.BorderStyle = System.Windows.Forms.BorderStyle.None;
                 panel.Theme = MetroThemeStyle.Dark;
-
                 name.FontSize = MetroFramework.MetroLinkSize.Medium;
                 name.Location = new System.Drawing.Point(0, 1);
                 name.Name = "namePrivateChat" + user.username;
@@ -887,7 +921,6 @@ namespace RildasApp.Forms
                 panel.Controls.Add(name);
                 positionIterator++;
                 chatPanelPrivate.Controls.Add(panel);
-
             }
             chatPanelPrivate.Refresh();
         }

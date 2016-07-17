@@ -47,6 +47,10 @@ namespace RildasApp
         {
             ConnectionManager.Send(String.Format("CHAT_SENDMESSAGE_{0}_{1}", recipientId, message));
         }
+        internal static void SendGroupMessage(int groupId, string message)
+        {
+            ConnectionManager.Send(String.Format("CHAT_SENDGROUPMESSAGE_{0}_{1}", groupId, message));
+        }
         internal static void SendNoticeRequest(int recipientId)
         {
             ConnectionManager.Send(String.Format("CHAT_SENDALERT_{0}", recipientId));
@@ -79,7 +83,14 @@ namespace RildasApp
             }
         }
 
-      
+      internal static void GetAllChatGroups()
+        {
+            ConnectionManager.Send("GETDATA_CHATGROUP_ALL");
+            while (Global.GetChatGroups().Count == 0)
+            {
+                System.Threading.Thread.Sleep(50);
+            }
+        }
         internal static void GetAllUsers()
         {
             ConnectionManager.Send("GETDATA_USER_ALL");
