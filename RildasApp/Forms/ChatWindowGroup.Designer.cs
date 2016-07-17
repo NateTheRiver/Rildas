@@ -43,9 +43,9 @@
             // 
             // 
             this.tbMessage.CustomButton.Image = null;
-            this.tbMessage.CustomButton.Location = new System.Drawing.Point(400, 2);
+            this.tbMessage.CustomButton.Location = new System.Drawing.Point(410, 1);
             this.tbMessage.CustomButton.Name = "";
-            this.tbMessage.CustomButton.Size = new System.Drawing.Size(57, 57);
+            this.tbMessage.CustomButton.Size = new System.Drawing.Size(49, 49);
             this.tbMessage.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.tbMessage.CustomButton.TabIndex = 1;
             this.tbMessage.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -145,7 +145,7 @@
             this.Controls.Add(this.tbMessage);
             this.Name = "ChatWindowGroup";
             this.Style = MetroFramework.MetroColorStyle.Lime;
-            this.Text = "Group Chat - Rildas";
+            this.Text = "Group chat: Rildas";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.TopMost = true;
             this.Resize += new System.EventHandler(this.ChatWindow_Resize);

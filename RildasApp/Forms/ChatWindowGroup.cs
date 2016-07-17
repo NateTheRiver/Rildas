@@ -74,12 +74,12 @@ namespace RildasApp.Forms
         {
             // TODO: Resize všech komponent
         }
-        public void AppendMessage(string message, DateTime time)
+        public void AppendMessage(string username, string message, DateTime time)
         {
             this.Invoke(new MethodInvoker(delegate
             {
                 Append(richTextBox1, String.Format("[{0}]", time.ToString("HH:mm")), Color.FromArgb(231, 76, 60));
-                Append(richTextBox1, (this.Tag as User).username, Color.FromArgb(231, 76, 60));
+                Append(richTextBox1, username, Color.FromArgb(231, 76, 60));
                 Append(richTextBox1, ": " + message, Color.White);
                 Append(richTextBox1, Environment.NewLine, Color.White);
                 richTextBox1.ScrollToCaret();
@@ -108,49 +108,18 @@ namespace RildasApp.Forms
         private void metroButton1_Click(object sender, EventArgs e)
         {
             if (tbMessage.Text == "") return;
-            Append(richTextBox1, String.Format("[{0}] ", DateTime.Now.ToString("HH:mm")), Color.FromArgb(60, 130, 231));
-            Append(richTextBox1, Global.loggedUser.username, Color.FromArgb(60, 130, 231));
-            Append(richTextBox1, ": " + tbMessage.Text, Color.White);
-            Append(richTextBox1, Environment.NewLine, Color.White);
-            richTextBox1.ScrollToCaret();
-            RildasServerAPI.SendMessage((this.Tag as User).id, tbMessage.Text);
+            RildasServerAPI.SendGroupMessage((this.Tag as ChatGroup).id, tbMessage.Text);
             tbMessage.Text = "";
             this.tbMessage.Focus();
         }
 
-        private void btnNotice_Click(object sender, EventArgs e)
-        {
-            RildasServerAPI.SendNoticeRequest((Tag as User).id);
-            Append(richTextBox1, String.Format("[{0}]", DateTime.Now.ToString("HH:mm")), Color.FromArgb(60, 130, 231));
-            Append(richTextBox1, " Žádost o pozornost odeslána.", Color.FromArgb(60, 130, 231));
-            Append(richTextBox1, Environment.NewLine, Color.White);
-            richTextBox1.ScrollToCaret();
-
-        }
-        internal void NoticeRequest()
-        {
-            this.Invoke(new MethodInvoker(delegate
-            {
-                Append(richTextBox1, String.Format("[{0}]", DateTime.Now.ToString("HH:mm")), Color.FromArgb(231, 76, 60));
-                Append(richTextBox1, " " + (this.Tag as User).username + " si vyžaduje vaši pozornost.", Color.FromArgb(231, 76, 60));
-                Append(richTextBox1, Environment.NewLine, Color.White);
-                richTextBox1.ScrollToCaret();
-                this.Activate();
-
-            }));
-        }
 
         private void tbMessage_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
                 if (tbMessage.Text == "") return;
-                Append(richTextBox1, String.Format("[{0}]", DateTime.Now.ToString("HH:mm")), Color.FromArgb(60, 130, 231));
-                Append(richTextBox1, Global.loggedUser.username, Color.FromArgb(60, 130, 231));
-                Append(richTextBox1, ": " + tbMessage.Text, Color.White);
-                Append(richTextBox1, Environment.NewLine, Color.White);
-                richTextBox1.ScrollToCaret();
-                RildasServerAPI.SendMessage((this.Tag as User).id, tbMessage.Text);
+                RildasServerAPI.SendGroupMessage((this.Tag as ChatGroup).id, tbMessage.Text);
                 tbMessage.Text = "";
                 e.Handled = e.SuppressKeyPress = true;
             }

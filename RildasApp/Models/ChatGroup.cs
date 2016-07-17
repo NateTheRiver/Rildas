@@ -8,8 +8,9 @@ namespace RildasApp.Models
 {
     public class ChatGroup
     {
+
         public int id;
         public string name;
-        public int[] userIds;
+        public List<User> members;
     }
 }

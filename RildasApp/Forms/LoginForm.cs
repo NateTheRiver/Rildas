@@ -189,6 +189,8 @@ namespace RildasApp.Forms
             RildasServerAPI.GetAllEpisodeVersions();
             nextValue = 70;
             RildasServerAPI.GetAllXDCCVersions();
+            nextValue = 80;
+            RildasServerAPI.GetAllChatGroups();
             nextValue = 85;
             RildasServerAPI.GetAllUsers();
             nextValue = 100;
