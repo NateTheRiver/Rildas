@@ -178,11 +178,7 @@ namespace RildasApp.Forms
         }
         public void LoadAllComponents()
         {
-            Dashboard dash = null;
-            this.Invoke(new MethodInvoker(delegate
-            {
-                dash = new Dashboard();
-            }));
+
             progressBarTimer.Interval = 30;
             progressBarTimer.Elapsed += ProgressBarTimer_Elapsed;
             progressBarTimer.Start();
@@ -205,7 +201,7 @@ namespace RildasApp.Forms
             progressBarTimer.Stop();
             ConnectionManager.Recieved -= ConnectionManager_Recieved;
             ConnectionManager.Disconnected -= ConnectionManager_Disconnected;
-            LoadDone(dash);
+            LoadDone();
         }
 
         private void ProgressBarTimer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
@@ -215,10 +211,11 @@ namespace RildasApp.Forms
                 if (metroProgressBar1.Value < nextValue) metroProgressBar1.Value++; }));
         }
 
-        public void LoadDone(Dashboard dash)
+        public void LoadDone()
         {
             this.Invoke(new MethodInvoker(delegate
             {
+                Dashboard dash = new Dashboard();
                 dash.Show();
                 dash.Activate();
                 dash.FormClosed += Dash_FormClosed;

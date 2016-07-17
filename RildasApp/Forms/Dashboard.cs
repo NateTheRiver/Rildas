@@ -58,6 +58,10 @@ namespace RildasApp.Forms
             myPanel.Cursor = Cursors.Hand;
             _calendar.Controls.Add(myPanel);
             table = new Timetable.Timetable(myPanel, toolTip1, myPanel.Width - 1, myPanel.Height - 20);
+            metroComboBox_Last20.SelectedIndex = 0;
+            Global.EpisodeVersionListUpdated += Global_EpisodeVersionListUpdated;
+            Global.AnimeListUpdated += Global_AnimeListUpdated;
+            Global.XDCCPackagesListUpdated += FilterXDCCPackages;
             /*--------------*/
             // Made by Dan
             /*Panel pro zveřejnění*/
@@ -101,7 +105,8 @@ namespace RildasApp.Forms
             link.UseColumnTextForLinkValue = true;
             xdccGridView.Columns.Add(link);
             xdccGridView.CellContentClick += XdccGridView_CellContentClick;
-
+            if (!String.IsNullOrEmpty(ConfigurationManager.AppSettings["xdccSaveDir"])) _xdccSaveDir.Text = ConfigurationManager.AppSettings["xdccSaveDir"];
+            else _xdccSaveDir.Text = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Rildas Anime Files");
         }
 
         private void SetApplicationSize()
@@ -265,16 +270,12 @@ namespace RildasApp.Forms
             metroScrollBar2_Scroll(this, new ScrollEventArgs(ScrollEventType.ThumbTrack, metroScrollBar2.Value));
         }
 
-        private void Dashboard_Load(object sender, EventArgs e)
+        private void Dashboard_Shown(object sender, EventArgs e)
         {
-            metroComboBox_Last20.SelectedIndex = 0;
-            Global.EpisodeVersionListUpdated += Global_EpisodeVersionListUpdated;
-            Global.AnimeListUpdated += Global_AnimeListUpdated;
-            Global.XDCCPackagesListUpdated += FilterXDCCPackages;
+
             LoadTeamMembers();
             LoadChatGroups();
-            if (!String.IsNullOrEmpty(ConfigurationManager.AppSettings["xdccSaveDir"])) _xdccSaveDir.Text = ConfigurationManager.AppSettings["xdccSaveDir"];
-            else _xdccSaveDir.Text = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Rildas Anime Files");
+
             FilterXDCCPackages();
             MakeStates();
             LoadImportantFiles();
