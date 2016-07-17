@@ -203,9 +203,16 @@ namespace RildasApp.Forms
 
         private void ProgressBarTimer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
-            
-            metroProgressBar1.Invoke(new MethodInvoker(delegate {
-                if (metroProgressBar1.Value < nextValue) metroProgressBar1.Value++; }));
+            try
+            {
+                metroProgressBar1.Invoke(new MethodInvoker(delegate
+                {
+                    if (metroProgressBar1.Value < nextValue) metroProgressBar1.Value++;
+                }));
+            }
+            catch (Exception ex)
+            {
+            }
         }
 
         public void LoadDone()

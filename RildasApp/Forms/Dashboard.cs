@@ -36,6 +36,7 @@ namespace RildasApp.Forms
         string[] selectedAnime;
         int month;
         int year;
+
         public Dashboard()
         {            
             InitializeComponent();
@@ -277,6 +278,8 @@ namespace RildasApp.Forms
             Global.EpisodeVersionListUpdated += Global_EpisodeVersionListUpdated;
             Global.AnimeListUpdated += Global_AnimeListUpdated;
             Global.XDCCPackagesListUpdated += FilterXDCCPackages;
+            Global.UserConnected += ChatAddUser;
+            Global.UserDisconnected += ChatDelUser;
             LoadTeamMembers();
             LoadChatGroups();
             if (!String.IsNullOrEmpty(ConfigurationManager.AppSettings["xdccSaveDir"])) _xdccSaveDir.Text = ConfigurationManager.AppSettings["xdccSaveDir"];
@@ -284,6 +287,18 @@ namespace RildasApp.Forms
             FilterXDCCPackages();
             MakeStates();
             LoadImportantFiles();
+        }
+
+        private void ChatDelUser(User user)
+        {
+            string directory = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
+            (chatPanelPrivate.Controls.Find(user.username + "_state", false)[0] as PictureBox).Load(directory + "/Images/red.png");
+        }
+
+        private void ChatAddUser(User user)
+        {
+            string directory = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
+            (chatPanelPrivate.Controls.Find(user.username + "_state", false)[0] as PictureBox).Load(directory + "/Images/green.png");
         }
 
         private void Global_AnimeListUpdated()
@@ -959,20 +974,17 @@ namespace RildasApp.Forms
         private void LoadTeamMembers()
         {
             IEnumerable<User> users = Global.GetUsers().Where(x => x.access > 1);
+            List<User> logged = Global.GetLoggedUsers();
             users = users.OrderBy(x => x.username);
+            string directory = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
 
             int positionIterator = 0;
             foreach (User user in users)
             {
                 MetroLink name = new MetroLink();
-                MetroPanel panel = new MetroPanel();
-                panel.Location = new System.Drawing.Point(0, positionIterator * 25);
-                panel.Name = "privateChat" + user.username;
-                panel.Size = new System.Drawing.Size(150, 25);
-                panel.BorderStyle = System.Windows.Forms.BorderStyle.None;
-                panel.Theme = MetroThemeStyle.Dark;
+                PictureBox state = new PictureBox();
                 name.FontSize = MetroFramework.MetroLinkSize.Medium;
-                name.Location = new System.Drawing.Point(0, 1);
+                name.Location = new System.Drawing.Point(25, positionIterator * 25);
                 name.Name = "namePrivateChat" + user.username;
                 name.Size = new System.Drawing.Size(150, 23);
                 name.TabIndex = 3;
@@ -982,9 +994,17 @@ namespace RildasApp.Forms
                 name.Tag = user;
                 name.Click += User_Click;
                 name.TextAlign = ContentAlignment.TopLeft;
-                panel.Controls.Add(name);
-                positionIterator++;
-                chatPanelPrivate.Controls.Add(panel);
+                state.Size = new Size(20, 20);
+                state.Location = new Point(1, name.Location.Y);
+                state.Name = user.username + "_state";
+              if (logged.Exists(x=>x.username == user.username))
+                    state.Load(directory + "/Images/green.png");
+                else
+                    state.Load(directory + "/Images/red.png");
+                chatPanelPrivate.Controls.Add(name);
+                chatPanelPrivate.Controls.Add(state);
+                state.BringToFront();
+                positionIterator++;                
             }
             chatPanelPrivate.Refresh();
         }
