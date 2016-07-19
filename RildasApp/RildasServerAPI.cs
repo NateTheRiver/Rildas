@@ -19,7 +19,7 @@ namespace RildasApp
        
         internal static void Login(string username, string password)
         {
-            ConnectionManager.Send(String.Format("CLIENT_LOGIN_{0}_{1}", username, password));
+            ConnectionManager.Send(String.Format("CLIENT_LOGIN_{0}_{1}_{2}", username.Count(f => f == '_'), username, password));
         }
   
 
