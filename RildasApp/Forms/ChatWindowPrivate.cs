@@ -39,13 +39,14 @@ namespace RildasApp.Forms
             Global.UserConnected += UserEnter;
             richTextBox1.Location = new Point(1, 1);
             panel1.Size = new Size(richTextBox1.Size.Width + 2, richTextBox1.Size.Height + 2);
+            this.SetStyle(ControlStyles.UserPaint, true);
+
         }
 
         private void UserEnter(User user)
         {
             if ((this.Tag as User).id == user.id)
             {
-                Thread.Sleep(7000);
                 this.Invoke(new MethodInvoker(delegate
                 {
                     Append(richTextBox1, "Uživatel " + (this.Tag as User).username + " se nad Vámi slitoval a opět je tady.", Color.White);
@@ -67,6 +68,7 @@ namespace RildasApp.Forms
                 }));
             }
         }
+
 
         [StructLayout(LayoutKind.Sequential)]
         public struct FLASHWINFO
@@ -192,17 +194,18 @@ namespace RildasApp.Forms
         private void tbMessage_Enter(object sender, EventArgs e)
         {
             focus = true;
-            Refresh();
+            this.Refresh();
+            this.Invalidate();
         }
 
         private void tbMessage_Leave(object sender, EventArgs e)
         {
             focus = false;
-            Refresh();
+            this.Refresh();
         }
-
-        private void ChatWindowPrivate_Paint(object sender, PaintEventArgs e)
+        protected override void OnPaint(PaintEventArgs e)
         {
+            base.OnPaint(e);
             if (focus)
             {
                 tbMessage.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -215,6 +218,10 @@ namespace RildasApp.Forms
             {
                 tbMessage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             }
+        }
+        private void ChatWindowPrivate_Paint(object sender, PaintEventArgs e)
+        {
+            
         }
     }
 }
