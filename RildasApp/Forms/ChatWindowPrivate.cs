@@ -11,6 +11,7 @@ using MetroFramework.Controls;
 using RildasApp.Models;
 using System.Runtime.InteropServices;
 using Microsoft.Win32;
+using System.Threading;
 
 namespace RildasApp.Forms
 {
@@ -26,6 +27,7 @@ namespace RildasApp.Forms
         public const UInt32 FLASHW_ALL = 3;
         // Flash continuously until the window comes to the foreground. 
         public const UInt32 FLASHW_TIMERNOFG = 12;
+        bool focus = false;
         protected override bool ShowWithoutActivation
         {
             get { return true; }
@@ -33,10 +35,38 @@ namespace RildasApp.Forms
         public ChatWindowPrivate()
         {
             InitializeComponent();
+            Global.UserDisconnected += UserLeave;
+            Global.UserConnected += UserEnter;
             richTextBox1.Location = new Point(1, 1);
             panel1.Size = new Size(richTextBox1.Size.Width + 2, richTextBox1.Size.Height + 2);
         }
 
+        private void UserEnter(User user)
+        {
+            if ((this.Tag as User).id == user.id)
+            {
+                Thread.Sleep(7000);
+                this.Invoke(new MethodInvoker(delegate
+                {
+                    Append(richTextBox1, "Uživatel " + (this.Tag as User).username + " se nad Vámi slitoval a opět je tady.", Color.White);
+                    Append(richTextBox1, Environment.NewLine, Color.White);
+                    richTextBox1.ScrollToCaret();
+                }));
+            }
+        }
+
+        private void UserLeave(User user)
+        {
+            if ((this.Tag as User).id == user.id)
+            {
+                this.Invoke(new MethodInvoker(delegate
+                {
+                    Append(richTextBox1, "Uživatel "+ (this.Tag as User).username+ " se na Vás vykašlal a prostě to vypnul.", Color.White);
+                    Append(richTextBox1, Environment.NewLine, Color.White);
+                    richTextBox1.ScrollToCaret();
+                }));
+            }
+        }
 
         [StructLayout(LayoutKind.Sequential)]
         public struct FLASHWINFO
@@ -156,6 +186,34 @@ namespace RildasApp.Forms
                 RildasServerAPI.SendMessage((this.Tag as User).id, tbMessage.Text);
                 tbMessage.Text = "";
                 e.Handled = e.SuppressKeyPress = true;
+            }
+        }
+
+        private void tbMessage_Enter(object sender, EventArgs e)
+        {
+            focus = true;
+            Refresh();
+        }
+
+        private void tbMessage_Leave(object sender, EventArgs e)
+        {
+            focus = false;
+            Refresh();
+        }
+
+        private void ChatWindowPrivate_Paint(object sender, PaintEventArgs e)
+        {
+            if (focus)
+            {
+                tbMessage.BorderStyle = System.Windows.Forms.BorderStyle.None;
+                Pen p = new Pen(Color.FromArgb(142, 188, 0));
+                Graphics g = e.Graphics;
+                int variance = 3;
+                g.DrawRectangle(p, new Rectangle(tbMessage.Location.X - variance, tbMessage.Location.Y - variance, tbMessage.Width + variance, tbMessage.Height + variance));
+            }
+            else
+            {
+                tbMessage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             }
         }
     }

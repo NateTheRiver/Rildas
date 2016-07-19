@@ -996,6 +996,7 @@ namespace RildasApp.Forms
             List<User> logged = Global.GetLoggedUsers();
             users = users.OrderBy(x => x.username);
             string directory = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().Location);
+<<<<<<< HEAD
             chatPanelPrivate.Invoke(new MethodInvoker(delegate
             {
                 chatPanelPrivate.Controls.Clear();
@@ -1037,6 +1038,39 @@ namespace RildasApp.Forms
                 }
                 chatPanelPrivate.Refresh();
             }));
+=======
+
+            int positionIterator = 0;
+            foreach (User user in users)
+            {
+                MetroLink name = new MetroLink();
+                PictureBox state = new PictureBox();
+                name.FontSize = MetroFramework.MetroLinkSize.Medium;
+                name.Location = new System.Drawing.Point(25, positionIterator * 25);
+                name.Name = "namePrivateChat" + user.username;
+                name.Size = new System.Drawing.Size(150, 23);
+                name.TabIndex = 3;
+                name.Text =user.username;
+                name.Theme = MetroFramework.MetroThemeStyle.Dark;
+                name.UseSelectable = true;
+                name.Tag = user;
+                name.Click += User_Click;
+                name.TextAlign = ContentAlignment.TopLeft;
+                state.Size = new Size(20, 20);
+                state.Location = new Point(1, name.Location.Y);
+                state.Name = user.username + "_state";
+                if(logged != null) 
+                if (logged.Exists(x=>x.username == user.username)) // Tady se mi to nelíbí. Padá to na nedefinovaném objektu
+                    state.Load(directory + "/Images/green.png");
+                else
+                    state.Load(directory + "/Images/red.png");
+                chatPanelPrivate.Controls.Add(name);
+                chatPanelPrivate.Controls.Add(state);
+                state.BringToFront();
+                positionIterator++;
+            }
+            chatPanelPrivate.Refresh();
+>>>>>>> origin/master
         }
 
         private void User_Click(object sender, EventArgs e)
@@ -1202,19 +1236,19 @@ namespace RildasApp.Forms
 
                 }
                             
-             List<Anime> animes = Global.GetAnimes();
+            List<Anime> animes = Global.GetAnimes();
             MetroLink metroLink = null;
             importantFiles.Invoke(new MethodInvoker(delegate
             {
                 metroLink = new MetroLink();
-                metroLink.Location = new System.Drawing.Point(179, 188);
-                metroLink.Name = "metroProgressr1";
-                metroLink.AutoSize = true;
-                metroLink.Text = "Načítání";
-                metroLink.Style = MetroFramework.MetroColorStyle.Blue;
-                metroLink.TabIndex = 2;
-                metroLink.Theme = MetroFramework.MetroThemeStyle.Dark;
-                metroLink.UseSelectable = true;
+            metroLink.Location = new System.Drawing.Point(179, 188);
+            metroLink.Name = "metroProgressr1";
+            metroLink.AutoSize = true;
+            metroLink.Text = "Načítání";
+            metroLink.Style = MetroFramework.MetroColorStyle.Blue;
+            metroLink.TabIndex = 2;
+            metroLink.Theme = MetroFramework.MetroThemeStyle.Dark;
+            metroLink.UseSelectable = true;
                 importantFiles.Controls.Clear();
                 importantFiles.Refresh();
 
