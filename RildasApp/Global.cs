@@ -15,6 +15,19 @@ namespace RildasApp
 {
     public static class Global
     {
+        public class PrivateMessage
+        {
+            public int sender;
+            public DateTime time;
+            public string text;
+        }
+        public class GroupMessage
+        {
+            public int groupId;
+            public int senderId;
+            public string text;
+            public DateTime time;
+        }
         static List<ChatWindowPrivate> chatWindows = new List<ChatWindowPrivate>();
         static List<ChatWindowGroup> groupChatWindows = new List<ChatWindowGroup>();
         public static User loggedUser;
@@ -28,6 +41,8 @@ namespace RildasApp
         private static List<User> loggedUsers = new List<User>();
         private static List<XDCCPackageDetails> xdccPackages = new List<XDCCPackageDetails>();
         private static List<string> xdccChannels = new List<string>();
+        private static List<PrivateMessage> unseenPrivateMessages = new List<PrivateMessage>();
+        private static List<GroupMessage> unseenGroupMessages = new List<GroupMessage>();
         static Global()
         {
 
@@ -116,6 +131,26 @@ namespace RildasApp
             ConfigurationManager.RefreshSection("appSettings");
             return true;
         }
+        public static PrivateMessage[] GetUnseenMessages(User user, bool deleteThem = false)
+        {
+            var messages = unseenPrivateMessages.Where(x => x.sender == user.id).ToArray();
+            if (deleteThem && messages.Count() > 0)
+            {
+                foreach (var message in messages) unseenPrivateMessages.Remove(message);
+                if (UnseenPrivateMessagesUpdated != null) UnseenPrivateMessagesUpdated();
+            }
+            return messages;  
+        }
+        public static GroupMessage[] GetUnseenMessages(ChatGroup group, bool deleteThem = false)
+        {
+            var messages = unseenGroupMessages.Where(x => x.groupId == group.id).ToArray();
+            if (deleteThem && messages.Count() > 0)
+            {
+                foreach (var message in messages) unseenGroupMessages.Remove(message);
+                if (UnseenGroupMessagesUpdated != null) UnseenGroupMessagesUpdated();
+            }
+            return messages;
+        }
         public static string GetApplicationSettings(string pstrKey)
         {
             return ConfigurationManager.AppSettings[pstrKey];
@@ -133,7 +168,7 @@ namespace RildasApp
             }
         }
 
-
+        
         internal static void SetProgramAsStartUp()
         {
             Type t = Type.GetTypeFromCLSID(new Guid("72C24DD5-D70A-438B-8A42-98424B88AFB8")); //Windows Script Host Shell Object
@@ -216,19 +251,34 @@ namespace RildasApp
         }
         private static void ChatReceiveGroupMessage(int groupId, int senderId, DateTime sendTime, string text)
         {
+            GroupMessage message = new GroupMessage()
+            {
+                groupId = groupId,
+                senderId = senderId,
+                time = sendTime,
+                text = text
+            };
             ChatGroup chatGroup = Global.GetChatGroup(groupId);
-            ChatWindowGroup wind = OpenIfNeeded(chatGroup);
+            ChatWindowGroup wind = OpenIfNeeded(chatGroup, message);
+            if (wind == null) return;
             wind.AppendMessage(GetUser(senderId).username, text, sendTime);
             wind.FlashWindowEx();
         }
         private static void ChatReceiveMessage(string rest)
         {
             string[] split = rest.Split('_');
-            int sender = int.Parse(split[0]);
-            DateTime sendTime = Global.UnixTimeStampToDateTime(double.Parse(split[1]));
+            PrivateMessage message = new PrivateMessage()
+            {
+                sender = int.Parse(split[0]),
+                time = Global.UnixTimeStampToDateTime(double.Parse(split[1])),
+                text = String.Join("_", split.Skip(2).ToArray())
 
-            string text = String.Join("_", split.Skip(2).ToArray());
-            GetMessage(sender, text, sendTime);
+            };
+            if (Dashboard.instance == null)
+            {
+                unseenPrivateMessages.Add(message);
+            }
+            else GetMessage(message);
 
         }
 
@@ -384,19 +434,25 @@ namespace RildasApp
             if (reverse) epVers.Reverse();
             return epVers.ToArray();
         }
-        public static ChatWindowPrivate OpenIfNeeded(User user, bool userTriggeredAction = false)
+        public static ChatWindowPrivate OpenIfNeeded(User user, PrivateMessage message = null, bool userTriggeredAction = false)
         {
 
             foreach (ChatWindowPrivate chat in chatWindows)
             {
                 if ((chat.Tag as User).id == user.id)
                 {
-                    chat.Activate();
+                    if(ConfigApp.silentPrivateMessages && !userTriggeredAction) chat.Activate();
                     return chat;
                 }
 
             }
             ChatWindowPrivate window = null;
+            if (ConfigApp.silentPrivateMessages && !userTriggeredAction)
+            {
+                unseenPrivateMessages.Add(message);
+                if (UnseenPrivateMessagesUpdated != null) UnseenPrivateMessagesUpdated();
+                return window;
+            }
             Dashboard.instance.Invoke(new MethodInvoker(delegate
             {
                 window = new ChatWindowPrivate();
@@ -404,30 +460,36 @@ namespace RildasApp
                 window.Text = "Private Chat - " + user.username;
                 window.FormClosed += Window_FormClosed;
                 window.ShowInTaskbar = true;
-                if (ConfigApp.silentPrivateMessages && !userTriggeredAction)
-                {
-                    window.WindowState = FormWindowState.Minimized;
-                }
                 window.Show();
                 window.Activate();
+                var unseenMessages = GetUnseenMessages(user, true);
+                foreach (var mess in unseenMessages)
+                {
+                    window.AppendMessage(mess.text, mess.time);
+                }
                 window.FlashWindowEx();
                 chatWindows.Add(window);
 
             }));
             return window;
         }
-        public static ChatWindowGroup OpenIfNeeded(ChatGroup chatGroup, bool userTriggeredAction = false)
+        public static ChatWindowGroup OpenIfNeeded(ChatGroup chatGroup, GroupMessage message = null, bool userTriggeredAction = false)
         {
             foreach (ChatWindowGroup chat in groupChatWindows)
             {
                 if ((chat.Tag as ChatGroup).id == chatGroup.id)
                 {
-                    chat.Activate();
+                    if (ConfigApp.silentPrivateMessages && !userTriggeredAction) chat.Activate();
                     return chat;
                 }
             }
-
             ChatWindowGroup window = null;
+            if (ConfigApp.silentGroupMessages && !userTriggeredAction)
+            {
+                unseenGroupMessages.Add(message);
+                if (UnseenGroupMessagesUpdated != null) UnseenGroupMessagesUpdated();
+                return window;
+            }
             Dashboard.instance.Invoke(new MethodInvoker(delegate
             {
                 window = new ChatWindowGroup();
@@ -435,12 +497,14 @@ namespace RildasApp
                 window.Text = "Group Chat - " + chatGroup.name;
                 window.FormClosed += GroupWindow_FormClosed;
                 window.ShowInTaskbar = true;
-                if (ConfigApp.silentGroupMessages && !userTriggeredAction)
-                {
-                    window.WindowState = FormWindowState.Minimized;
-                }
+                
                 window.Show();
                 window.Activate();
+                var unseenMessages = GetUnseenMessages(chatGroup, true);
+                foreach (var mess in unseenMessages)
+                {
+                    window.AppendMessage(GetUser(mess.senderId).username, mess.text, mess.time);
+                }
                 groupChatWindows.Add(window);
             }));
             return window;
@@ -458,11 +522,12 @@ namespace RildasApp
             }
         }
 
-        public static void GetMessage(int from, string text, DateTime time)
+        public static void GetMessage(PrivateMessage message)
         {
-            User user = Global.GetUser(from);
-            ChatWindowPrivate wind = OpenIfNeeded(user);
-            wind.AppendMessage(text, time);
+            User user = Global.GetUser(message.sender);
+            ChatWindowPrivate wind = OpenIfNeeded(user, message);
+            if (wind == null) return;
+            wind.AppendMessage(message.text, message.time);
             wind.FlashWindowEx();
         }
         
@@ -496,7 +561,9 @@ namespace RildasApp
         public static event UserDisconnectedHandler UserDisconnected;
 
 
-        
+        public delegate void UnseenMessagesUpdatedHandler();
+        public static event UnseenMessagesUpdatedHandler UnseenGroupMessagesUpdated;
+        public static event UnseenMessagesUpdatedHandler UnseenPrivateMessagesUpdated;
         public delegate void NotificationListUpdatedHandler();
         public static event NotificationListUpdatedHandler NotificationListUpdated;
         public delegate void ChatGroupListUpdatedHandler();

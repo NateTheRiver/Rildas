@@ -31,9 +31,9 @@ namespace RildasApp.Forms
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
             this.metroStyleManager1 = new MetroFramework.Components.MetroStyleManager(this.components);
             this.metroTabControl1 = new MetroFramework.Controls.MetroTabControl();
@@ -125,6 +125,12 @@ namespace RildasApp.Forms
             this._states = new MetroFramework.Controls.MetroTabPage();
             this._stats = new MetroFramework.Controls.MetroTabPage();
             this._settings = new MetroFramework.Controls.MetroTabPage();
+            this.configSilentNotifications = new MetroFramework.Controls.MetroCheckBox();
+            this.configSilentPrivateMessages = new MetroFramework.Controls.MetroCheckBox();
+            this.configSilentGroupMessages = new MetroFramework.Controls.MetroCheckBox();
+            this._configSilentAll = new MetroFramework.Controls.MetroCheckBox();
+            this.metroLabel14 = new MetroFramework.Controls.MetroLabel();
+            this._settingsAutoLogin = new MetroFramework.Controls.MetroCheckBox();
             this.metroLabel13 = new MetroFramework.Controls.MetroLabel();
             this._settingsOnStartUp = new MetroFramework.Controls.MetroCheckBox();
             this.metroStyleExtender1 = new MetroFramework.Components.MetroStyleExtender(this.components);
@@ -138,12 +144,6 @@ namespace RildasApp.Forms
             this.chatPanelPrivate = new MetroFramework.Controls.MetroPanel();
             this.chatGroupAdd = new MetroFramework.Controls.MetroButton();
             this.metroScrollBar2 = new MetroFramework.Controls.MetroScrollBar();
-            this._settingsAutoLogin = new MetroFramework.Controls.MetroCheckBox();
-            this.metroLabel14 = new MetroFramework.Controls.MetroLabel();
-            this._configSilentAll = new MetroFramework.Controls.MetroCheckBox();
-            this.configSilentGroupMessages = new MetroFramework.Controls.MetroCheckBox();
-            this.configSilentPrivateMessages = new MetroFramework.Controls.MetroCheckBox();
-            this.configSilentNotifications = new MetroFramework.Controls.MetroCheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).BeginInit();
             this.metroTabControl1.SuspendLayout();
             this._dashboard.SuspendLayout();
@@ -180,7 +180,7 @@ namespace RildasApp.Forms
             this.metroTabControl1.Controls.Add(this._settings);
             this.metroTabControl1.Location = new System.Drawing.Point(23, 63);
             this.metroTabControl1.Name = "metroTabControl1";
-            this.metroTabControl1.SelectedIndex = 9;
+            this.metroTabControl1.SelectedIndex = 1;
             this.metroTabControl1.Size = new System.Drawing.Size(1455, 649);
             this.metroTabControl1.TabIndex = 0;
             this.metroTabControl1.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -604,6 +604,7 @@ namespace RildasApp.Forms
             // metroLabel3
             // 
             this.metroLabel3.AutoSize = true;
+            this.metroLabel3.ForeColor = System.Drawing.Color.Brown;
             this.metroLabel3.Location = new System.Drawing.Point(25, 25);
             this.metroLabel3.Name = "metroLabel3";
             this.metroLabel3.Size = new System.Drawing.Size(32, 19);
@@ -1126,14 +1127,14 @@ namespace RildasApp.Forms
             this.xdccGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.xdccGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.xdccGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.xdccGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.xdccGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.xdccGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.xdccGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.BotName,
@@ -1142,14 +1143,14 @@ namespace RildasApp.Forms
             this.FileName,
             this.Qualitty,
             this.FileSize});
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.xdccGridView.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.xdccGridView.DefaultCellStyle = dataGridViewCellStyle2;
             this.xdccGridView.EnableHeadersVisualStyles = false;
             this.xdccGridView.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.xdccGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
@@ -1158,14 +1159,14 @@ namespace RildasApp.Forms
             this.xdccGridView.Name = "xdccGridView";
             this.xdccGridView.ReadOnly = true;
             this.xdccGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.xdccGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.xdccGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.xdccGridView.RowHeadersWidth = 25;
             this.xdccGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.xdccGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -1486,6 +1487,84 @@ namespace RildasApp.Forms
             this._settings.VerticalScrollbarHighlightOnWheel = false;
             this._settings.VerticalScrollbarSize = 10;
             // 
+            // configSilentNotifications
+            // 
+            this.configSilentNotifications.AutoSize = true;
+            this.configSilentNotifications.Location = new System.Drawing.Point(280, 143);
+            this.configSilentNotifications.Name = "configSilentNotifications";
+            this.configSilentNotifications.Size = new System.Drawing.Size(212, 15);
+            this.configSilentNotifications.TabIndex = 19;
+            this.configSilentNotifications.Text = "Tlumit notifikační vyskakovací okna";
+            this.configSilentNotifications.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.configSilentNotifications.UseSelectable = true;
+            this.configSilentNotifications.CheckedChanged += new System.EventHandler(this.configSilentNotifications_CheckedChanged);
+            // 
+            // configSilentPrivateMessages
+            // 
+            this.configSilentPrivateMessages.AutoSize = true;
+            this.configSilentPrivateMessages.Location = new System.Drawing.Point(280, 122);
+            this.configSilentPrivateMessages.Name = "configSilentPrivateMessages";
+            this.configSilentPrivateMessages.Size = new System.Drawing.Size(256, 15);
+            this.configSilentPrivateMessages.TabIndex = 18;
+            this.configSilentPrivateMessages.Text = "Tlumit vyskakovací okna soukromého chatu";
+            this.configSilentPrivateMessages.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.configSilentPrivateMessages.UseSelectable = true;
+            this.configSilentPrivateMessages.CheckedChanged += new System.EventHandler(this.configSilentPrivateMessages_CheckedChanged);
+            // 
+            // configSilentGroupMessages
+            // 
+            this.configSilentGroupMessages.AutoSize = true;
+            this.configSilentGroupMessages.Location = new System.Drawing.Point(280, 101);
+            this.configSilentGroupMessages.Name = "configSilentGroupMessages";
+            this.configSilentGroupMessages.Size = new System.Drawing.Size(257, 15);
+            this.configSilentGroupMessages.TabIndex = 17;
+            this.configSilentGroupMessages.Text = "Tlumit vyskakovací okna skupinového chatu";
+            this.configSilentGroupMessages.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.configSilentGroupMessages.UseSelectable = true;
+            this.configSilentGroupMessages.CheckedChanged += new System.EventHandler(this.configSilentGroupMessages_CheckedChanged);
+            // 
+            // _configSilentAll
+            // 
+            this._configSilentAll.AutoSize = true;
+            this._configSilentAll.Location = new System.Drawing.Point(257, 80);
+            this._configSilentAll.Name = "_configSilentAll";
+            this._configSilentAll.Size = new System.Drawing.Size(199, 15);
+            this._configSilentAll.TabIndex = 16;
+            this._configSilentAll.Text = "Tlumit všechna vyskakovací okna";
+            this._configSilentAll.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._configSilentAll.UseSelectable = true;
+            this._configSilentAll.CheckedChanged += new System.EventHandler(this._configSilentAll_CheckedChanged);
+            // 
+            // metroLabel14
+            // 
+            this.metroLabel14.AutoSize = true;
+            this.metroLabel14.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel14.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabel14.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.metroLabel14.Location = new System.Drawing.Point(256, 34);
+            this.metroLabel14.Name = "metroLabel14";
+            this.metroLabel14.Size = new System.Drawing.Size(114, 25);
+            this.metroLabel14.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroLabel14.TabIndex = 15;
+            this.metroLabel14.Text = "Silent Mode";
+            this.metroLabel14.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel14.UseStyleColors = true;
+            this.metroLabel14.UseWaitCursor = true;
+            this.metroLabel14.Visible = false;
+            // 
+            // _settingsAutoLogin
+            // 
+            this._settingsAutoLogin.AutoSize = true;
+            this._settingsAutoLogin.Location = new System.Drawing.Point(30, 101);
+            this._settingsAutoLogin.Name = "_settingsAutoLogin";
+            this._settingsAutoLogin.Size = new System.Drawing.Size(136, 15);
+            this._settingsAutoLogin.TabIndex = 14;
+            this._settingsAutoLogin.Text = "Automaticky přihlásit";
+            this._settingsAutoLogin.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._settingsAutoLogin.UseSelectable = true;
+            this._settingsAutoLogin.UseWaitCursor = true;
+            this._settingsAutoLogin.CheckedChanged += new System.EventHandler(this.metroCheckBox1_CheckedChanged);
+            // 
             // metroLabel13
             // 
             this.metroLabel13.AutoSize = true;
@@ -1637,84 +1716,6 @@ namespace RildasApp.Forms
             this.metroScrollBar2.UseBarColor = true;
             this.metroScrollBar2.UseSelectable = true;
             this.metroScrollBar2.Scroll += new System.Windows.Forms.ScrollEventHandler(this.metroScrollBar2_Scroll);
-            // 
-            // _settingsAutoLogin
-            // 
-            this._settingsAutoLogin.AutoSize = true;
-            this._settingsAutoLogin.Location = new System.Drawing.Point(30, 101);
-            this._settingsAutoLogin.Name = "_settingsAutoLogin";
-            this._settingsAutoLogin.Size = new System.Drawing.Size(136, 15);
-            this._settingsAutoLogin.TabIndex = 14;
-            this._settingsAutoLogin.Text = "Automaticky přihlásit";
-            this._settingsAutoLogin.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this._settingsAutoLogin.UseSelectable = true;
-            this._settingsAutoLogin.UseWaitCursor = true;
-            this._settingsAutoLogin.CheckedChanged += new System.EventHandler(this.metroCheckBox1_CheckedChanged);
-            // 
-            // metroLabel14
-            // 
-            this.metroLabel14.AutoSize = true;
-            this.metroLabel14.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.metroLabel14.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.metroLabel14.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.metroLabel14.Location = new System.Drawing.Point(256, 34);
-            this.metroLabel14.Name = "metroLabel14";
-            this.metroLabel14.Size = new System.Drawing.Size(114, 25);
-            this.metroLabel14.Style = MetroFramework.MetroColorStyle.Blue;
-            this.metroLabel14.TabIndex = 15;
-            this.metroLabel14.Text = "Silent Mode";
-            this.metroLabel14.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroLabel14.UseStyleColors = true;
-            this.metroLabel14.UseWaitCursor = true;
-            this.metroLabel14.Visible = false;
-            // 
-            // _configSilentAll
-            // 
-            this._configSilentAll.AutoSize = true;
-            this._configSilentAll.Location = new System.Drawing.Point(257, 80);
-            this._configSilentAll.Name = "_configSilentAll";
-            this._configSilentAll.Size = new System.Drawing.Size(199, 15);
-            this._configSilentAll.TabIndex = 16;
-            this._configSilentAll.Text = "Tlumit všechna vyskakovací okna";
-            this._configSilentAll.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this._configSilentAll.UseSelectable = true;
-            this._configSilentAll.CheckedChanged += new System.EventHandler(this._configSilentAll_CheckedChanged);
-            // 
-            // configSilentGroupMessages
-            // 
-            this.configSilentGroupMessages.AutoSize = true;
-            this.configSilentGroupMessages.Location = new System.Drawing.Point(280, 101);
-            this.configSilentGroupMessages.Name = "configSilentGroupMessages";
-            this.configSilentGroupMessages.Size = new System.Drawing.Size(257, 15);
-            this.configSilentGroupMessages.TabIndex = 17;
-            this.configSilentGroupMessages.Text = "Tlumit vyskakovací okna skupinového chatu";
-            this.configSilentGroupMessages.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.configSilentGroupMessages.UseSelectable = true;
-            this.configSilentGroupMessages.CheckedChanged += new System.EventHandler(this.configSilentGroupMessages_CheckedChanged);
-            // 
-            // configSilentPrivateMessages
-            // 
-            this.configSilentPrivateMessages.AutoSize = true;
-            this.configSilentPrivateMessages.Location = new System.Drawing.Point(280, 122);
-            this.configSilentPrivateMessages.Name = "configSilentPrivateMessages";
-            this.configSilentPrivateMessages.Size = new System.Drawing.Size(256, 15);
-            this.configSilentPrivateMessages.TabIndex = 18;
-            this.configSilentPrivateMessages.Text = "Tlumit vyskakovací okna soukromého chatu";
-            this.configSilentPrivateMessages.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.configSilentPrivateMessages.UseSelectable = true;
-            this.configSilentPrivateMessages.CheckedChanged += new System.EventHandler(this.configSilentPrivateMessages_CheckedChanged);
-            // 
-            // configSilentNotifications
-            // 
-            this.configSilentNotifications.AutoSize = true;
-            this.configSilentNotifications.Location = new System.Drawing.Point(280, 143);
-            this.configSilentNotifications.Name = "configSilentNotifications";
-            this.configSilentNotifications.Size = new System.Drawing.Size(212, 15);
-            this.configSilentNotifications.TabIndex = 19;
-            this.configSilentNotifications.Text = "Tlumit notifikační vyskakovací okna";
-            this.configSilentNotifications.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.configSilentNotifications.UseSelectable = true;
-            this.configSilentNotifications.CheckedChanged += new System.EventHandler(this.configSilentNotifications_CheckedChanged);
             // 
             // Dashboard
             // 

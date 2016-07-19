@@ -945,37 +945,49 @@ namespace RildasApp.Forms
         {
             List<ChatGroup> chatGroups = Global.GetChatGroups();
             int positionIterator = 0;
-            foreach (ChatGroup chatGroup in chatGroups)
+            chatPanelGroups.Invoke(new MethodInvoker(delegate
             {
-                MetroLink name = new MetroLink();
-                MetroPanel panel = new MetroPanel();
-                panel.Location = new System.Drawing.Point(0, positionIterator * 25);
-                panel.Name = "groupChat" + chatGroup.id;
-                panel.Size = new System.Drawing.Size(150, 25);
-                panel.BorderStyle = System.Windows.Forms.BorderStyle.None;
-                panel.Theme = MetroThemeStyle.Dark;
-                name.FontSize = MetroFramework.MetroLinkSize.Medium;
-                name.Location = new System.Drawing.Point(0, 1);
-                name.Name = "nameGroupChat" + chatGroup.id;
-                name.Size = new System.Drawing.Size(150, 23);
-                name.TabIndex = 3;
-                name.Text = chatGroup.name;
-                name.Theme = MetroFramework.MetroThemeStyle.Dark;
-                name.UseSelectable = true;
-                name.Tag = chatGroup;
-                name.Click += ChatGroup_Click;
-                name.TextAlign = ContentAlignment.TopLeft;
-                panel.Controls.Add(name);
-                positionIterator++;
-                chatPanelGroups.Controls.Add(panel);
-            }
-            chatPanelGroups.Refresh();
+                chatPanelGroups.Controls.Clear();
+                foreach (ChatGroup chatGroup in chatGroups)
+                {
+                    var unseenMessages = Global.GetUnseenMessages(chatGroup);
+                    MetroLink name = new MetroLink();
+                    MetroPanel panel = new MetroPanel();
+                    panel.Location = new System.Drawing.Point(0, positionIterator * 25);
+                    panel.Name = "groupChat" + chatGroup.id;
+                    panel.Size = new System.Drawing.Size(150, 25);
+                    panel.BorderStyle = System.Windows.Forms.BorderStyle.None;
+                    panel.Theme = MetroThemeStyle.Dark;
+                    name.FontSize = MetroFramework.MetroLinkSize.Medium;
+                    name.Location = new System.Drawing.Point(0, 1);
+                    name.Name = "nameGroupChat" + chatGroup.id;
+                    name.Size = new System.Drawing.Size(150, 23);
+                    name.TabIndex = 3;
+                    name.Text = chatGroup.name;
+                    name.Theme = MetroFramework.MetroThemeStyle.Dark;
+                    name.UseSelectable = true;
+                    name.Tag = chatGroup;
+                    name.Click += ChatGroup_Click;
+                    name.TextAlign = ContentAlignment.TopLeft;
+                    if (unseenMessages.Count() > 0)
+                    {
+                        name.ForeColor = Color.DarkOrange;
+                        name.UseCustomForeColor = true;
+                        name.UseStyleColors = true;
+                        name.FontWeight = MetroLinkWeight.Bold;
+                    }
+                    panel.Controls.Add(name);
+                    positionIterator++;
+                    chatPanelGroups.Controls.Add(panel);
+                }
+                chatPanelGroups.Refresh();
+            }));
         }
 
         private void ChatGroup_Click(object sender, EventArgs e)
         {
             ChatGroup group = (sender as MetroLink).Tag as ChatGroup;
-            Global.OpenIfNeeded(group, true);
+            Global.OpenIfNeeded(group, userTriggeredAction: true);
         }
 
         private void LoadTeamMembers()
@@ -984,42 +996,53 @@ namespace RildasApp.Forms
             List<User> logged = Global.GetLoggedUsers();
             users = users.OrderBy(x => x.username);
             string directory = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().Location);
-
-            int positionIterator = 0;
-            foreach (User user in users)
+            chatPanelPrivate.Invoke(new MethodInvoker(delegate
             {
-                MetroLink name = new MetroLink();
-                PictureBox state = new PictureBox();
-                name.FontSize = MetroFramework.MetroLinkSize.Medium;
-                name.Location = new System.Drawing.Point(25, positionIterator * 25);
-                name.Name = "namePrivateChat" + user.username;
-                name.Size = new System.Drawing.Size(150, 23);
-                name.TabIndex = 3;
-                name.Text =user.username;
-                name.Theme = MetroFramework.MetroThemeStyle.Dark;
-                name.UseSelectable = true;
-                name.Tag = user;
-                name.Click += User_Click;
-                name.TextAlign = ContentAlignment.TopLeft;
-                state.Size = new Size(20, 20);
-                state.Location = new Point(1, name.Location.Y);
-                state.Name = user.username + "_state";
-              if (logged.Exists(x=>x.username == user.username))
-                    state.Load(directory + "/Images/green.png");
-                else
-                    state.Load(directory + "/Images/red.png");
-                chatPanelPrivate.Controls.Add(name);
-                chatPanelPrivate.Controls.Add(state);
-                state.BringToFront();
-                positionIterator++;
-            }
-            chatPanelPrivate.Refresh();
+                chatPanelPrivate.Controls.Clear();
+                int positionIterator = 0;
+                foreach (User user in users)
+                {
+                    var unseenMessages = Global.GetUnseenMessages(user);
+                    MetroLink name = new MetroLink();
+                    PictureBox state = new PictureBox();
+                    name.FontSize = MetroFramework.MetroLinkSize.Medium;
+                    name.Location = new System.Drawing.Point(25, positionIterator * 25);
+                    name.Name = "namePrivateChat" + user.username;
+                    name.Size = new System.Drawing.Size(150, 23);
+                    name.TabIndex = 3;
+                    name.Text = user.username;
+                    name.Theme = MetroFramework.MetroThemeStyle.Dark;
+                    name.UseSelectable = true;
+                    name.Tag = user;
+                    name.Click += User_Click;
+                    name.TextAlign = ContentAlignment.TopLeft;
+                    if (unseenMessages.Count() > 0)
+                    {
+                        name.ForeColor = Color.DarkOrange;
+                        name.UseStyleColors = true;
+                        name.UseCustomForeColor = true;
+                        name.FontWeight = MetroLinkWeight.Bold;
+                    }
+                    state.Size = new Size(20, 20);
+                    state.Location = new Point(1, name.Location.Y);
+                    state.Name = user.username + "_state";
+                    if (logged.Exists(x => x.username == user.username))
+                        state.Load(directory + "/Images/green.png");
+                    else
+                        state.Load(directory + "/Images/red.png");
+                    chatPanelPrivate.Controls.Add(name);
+                    chatPanelPrivate.Controls.Add(state);
+                    state.BringToFront();
+                    positionIterator++;
+                }
+                chatPanelPrivate.Refresh();
+            }));
         }
 
         private void User_Click(object sender, EventArgs e)
         {
             User user = (sender as MetroLink).Tag as User;
-            Global.OpenIfNeeded(user, true);
+            Global.OpenIfNeeded(user, userTriggeredAction: true);
         }
       
         private void Name_Click(object sender, EventArgs e)
@@ -1595,6 +1618,8 @@ namespace RildasApp.Forms
             LoadDefaultSettings();
             Global.UserConnected += ChatAddUser;
             Global.UserDisconnected += ChatDelUser;
+            Global.UnseenPrivateMessagesUpdated += LoadTeamMembers;
+            Global.UnseenGroupMessagesUpdated += LoadChatGroups;
         }
 
         private void LoadDefaultSettings()
