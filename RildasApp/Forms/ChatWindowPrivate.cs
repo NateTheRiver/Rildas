@@ -30,10 +30,37 @@ namespace RildasApp.Forms
         public ChatWindowPrivate()
         {
             InitializeComponent();
+            Global.UserDisconnected += UserLeave;
+            Global.UserConnected += UserEnter;
             richTextBox1.Location = new Point(1, 1);
             panel1.Size = new Size(richTextBox1.Size.Width + 2, richTextBox1.Size.Height + 2);
         }
 
+        private void UserEnter(User user)
+        {
+            this.Invoke(new MethodInvoker(delegate {
+                if ((this.Tag as User).id == user.id)
+                {
+                    Append(richTextBox1, (this.Tag as User).username, Color.FromArgb(231, 76, 60));
+                    Append(richTextBox1, " se nad Vámi slitoval a opět je tady.", Color.White);
+                    Append(richTextBox1, Environment.NewLine, Color.White);
+                    richTextBox1.ScrollToCaret();
+                }
+            }));
+        }
+
+        private void UserLeave(User user)
+        {
+            this.Invoke(new MethodInvoker(delegate {
+                if ((this.Tag as User).id == user.id)
+                {
+                    Append(richTextBox1, (this.Tag as User).username, Color.FromArgb(231, 76, 60));
+                    Append(richTextBox1, " se na Vás vykašlal a prostě to vypnul.", Color.White);
+                    Append(richTextBox1, Environment.NewLine, Color.White);
+                    richTextBox1.ScrollToCaret();
+                }
+            }));
+        }
 
         [StructLayout(LayoutKind.Sequential)]
         public struct FLASHWINFO
