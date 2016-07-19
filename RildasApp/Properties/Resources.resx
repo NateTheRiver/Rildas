@@ -46,7 +46,7 @@
     
     mimetype: application/x-microsoft.net.object.binary.base64
     value   : The object must be serialized with 
-            : System.Serialization.Formatters.Binary.BinaryFormatter
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
             : and then encoded with base64 encoding.
     
     mimetype: application/x-microsoft.net.object.soap.base64
@@ -60,6 +60,7 @@
             : and then encoded with base64 encoding.
     -->
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
@@ -68,9 +69,10 @@
               <xsd:sequence>
                 <xsd:element name="value" type="xsd:string" minOccurs="0" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="name" use="required" type="xsd:string" />
               <xsd:attribute name="type" type="xsd:string" />
               <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
@@ -85,9 +87,10 @@
                 <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
                 <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
               <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
               <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
@@ -109,9 +112,274 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="absolute_duo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\animeList\absolute_duo.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="absolute_duo_post" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\post\absolute_duo_post.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="akame_ga_kill" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\animeList\akame_ga_kill.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="akame_ga_kill_post" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\post\akame_ga_kill_post.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ao_haru_ride" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\animeList\ao_haru_ride.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ao_haru_ride_post" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\post\ao_haru_ride_post.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ao_no_exorcist" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\animeList\ao_no_exorcist.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ao_no_exorcist_post" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\post\ao_no_exorcist_post.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="black_bullet" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\animeList\black_bullet.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="blood" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\animeList\blood.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="blood_post" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\post\blood_post.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bullet_post" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\post\bullet_post.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="eclypse" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\animeList\eclypse.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="eclypse_post" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\post\eclypse_post.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="free2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\animeList\free2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="free2_post" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\post\free2_post.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="gokukoku" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\animeList\gokukoku.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="gokukoku_post" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\post\gokukoku_post.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="golden" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\animeList\golden.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="golden_post" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\post\golden_post.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="golden_time" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\animeList\golden_time.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="golden_time_post" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\post\golden_time_post.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="hack_sign" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\animeList\hack_sign.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="hack_sign_post" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\post\hack_sign_post.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="haikyuu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\animeList\haikyuu.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="haikyuu_post" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\post\haikyuu_post.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="hitori_no_shita" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\animeList\hitori_no_shita.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="hitori_no_shita_post" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\post\hitori_no_shita_post.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="if_post" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\post\if_post.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="isuca" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\animeList\isuca.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="isuca_post" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\post\isuca_post.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="locodol" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\animeList\locodol.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="locodol_post" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\post\locodol_post.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="log_horizon2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\animeList\log_horizon2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="log_horizon2_post" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\post\log_horizon2_post.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="magi" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\animeList\magi.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="magi_post" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\post\magi_post.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mahouka" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\animeList\mahouka.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mahouka_post" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\post\mahouka_post.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="monogatari" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\animeList\monogatari.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="monogatari_post" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\post\monogatari_post.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="nana" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\animeList\nana.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="nana_post" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\post\nana_post.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ngnl" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\animeList\ngnl.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ngnl_post" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\post\ngnl_post.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="noragami_aragoto" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\animeList\noragami_aragoto.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="noragami_aragoto_post" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\post\noragami_aragoto_post.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="one_punch_man" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\animeList\one_punch_man.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="one_punch_man_post" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\post\one_punch_man_post.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="oreshura" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\animeList\oreshura.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="oreshura_post" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\post\oreshura_post.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="owari2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\animeList\owari2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="owari2_post" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\post\owari2_post.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="owari_no_seraph" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\animeList\owari_no_seraph.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="owari_no_seraph_post" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\post\owari_no_seraph_post.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="parasyte" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\animeList\parasyte.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="parasyte_post" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\post\parasyte_post.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="persona4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\animeList\persona4.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="persona4_post" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\post\persona4_post.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ping_pong" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\animeList\ping_pong.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ping_pong_post" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\post\ping_pong_post.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="re_kan" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\animeList\re_kan.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="re_kan_post" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\post\re_kan_post.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="rokujouma" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\animeList\rokujouma.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="rokujouma_post" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\post\rokujouma_post.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sao2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\animeList\sao2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sao2_post" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\post\sao2_post.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sno" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\animeList\sno.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sno_post" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\post\sno_post.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sora_no_method" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\animeList\sora_no_method.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sora_no_method_post" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\post\sora_no_method_post.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="stnbd" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\animeList\stnbd.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="stnbd_post" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\post\stnbd_post.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tales_of_zestiria" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\animeList\tales_of_zestiria.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tales_of_zestiria_post" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\post\tales_of_zestiria_post.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tokyo_ghoul" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\animeList\tokyo_ghoul.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tokyo_ghoul_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\animeList\tokyo_ghoul_2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tokyo_ghoul_2_post" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\post\tokyo_ghoul_2_post.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tokyo_ghoul_post" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\post\tokyo_ghoul_post.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ushinawareta" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\animeList\ushinawareta.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ushinawareta_post" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\post\ushinawareta_post.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="witchblade" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\animeList\witchblade.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="witchblade_post" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\post\witchblade_post.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="yamada_7_majo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\animeList\yamada_7_majo.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="yamada_7_majo_post" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\post\yamada_7_majo_post.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="zankyou_no_terror" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\animeList\zankyou_no_terror.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="zankyou_no_terror_post" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\post\zankyou_no_terror_post.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_if" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\animeList\if.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

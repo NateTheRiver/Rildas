@@ -123,6 +123,12 @@
     <Compile Include="Forms\EventEdit.Designer.cs">
       <DependentUpon>EventEdit.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\NewNotification.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\NewNotification.Designer.cs">
+      <DependentUpon>NewNotification.cs</DependentUpon>
+    </Compile>
     <Compile Include="Global.cs" />
     <Compile Include="Models\Anime.cs" />
     <Compile Include="Forms\LoginForm.cs">
@@ -137,6 +143,7 @@
     <Compile Include="Models\EpisodeVersion.cs" />
     <Compile Include="Models\Event.cs" />
     <Compile Include="Models\EventFile.cs" />
+    <Compile Include="Models\Notification.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\XDCCPackageDetails.cs" />
     <Compile Include="MyPanel.cs">
@@ -188,6 +195,9 @@
     <EmbeddedResource Include="Forms\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\NewNotification.resx">
+      <DependentUpon>NewNotification.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -196,6 +206,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Forms\XDCCDownloadingForm.resx">
       <DependentUpon>XDCCDownloadingForm.cs</DependentUpon>
@@ -231,6 +242,194 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <None Include="bin\Debug\animeList\gokukoku.png" />
+    <None Include="bin\Debug\animeList\golden.jpg" />
+    <None Include="bin\Debug\animeList\golden_time.jpg" />
+    <None Include="bin\Debug\animeList\hack_sign.jpg" />
+    <None Include="bin\Debug\animeList\haikyuu.jpg" />
+    <None Include="bin\Debug\animeList\hitori_no_shita.jpg" />
+    <None Include="bin\Debug\animeList\if.png" />
+    <None Include="bin\Debug\animeList\isuca.jpg" />
+    <None Include="bin\Debug\animeList\locodol.jpg" />
+    <None Include="bin\Debug\animeList\log_horizon2.jpg" />
+    <None Include="bin\Debug\animeList\magi.png" />
+    <None Include="bin\Debug\animeList\mahouka.png" />
+    <None Include="bin\Debug\animeList\monogatari.png" />
+    <None Include="bin\Debug\animeList\nana.jpg" />
+    <None Include="bin\Debug\animeList\new_mask_2.png" />
+    <None Include="bin\Debug\animeList\ngnl.png" />
+    <None Include="bin\Debug\animeList\noragami_aragoto.jpg" />
+    <None Include="bin\Debug\animeList\one_punch_man.jpg" />
+    <None Include="bin\Debug\animeList\oreshura.jpg" />
+    <None Include="bin\Debug\animeList\owari_no_seraph.jpg" />
+    <None Include="bin\Debug\animeList\owari2.jpg" />
+    <None Include="bin\Debug\animeList\parasyte.jpg" />
+    <None Include="bin\Debug\animeList\persona4.jpg" />
+    <None Include="bin\Debug\animeList\ping_pong.jpg" />
+    <None Include="bin\Debug\animeList\re_kan.jpg" />
+    <None Include="bin\Debug\animeList\rokujouma.jpg" />
+    <None Include="bin\Debug\animeList\sao2.png" />
+    <None Include="bin\Debug\animeList\sno.jpg" />
+    <None Include="bin\Debug\animeList\sora_no_method.jpg" />
+    <None Include="bin\Debug\animeList\stnbd.png" />
+    <None Include="bin\Debug\animeList\tales_of_zestiria.jpg" />
+    <None Include="bin\Debug\animeList\tokyo_ghoul.png" />
+    <None Include="bin\Debug\animeList\tokyo_ghoul_2.jpg" />
+    <None Include="bin\Debug\animeList\ushinawareta.jpg" />
+    <None Include="bin\Debug\animeList\witchblade.jpg" />
+    <None Include="bin\Debug\animeList\yamada_7_majo.jpg" />
+    <None Include="bin\Debug\animeList\zankyou_no_terror.png" />
+    <None Include="bin\Debug\animeList\1.jpg" />
+    <None Include="bin\Debug\animeList\absolute_duo.jpg" />
+    <None Include="bin\Debug\animeList\akame_ga_kill.png" />
+    <None Include="bin\Debug\animeList\ao_haru_ride.png" />
+    <None Include="bin\Debug\animeList\ao_no_exorcist.jpg" />
+    <None Include="bin\Debug\animeList\black_bullet.png" />
+    <None Include="bin\Debug\animeList\blood.jpg" />
+    <None Include="bin\Debug\animeList\eclypse.jpg" />
+    <None Include="bin\Debug\animeList\free2.png" />
+    <None Include="bin\Debug\post\ao_haru_ride_post.png" />
+    <None Include="bin\Debug\post\ao_no_exorcist_post.jpg" />
+    <None Include="bin\Debug\post\avatar.png" />
+    <None Include="bin\Debug\post\bg_img.png" />
+    <None Include="bin\Debug\post\blood_post.jpg" />
+    <None Include="bin\Debug\post\bullet_post.png" />
+    <None Include="bin\Debug\post\comment_bg.png" />
+    <None Include="bin\Debug\post\comments_header.png" />
+    <None Include="bin\Debug\post\comments_header_bg.png" />
+    <None Include="bin\Debug\post\criteria-bg.jpg" />
+    <None Include="bin\Debug\post\eclypse_post.jpg" />
+    <None Include="bin\Debug\post\free2_post.png" />
+    <None Include="bin\Debug\post\gokukoku_post.png" />
+    <None Include="bin\Debug\post\golden_post.jpg" />
+    <None Include="bin\Debug\post\golden_time_post.jpg" />
+    <None Include="bin\Debug\post\hack_sign_post.jpg" />
+    <None Include="bin\Debug\post\haikyuu_post.jpg" />
+    <None Include="bin\Debug\post\hitori_no_shita_post.jpg" />
+    <None Include="bin\Debug\post\if_post.png" />
+    <None Include="bin\Debug\post\indent.jpg" />
+    <None Include="bin\Debug\post\info_icon.jpg" />
+    <None Include="bin\Debug\post\isuca_post.jpg" />
+    <None Include="bin\Debug\post\locodol_post.jpg" />
+    <None Include="bin\Debug\post\log_horizon2_post.jpg" />
+    <None Include="bin\Debug\post\magi_post.jpg" />
+    <None Include="bin\Debug\post\mahouka_post.png" />
+    <None Include="bin\Debug\post\monogatari_post.png" />
+    <None Include="bin\Debug\post\nana_post.jpg" />
+    <None Include="bin\Debug\post\ngnl_post.png" />
+    <None Include="bin\Debug\post\noragami_aragoto_post.jpg" />
+    <None Include="bin\Debug\post\one_punch_man_post.jpg" />
+    <None Include="bin\Debug\post\oreshura_post.jpg" />
+    <None Include="bin\Debug\post\owari_no_seraph_post.jpg" />
+    <None Include="bin\Debug\post\owari2_post.jpg" />
+    <None Include="bin\Debug\post\parasyte_post.jpg" />
+    <None Include="bin\Debug\post\persona4_post.jpg" />
+    <None Include="bin\Debug\post\ping_pong_post.jpg" />
+    <None Include="bin\Debug\post\post.jpg" />
+    <None Include="bin\Debug\post\post_game.jpg" />
+    <None Include="bin\Debug\post\re_kan_post.jpg" />
+    <None Include="bin\Debug\post\rokujouma_post.jpg" />
+    <None Include="bin\Debug\post\sao2_post.png" />
+    <None Include="bin\Debug\post\sno_post.jpg" />
+    <None Include="bin\Debug\post\sora_no_method_post.jpg" />
+    <None Include="bin\Debug\post\stnbd_post.png" />
+    <None Include="bin\Debug\post\tales_of_zestiria_post.jpg" />
+    <None Include="bin\Debug\post\tokyo_ghoul_2_post.jpg" />
+    <None Include="bin\Debug\post\tokyo_ghoul_post.png" />
+    <None Include="bin\Debug\post\ushinawareta_post.jpg" />
+    <None Include="bin\Debug\post\witchblade_post.jpg" />
+    <None Include="bin\Debug\post\yamada_7_majo_post.jpg" />
+    <None Include="bin\Debug\post\zankyou_no_terror_post.png" />
+    <None Include="bin\Debug\post\absolute_duo_post.jpg" />
+    <None Include="bin\Debug\post\akame_ga_kill_post.png" />
+    <None Include="Images\post\eclypse_post.jpg" />
+    <None Include="Images\post\free2_post.png" />
+    <None Include="Images\post\gokukoku_post.png" />
+    <None Include="Images\post\golden_post.jpg" />
+    <None Include="Images\post\golden_time_post.jpg" />
+    <None Include="Images\post\hack_sign_post.jpg" />
+    <None Include="Images\post\haikyuu_post.jpg" />
+    <None Include="Images\post\hitori_no_shita_post.jpg" />
+    <None Include="Images\post\if_post.png" />
+    <None Include="Images\post\isuca_post.jpg" />
+    <None Include="Images\post\locodol_post.jpg" />
+    <None Include="Images\post\log_horizon2_post.jpg" />
+    <None Include="Images\post\magi_post.jpg" />
+    <None Include="Images\post\mahouka_post.png" />
+    <None Include="Images\post\monogatari_post.png" />
+    <None Include="Images\post\nana_post.jpg" />
+    <None Include="Images\post\ngnl_post.png" />
+    <None Include="Images\post\noragami_aragoto_post.jpg" />
+    <None Include="Images\post\one_punch_man_post.jpg" />
+    <None Include="Images\post\oreshura_post.jpg" />
+    <None Include="Images\post\owari_no_seraph_post.jpg" />
+    <None Include="Images\post\owari2_post.jpg" />
+    <None Include="Images\post\parasyte_post.jpg" />
+    <None Include="Images\post\persona4_post.jpg" />
+    <None Include="Images\post\ping_pong_post.jpg" />
+    <None Include="Images\post\re_kan_post.jpg" />
+    <None Include="Images\post\rokujouma_post.jpg" />
+    <None Include="Images\post\sao2_post.png" />
+    <None Include="Images\post\sno_post.jpg" />
+    <None Include="Images\post\sora_no_method_post.jpg" />
+    <None Include="Images\post\stnbd_post.png" />
+    <None Include="Images\post\tales_of_zestiria_post.jpg" />
+    <None Include="Images\post\tokyo_ghoul_2_post.jpg" />
+    <None Include="Images\post\tokyo_ghoul_post.png" />
+    <None Include="Images\post\ushinawareta_post.jpg" />
+    <None Include="Images\post\witchblade_post.jpg" />
+    <None Include="Images\post\yamada_7_majo_post.jpg" />
+    <None Include="Images\post\zankyou_no_terror_post.png" />
+    <None Include="Images\post\absolute_duo_post.jpg" />
+    <None Include="Images\post\akame_ga_kill_post.png" />
+    <None Include="Images\post\ao_haru_ride_post.png" />
+    <None Include="Images\post\ao_no_exorcist_post.jpg" />
+    <None Include="Images\post\blood_post.jpg" />
+    <None Include="Images\post\bullet_post.png" />
+    <None Include="Images\animeList\mahouka.png" />
+    <None Include="Images\animeList\monogatari.png" />
+    <None Include="Images\animeList\nana.jpg" />
+    <None Include="Images\animeList\ngnl.png" />
+    <None Include="Images\animeList\noragami_aragoto.jpg" />
+    <None Include="Images\animeList\one_punch_man.jpg" />
+    <None Include="Images\animeList\oreshura.jpg" />
+    <None Include="Images\animeList\owari_no_seraph.jpg" />
+    <None Include="Images\animeList\owari2.jpg" />
+    <None Include="Images\animeList\parasyte.jpg" />
+    <None Include="Images\animeList\persona4.jpg" />
+    <None Include="Images\animeList\ping_pong.jpg" />
+    <None Include="Images\animeList\re_kan.jpg" />
+    <None Include="Images\animeList\rokujouma.jpg" />
+    <None Include="Images\animeList\sao2.png" />
+    <None Include="Images\animeList\sno.jpg" />
+    <None Include="Images\animeList\sora_no_method.jpg" />
+    <None Include="Images\animeList\stnbd.png" />
+    <None Include="Images\animeList\tales_of_zestiria.jpg" />
+    <None Include="Images\animeList\tokyo_ghoul.png" />
+    <None Include="Images\animeList\tokyo_ghoul_2.jpg" />
+    <None Include="Images\animeList\ushinawareta.jpg" />
+    <None Include="Images\animeList\witchblade.jpg" />
+    <None Include="Images\animeList\yamada_7_majo.jpg" />
+    <None Include="Images\animeList\zankyou_no_terror.png" />
+    <None Include="Images\animeList\absolute_duo.jpg" />
+    <None Include="Images\animeList\akame_ga_kill.png" />
+    <None Include="Images\animeList\ao_haru_ride.png" />
+    <None Include="Images\animeList\ao_no_exorcist.jpg" />
+    <None Include="Images\animeList\black_bullet.png" />
+    <None Include="Images\animeList\blood.jpg" />
+    <None Include="Images\animeList\eclypse.jpg" />
+    <None Include="Images\animeList\free2.png" />
+    <None Include="Images\animeList\gokukoku.png" />
+    <None Include="Images\animeList\golden.jpg" />
+    <None Include="Images\animeList\golden_time.jpg" />
+    <None Include="Images\animeList\hack_sign.jpg" />
+    <None Include="Images\animeList\haikyuu.jpg" />
+    <None Include="Images\animeList\hitori_no_shita.jpg" />
+    <None Include="Images\animeList\if.png" />
+    <None Include="Images\animeList\isuca.jpg" />
+    <None Include="Images\animeList\locodol.jpg" />
+    <None Include="Images\animeList\log_horizon2.jpg" />
+    <None Include="Images\animeList\magi.png" />
     <Content Include="Timetable.html" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

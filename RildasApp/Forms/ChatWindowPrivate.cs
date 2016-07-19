@@ -28,6 +28,10 @@ namespace RildasApp.Forms
         // Flash continuously until the window comes to the foreground. 
         public const UInt32 FLASHW_TIMERNOFG = 12;
         bool focus = false;
+        protected override bool ShowWithoutActivation
+        {
+            get { return true; }
+        }
         public ChatWindowPrivate()
         {
             InitializeComponent();

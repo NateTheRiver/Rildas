@@ -12,7 +12,9 @@ namespace RildasApp
         public static bool silentMode;
         public static int screenWidth;
         public static int screenHeight;
-
+        public static bool silentGroupMessages { get { return Global.GetApplicationSettings("silentGroupMessages") == "true"; } }
+        public static bool silentPrivateMessages { get { return Global.GetApplicationSettings("silentPrivateMessages") == "true"; } }
+        public static bool silentNotifications { get { return Global.GetApplicationSettings("silentNotifications") == "true"; } }
         static ConfigApp()
         {
             screenWidth = Screen.PrimaryScreen.Bounds.Width;

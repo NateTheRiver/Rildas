@@ -39,6 +39,8 @@
             this.label_fail = new MetroFramework.Controls.MetroLabel();
             this.cbSave = new MetroFramework.Controls.MetroCheckBox();
             this.metroProgressBar1 = new MetroFramework.Controls.MetroProgressBar();
+            this.metroStyleManager1 = new MetroFramework.Components.MetroStyleManager(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).BeginInit();
             this.SuspendLayout();
             // 
             // metroLabel1
@@ -179,6 +181,11 @@
             this.metroProgressBar1.TabIndex = 8;
             this.metroProgressBar1.Visible = false;
             // 
+            // metroStyleManager1
+            // 
+            this.metroStyleManager1.Owner = this;
+            this.metroStyleManager1.Theme = MetroFramework.MetroThemeStyle.Dark;
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -200,6 +207,7 @@
             this.Text = "Přihlášení - Rildas.cz";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.Load += new System.EventHandler(this.LoginForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -217,6 +225,7 @@
         private MetroFramework.Controls.MetroLabel label_fail;
         private MetroFramework.Controls.MetroCheckBox cbSave;
         private MetroFramework.Controls.MetroProgressBar metroProgressBar1;
+        private MetroFramework.Components.MetroStyleManager metroStyleManager1;
     }
 }
 
