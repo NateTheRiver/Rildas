@@ -573,7 +573,14 @@ namespace RildasApp.Forms
 
                 picture.Size = new Size(imageSize, imageSize);
                 picture.Location = new Point(positionX, positionY);
-                picture.Load("http://anime.rildas.cz/" + animeList[i].animelist_img);
+                try
+                {
+                    picture.Load("http://anime.rildas.cz/" + animeList[i].animelist_img);
+                }
+                catch (Exception ex)
+                {
+                    //TODO: Make a log
+                }
                 panel.Controls.Add(picture);
 
                 label.Text = animeList[i].name + "\r\n" + animeList[i].status + "\r\n" + "0" + "/" + animeList[i].ep_count; // TODO: Count translated episodes
@@ -991,8 +998,9 @@ namespace RildasApp.Forms
                 state.Size = new Size(20, 20);
                 state.Location = new Point(1, name.Location.Y);
                 state.Name = user.username + "_state";
-              if (logged.Exists(x=>x.username == user.username))
-                    state.Load(directory + "/Images/green.png");
+                if(logged != null) 
+                if (logged.Exists(x=>x.username == user.username)) // Tady se mi to nelíbí. Padá to na nedefinovaném objektu
+                        state.Load(directory + "/Images/green.png");
                 else
                     state.Load(directory + "/Images/red.png");
                 chatPanelPrivate.Controls.Add(name);

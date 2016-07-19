@@ -31,53 +31,18 @@ namespace RildasApp.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            this.tbMessage = new MetroFramework.Controls.MetroTextBox();
             this.cbAlwaysOnTop = new MetroFramework.Controls.MetroCheckBox();
             this.btnSend = new MetroFramework.Controls.MetroButton();
             this.btnNotice = new MetroFramework.Controls.MetroButton();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.tbMessage = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // tbMessage
-            // 
-            // 
-            // 
-            // 
-            this.tbMessage.CustomButton.Image = null;
-            this.tbMessage.CustomButton.Location = new System.Drawing.Point(392, 1);
-            this.tbMessage.CustomButton.Name = "";
-            this.tbMessage.CustomButton.Size = new System.Drawing.Size(67, 67);
-            this.tbMessage.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.tbMessage.CustomButton.TabIndex = 1;
-            this.tbMessage.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.tbMessage.CustomButton.UseSelectable = true;
-            this.tbMessage.CustomButton.Visible = false;
-            this.tbMessage.Lines = new string[0];
-            this.tbMessage.Location = new System.Drawing.Point(23, 305);
-            this.tbMessage.MaxLength = 32767;
-            this.tbMessage.Multiline = true;
-            this.tbMessage.Name = "tbMessage";
-            this.tbMessage.PasswordChar = '\0';
-            this.tbMessage.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.tbMessage.SelectedText = "";
-            this.tbMessage.SelectionLength = 0;
-            this.tbMessage.SelectionStart = 0;
-            this.tbMessage.Size = new System.Drawing.Size(460, 69);
-            this.tbMessage.Style = MetroFramework.MetroColorStyle.Lime;
-            this.tbMessage.TabIndex = 0;
-            this.tbMessage.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.tbMessage.UseSelectable = true;
-            this.tbMessage.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.tbMessage.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            this.tbMessage.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbMessage_KeyDown);
             // 
             // cbAlwaysOnTop
             // 
             this.cbAlwaysOnTop.AutoSize = true;
-            this.cbAlwaysOnTop.Checked = true;
-            this.cbAlwaysOnTop.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cbAlwaysOnTop.Location = new System.Drawing.Point(500, 32);
             this.cbAlwaysOnTop.Name = "cbAlwaysOnTop";
             this.cbAlwaysOnTop.Size = new System.Drawing.Size(98, 15);
@@ -132,21 +97,36 @@ namespace RildasApp.Forms
             this.panel1.Size = new System.Drawing.Size(574, 232);
             this.panel1.TabIndex = 6;
             // 
-            // ChatWindow
+            // tbMessage
+            // 
+            this.tbMessage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.tbMessage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbMessage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.tbMessage.Location = new System.Drawing.Point(24, 305);
+            this.tbMessage.Multiline = true;
+            this.tbMessage.Name = "tbMessage";
+            this.tbMessage.Size = new System.Drawing.Size(459, 69);
+            this.tbMessage.TabIndex = 7;
+            this.tbMessage.Enter += new System.EventHandler(this.tbMessage_Enter);
+            this.tbMessage.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbMessage_KeyDown);
+            this.tbMessage.Leave += new System.EventHandler(this.tbMessage_Leave);
+            // 
+            // ChatWindowPrivate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(624, 408);
+            this.Controls.Add(this.tbMessage);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnNotice);
             this.Controls.Add(this.btnSend);
             this.Controls.Add(this.cbAlwaysOnTop);
-            this.Controls.Add(this.tbMessage);
-            this.Name = "ChatWindow";
+            this.Name = "ChatWindowPrivate";
             this.Style = MetroFramework.MetroColorStyle.Lime;
             this.Text = "Private chat - NateTheRiver";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.TopMost = true;
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.ChatWindowPrivate_Paint);
             this.Resize += new System.EventHandler(this.ChatWindow_Resize);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -155,13 +135,11 @@ namespace RildasApp.Forms
         }
 
         #endregion
-        private MetroFramework.Controls.MetroTextBox tbMessage;
         private MetroFramework.Controls.MetroCheckBox cbAlwaysOnTop;
         private MetroFramework.Controls.MetroButton btnSend;
         private MetroFramework.Controls.MetroButton btnNotice;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Panel panel1;
-
-       
+        private System.Windows.Forms.TextBox tbMessage;
     }
 }
