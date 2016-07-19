@@ -31,9 +31,9 @@ namespace RildasApp.Forms
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
             this.metroStyleManager1 = new MetroFramework.Components.MetroStyleManager(this.components);
             this.metroTabControl1 = new MetroFramework.Controls.MetroTabControl();
@@ -124,6 +124,9 @@ namespace RildasApp.Forms
             this.publish_AnimeComboBox = new MetroFramework.Controls.MetroComboBox();
             this._states = new MetroFramework.Controls.MetroTabPage();
             this._stats = new MetroFramework.Controls.MetroTabPage();
+            this._settings = new MetroFramework.Controls.MetroTabPage();
+            this.metroLabel13 = new MetroFramework.Controls.MetroLabel();
+            this._settingsOnStartUp = new MetroFramework.Controls.MetroCheckBox();
             this.metroStyleExtender1 = new MetroFramework.Components.MetroStyleExtender(this.components);
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
@@ -135,6 +138,12 @@ namespace RildasApp.Forms
             this.chatPanelPrivate = new MetroFramework.Controls.MetroPanel();
             this.chatGroupAdd = new MetroFramework.Controls.MetroButton();
             this.metroScrollBar2 = new MetroFramework.Controls.MetroScrollBar();
+            this._settingsAutoLogin = new MetroFramework.Controls.MetroCheckBox();
+            this.metroLabel14 = new MetroFramework.Controls.MetroLabel();
+            this._configSilentAll = new MetroFramework.Controls.MetroCheckBox();
+            this.configSilentGroupMessages = new MetroFramework.Controls.MetroCheckBox();
+            this.configSilentPrivateMessages = new MetroFramework.Controls.MetroCheckBox();
+            this.configSilentNotifications = new MetroFramework.Controls.MetroCheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).BeginInit();
             this.metroTabControl1.SuspendLayout();
             this._dashboard.SuspendLayout();
@@ -149,6 +158,7 @@ namespace RildasApp.Forms
             this._publish.SuspendLayout();
             this.metroPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.publish_animePicturebox)).BeginInit();
+            this._settings.SuspendLayout();
             this.SuspendLayout();
             // 
             // metroStyleManager1
@@ -167,9 +177,10 @@ namespace RildasApp.Forms
             this.metroTabControl1.Controls.Add(this._publish);
             this.metroTabControl1.Controls.Add(this._states);
             this.metroTabControl1.Controls.Add(this._stats);
+            this.metroTabControl1.Controls.Add(this._settings);
             this.metroTabControl1.Location = new System.Drawing.Point(23, 63);
             this.metroTabControl1.Name = "metroTabControl1";
-            this.metroTabControl1.SelectedIndex = 0;
+            this.metroTabControl1.SelectedIndex = 9;
             this.metroTabControl1.Size = new System.Drawing.Size(1455, 649);
             this.metroTabControl1.TabIndex = 0;
             this.metroTabControl1.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -1115,14 +1126,14 @@ namespace RildasApp.Forms
             this.xdccGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.xdccGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.xdccGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.xdccGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.xdccGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
             this.xdccGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.xdccGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.BotName,
@@ -1131,14 +1142,14 @@ namespace RildasApp.Forms
             this.FileName,
             this.Qualitty,
             this.FileSize});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.xdccGridView.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.xdccGridView.DefaultCellStyle = dataGridViewCellStyle14;
             this.xdccGridView.EnableHeadersVisualStyles = false;
             this.xdccGridView.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.xdccGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
@@ -1147,14 +1158,14 @@ namespace RildasApp.Forms
             this.xdccGridView.Name = "xdccGridView";
             this.xdccGridView.ReadOnly = true;
             this.xdccGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.xdccGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.xdccGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
             this.xdccGridView.RowHeadersWidth = 25;
             this.xdccGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.xdccGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -1314,10 +1325,10 @@ namespace RildasApp.Forms
             this.publish_confirmerlabel.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.publish_confirmerlabel.Location = new System.Drawing.Point(260, 287);
             this.publish_confirmerlabel.Name = "publish_confirmerlabel";
-            this.publish_confirmerlabel.Size = new System.Drawing.Size(167, 25);
+            this.publish_confirmerlabel.Size = new System.Drawing.Size(87, 25);
             this.publish_confirmerlabel.Style = MetroFramework.MetroColorStyle.Blue;
             this.publish_confirmerlabel.TabIndex = 17;
-            this.publish_confirmerlabel.Text = "Schválil: aaaaaaaa";
+            this.publish_confirmerlabel.Text = "Schválil: ";
             this.publish_confirmerlabel.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.publish_confirmerlabel.UseStyleColors = true;
             // 
@@ -1329,10 +1340,10 @@ namespace RildasApp.Forms
             this.publish_translatorlabel.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.publish_translatorlabel.Location = new System.Drawing.Point(262, 262);
             this.publish_translatorlabel.Name = "publish_translatorlabel";
-            this.publish_translatorlabel.Size = new System.Drawing.Size(165, 25);
+            this.publish_translatorlabel.Size = new System.Drawing.Size(85, 25);
             this.publish_translatorlabel.Style = MetroFramework.MetroColorStyle.Blue;
             this.publish_translatorlabel.TabIndex = 16;
-            this.publish_translatorlabel.Text = "Přeložil: aaaaaaaa";
+            this.publish_translatorlabel.Text = "Přeložil: ";
             this.publish_translatorlabel.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.publish_translatorlabel.UseStyleColors = true;
             // 
@@ -1344,10 +1355,10 @@ namespace RildasApp.Forms
             this.publish_fromlabel.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.publish_fromlabel.Location = new System.Drawing.Point(87, 237);
             this.publish_fromlabel.Name = "publish_fromlabel";
-            this.publish_fromlabel.Size = new System.Drawing.Size(340, 25);
+            this.publish_fromlabel.Size = new System.Drawing.Size(255, 25);
             this.publish_fromlabel.Style = MetroFramework.MetroColorStyle.Blue;
             this.publish_fromlabel.TabIndex = 15;
-            this.publish_fromlabel.Text = "Připraveno ke zveřejnění od: aaaaaaaa";
+            this.publish_fromlabel.Text = "Připraveno ke zveřejnění od:";
             this.publish_fromlabel.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.publish_fromlabel.UseStyleColors = true;
             // 
@@ -1359,10 +1370,10 @@ namespace RildasApp.Forms
             this.publish_episodelabel.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.publish_episodelabel.Location = new System.Drawing.Point(258, 212);
             this.publish_episodelabel.Name = "publish_episodelabel";
-            this.publish_episodelabel.Size = new System.Drawing.Size(169, 25);
+            this.publish_episodelabel.Size = new System.Drawing.Size(89, 25);
             this.publish_episodelabel.Style = MetroFramework.MetroColorStyle.Blue;
             this.publish_episodelabel.TabIndex = 14;
-            this.publish_episodelabel.Text = "Epizoda: aaaaaaaa";
+            this.publish_episodelabel.Text = "Epizoda: ";
             this.publish_episodelabel.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.publish_episodelabel.UseStyleColors = true;
             // 
@@ -1374,10 +1385,10 @@ namespace RildasApp.Forms
             this.publish_animelabel.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.publish_animelabel.Location = new System.Drawing.Point(270, 187);
             this.publish_animelabel.Name = "publish_animelabel";
-            this.publish_animelabel.Size = new System.Drawing.Size(157, 25);
+            this.publish_animelabel.Size = new System.Drawing.Size(77, 25);
             this.publish_animelabel.Style = MetroFramework.MetroColorStyle.Blue;
             this.publish_animelabel.TabIndex = 13;
-            this.publish_animelabel.Text = "Anime: aaaaaaaa";
+            this.publish_animelabel.Text = "Anime: ";
             this.publish_animelabel.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.publish_animelabel.UseStyleColors = true;
             // 
@@ -1420,7 +1431,7 @@ namespace RildasApp.Forms
             // _states
             // 
             this._states.AutoScroll = true;
-            this._states.HorizontalScrollbar = false;
+            this._states.HorizontalScrollbar = true;
             this._states.HorizontalScrollbarBarColor = false;
             this._states.HorizontalScrollbarHighlightOnWheel = false;
             this._states.HorizontalScrollbarSize = 10;
@@ -1432,7 +1443,7 @@ namespace RildasApp.Forms
             this._states.Text = "Stavy anime    ";
             this._states.Theme = MetroFramework.MetroThemeStyle.Dark;
             this._states.UseStyleColors = true;
-            this._states.VerticalScrollbar = false;
+            this._states.VerticalScrollbar = true;
             this._states.VerticalScrollbarBarColor = false;
             this._states.VerticalScrollbarHighlightOnWheel = false;
             this._states.VerticalScrollbarSize = 10;
@@ -1451,6 +1462,59 @@ namespace RildasApp.Forms
             this._stats.VerticalScrollbarBarColor = true;
             this._stats.VerticalScrollbarHighlightOnWheel = false;
             this._stats.VerticalScrollbarSize = 10;
+            // 
+            // _settings
+            // 
+            this._settings.Controls.Add(this.configSilentNotifications);
+            this._settings.Controls.Add(this.configSilentPrivateMessages);
+            this._settings.Controls.Add(this.configSilentGroupMessages);
+            this._settings.Controls.Add(this._configSilentAll);
+            this._settings.Controls.Add(this.metroLabel14);
+            this._settings.Controls.Add(this._settingsAutoLogin);
+            this._settings.Controls.Add(this.metroLabel13);
+            this._settings.Controls.Add(this._settingsOnStartUp);
+            this._settings.HorizontalScrollbarBarColor = true;
+            this._settings.HorizontalScrollbarHighlightOnWheel = false;
+            this._settings.HorizontalScrollbarSize = 10;
+            this._settings.Location = new System.Drawing.Point(4, 38);
+            this._settings.Name = "_settings";
+            this._settings.Size = new System.Drawing.Size(1447, 607);
+            this._settings.TabIndex = 10;
+            this._settings.Text = "Nastavení";
+            this._settings.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._settings.VerticalScrollbarBarColor = true;
+            this._settings.VerticalScrollbarHighlightOnWheel = false;
+            this._settings.VerticalScrollbarSize = 10;
+            // 
+            // metroLabel13
+            // 
+            this.metroLabel13.AutoSize = true;
+            this.metroLabel13.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel13.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabel13.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.metroLabel13.Location = new System.Drawing.Point(3, 34);
+            this.metroLabel13.Name = "metroLabel13";
+            this.metroLabel13.Size = new System.Drawing.Size(154, 25);
+            this.metroLabel13.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroLabel13.TabIndex = 13;
+            this.metroLabel13.Text = "Hlavní nastavení";
+            this.metroLabel13.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel13.UseStyleColors = true;
+            this.metroLabel13.UseWaitCursor = true;
+            this.metroLabel13.Visible = false;
+            // 
+            // _settingsOnStartUp
+            // 
+            this._settingsOnStartUp.AutoSize = true;
+            this._settingsOnStartUp.Location = new System.Drawing.Point(3, 80);
+            this._settingsOnStartUp.Name = "_settingsOnStartUp";
+            this._settingsOnStartUp.Size = new System.Drawing.Size(209, 15);
+            this._settingsOnStartUp.TabIndex = 2;
+            this._settingsOnStartUp.Text = "Zapnout aplikaci při startu počítače";
+            this._settingsOnStartUp.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._settingsOnStartUp.UseSelectable = true;
+            this._settingsOnStartUp.UseWaitCursor = true;
+            this._settingsOnStartUp.CheckedChanged += new System.EventHandler(this._settingsOnStartUp_CheckedChanged);
             // 
             // metroStyleExtender1
             // 
@@ -1491,9 +1555,9 @@ namespace RildasApp.Forms
             this.chatPanelGroups.HorizontalScrollbarBarColor = true;
             this.chatPanelGroups.HorizontalScrollbarHighlightOnWheel = false;
             this.chatPanelGroups.HorizontalScrollbarSize = 10;
-            this.chatPanelGroups.Location = new System.Drawing.Point(1484, 100);
+            this.chatPanelGroups.Location = new System.Drawing.Point(1484, 135);
             this.chatPanelGroups.Name = "chatPanelGroups";
-            this.chatPanelGroups.Size = new System.Drawing.Size(150, 240);
+            this.chatPanelGroups.Size = new System.Drawing.Size(150, 245);
             this.chatPanelGroups.TabIndex = 2;
             this.chatPanelGroups.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.chatPanelGroups.VerticalScrollbarBarColor = true;
@@ -1506,7 +1570,7 @@ namespace RildasApp.Forms
             this.metroLabel1.FontSize = MetroFramework.MetroLabelSize.Tall;
             this.metroLabel1.FontWeight = MetroFramework.MetroLabelWeight.Bold;
             this.metroLabel1.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.metroLabel1.Location = new System.Drawing.Point(1484, 107);
+            this.metroLabel1.Location = new System.Drawing.Point(1484, 101);
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(117, 25);
             this.metroLabel1.Style = MetroFramework.MetroColorStyle.Blue;
@@ -1521,9 +1585,9 @@ namespace RildasApp.Forms
             this.metroLabel15.FontSize = MetroFramework.MetroLabelSize.Tall;
             this.metroLabel15.FontWeight = MetroFramework.MetroLabelWeight.Bold;
             this.metroLabel15.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.metroLabel15.Location = new System.Drawing.Point(1484, 342);
+            this.metroLabel15.Location = new System.Drawing.Point(1480, 383);
             this.metroLabel15.Name = "metroLabel15";
-            this.metroLabel15.Size = new System.Drawing.Size(116, 30);
+            this.metroLabel15.Size = new System.Drawing.Size(116, 25);
             this.metroLabel15.Style = MetroFramework.MetroColorStyle.Blue;
             this.metroLabel15.TabIndex = 4;
             this.metroLabel15.Text = "Private Chat";
@@ -1535,9 +1599,9 @@ namespace RildasApp.Forms
             this.chatPanelPrivate.HorizontalScrollbarBarColor = true;
             this.chatPanelPrivate.HorizontalScrollbarHighlightOnWheel = false;
             this.chatPanelPrivate.HorizontalScrollbarSize = 10;
-            this.chatPanelPrivate.Location = new System.Drawing.Point(1484, 370);
+            this.chatPanelPrivate.Location = new System.Drawing.Point(1484, 411);
             this.chatPanelPrivate.Name = "chatPanelPrivate";
-            this.chatPanelPrivate.Size = new System.Drawing.Size(150, 365);
+            this.chatPanelPrivate.Size = new System.Drawing.Size(150, 297);
             this.chatPanelPrivate.TabIndex = 3;
             this.chatPanelPrivate.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.chatPanelPrivate.VerticalScrollbarBarColor = true;
@@ -1547,7 +1611,7 @@ namespace RildasApp.Forms
             // 
             // chatGroupAdd
             // 
-            this.chatGroupAdd.Location = new System.Drawing.Point(1606, 107);
+            this.chatGroupAdd.Location = new System.Drawing.Point(1607, 101);
             this.chatGroupAdd.Name = "chatGroupAdd";
             this.chatGroupAdd.Size = new System.Drawing.Size(25, 25);
             this.chatGroupAdd.TabIndex = 5;
@@ -1559,20 +1623,98 @@ namespace RildasApp.Forms
             // 
             this.metroScrollBar2.HighlightOnWheel = true;
             this.metroScrollBar2.LargeChange = 10;
-            this.metroScrollBar2.Location = new System.Drawing.Point(1640, 370);
+            this.metroScrollBar2.Location = new System.Drawing.Point(1640, 433);
             this.metroScrollBar2.Maximum = 100;
             this.metroScrollBar2.Minimum = 0;
             this.metroScrollBar2.MouseWheelBarPartitions = 10;
             this.metroScrollBar2.Name = "metroScrollBar2";
             this.metroScrollBar2.Orientation = MetroFramework.Controls.MetroScrollOrientation.Vertical;
             this.metroScrollBar2.ScrollbarSize = 10;
-            this.metroScrollBar2.Size = new System.Drawing.Size(10, 300);
+            this.metroScrollBar2.Size = new System.Drawing.Size(10, 279);
             this.metroScrollBar2.SmallChange = 8;
             this.metroScrollBar2.TabIndex = 12;
             this.metroScrollBar2.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.metroScrollBar2.UseBarColor = true;
             this.metroScrollBar2.UseSelectable = true;
             this.metroScrollBar2.Scroll += new System.Windows.Forms.ScrollEventHandler(this.metroScrollBar2_Scroll);
+            // 
+            // _settingsAutoLogin
+            // 
+            this._settingsAutoLogin.AutoSize = true;
+            this._settingsAutoLogin.Location = new System.Drawing.Point(30, 101);
+            this._settingsAutoLogin.Name = "_settingsAutoLogin";
+            this._settingsAutoLogin.Size = new System.Drawing.Size(136, 15);
+            this._settingsAutoLogin.TabIndex = 14;
+            this._settingsAutoLogin.Text = "Automaticky přihlásit";
+            this._settingsAutoLogin.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._settingsAutoLogin.UseSelectable = true;
+            this._settingsAutoLogin.UseWaitCursor = true;
+            this._settingsAutoLogin.CheckedChanged += new System.EventHandler(this.metroCheckBox1_CheckedChanged);
+            // 
+            // metroLabel14
+            // 
+            this.metroLabel14.AutoSize = true;
+            this.metroLabel14.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel14.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabel14.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.metroLabel14.Location = new System.Drawing.Point(256, 34);
+            this.metroLabel14.Name = "metroLabel14";
+            this.metroLabel14.Size = new System.Drawing.Size(114, 25);
+            this.metroLabel14.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroLabel14.TabIndex = 15;
+            this.metroLabel14.Text = "Silent Mode";
+            this.metroLabel14.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel14.UseStyleColors = true;
+            this.metroLabel14.UseWaitCursor = true;
+            this.metroLabel14.Visible = false;
+            // 
+            // _configSilentAll
+            // 
+            this._configSilentAll.AutoSize = true;
+            this._configSilentAll.Location = new System.Drawing.Point(257, 80);
+            this._configSilentAll.Name = "_configSilentAll";
+            this._configSilentAll.Size = new System.Drawing.Size(199, 15);
+            this._configSilentAll.TabIndex = 16;
+            this._configSilentAll.Text = "Tlumit všechna vyskakovací okna";
+            this._configSilentAll.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._configSilentAll.UseSelectable = true;
+            this._configSilentAll.CheckedChanged += new System.EventHandler(this._configSilentAll_CheckedChanged);
+            // 
+            // configSilentGroupMessages
+            // 
+            this.configSilentGroupMessages.AutoSize = true;
+            this.configSilentGroupMessages.Location = new System.Drawing.Point(280, 101);
+            this.configSilentGroupMessages.Name = "configSilentGroupMessages";
+            this.configSilentGroupMessages.Size = new System.Drawing.Size(257, 15);
+            this.configSilentGroupMessages.TabIndex = 17;
+            this.configSilentGroupMessages.Text = "Tlumit vyskakovací okna skupinového chatu";
+            this.configSilentGroupMessages.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.configSilentGroupMessages.UseSelectable = true;
+            this.configSilentGroupMessages.CheckedChanged += new System.EventHandler(this.configSilentGroupMessages_CheckedChanged);
+            // 
+            // configSilentPrivateMessages
+            // 
+            this.configSilentPrivateMessages.AutoSize = true;
+            this.configSilentPrivateMessages.Location = new System.Drawing.Point(280, 122);
+            this.configSilentPrivateMessages.Name = "configSilentPrivateMessages";
+            this.configSilentPrivateMessages.Size = new System.Drawing.Size(256, 15);
+            this.configSilentPrivateMessages.TabIndex = 18;
+            this.configSilentPrivateMessages.Text = "Tlumit vyskakovací okna soukromého chatu";
+            this.configSilentPrivateMessages.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.configSilentPrivateMessages.UseSelectable = true;
+            this.configSilentPrivateMessages.CheckedChanged += new System.EventHandler(this.configSilentPrivateMessages_CheckedChanged);
+            // 
+            // configSilentNotifications
+            // 
+            this.configSilentNotifications.AutoSize = true;
+            this.configSilentNotifications.Location = new System.Drawing.Point(280, 143);
+            this.configSilentNotifications.Name = "configSilentNotifications";
+            this.configSilentNotifications.Size = new System.Drawing.Size(212, 15);
+            this.configSilentNotifications.TabIndex = 19;
+            this.configSilentNotifications.Text = "Tlumit notifikační vyskakovací okna";
+            this.configSilentNotifications.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.configSilentNotifications.UseSelectable = true;
+            this.configSilentNotifications.CheckedChanged += new System.EventHandler(this.configSilentNotifications_CheckedChanged);
             // 
             // Dashboard
             // 
@@ -1617,6 +1759,8 @@ namespace RildasApp.Forms
             this.metroPanel1.ResumeLayout(false);
             this.metroPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.publish_animePicturebox)).EndInit();
+            this._settings.ResumeLayout(false);
+            this._settings.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1726,5 +1870,14 @@ namespace RildasApp.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn FileName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Qualitty;
         private System.Windows.Forms.DataGridViewTextBoxColumn FileSize;
+        private MetroFramework.Controls.MetroTabPage _settings;
+        private MetroFramework.Controls.MetroLabel metroLabel13;
+        private MetroFramework.Controls.MetroCheckBox _settingsOnStartUp;
+        private MetroFramework.Controls.MetroCheckBox _settingsAutoLogin;
+        private MetroFramework.Controls.MetroCheckBox configSilentPrivateMessages;
+        private MetroFramework.Controls.MetroCheckBox configSilentGroupMessages;
+        private MetroFramework.Controls.MetroCheckBox _configSilentAll;
+        private MetroFramework.Controls.MetroLabel metroLabel14;
+        private MetroFramework.Controls.MetroCheckBox configSilentNotifications;
     }
 }

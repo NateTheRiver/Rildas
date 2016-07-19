@@ -26,7 +26,10 @@ namespace RildasApp.Forms
         public const UInt32 FLASHW_ALL = 3;
         // Flash continuously until the window comes to the foreground. 
         public const UInt32 FLASHW_TIMERNOFG = 12;
-
+        protected override bool ShowWithoutActivation
+        {
+            get { return true; }
+        }
         public ChatWindowPrivate()
         {
             InitializeComponent();

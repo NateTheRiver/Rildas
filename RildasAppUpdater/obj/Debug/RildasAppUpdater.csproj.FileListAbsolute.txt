@@ -1,5 +1,6 @@
 C:\Users\Richard\Rildas\Aplikace\RildasAppUpdater\bin\Debug\RildasAppUpdater.exe.config
 C:\Users\Richard\Rildas\Aplikace\RildasAppUpdater\bin\Debug\RildasAppUpdater.exe
 C:\Users\Richard\Rildas\Aplikace\RildasAppUpdater\bin\Debug\RildasAppUpdater.pdb
+C:\Users\Richard\Rildas\Aplikace\RildasAppUpdater\obj\Debug\RildasAppUpdater.csprojResolveAssemblyReference.cache
 C:\Users\Richard\Rildas\Aplikace\RildasAppUpdater\obj\Debug\RildasAppUpdater.exe
 C:\Users\Richard\Rildas\Aplikace\RildasAppUpdater\obj\Debug\RildasAppUpdater.pdb

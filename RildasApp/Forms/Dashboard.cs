@@ -14,6 +14,9 @@ using System.Linq;
 using System.Text;
 using RildasApp;
 using System.Windows.Forms;
+using RildasApp.Properties;
+using System.Resources;
+using System.Reflection;
 
 namespace RildasApp.Forms
 {
@@ -279,8 +282,16 @@ namespace RildasApp.Forms
 
         private void Dashboard_Shown(object sender, EventArgs e)
         {
+            System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
+            sw.Start();
+            System.Diagnostics.Debug.WriteLine("Started load");
             FilterXDCCPackages();
+            sw.Stop();
+            System.Diagnostics.Debug.WriteLine("FilterXDCCPackages: " + sw.ElapsedMilliseconds);
+            sw.Start();
             MakeStates();
+            sw.Stop();
+            System.Diagnostics.Debug.WriteLine("MakeStates: " + sw.ElapsedMilliseconds);
         }
 
         private void ChatDelUser(User user)
@@ -406,7 +417,7 @@ namespace RildasApp.Forms
                 MetroMessageBox.Show(this, "Nevyplnili jste všechny povinné údaje.", "Upozornění", MessageBoxButtons.OK, MessageBoxIcon.Information);
             else
             {
-                
+                Anime anime = Global.GetAnime(animeId);
                 int hash = (int)(DateTime.UtcNow.Subtract(new DateTime(2016, 1, 1))).TotalMilliseconds + Environment.TickCount;
                 byte[] file1bytes = File.ReadAllBytes(filename1);
                 RildasServerAPI.UploadFile(0, hash.ToString("X"), Encoding.UTF8.GetString(file1bytes));
@@ -420,7 +431,7 @@ namespace RildasApp.Forms
                     type = rbPreklad.Checked ? EpisodeVersion.Type.PŘEKLAD : EpisodeVersion.Type.KOREKCE,
                     animeId = animeId,
                     episode = int.Parse(cbEpisode.SelectedItem.ToString()),
-                    state = cbReady.Checked ? -3 : 0,
+                    state = cbReady.Checked ? -3 : (rbPreklad.Checked && anime.translatorid != 0) ? -1 : 0,
                     title = finalName1,
                     titleEN = finalName2,
                     name = safeName1,
@@ -573,7 +584,8 @@ namespace RildasApp.Forms
 
                 picture.Size = new Size(imageSize, imageSize);
                 picture.Location = new Point(positionX, positionY);
-                picture.Load("http://anime.rildas.cz/" + animeList[i].animelist_img);
+
+                picture.Image = (Bitmap)Resources.ResourceManager.GetObject(Path.GetFileNameWithoutExtension(animeList[i].animelist_img));
                 panel.Controls.Add(picture);
 
                 label.Text = animeList[i].name + "\r\n" + animeList[i].status + "\r\n" + "0" + "/" + animeList[i].ep_count; // TODO: Count translated episodes
@@ -601,7 +613,7 @@ namespace RildasApp.Forms
                 publish_AnimeComboBox.Items.Clear();
                 foreach (Anime anime in Global.GetAnimes())
                 {
-                    if (anime.status != Anime.Status.PŘELOŽENO)
+                    if (anime.status != Anime.Status.PŘELOŽENO && (anime.translatorid == Global.loggedUser.id || Global.loggedUser.access > 5))
                     {
                         publish_AnimeComboBox.Items.Add(anime.name);
                     }
@@ -731,8 +743,7 @@ namespace RildasApp.Forms
                 
                 if (epVersions.Length != 20) break;                
             }
-            sw.Stop();
-            System.Diagnostics.Debug.WriteLine("Elapsed: " + sw.ElapsedMilliseconds);
+
             List<Anime> animes = Global.GetAnimes();
             MetroLink metroLink = new MetroLink();
             metroLink.Location = new System.Drawing.Point(179, 188);
@@ -786,7 +797,7 @@ namespace RildasApp.Forms
                     picture.Size = new System.Drawing.Size(99, 93);
                     picture.TabIndex = 2;
                     picture.TabStop = false;
-                    picture.Load("http://anime.rildas.cz/" + anime.animelist_img);
+                    picture.Image = (Bitmap)Resources.ResourceManager.GetObject(Path.GetFileNameWithoutExtension(anime.animelist_img));
                     picture.SizeMode = PictureBoxSizeMode.StretchImage;
                     // 
                     // metroLink1
@@ -926,6 +937,8 @@ namespace RildasApp.Forms
                 metroLink.Visible = false;
                 News.Refresh();
             }));
+            sw.Stop();
+            System.Diagnostics.Debug.WriteLine("News - Elapsed: " + sw.ElapsedMilliseconds);
 
         }
         private void LoadChatGroups()
@@ -962,7 +975,7 @@ namespace RildasApp.Forms
         private void ChatGroup_Click(object sender, EventArgs e)
         {
             ChatGroup group = (sender as MetroLink).Tag as ChatGroup;
-            Global.OpenIfNeeded(group);
+            Global.OpenIfNeeded(group, true);
         }
 
         private void LoadTeamMembers()
@@ -970,7 +983,7 @@ namespace RildasApp.Forms
             IEnumerable<User> users = Global.GetUsers().Where(x => x.access > 1);
             List<User> logged = Global.GetLoggedUsers();
             users = users.OrderBy(x => x.username);
-            string directory = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
+            string directory = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().Location);
 
             int positionIterator = 0;
             foreach (User user in users)
@@ -1006,7 +1019,7 @@ namespace RildasApp.Forms
         private void User_Click(object sender, EventArgs e)
         {
             User user = (sender as MetroLink).Tag as User;
-            Global.OpenIfNeeded(user);
+            Global.OpenIfNeeded(user, true);
         }
       
         private void Name_Click(object sender, EventArgs e)
@@ -1082,12 +1095,75 @@ namespace RildasApp.Forms
             LoadNews();
             LoadImportantFiles();
         }
+        private void LoadNotifications()
+        {
+            List<Notification> notifications = Global.GetNotifications();
+            int iterator = 0;
+            this.Invoke(new MethodInvoker(delegate
+            {
+                foreach (Notification notif in notifications)
+                {
+                    MetroPanel panel = new MetroPanel();
+                    MetroLabel timeLabel = new MetroLabel();
+                    MetroLink header = new MetroLink();
+                    MetroTextBox textBox = new MetroTextBox();
+                    // 
+                    // metroPanel2
+                    // 
+                    panel.Controls.Add(timeLabel);
+                    panel.Controls.Add(textBox);
+                    panel.Controls.Add(header);
+                    panel.HorizontalScrollbarBarColor = true;
+                    panel.HorizontalScrollbarSize = 10;
+                    panel.Location = new System.Drawing.Point(3, 3 + 100 * iterator);
+                    panel.Name = "metroPanelNotif" + notif.id;
+                    panel.Size = new System.Drawing.Size(435, 100);
+                    panel.Theme = MetroFramework.MetroThemeStyle.Dark;
+                    // 
+                    // metroLabel14
+                    // 
+                    timeLabel.AutoSize = true;
+                    timeLabel.Location = new System.Drawing.Point(337, 78 + 100 * iterator);
+                    timeLabel.Name = "metroLabel1Notif" + notif.id; ;
+                    timeLabel.Size = new System.Drawing.Size(95, 19);
+                    timeLabel.Text = notif.time.ToLongDateString();
+                    timeLabel.Theme = MetroFramework.MetroThemeStyle.Dark;
+                    // 
+                    // metroTextBox1
+                    // 
+                    // 
+                    // 
+                    // 
+                    textBox.CustomButton.Visible = false;
+                    textBox.Location = new System.Drawing.Point(3, 24 + 100 * iterator);
+                    textBox.MaxLength = 32767;
+                    textBox.Multiline = true;
+                    textBox.Name = "metroTextBoxNotif" + notif.id;
+                    textBox.ReadOnly = true;
+                    textBox.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+                    textBox.Size = new System.Drawing.Size(432, 52);
+                    textBox.Text = notif.text;
+                    textBox.Theme = MetroFramework.MetroThemeStyle.Dark;
+                    textBox.UseSelectable = true;
+                    // 
+                    // metroLink2
+                    // 
+                    header.Location = new System.Drawing.Point(0, 0 + 100 * iterator);
+                    header.Name = "metroLinkNotif" + notif.id;
+                    header.Size = new System.Drawing.Size(435, 23);
+                    header.Text = notif.header;
+                    header.Theme = MetroFramework.MetroThemeStyle.Dark;
+                    header.UseSelectable = true;
+                    iterator++;
+                    dashboard_notificationsPanel.Controls.Add(panel);
+                }
+                dashboard_notificationsPanel.Refresh();
+            }));
         
+        }
         private void LoadImportantFiles()
         { 
             List<EpisodeVersion> filteredVersions = new List<EpisodeVersion>();
-            System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
-            sw.Start();
                 List<EpisodeVersion> epVersions = Global.GetEpisodeVersions();
                 
                 foreach (EpisodeVersion epver in epVersions)
@@ -1103,22 +1179,19 @@ namespace RildasApp.Forms
 
                 }
                             
-            
-            sw.Stop();
-            System.Diagnostics.Debug.WriteLine("Elapsed: " + sw.ElapsedMilliseconds);
-            List<Anime> animes = Global.GetAnimes();
-            MetroLink metroLink = new MetroLink();
-            metroLink.Location = new System.Drawing.Point(179, 188);
-            metroLink.Name = "metroProgressr1";
-            metroLink.AutoSize = true;
-            metroLink.Text = "Načítání";
-            metroLink.Style = MetroFramework.MetroColorStyle.Blue;
-            metroLink.TabIndex = 2;
-            metroLink.Theme = MetroFramework.MetroThemeStyle.Dark;
-            metroLink.UseSelectable = true;
+             List<Anime> animes = Global.GetAnimes();
+            MetroLink metroLink = null;
             importantFiles.Invoke(new MethodInvoker(delegate
             {
-
+                metroLink = new MetroLink();
+                metroLink.Location = new System.Drawing.Point(179, 188);
+                metroLink.Name = "metroProgressr1";
+                metroLink.AutoSize = true;
+                metroLink.Text = "Načítání";
+                metroLink.Style = MetroFramework.MetroColorStyle.Blue;
+                metroLink.TabIndex = 2;
+                metroLink.Theme = MetroFramework.MetroThemeStyle.Dark;
+                metroLink.UseSelectable = true;
                 importantFiles.Controls.Clear();
                 importantFiles.Refresh();
 
@@ -1131,7 +1204,7 @@ namespace RildasApp.Forms
             List<Panel> panels = new List<Panel>();
             this.Invoke((MethodInvoker)delegate
             {
-
+                this.SuspendLayout();
                 foreach (EpisodeVersion epver in filteredVersions)
                 {
                     Anime anime = animes.FirstOrDefault(x => x.id == epver.animeId);
@@ -1159,7 +1232,7 @@ namespace RildasApp.Forms
                     picture.Size = new System.Drawing.Size(99, 103);
                     picture.TabIndex = 2;
                     picture.TabStop = false;
-                    picture.Load("http://anime.rildas.cz/" + anime.animelist_img);
+                    picture.Image = (Bitmap)Resources.ResourceManager.GetObject(Path.GetFileNameWithoutExtension(anime.animelist_img));
                     picture.SizeMode = PictureBoxSizeMode.StretchImage;
                     // 
                     // metroLink1
@@ -1328,6 +1401,7 @@ namespace RildasApp.Forms
                 panels.ForEach(x=> importantFiles.Controls.Add(x));
                 metroLink.Visible = false;
                 importantFiles.Refresh();
+                this.ResumeLayout();
             }));
         }
 
@@ -1370,7 +1444,8 @@ namespace RildasApp.Forms
             ver.animeId = an.id;
             _publishSetLabels(ver);
             if(an != null)
-            publish_animePicturebox.Load("http://anime.rildas.cz/" + an.post_img);
+            publish_animePicturebox.Image = (Bitmap)Resources.ResourceManager.GetObject(Path.GetFileNameWithoutExtension(an.post_img));
+
             myPanel2.Refresh();
         }
 
@@ -1406,6 +1481,7 @@ namespace RildasApp.Forms
 
         private void btn_publishNow_Click(object sender, EventArgs e)
         {
+            RildasServerAPI.PublishEpisodeVersion(selectedVersion);
 
         }
 
@@ -1515,8 +1591,106 @@ namespace RildasApp.Forms
             LoadTeamMembers();
             LoadChatGroups();
             LoadImportantFiles();
+            LoadNotifications();
+            LoadDefaultSettings();
             Global.UserConnected += ChatAddUser;
             Global.UserDisconnected += ChatDelUser;
+        }
+
+        private void LoadDefaultSettings()
+        {
+            _settingsOnStartUp.Checked = Global.IsProgramSetAsStartup();
+            _settingsAutoLogin.Checked = Global.GetApplicationSettings("password") != "";
+        }
+
+        private void _settingsOnStartUp_CheckedChanged(object sender, EventArgs e)
+        {
+            if (_settingsOnStartUp.Checked)
+            {
+                Global.SetProgramAsStartUp();
+                _settingsAutoLogin.Enabled = true;
+                _settingsAutoLogin.Checked = true;
+            }
+
+            else
+            {
+                Global.DeleteProgramFromStartUp();
+                _settingsAutoLogin.Enabled = false;
+                _settingsAutoLogin.Checked = false;
+            }
+
+        }
+
+        private void metroCheckBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if(_settingsAutoLogin.Checked)
+            {
+                Global.SetApplicationSettings("username", Global.loggedUser.username);
+                Global.SetApplicationSettings("password", Global.password);
+            } 
+            else
+            {
+                Global.SetApplicationSettings("username", "");
+                Global.SetApplicationSettings("password", "");
+            }
+        }
+
+        private void _configSilentAll_CheckedChanged(object sender, EventArgs e)
+        {
+            if(_configSilentAll.Checked)
+            {
+                configSilentGroupMessages.Checked = true;
+                configSilentPrivateMessages.Checked = true;
+                configSilentNotifications.Checked = true;
+                configSilentGroupMessages.Enabled = false;
+                configSilentPrivateMessages.Enabled = false;
+                configSilentNotifications.Enabled = false;
+            }
+            else
+            {
+                configSilentGroupMessages.Checked = false;
+                configSilentPrivateMessages.Checked = false;
+                configSilentNotifications.Checked = false;
+                configSilentGroupMessages.Enabled = true;
+                configSilentPrivateMessages.Enabled = true;
+                configSilentNotifications.Enabled = true;
+            }
+        }
+
+        private void configSilentGroupMessages_CheckedChanged(object sender, EventArgs e)
+        {
+            if(configSilentGroupMessages.Checked)
+            {
+                Global.SetApplicationSettings("silentGroupMessages", "true");
+            }
+            else
+            {
+                Global.SetApplicationSettings("silentGroupMessages", "false");
+            }
+        }
+
+        private void configSilentPrivateMessages_CheckedChanged(object sender, EventArgs e)
+        {
+            if (configSilentPrivateMessages.Checked)
+            {
+                Global.SetApplicationSettings("silentPrivateMessages", "true");
+            }
+            else
+            {
+                Global.SetApplicationSettings("silentPrivateMessages", "false");
+            }
+        }
+
+        private void configSilentNotifications_CheckedChanged(object sender, EventArgs e)
+        {
+            if (configSilentGroupMessages.Checked)
+            {
+                Global.SetApplicationSettings("silentNotifications", "true");
+            }
+            else
+            {
+                Global.SetApplicationSettings("silentNotifications", "false");
+            }
         }
 
         private void timetable_panel_Paint(object sender, PaintEventArgs e)

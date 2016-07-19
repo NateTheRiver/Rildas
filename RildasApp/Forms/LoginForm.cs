@@ -14,6 +14,7 @@ using RildasApp.Models;
 using System.Net;
 using System.Diagnostics;
 using System.IO;
+using System.Runtime.InteropServices;
 
 namespace RildasApp.Forms
 {
@@ -43,7 +44,6 @@ namespace RildasApp.Forms
             }
             timer.Start();
             
-            
         }
 
         private void Timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
@@ -70,6 +70,7 @@ namespace RildasApp.Forms
         {
             if (ConfigurationManager.AppSettings["username"] != "") cbSave.Checked = true;
             textUsername.Text = ConfigurationManager.AppSettings["username"];
+            textPassword.Text = ConfigurationManager.AppSettings["password"];
 
         }
 
@@ -110,7 +111,7 @@ namespace RildasApp.Forms
             FileVersionInfo fvi = FileVersionInfo.GetVersionInfo(assembly.Location);
             if (fvi.FileVersion != version.version)
             {
-                DialogResult result = MetroFramework.MetroMessageBox.Show(new Form { TopMost = true, StartPosition = FormStartPosition.CenterParent }, String.Format("New version found. Your version: {0}. Current version: {1}. You can continue with old version, but there is no guarantee that it will work properly.", fvi.FileVersion, version.version),  "New version", MessageBoxButtons.YesNo);
+                DialogResult result = MetroFramework.MetroMessageBox.Show(new Form { Width = 600, Height = 600, TopMost = true, StartPosition = FormStartPosition.CenterParent }, String.Format("New version found. Your version: {0}. Current version: {1}. You can continue with old version, but there is no guarantee that it will work properly.", fvi.FileVersion, version.version),  "New version", MessageBoxButtons.YesNo);
                 if(result == DialogResult.Yes)
                 {
                     this.Invoke(new MethodInvoker(delegate
@@ -153,6 +154,15 @@ namespace RildasApp.Forms
             {
                 metroButton1.Invoke(new MethodInvoker(delegate { metroButton1.Enabled = true; }));
             }
+            this.Invoke(new MethodInvoker(delegate {
+                if (textPassword.Text != "")
+                {
+                    label_fail.Visible = false;
+                    metroButton1.Visible = false;
+                    loginSpinner.Visible = true;
+                    Auth();
+                }
+            }));
         }
 
         public void LoginSuccess(string userdata)
@@ -168,8 +178,12 @@ namespace RildasApp.Forms
             {
 
                 Global.loggedUser = user;
-                if (cbSave.Checked) setSetting("username", textUsername.Text);
-                else setSetting("username", "");
+                if (cbSave.Checked) Global.SetApplicationSettings("username", textUsername.Text);
+                else
+                {
+                    Global.SetApplicationSettings("username", "");
+                    Global.SetApplicationSettings("password", "");
+                }
                 // todo: loading
                 Thread thrd = new Thread(LoadAllComponents);
                 thrd.Start();
@@ -186,6 +200,8 @@ namespace RildasApp.Forms
             nextValue = 15;
             RildasServerAPI.GetAllAnimes();
             nextValue = 35;
+            RildasServerAPI.GetNotifications();
+            nextValue = 45;
             RildasServerAPI.GetAllEpisodes();
             nextValue = 55;
             RildasServerAPI.GetAllEpisodeVersions();
@@ -241,32 +257,11 @@ namespace RildasApp.Forms
             metroButton1.Invoke(new MethodInvoker(delegate { metroButton1.Visible = true; }));
             loginSpinner.Invoke(new MethodInvoker(delegate { loginSpinner.Visible = false; }));
         }
-        public bool setSetting(string pstrKey, string pstrValue)
-        {
-            Configuration objConfigFile =
-                ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-            bool blnKeyExists = false;
 
-            foreach (string strKey in objConfigFile.AppSettings.Settings.AllKeys)
-            {
-                if (strKey == pstrKey)
-                {
-                    blnKeyExists = true;
-                    objConfigFile.AppSettings.Settings[pstrKey].Value = pstrValue;
-                    break;
-                }
-            }
-            if (!blnKeyExists)
-            {
-                objConfigFile.AppSettings.Settings.Add(pstrKey, pstrValue);
-            }
-            objConfigFile.Save(ConfigurationSaveMode.Modified);
-            ConfigurationManager.RefreshSection("appSettings");
-            return true;
-        }
         private void metroButton1_Click(object sender, EventArgs e)
         {
             
+
             label_fail.Visible = false;
             metroButton1.Visible = false;
             loginSpinner.Visible = true;

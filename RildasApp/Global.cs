@@ -7,6 +7,10 @@ using RildasApp.Models;
 using System.IO;
 using System.Windows.Forms;
 using RildasApp.Forms;
+using System.Runtime.InteropServices;
+using MetroFramework.Forms;
+using System.Configuration;
+
 namespace RildasApp
 {
     public static class Global
@@ -18,6 +22,7 @@ namespace RildasApp
         private static List<Anime> animes = new List<Anime>();
         private static List<Episode> episodes = new List<Episode>();
         private static List<EpisodeVersion> episodeVersions = new List<EpisodeVersion>();
+        private static List<Notification> notifications = new List<Notification>();
         private static List<ChatGroup> chatGroups = new List<ChatGroup>();
         private static List<User> users = new List<User>();
         private static List<User> loggedUsers = new List<User>();
@@ -34,7 +39,7 @@ namespace RildasApp
         }
         private static void ConnectionManager_Disconnected()
         {
-            if (Dashboard.instance != null)  Dashboard.instance.DisableForm();
+            if (Dashboard.instance != null) Dashboard.instance.DisableForm();
             while (!ConnectionManager.Connect()) ;
             if (Dashboard.instance != null) Dashboard.instance.EnableForm();
         }
@@ -63,10 +68,13 @@ namespace RildasApp
                     case "DATA_IRCXDCCDATA_VERSIONS": { xdccPackages = Serializer.Deserialize<List<XDCCPackageDetails>>(rest); if (XDCCPackagesListUpdated != null) XDCCPackagesListUpdated(); } break;
                     case "DATA_IRCXDCCDATA_CHANNELS": { xdccChannels = Serializer.Deserialize<List<string>>(rest); if (XDCCChannelsListUpdated != null) XDCCChannelsListUpdated(); } break;
                     case "DATA_TEAMMEMBER_FULL": AddMembers(Serializer.Deserialize<User[]>(rest)); break;
-                        // CHANGEDATA
+                    case "DATA_NOTIFICATION_FULL": { notifications = new List<Notification>(Serializer.Deserialize<Notification[]>(rest)); if (NotificationListUpdated != null) NotificationListUpdated(); } break;
+
+                    // CHANGEDATA
                     case "CHANGEDATA_UPDATE_EPISODEVERSION": UpdateEpisodeVersion(Serializer.Deserialize<EpisodeVersion>(rest)); break;
                     case "CHANGEDATA_ADD_EPISODEVERSION": AddEpisodeVersion(Serializer.Deserialize<EpisodeVersion>(rest)); break;
                     case "CHANGEDATA_ADD_IRCXDCCPACKAGE": AddXDCCPackage(Serializer.Deserialize<XDCCPackageDetails>(rest)); break;
+                    case "CHANGEDATA_ADD_NOTIFICATION": AddNotification(Serializer.Deserialize<Notification>(rest)); break;
                     //FILE
                     case "FILE_DOWNLOAD_FILEVERSION": DownloadVersion(rest); break;
                     // CHAT
@@ -79,16 +87,91 @@ namespace RildasApp
                     case "CHAT_USER_ONLINELIST": { loggedUsers = new List<User>(Serializer.Deserialize<User[]>(rest)); if (OnlineUsersListUpdated != null) OnlineUsersListUpdated(); }; break;
                 }
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 ;
             }
 
         }
+        public static bool SetApplicationSettings(string pstrKey, string pstrValue)
+        {
+            Configuration objConfigFile =
+                ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+            bool blnKeyExists = false;
 
+            foreach (string strKey in objConfigFile.AppSettings.Settings.AllKeys)
+            {
+                if (strKey == pstrKey)
+                {
+                    blnKeyExists = true;
+                    objConfigFile.AppSettings.Settings[pstrKey].Value = pstrValue;
+                    break;
+                }
+            }
+            if (!blnKeyExists)
+            {
+                objConfigFile.AppSettings.Settings.Add(pstrKey, pstrValue);
+            }
+            objConfigFile.Save(ConfigurationSaveMode.Modified);
+            ConfigurationManager.RefreshSection("appSettings");
+            return true;
+        }
+        public static string GetApplicationSettings(string pstrKey)
+        {
+            return ConfigurationManager.AppSettings[pstrKey];
+        }
+        private static void AddNotification(Notification notification)
+        {
+            notifications.Add(notification);
+            if (NotificationListUpdated != null) NotificationListUpdated();
+            if (!ConfigApp.silentNotifications)
+            {
+                Dashboard.instance.StyleManager = new MetroFramework.Components.MetroStyleManager();
+                Dashboard.instance.StyleManager.Theme = MetroFramework.MetroThemeStyle.Dark;
+                Dashboard.instance.StyleManager.Style = MetroFramework.MetroColorStyle.Green;
+                MetroTaskWindow.ShowTaskWindow(Dashboard.instance, "Upozornění", new NewNotification(notification.header, notification.text), 10);
+            }
+        }
+
+
+        internal static void SetProgramAsStartUp()
+        {
+            Type t = Type.GetTypeFromCLSID(new Guid("72C24DD5-D70A-438B-8A42-98424B88AFB8")); //Windows Script Host Shell Object
+            dynamic shell = Activator.CreateInstance(t);
+            try
+            {
+                var lnk = shell.CreateShortcut(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Startup), "RildasApp.lnk"));
+                try
+                {
+                    lnk.TargetPath = Application.ExecutablePath;
+                    lnk.IconLocation = "shell32.dll, 1";
+                    lnk.Save();
+                }
+                finally
+                {
+                    Marshal.FinalReleaseComObject(lnk);
+                }
+            }
+            finally
+            {
+                Marshal.FinalReleaseComObject(shell);
+            }
+        }
+        internal static bool IsProgramSetAsStartup()
+        {
+            return File.Exists(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Startup), "RildasApp.lnk"));
+        }
+        internal static void DeleteProgramFromStartUp()
+        {
+            File.Delete(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Startup), "RildasApp.lnk"));
+        }
+        internal static List<Notification> GetNotifications()
+        {
+            return notifications;
+        }
         private static void AddMembers(User[] newUsers)
         {
-            foreach(User user in newUsers)
+            foreach (User user in newUsers)
             {
                 if (!users.Exists(x => x.id == user.id)) users.Add(user);
             }
@@ -96,6 +179,7 @@ namespace RildasApp
 
         private static void ChatUserConnected(int id)
         {
+            if (Dashboard.instance == null) return;
             User user = Global.GetUser(id);
             if (UserConnected != null) UserConnected(user);
             loggedUsers.Add(user);
@@ -103,6 +187,7 @@ namespace RildasApp
 
         private static void ChatUserDisconnected(int id)
         {
+            if (Dashboard.instance == null) return;
             User user = Global.GetUser(id);
             if (UserDisconnected != null) UserDisconnected(user);
             loggedUsers.Remove(user);
@@ -115,7 +200,7 @@ namespace RildasApp
 
         internal static List<User> GetLoggedUsers()
         {
-            return loggedUsers; 
+            return loggedUsers;
         }
 
         private static void AddXDCCPackage(XDCCPackageDetails xDCCPackageDetails)
@@ -141,13 +226,13 @@ namespace RildasApp
             string[] split = rest.Split('_');
             int sender = int.Parse(split[0]);
             DateTime sendTime = Global.UnixTimeStampToDateTime(double.Parse(split[1]));
-            
+
             string text = String.Join("_", split.Skip(2).ToArray());
             GetMessage(sender, text, sendTime);
-            
+
         }
 
-   
+
         public static DateTime UnixTimeStampToDateTime(double unixTimeStamp)
         {
             // Unix timestamp is seconds past epoch
@@ -156,7 +241,7 @@ namespace RildasApp
             return dtDateTime;
         }
 
-     
+
 
         public static double DateTimeToUnixTimestamp(DateTime dateTime)
         {
@@ -169,7 +254,7 @@ namespace RildasApp
             int id = int.Parse(split[0]);
             int numberOfUnderscoresInPath = int.Parse(split[1]);
             string filepath = split[2];
-            for(int i = 0; i < numberOfUnderscoresInPath; i++)
+            for (int i = 0; i < numberOfUnderscoresInPath; i++)
             {
                 filepath += "_" + split[3 + i];
             }
@@ -181,9 +266,9 @@ namespace RildasApp
             w.Write(Encoding.UTF8.GetBytes(fileData));
             w.Close();
             fs.Close();
-            
+
             EpisodeVersion version = GetEpisodeVersion(id);
-            MessageBox.Show(String.Format("File {0} - {1} was successfully downloaded.", GetAnime(version.animeId).name, version.episode)); 
+            MessageBox.Show(String.Format("File {0} - {1} was successfully downloaded.", GetAnime(version.animeId).name, version.episode));
         }
 
         private static void AddEpisodeVersion(EpisodeVersion epVer)
@@ -193,9 +278,9 @@ namespace RildasApp
         }
         private static void UpdateEpisodeVersion(EpisodeVersion epVer)
         {
-            for(int i = 0; i < episodeVersions.Count(); i++)
+            for (int i = 0; i < episodeVersions.Count(); i++)
             {
-                if(episodeVersions[i].id == epVer.id)
+                if (episodeVersions[i].id == epVer.id)
                 {
                     episodeVersions[i] = epVer;
                     if (EpisodeVersionListUpdated != null) EpisodeVersionListUpdated();
@@ -266,7 +351,7 @@ namespace RildasApp
         internal static Episode[] GetEpisodes(int animeId)
         {
             List<Episode> eps = new List<Episode>();
-            foreach(Episode ep in episodes)
+            foreach (Episode ep in episodes)
             {
                 if (ep.animeid == animeId) eps.Add(ep);
             }
@@ -283,7 +368,7 @@ namespace RildasApp
         }
         internal static User GetUser(int id)
         {
-            foreach(User user in users)
+            foreach (User user in users)
             {
                 if (user.id == id) return user;
             }
@@ -299,36 +384,45 @@ namespace RildasApp
             if (reverse) epVers.Reverse();
             return epVers.ToArray();
         }
-        public static ChatWindowPrivate OpenIfNeeded(User user)
+        public static ChatWindowPrivate OpenIfNeeded(User user, bool userTriggeredAction = false)
         {
 
             foreach (ChatWindowPrivate chat in chatWindows)
             {
                 if ((chat.Tag as User).id == user.id)
                 {
+                    chat.Activate();
                     return chat;
                 }
 
             }
             ChatWindowPrivate window = null;
-            Dashboard.instance.Invoke(new MethodInvoker(delegate {
-            window = new ChatWindowPrivate();
-            window.Tag = user;
-            window.Text = "Private Chat - " + user.username;
-            window.FormClosed += Window_FormClosed;
-            window.Show();
-            window.Activate();
-            chatWindows.Add(window);
-           
+            Dashboard.instance.Invoke(new MethodInvoker(delegate
+            {
+                window = new ChatWindowPrivate();
+                window.Tag = user;
+                window.Text = "Private Chat - " + user.username;
+                window.FormClosed += Window_FormClosed;
+                window.ShowInTaskbar = true;
+                if (ConfigApp.silentPrivateMessages && !userTriggeredAction)
+                {
+                    window.WindowState = FormWindowState.Minimized;
+                }
+                window.Show();
+                window.Activate();
+                window.FlashWindowEx();
+                chatWindows.Add(window);
+
             }));
-             return window;
+            return window;
         }
-        public static ChatWindowGroup OpenIfNeeded(ChatGroup chatGroup)
+        public static ChatWindowGroup OpenIfNeeded(ChatGroup chatGroup, bool userTriggeredAction = false)
         {
             foreach (ChatWindowGroup chat in groupChatWindows)
             {
                 if ((chat.Tag as ChatGroup).id == chatGroup.id)
                 {
+                    chat.Activate();
                     return chat;
                 }
             }
@@ -340,6 +434,11 @@ namespace RildasApp
                 window.Tag = chatGroup;
                 window.Text = "Group Chat - " + chatGroup.name;
                 window.FormClosed += GroupWindow_FormClosed;
+                window.ShowInTaskbar = true;
+                if (ConfigApp.silentGroupMessages && !userTriggeredAction)
+                {
+                    window.WindowState = FormWindowState.Minimized;
+                }
                 window.Show();
                 window.Activate();
                 groupChatWindows.Add(window);
@@ -396,6 +495,10 @@ namespace RildasApp
         public delegate void UserDisconnectedHandler(User user);
         public static event UserDisconnectedHandler UserDisconnected;
 
+
+        
+        public delegate void NotificationListUpdatedHandler();
+        public static event NotificationListUpdatedHandler NotificationListUpdated;
         public delegate void ChatGroupListUpdatedHandler();
         public static event ChatGroupListUpdatedHandler ChatGroupListUpdated;
         public delegate void AnimeListUpdatedHandler();
@@ -410,5 +513,7 @@ namespace RildasApp
         public static event XDCCChannelsUpdatedHandler XDCCChannelsListUpdated;
         public delegate void XDCCPackagessUpdatedHandler();
         public static event XDCCPackagessUpdatedHandler XDCCPackagesListUpdated;
+
+
     }
 }

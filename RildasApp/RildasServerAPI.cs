@@ -118,6 +118,10 @@ namespace RildasApp
         internal static void GetLoggedUsers()
         {
             ConnectionManager.Send("GETDATA_LOGGEDUSERS");
+            while (Global.GetLoggedUsers().Count == 0)
+            {
+                System.Threading.Thread.Sleep(50);
+            }
         }
 
         internal static void GetTeamMembers()
@@ -127,6 +131,16 @@ namespace RildasApp
             {
                 System.Threading.Thread.Sleep(50);
             }
+        }
+
+        internal static void GetNotifications()
+        {
+            ConnectionManager.Send("GETDATA_NOTIFICATIONS_ALL");
+        }
+
+        internal static void PublishEpisodeVersion(EpisodeVersion selectedVersion)
+        {
+            ConnectionManager.Send("CHANGEDATA_VERSION_PUBLISH_" + selectedVersion.id);
         }
     }
 }
