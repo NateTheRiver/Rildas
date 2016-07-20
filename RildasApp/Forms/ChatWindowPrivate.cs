@@ -27,7 +27,9 @@ namespace RildasApp.Forms
         public const UInt32 FLASHW_ALL = 3;
         // Flash continuously until the window comes to the foreground. 
         public const UInt32 FLASHW_TIMERNOFG = 12;
+
         bool focus = false;
+        List<Keys> pressed;
         protected override bool ShowWithoutActivation
         {
             get { return true; }
@@ -35,6 +37,7 @@ namespace RildasApp.Forms
         public ChatWindowPrivate()
         {
             InitializeComponent();
+            pressed = new List<Keys>();
             Global.UserDisconnected += UserLeave;
             Global.UserConnected += UserEnter;
             richTextBox1.Location = new Point(1, 1);
@@ -177,6 +180,12 @@ namespace RildasApp.Forms
 
         private void tbMessage_KeyDown(object sender, KeyEventArgs e)
         {
+            if (pressed.Exists(x => x == Keys.ControlKey) && e.KeyCode == Keys.A)
+            {
+                tbMessage.SelectAll();
+                e.Handled = e.SuppressKeyPress = true;
+                return;
+            }
             if (e.KeyCode == Keys.Enter)
             {
                 if (tbMessage.Text == "") return;
@@ -188,6 +197,10 @@ namespace RildasApp.Forms
                 RildasServerAPI.SendMessage((this.Tag as User).id, tbMessage.Text);
                 tbMessage.Text = "";
                 e.Handled = e.SuppressKeyPress = true;
+            }
+            if (!pressed.Exists(x => x == e.KeyCode))
+            {
+                pressed.Add(e.KeyCode);
             }
         }
 
@@ -222,6 +235,11 @@ namespace RildasApp.Forms
         private void ChatWindowPrivate_Paint(object sender, PaintEventArgs e)
         {
             
+        }
+
+        private void tbMessage_KeyUp(object sender, KeyEventArgs e)
+        {
+            pressed.Remove(e.KeyCode);
         }
     }
 }

@@ -180,7 +180,7 @@ namespace RildasApp.Forms
             this.metroTabControl1.Controls.Add(this._settings);
             this.metroTabControl1.Location = new System.Drawing.Point(23, 63);
             this.metroTabControl1.Name = "metroTabControl1";
-            this.metroTabControl1.SelectedIndex = 1;
+            this.metroTabControl1.SelectedIndex = 9;
             this.metroTabControl1.Size = new System.Drawing.Size(1455, 649);
             this.metroTabControl1.TabIndex = 0;
             this.metroTabControl1.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -1550,7 +1550,6 @@ namespace RildasApp.Forms
             this.metroLabel14.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.metroLabel14.UseStyleColors = true;
             this.metroLabel14.UseWaitCursor = true;
-            this.metroLabel14.Visible = false;
             // 
             // _settingsAutoLogin
             // 
@@ -1580,7 +1579,6 @@ namespace RildasApp.Forms
             this.metroLabel13.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.metroLabel13.UseStyleColors = true;
             this.metroLabel13.UseWaitCursor = true;
-            this.metroLabel13.Visible = false;
             // 
             // _settingsOnStartUp
             // 
@@ -1721,7 +1719,7 @@ namespace RildasApp.Forms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1685, 746);
+            this.ClientSize = new System.Drawing.Size(1378, 746);
             this.Controls.Add(this.metroScrollBar2);
             this.Controls.Add(this.chatGroupAdd);
             this.Controls.Add(this.chatPanelPrivate);

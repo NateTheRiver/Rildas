@@ -81,6 +81,7 @@ namespace RildasApp.Forms
             this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.richTextBox1.Location = new System.Drawing.Point(1, 1);
             this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.ReadOnly = true;
             this.richTextBox1.Size = new System.Drawing.Size(572, 230);
             this.richTextBox1.TabIndex = 5;
             this.richTextBox1.Text = "";
@@ -107,6 +108,7 @@ namespace RildasApp.Forms
             this.tbMessage.TabIndex = 7;
             this.tbMessage.Enter += new System.EventHandler(this.tbMessage_Enter);
             this.tbMessage.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbMessage_KeyDown);
+            this.tbMessage.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tbMessage_KeyUp);
             this.tbMessage.Leave += new System.EventHandler(this.tbMessage_Leave);
             // 
             // ChatWindowPrivate
@@ -123,7 +125,6 @@ namespace RildasApp.Forms
             this.Style = MetroFramework.MetroColorStyle.Lime;
             this.Text = "Private chat - NateTheRiver";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.TopMost = true;
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.ChatWindowPrivate_Paint);
             this.Resize += new System.EventHandler(this.ChatWindow_Resize);
             this.panel1.ResumeLayout(false);
