@@ -37,8 +37,6 @@ namespace RildasApp.Forms
         Timetable.Event moveEvent;
         string[,] animes; 
         string[] selectedAnime;
-        int month = 0;
-        int year;
 
         public Dashboard()
         {            
@@ -46,8 +44,6 @@ namespace RildasApp.Forms
             mouseX = 0;
             mouseY = 0;
             selectedPublish = -1;
-            year = DateTime.Today.Year;
-            month = DateTime.Today.Month;
             /*Testovaci část*/
             myPanel = new MyPanel();
             myPanel.Location = new Point(5, 5);
@@ -89,24 +85,26 @@ namespace RildasApp.Forms
             this.chatPanelPrivate.MouseWheel += ChatPanelPrivate_MouseWheel;
             metroScrollBar1.Scroll += MetroScrollBar1_Scroll;
             instance = this;
-            for(int i = 0; i < 23; i++)
+            for(int i = 0; i <= 23; i++)
             {
                 publish_cbHours.Items.Add(i);
             }
-            for(int i = 0; i < 59; i++)
+            for(int i = 0; i <= 59; i++)
             {
                 publish_cbMinutes.Items.Add(i);
             }
-            DataGridViewLinkColumn link = new DataGridViewLinkColumn();
-            link.Text = "Download";
-            link.Name = "Download";
-            link.VisitedLinkColor = Color.DarkGreen;
-            link.LinkColor = Color.DarkGreen;
-            link.ActiveLinkColor = Color.DarkGreen;
-            link.LinkBehavior = LinkBehavior.HoverUnderline;
+            DataGridViewLinkColumn link = new DataGridViewLinkColumn
+            {
+                Text = "Download",
+                Name = "Download",
+                VisitedLinkColor = Color.DarkGreen,
+                LinkColor = Color.DarkGreen,
+                ActiveLinkColor = Color.DarkGreen,
+                LinkBehavior = LinkBehavior.HoverUnderline,
+                AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells,
+                UseColumnTextForLinkValue = true
+            };
             
-            link.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            link.UseColumnTextForLinkValue = true;
             xdccGridView.Columns.Add(link);
             xdccGridView.CellContentClick += XdccGridView_CellContentClick;
             if (!String.IsNullOrEmpty(ConfigurationManager.AppSettings["xdccSaveDir"])) _xdccSaveDir.Text = ConfigurationManager.AppSettings["xdccSaveDir"];
@@ -148,9 +146,9 @@ namespace RildasApp.Forms
 
         private void Button_ChatShow_Click(object sender, EventArgs e)
         {
-            if ((sender as MetroButton).Text == "<")
+            if (((MetroButton)sender).Text == "<")
             {
-                (sender as MetroButton).Text = ">";
+                ((MetroButton) sender).Text = ">";
 
                 chatPanelGroups.Visible = true;
                 chatPanelPrivate.Visible = true;
@@ -298,7 +296,7 @@ namespace RildasApp.Forms
         private void ChatDelUser(User user)
         {
             string directory = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
-            (chatPanelPrivate.Controls.Find(user.username + "_state", false)[0] as PictureBox).Load(directory + "/Images/red.png");
+            ((PictureBox) chatPanelPrivate.Controls.Find(user.username + "_state", false)[0]).Load(directory + "/Images/red.png");
         }
 
         private void ChatAddUser(User user)
@@ -340,7 +338,6 @@ namespace RildasApp.Forms
 
         private void Dashboard_Resize(object sender, EventArgs e)
         {
-            
             if (this.WindowState == FormWindowState.Minimized)
             {
                 notifyIcon1.Visible = true;
@@ -478,7 +475,8 @@ namespace RildasApp.Forms
             panel3.Visible = false;
             Episode ep = (cb2Episodes.SelectedItem as ComboboxItem).Value as Episode;
             EpisodeVersion[] episodeVersions = Global.GetEpisodeVersions(ep.animeid, ep.ep_number, ep.special, true);
-
+            try
+            {
             for (int i = 0; i < episodeVersions.Length; i++)
             {
                 string currName = episodeVersions[i].type + " od " + Global.GetUser(episodeVersions[i].addedBy).username + " z " + episodeVersions[i].added;
@@ -487,6 +485,11 @@ namespace RildasApp.Forms
                 item.Text = currName;
                 item.Value = episodeVersions[i];
                 cb2Version.Items.Add(item);
+            }
+        }
+            catch(Exception)
+            {
+                MessageBox.Show("Nastal problém s přidávám verzí epizod.");
             }
         }
         public void DisableForm()
@@ -847,7 +850,14 @@ namespace RildasApp.Forms
                     label1.Theme = MetroThemeStyle.Dark;
 
                     label1.TabIndex = 4;
+                    try
+                    {
                     label1.Text = "Soubor nahrál: " + Global.GetUser(epver.addedBy).username;
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Nastal problém s zjišťováním informací o autorovi souboru.");
+                    }
                     // 
                     // metroLabel16
                     // 
@@ -885,6 +895,8 @@ namespace RildasApp.Forms
                     labelDone.Theme = MetroThemeStyle.Dark;
                     labelDone.TextAlign = ContentAlignment.BottomRight;
                     labelDone.Text = (epver.state == 1) ? "Připraveno na enkód" : "Vyžaduje korekci";
+                    try
+                    {
                     switch (epver.state)
                     {
                         case -4: labelDone.Text = "Čeká na schválení překladatelem"; break;
@@ -896,10 +908,14 @@ namespace RildasApp.Forms
                         case 2: labelDone.Text = "Připraveno ke zveřejnění"; break;
                         case 3: labelDone.Text = "Zveřejněno"; break;
                     }
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Vyskytl se problém s zjišťováním informací o zamluvené korekci.");
+                    }
                     //
                     // Button
                     //
-
                     MetroFramework.Controls.MetroButton button = new MetroFramework.Controls.MetroButton();
                     button.Location = new System.Drawing.Point(350, 35);
                     button.Name = "newsButton" + epver.id;
@@ -1075,9 +1091,17 @@ namespace RildasApp.Forms
             EpisodeVersion epver = (sender as MetroFramework.Controls.MetroLink).Tag as EpisodeVersion;
             cb2Anime.Text = Global.GetAnime(epver.animeId).name;
             cb2Episodes.Text = epver.episode.ToString();
+            try
+            {
             string epVerText = epver.type + " od " + Global.GetUser(epver.addedBy).username + " z " + epver.added;
             if (epver.timeOn != "") epVerText += " [" + epver.timeOn + "]";
             cb2Version.Text = epVerText;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Vyskytl se problém s zjišťováním informací o verzi anime.");
+            }
+
             panel3.Visible = true;
             tb3Comment.Text = epver.comment;
             tb3Download.Tag = epver;
@@ -1219,26 +1243,27 @@ namespace RildasApp.Forms
                 if ((anime.translatorid == Global.loggedUser.id && epver.state == -4) ||
                     (Global.loggedUser.access > 5 && epver.state == -3) ||
                     (epver.reservedBy == Global.loggedUser.id && epver.state == -1) ||
-                    (anime.correctorid == Global.loggedUser.id && epver.state == 0) ||
+                    (epver.state == 0) ||
                     (Global.loggedUser.id == 4 && epver.state == 1) || // Sorry Dane. :D
                     (anime.translatorid == Global.loggedUser.id && epver.state == 2))
                     filteredVersions.Add(epver);
 
             }
-
             List<Anime> animes = Global.GetAnimes();
             MetroLink metroLink = null;
             importantFiles.Invoke(new MethodInvoker(delegate
             {
-                metroLink = new MetroLink();
-                metroLink.Location = new System.Drawing.Point(179, 188);
-                metroLink.Name = "metroProgressr1";
-                metroLink.AutoSize = true;
-                metroLink.Text = "Načítání";
-                metroLink.Style = MetroFramework.MetroColorStyle.Blue;
-                metroLink.TabIndex = 2;
-                metroLink.Theme = MetroFramework.MetroThemeStyle.Dark;
-                metroLink.UseSelectable = true;
+                metroLink = new MetroLink
+                {
+                    Location = new System.Drawing.Point(179, 188),
+                    Name = "metroProgressr1",
+                    AutoSize = true,
+                    Text = "Načítání",
+                    Style = MetroFramework.MetroColorStyle.Blue,
+                    TabIndex = 2,
+                    Theme = MetroFramework.MetroThemeStyle.Dark,
+                    UseSelectable = true
+                };
                 importantFiles.Controls.Clear();
                 importantFiles.Refresh();
 
@@ -1290,8 +1315,8 @@ namespace RildasApp.Forms
                     name.Size = new System.Drawing.Size(350, 23);
                     name.TabIndex = 3;
                     name.Text = (epver.type == EpisodeVersion.Type.KOREKCE ? "Korekce" : "Překlad") + " " + anime.name + " " + epver.episode;
-                    System.Windows.Forms.ToolTip ToolTip1 = new System.Windows.Forms.ToolTip();
-                    ToolTip1.SetToolTip(name, (epver.type == EpisodeVersion.Type.KOREKCE ? "Korekce" : "Překlad") + " " + anime.name + " " + epver.episode);
+                    ToolTip toolTip = new ToolTip();
+                    toolTip.SetToolTip(name, (epver.type == EpisodeVersion.Type.KOREKCE ? "Korekce" : "Překlad") + " " + anime.name + " " + epver.episode);
                     name.Theme = MetroFramework.MetroThemeStyle.Dark;
                     name.UseSelectable = true;
                     name.Tag = epver;
@@ -1307,7 +1332,16 @@ namespace RildasApp.Forms
                     label1.Theme = MetroThemeStyle.Dark;
 
                     label1.TabIndex = 4;
+                    try
+                    {
                     label1.Text = "Soubor nahrál: " + Global.GetUser(epver.addedBy).username;
+                    }
+
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Vyskytl se problém s zjišťováním informací o autorovi souboru.");
+                    }
+
                     // 
                     // metroLabel16
                     // 
@@ -1345,6 +1379,8 @@ namespace RildasApp.Forms
                     labelDone.Theme = MetroThemeStyle.Dark;
                     labelDone.TextAlign = ContentAlignment.BottomRight;
                     labelDone.Text = (epver.state == 1) ? "Připraveno na enkód" : "Vyžaduje korekci";
+                    try
+                    {
                     switch (epver.state)
                     {
                         case -4: labelDone.Text = "Čeká na schválení překladatelem"; break;
@@ -1356,6 +1392,12 @@ namespace RildasApp.Forms
                         case 2: labelDone.Text = "Připraveno ke zveřejnění"; break;
                         case 3: labelDone.Text = "Zveřejněno"; break;
                     }
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Vyskytl se problém s zjišťováním informací o zamluvené korekci.");
+                    }
+                    
                     //
                     // Button
                     //
@@ -1529,6 +1571,7 @@ namespace RildasApp.Forms
 
         private void publish_publishPlan_Click(object sender, EventArgs e)
         {
+            RildasServerAPI.PublishEpisodeVersion(selectedVersion, publish_date.Value, (int)publish_cbHours.SelectedValue, (int)publish_cbMinutes.SelectedValue);
 
         }
 
@@ -1544,10 +1587,10 @@ namespace RildasApp.Forms
             if (!string.IsNullOrWhiteSpace(fbd.SelectedPath))
             {
                 _xdccSaveDir.Text = fbd.SelectedPath;
-                setSetting("xdccSaveDir", fbd.SelectedPath);
+                SetSetting("xdccSaveDir", fbd.SelectedPath);
             }
         }
-        public bool setSetting(string pstrKey, string pstrValue)
+        public bool SetSetting(string pstrKey, string pstrValue)
         {
             Configuration objConfigFile =
                 ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);

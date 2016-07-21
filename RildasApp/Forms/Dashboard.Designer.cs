@@ -31,9 +31,9 @@ namespace RildasApp.Forms
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
             this.metroStyleManager1 = new MetroFramework.Components.MetroStyleManager(this.components);
             this.metroTabControl1 = new MetroFramework.Controls.MetroTabControl();
@@ -111,7 +111,7 @@ namespace RildasApp.Forms
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
             this.publish_cbMinutes = new MetroFramework.Controls.MetroComboBox();
             this.publish_cbHours = new MetroFramework.Controls.MetroComboBox();
-            this.metroDateTime1 = new MetroFramework.Controls.MetroDateTime();
+            this.publish_date = new MetroFramework.Controls.MetroDateTime();
             this.publish_publishPlan = new MetroFramework.Controls.MetroButton();
             this.btn_publishNow = new MetroFramework.Controls.MetroButton();
             this.publish_confirmerlabel = new MetroFramework.Controls.MetroLabel();
@@ -122,8 +122,8 @@ namespace RildasApp.Forms
             this.publish_animePicturebox = new System.Windows.Forms.PictureBox();
             this.metroLabel16 = new MetroFramework.Controls.MetroLabel();
             this.publish_AnimeComboBox = new MetroFramework.Controls.MetroComboBox();
-            this._states = new MetroFramework.Controls.MetroTabPage();
             this._stats = new MetroFramework.Controls.MetroTabPage();
+            this._states = new MetroFramework.Controls.MetroTabPage();
             this._settings = new MetroFramework.Controls.MetroTabPage();
             this.configSilentNotifications = new MetroFramework.Controls.MetroCheckBox();
             this.configSilentPrivateMessages = new MetroFramework.Controls.MetroCheckBox();
@@ -175,12 +175,12 @@ namespace RildasApp.Forms
             this.metroTabControl1.Controls.Add(this.tabPage2);
             this.metroTabControl1.Controls.Add(this._xdccCenter);
             this.metroTabControl1.Controls.Add(this._publish);
-            this.metroTabControl1.Controls.Add(this._states);
             this.metroTabControl1.Controls.Add(this._stats);
+            this.metroTabControl1.Controls.Add(this._states);
             this.metroTabControl1.Controls.Add(this._settings);
             this.metroTabControl1.Location = new System.Drawing.Point(23, 63);
             this.metroTabControl1.Name = "metroTabControl1";
-            this.metroTabControl1.SelectedIndex = 7;
+            this.metroTabControl1.SelectedIndex = 6;
             this.metroTabControl1.Size = new System.Drawing.Size(1455, 649);
             this.metroTabControl1.TabIndex = 0;
             this.metroTabControl1.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -1127,14 +1127,14 @@ namespace RildasApp.Forms
             this.xdccGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.xdccGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.xdccGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.xdccGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.xdccGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.xdccGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.xdccGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.BotName,
@@ -1143,14 +1143,14 @@ namespace RildasApp.Forms
             this.FileName,
             this.Qualitty,
             this.FileSize});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.xdccGridView.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.xdccGridView.DefaultCellStyle = dataGridViewCellStyle5;
             this.xdccGridView.EnableHeadersVisualStyles = false;
             this.xdccGridView.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.xdccGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
@@ -1159,14 +1159,14 @@ namespace RildasApp.Forms
             this.xdccGridView.Name = "xdccGridView";
             this.xdccGridView.ReadOnly = true;
             this.xdccGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.xdccGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.xdccGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.xdccGridView.RowHeadersWidth = 25;
             this.xdccGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.xdccGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -1242,7 +1242,7 @@ namespace RildasApp.Forms
             // 
             this.metroPanel1.Controls.Add(this.publish_cbMinutes);
             this.metroPanel1.Controls.Add(this.publish_cbHours);
-            this.metroPanel1.Controls.Add(this.metroDateTime1);
+            this.metroPanel1.Controls.Add(this.publish_date);
             this.metroPanel1.Controls.Add(this.publish_publishPlan);
             this.metroPanel1.Controls.Add(this.btn_publishNow);
             this.metroPanel1.Controls.Add(this.publish_confirmerlabel);
@@ -1285,16 +1285,16 @@ namespace RildasApp.Forms
             this.publish_cbHours.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.publish_cbHours.UseSelectable = true;
             // 
-            // metroDateTime1
+            // publish_date
             // 
-            this.metroDateTime1.CalendarMonthBackground = System.Drawing.SystemColors.WindowText;
-            this.metroDateTime1.Location = new System.Drawing.Point(315, 331);
-            this.metroDateTime1.MinimumSize = new System.Drawing.Size(0, 29);
-            this.metroDateTime1.Name = "metroDateTime1";
-            this.metroDateTime1.Size = new System.Drawing.Size(200, 29);
-            this.metroDateTime1.Style = MetroFramework.MetroColorStyle.Blue;
-            this.metroDateTime1.TabIndex = 20;
-            this.metroDateTime1.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.publish_date.CalendarMonthBackground = System.Drawing.SystemColors.WindowText;
+            this.publish_date.Location = new System.Drawing.Point(315, 331);
+            this.publish_date.MinimumSize = new System.Drawing.Size(0, 29);
+            this.publish_date.Name = "publish_date";
+            this.publish_date.Size = new System.Drawing.Size(200, 29);
+            this.publish_date.Style = MetroFramework.MetroColorStyle.Blue;
+            this.publish_date.TabIndex = 20;
+            this.publish_date.Theme = MetroFramework.MetroThemeStyle.Dark;
             // 
             // publish_publishPlan
             // 
@@ -1430,6 +1430,21 @@ namespace RildasApp.Forms
             this.publish_AnimeComboBox.UseSelectable = true;
             this.publish_AnimeComboBox.SelectedIndexChanged += new System.EventHandler(this.publish_AnimeComboBox_SelectedIndexChanged);
             // 
+            // _stats
+            // 
+            this._stats.HorizontalScrollbarBarColor = true;
+            this._stats.HorizontalScrollbarHighlightOnWheel = false;
+            this._stats.HorizontalScrollbarSize = 10;
+            this._stats.Location = new System.Drawing.Point(4, 38);
+            this._stats.Name = "_stats";
+            this._stats.Size = new System.Drawing.Size(1447, 607);
+            this._stats.TabIndex = 6;
+            this._stats.Text = "Statistiky    ";
+            this._stats.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._stats.VerticalScrollbarBarColor = true;
+            this._stats.VerticalScrollbarHighlightOnWheel = false;
+            this._stats.VerticalScrollbarSize = 10;
+            // 
             // _states
             // 
             this._states.AutoScroll = true;
@@ -1448,21 +1463,6 @@ namespace RildasApp.Forms
             this._states.VerticalScrollbarBarColor = false;
             this._states.VerticalScrollbarHighlightOnWheel = false;
             this._states.VerticalScrollbarSize = 10;
-            // 
-            // _stats
-            // 
-            this._stats.HorizontalScrollbarBarColor = true;
-            this._stats.HorizontalScrollbarHighlightOnWheel = false;
-            this._stats.HorizontalScrollbarSize = 10;
-            this._stats.Location = new System.Drawing.Point(4, 38);
-            this._stats.Name = "_stats";
-            this._stats.Size = new System.Drawing.Size(1447, 607);
-            this._stats.TabIndex = 6;
-            this._stats.Text = "Statistiky    ";
-            this._stats.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this._stats.VerticalScrollbarBarColor = true;
-            this._stats.VerticalScrollbarHighlightOnWheel = false;
-            this._stats.VerticalScrollbarSize = 10;
             // 
             // _settings
             // 
@@ -1549,7 +1549,6 @@ namespace RildasApp.Forms
             this.metroLabel14.Text = "Silent Mode";
             this.metroLabel14.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.metroLabel14.UseStyleColors = true;
-            this.metroLabel14.UseWaitCursor = true;
             // 
             // _settingsAutoLogin
             // 
@@ -1561,7 +1560,6 @@ namespace RildasApp.Forms
             this._settingsAutoLogin.Text = "Automaticky přihlásit";
             this._settingsAutoLogin.Theme = MetroFramework.MetroThemeStyle.Dark;
             this._settingsAutoLogin.UseSelectable = true;
-            this._settingsAutoLogin.UseWaitCursor = true;
             this._settingsAutoLogin.CheckedChanged += new System.EventHandler(this.metroCheckBox1_CheckedChanged);
             // 
             // metroLabel13
@@ -1578,7 +1576,6 @@ namespace RildasApp.Forms
             this.metroLabel13.Text = "Hlavní nastavení";
             this.metroLabel13.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.metroLabel13.UseStyleColors = true;
-            this.metroLabel13.UseWaitCursor = true;
             // 
             // _settingsOnStartUp
             // 
@@ -1590,7 +1587,6 @@ namespace RildasApp.Forms
             this._settingsOnStartUp.Text = "Zapnout aplikaci při startu počítače";
             this._settingsOnStartUp.Theme = MetroFramework.MetroThemeStyle.Dark;
             this._settingsOnStartUp.UseSelectable = true;
-            this._settingsOnStartUp.UseWaitCursor = true;
             this._settingsOnStartUp.CheckedChanged += new System.EventHandler(this._settingsOnStartUp_CheckedChanged);
             // 
             // metroStyleExtender1
@@ -1718,7 +1714,7 @@ namespace RildasApp.Forms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1378, 746);
+            this.ClientSize = new System.Drawing.Size(1685, 746);
             this.Controls.Add(this.metroScrollBar2);
             this.Controls.Add(this.chatGroupAdd);
             this.Controls.Add(this.chatPanelPrivate);
@@ -1833,7 +1829,7 @@ namespace RildasApp.Forms
         private MetroFramework.Controls.MetroLabel metroLabel15;
         private MetroFramework.Controls.MetroScrollBar metroScrollBar2;
         private MetroFramework.Controls.MetroPanel metroPanel1;
-        private MetroFramework.Controls.MetroDateTime metroDateTime1;
+        private MetroFramework.Controls.MetroDateTime publish_date;
         private MetroFramework.Controls.MetroButton publish_publishPlan;
         private MetroFramework.Controls.MetroButton btn_publishNow;
         private MetroFramework.Controls.MetroLabel publish_confirmerlabel;

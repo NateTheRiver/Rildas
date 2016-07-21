@@ -21,11 +21,6 @@ namespace RildasApp
         {
             ConnectionManager.Send(String.Format("CLIENT_LOGIN_{0}_{1}_{2}", username.Count(f => f == '_'), username, password));
         }
-  
-
-      
-     
-
         internal static void AddVersion(EpisodeVersion version)
         {
             ConnectionManager.Send(String.Format("CHANGEDATA_ADD_EPISODEVERSION_{0}", Serializer.Serialize(version)));
@@ -108,13 +103,11 @@ namespace RildasApp
             {
                 System.Threading.Thread.Sleep(50);
             }
-
         }
         internal static void GetFilteredXDCCVersions(string filter, bool dirty)
         {
             ConnectionManager.Send(String.Format("GETDATA_IRCXDCCDATA_PACKAGES_{0}_{1}", dirty?"DIRTY": "NONDIRTY", filter));
         }
-
         internal static void GetLoggedUsers()
         {
             ConnectionManager.Send("GETDATA_LOGGEDUSERS");
@@ -140,7 +133,12 @@ namespace RildasApp
 
         internal static void PublishEpisodeVersion(EpisodeVersion selectedVersion)
         {
-            ConnectionManager.Send("CHANGEDATA_VERSION_PUBLISH_" + selectedVersion.id);
+            ConnectionManager.Send("CHANGEDATA_PUBLISH_EPISODEVERSION_  " + selectedVersion.id);
+        }
+
+        internal static void PublishEpisodeVersion(EpisodeVersion selectedVersion, DateTime date, int hours, int minutes)
+        {
+            ConnectionManager.Send(String.Format("CHANGEDATA_QUEUEPUBLISH_EPISODEVERSION_{0}_{1}", selectedVersion.id, String.Format("{0}.{1}.{2} {3}:{4}", date.Day, date.Month, date.Year, hours, minutes)));
         }
     }
 }
