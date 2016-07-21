@@ -53,3 +53,5 @@ obj/Debug
 *.Cache
 *.exe
 *.pbd
+*.config
+*.settings
