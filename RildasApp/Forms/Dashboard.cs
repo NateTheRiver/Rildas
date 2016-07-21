@@ -37,8 +37,6 @@ namespace RildasApp.Forms
         Timetable.Event moveEvent;
         string[,] animes; 
         string[] selectedAnime;
-        int month;
-        int year;
 
         public Dashboard()
         {            
@@ -46,8 +44,6 @@ namespace RildasApp.Forms
             mouseX = 0;
             mouseY = 0;
             selectedPublish = -1;
-            year = DateTime.Today.Year;
-            month = DateTime.Today.Month;
             /*Testovaci část*/
             myPanel = new MyPanel();
             myPanel.Location = new Point(5, 5);
@@ -89,24 +85,26 @@ namespace RildasApp.Forms
             this.chatPanelPrivate.MouseWheel += ChatPanelPrivate_MouseWheel;
             metroScrollBar1.Scroll += MetroScrollBar1_Scroll;
             instance = this;
-            for(int i = 0; i < 23; i++)
+            for(int i = 0; i <= 23; i++)
             {
                 publish_cbHours.Items.Add(i);
             }
-            for(int i = 0; i < 59; i++)
+            for(int i = 0; i <= 59; i++)
             {
                 publish_cbMinutes.Items.Add(i);
             }
-            DataGridViewLinkColumn link = new DataGridViewLinkColumn();
-            link.Text = "Download";
-            link.Name = "Download";
-            link.VisitedLinkColor = Color.DarkGreen;
-            link.LinkColor = Color.DarkGreen;
-            link.ActiveLinkColor = Color.DarkGreen;
-            link.LinkBehavior = LinkBehavior.HoverUnderline;
-            
-            link.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            link.UseColumnTextForLinkValue = true;
+            DataGridViewLinkColumn link = new DataGridViewLinkColumn
+            {
+                Text = "Download",
+                Name = "Download",
+                VisitedLinkColor = Color.DarkGreen,
+                LinkColor = Color.DarkGreen,
+                ActiveLinkColor = Color.DarkGreen,
+                LinkBehavior = LinkBehavior.HoverUnderline,
+                AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells,
+                UseColumnTextForLinkValue = true
+            };
+
             xdccGridView.Columns.Add(link);
             xdccGridView.CellContentClick += XdccGridView_CellContentClick;
             if (!String.IsNullOrEmpty(ConfigurationManager.AppSettings["xdccSaveDir"])) _xdccSaveDir.Text = ConfigurationManager.AppSettings["xdccSaveDir"];
@@ -147,9 +145,9 @@ namespace RildasApp.Forms
 
         private void Button_ChatShow_Click(object sender, EventArgs e)
         {
-            if ((sender as MetroButton).Text == "<")
+            if (((MetroButton)sender).Text == "<")
             {
-                (sender as MetroButton).Text = ">";
+                ((MetroButton) sender).Text = ">";
 
                 chatPanelGroups.Visible = true;
                 chatPanelPrivate.Visible = true;
@@ -297,7 +295,7 @@ namespace RildasApp.Forms
         private void ChatDelUser(User user)
         {
             string directory = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
-            (chatPanelPrivate.Controls.Find(user.username + "_state", false)[0] as PictureBox).Load(directory + "/Images/red.png");
+            ((PictureBox) chatPanelPrivate.Controls.Find(user.username + "_state", false)[0]).Load(directory + "/Images/red.png");
         }
 
         private void ChatAddUser(User user)
@@ -339,7 +337,6 @@ namespace RildasApp.Forms
 
         private void Dashboard_Resize(object sender, EventArgs e)
         {
-            
             if (this.WindowState == FormWindowState.Minimized)
             {
                 notifyIcon1.Visible = true;
@@ -917,7 +914,6 @@ namespace RildasApp.Forms
                     //
                     // Button
                     //
-
                     MetroFramework.Controls.MetroButton button = new MetroFramework.Controls.MetroButton();
                     button.Location = new System.Drawing.Point(350, 35);
                     button.Name = "newsButton" + epver.id;
@@ -1251,20 +1247,21 @@ namespace RildasApp.Forms
                     filteredVersions.Add(epver);
 
             }
-
             List<Anime> animes = Global.GetAnimes();
             MetroLink metroLink = null;
             importantFiles.Invoke(new MethodInvoker(delegate
             {
-                metroLink = new MetroLink();
-                metroLink.Location = new System.Drawing.Point(179, 188);
-                metroLink.Name = "metroProgressr1";
-                metroLink.AutoSize = true;
-                metroLink.Text = "Načítání";
-                metroLink.Style = MetroFramework.MetroColorStyle.Blue;
-                metroLink.TabIndex = 2;
-                metroLink.Theme = MetroFramework.MetroThemeStyle.Dark;
-                metroLink.UseSelectable = true;
+                metroLink = new MetroLink
+                {
+                    Location = new System.Drawing.Point(179, 188),
+                    Name = "metroProgressr1",
+                    AutoSize = true,
+                    Text = "Načítání",
+                    Style = MetroFramework.MetroColorStyle.Blue,
+                    TabIndex = 2,
+                    Theme = MetroFramework.MetroThemeStyle.Dark,
+                    UseSelectable = true
+                };
                 importantFiles.Controls.Clear();
                 importantFiles.Refresh();
 
@@ -1316,8 +1313,8 @@ namespace RildasApp.Forms
                     name.Size = new System.Drawing.Size(350, 23);
                     name.TabIndex = 3;
                     name.Text = (epver.type == EpisodeVersion.Type.KOREKCE ? "Korekce" : "Překlad") + " " + anime.name + " " + epver.episode;
-                    System.Windows.Forms.ToolTip ToolTip1 = new System.Windows.Forms.ToolTip();
-                    ToolTip1.SetToolTip(name, (epver.type == EpisodeVersion.Type.KOREKCE ? "Korekce" : "Překlad") + " " + anime.name + " " + epver.episode);
+                    ToolTip toolTip = new ToolTip();
+                    toolTip.SetToolTip(name, (epver.type == EpisodeVersion.Type.KOREKCE ? "Korekce" : "Překlad") + " " + anime.name + " " + epver.episode);
                     name.Theme = MetroFramework.MetroThemeStyle.Dark;
                     name.UseSelectable = true;
                     name.Tag = epver;
@@ -1577,7 +1574,8 @@ namespace RildasApp.Forms
 
         private void publish_publishPlan_Click(object sender, EventArgs e)
         {
-
+            RildasServerAPI.PublishEpisodeVersion(selectedVersion, publish_date.Value, (int)publish_cbHours.SelectedValue, (int)publish_cbMinutes.SelectedValue);
+   
         }
 
         private void metroGrid1_MouseDown(object sender, MouseEventArgs e)
@@ -1592,10 +1590,10 @@ namespace RildasApp.Forms
             if (!string.IsNullOrWhiteSpace(fbd.SelectedPath))
             {
                 _xdccSaveDir.Text = fbd.SelectedPath;
-                setSetting("xdccSaveDir", fbd.SelectedPath);
+                SetSetting("xdccSaveDir", fbd.SelectedPath);
             }
         }
-        public bool setSetting(string pstrKey, string pstrValue)
+        public bool SetSetting(string pstrKey, string pstrValue)
         {
             Configuration objConfigFile =
                 ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
