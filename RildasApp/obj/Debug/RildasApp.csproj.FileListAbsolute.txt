@@ -59,3 +59,4 @@ C:\Users\Richard\Rildas\Aplikace\RildasApp\obj\Debug\RildasApp.csproj.GenerateRe
 C:\Users\Richard\Rildas\Aplikace\RildasApp\obj\Debug\RildasApp.exe
 C:\Users\Richard\Rildas\Aplikace\RildasApp\obj\Debug\RildasApp.pdb
 C:\Users\Richard\Rildas\Aplikace\RildasApp\obj\Debug\RildasApp.Forms.NewNotification.resources
+C:\Users\Deny\Documents\Visual Studio 2015\GitHub_RildasApp\Rildas\RildasApp\obj\Debug\RildasApp.Forms.NewNotification.resources

@@ -108,6 +108,7 @@ namespace RildasApp.Forms
             this.tbMessage.TabIndex = 7;
             this.tbMessage.Enter += new System.EventHandler(this.tbMessage_Enter);
             this.tbMessage.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbMessage_KeyDown);
+            this.tbMessage.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tbMessage_KeyUp);
             this.tbMessage.Leave += new System.EventHandler(this.tbMessage_Leave);
             // 
             // ChatWindowPrivate
@@ -124,7 +125,6 @@ namespace RildasApp.Forms
             this.Style = MetroFramework.MetroColorStyle.Lime;
             this.Text = "Private chat - NateTheRiver";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.TopMost = true;
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.ChatWindowPrivate_Paint);
             this.Resize += new System.EventHandler(this.ChatWindow_Resize);
             this.panel1.ResumeLayout(false);

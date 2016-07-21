@@ -568,8 +568,10 @@ namespace RildasApp.Forms
             const int imageSize = 200;
             const int rightPadding = 15;
             const int downPadding = 70;
+            const int textpadding = -7;
             int animesInRow = (_states.Width / (imageSize + rightPadding));
             List<Anime> animeList = Global.GetAnimes();
+            animeList = animeList.OrderBy(i => i.name).ToList();
 
             Panel panel = new Panel();
             panel.BackColor = Color.FromArgb(17, 17, 17);
@@ -583,10 +585,12 @@ namespace RildasApp.Forms
             for (int i = 0; i < animeList.Count; ++i)
             {
 
-                int positionY = (((imageSize + rightPadding) * i) / panel.Width) * (imageSize + downPadding);
+                int positionY = (i/animesInRow) * (imageSize + downPadding);
                 int positionX = (i % animesInRow) * (imageSize + rightPadding);
                 PictureBox picture = new PictureBox();
                 Label label = new Label();
+                Label label2 = new Label();
+                Label label3 = new Label();
 
                 picture.Size = new Size(imageSize, imageSize);
                 picture.Location = new Point(positionX, positionY);
@@ -594,11 +598,27 @@ namespace RildasApp.Forms
                 picture.Image = (Bitmap)Resources.ResourceManager.GetObject(Path.GetFileNameWithoutExtension(animeList[i].animelist_img));
                 panel.Controls.Add(picture);
 
-                label.Text = animeList[i].name + "\r\n" + animeList[i].status + "\r\n" + "0" + "/" + animeList[i].ep_count; // TODO: Count translated episodes
+                label.Text = animeList[i].name;
                 label.Location = new Point(picture.Location.X, picture.Location.Y + picture.Height + 5);
-                label.Size = new Size(picture.Width, 60);
                 label.ForeColor = Color.White;
+                label2.Text = animeList[i].status.ToString();
+                label2.Location = new Point(label.Location.X, label.Location.Y + label.Height + textpadding);
+                label2.ForeColor = Color.White;
+                label3.Text = Global.GetEpisodes().Count(x => x.animeid == animeList[i].id && x.epState == state.Done && x.special == false) + 
+                    "/" + animeList[i].ep_count;
+                label3.Location = new Point(label2.Location.X, label2.Location.Y + label2.Height + textpadding);
+                label3.ForeColor = Color.White;
+                switch (animeList[i].status)
+                {
+                    case Anime.Status.PŘEKLÁDÁ_SE: label2.ForeColor = Color.FromArgb(0,174,219); break;
+                    case Anime.Status.PŘELOŽENO: label2.ForeColor = Color.Green; break;
+                    case Anime.Status.POZASTAVENO: label2.ForeColor = Color.Red; break;
+                }
                 panel.Controls.Add(label);
+                panel.Controls.Add(label2);
+                panel.Controls.Add(label3);
+                label2.BringToFront();
+                label3.BringToFront();
             }
         }
 
@@ -1648,7 +1668,7 @@ namespace RildasApp.Forms
         }
 
         private void _xdccFilterTb_KeyDown(object sender, KeyEventArgs e)
-        {
+        {            
             if (e.KeyCode == Keys.Enter)
             {
                 string replacedString = _xdccFilterTb.Text.Replace(' ', '_');

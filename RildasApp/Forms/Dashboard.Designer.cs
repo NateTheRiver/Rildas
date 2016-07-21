@@ -1549,6 +1549,10 @@ namespace RildasApp.Forms
             this.metroLabel14.Text = "Silent Mode";
             this.metroLabel14.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.metroLabel14.UseStyleColors = true;
+<<<<<<< HEAD
+=======
+            this.metroLabel14.UseWaitCursor = true;
+>>>>>>> origin/master
             // 
             // _settingsAutoLogin
             // 
@@ -1577,6 +1581,10 @@ namespace RildasApp.Forms
             this.metroLabel13.Text = "Hlavní nastavení";
             this.metroLabel13.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.metroLabel13.UseStyleColors = true;
+<<<<<<< HEAD
+=======
+            this.metroLabel13.UseWaitCursor = true;
+>>>>>>> origin/master
             // 
             // _settingsOnStartUp
             // 
@@ -1717,7 +1725,7 @@ namespace RildasApp.Forms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1685, 746);
+            this.ClientSize = new System.Drawing.Size(1378, 746);
             this.Controls.Add(this.metroScrollBar2);
             this.Controls.Add(this.chatGroupAdd);
             this.Controls.Add(this.chatPanelPrivate);
