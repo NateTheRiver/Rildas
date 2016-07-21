@@ -180,11 +180,61 @@ namespace RildasApp.Forms
 
         private void tbMessage_KeyDown(object sender, KeyEventArgs e)
         {
-            if (pressed.Exists(x => x == Keys.ControlKey) && e.KeyCode == Keys.A)
+            if (pressed.Exists(x => x == Keys.ControlKey))
             {
-                tbMessage.SelectAll();
-                e.Handled = e.SuppressKeyPress = true;
-                return;
+                if (e.KeyCode == Keys.A)
+                {
+                    tbMessage.SelectAll();
+                    e.Handled = e.SuppressKeyPress = true;
+                    return;
+                }
+                if (e.KeyCode == Keys.Back)
+                {
+                    if (tbMessage.SelectionStart != 0 && tbMessage.SelectionLength == 0)
+                    {
+                        int selection = tbMessage.SelectionStart;
+                        selection--;
+                        if (tbMessage.Text[selection] == ' ')
+                        {
+                            selection--;
+                        }
+                        while (selection > 0 && tbMessage.Text[selection - 1] != ' ')
+                        {
+                            selection--;
+                        }
+                        int len = tbMessage.SelectionStart - selection;
+                        tbMessage.Text = tbMessage.Text.Remove(selection, len);
+                        tbMessage.SelectionStart = tbMessage.Text.Length;
+                    }
+                }
+                if (e.KeyCode == Keys.Delete)
+                {
+                    if (tbMessage.SelectionStart != tbMessage.Text.Length && tbMessage.SelectionLength == 0)
+                    {
+                        int selection = tbMessage.SelectionStart;
+                        if (tbMessage.Text[selection] == ' ')
+                        {
+                            while (selection < (tbMessage.Text.Length - 1) && tbMessage.Text[selection + 1] == ' ')
+                            {
+                                selection++;
+                            }
+                        }
+                        else
+                        {
+                            while (selection < (tbMessage.Text.Length - 1) && tbMessage.Text[selection] != ' ')
+                            {
+                                selection++;
+                            }
+                        }
+                        int len = selection - tbMessage.SelectionStart + 1;
+                        int tmp = tbMessage.SelectionStart;
+                        tbMessage.Text = tbMessage.Text.Remove(tbMessage.SelectionStart, len);
+                        tbMessage.SelectionStart = tmp;
+                    }
+                    /*int argbColor = (int)Microsoft.Win32.Registry.GetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\DWM", "ColorizationColor", null);
+                    var color = System.Drawing.Color.FromArgb(argbColor);*/
+                    e.Handled = e.SuppressKeyPress = true;
+                }
             }
             if (e.KeyCode == Keys.Enter)
             {
@@ -202,6 +252,7 @@ namespace RildasApp.Forms
             {
                 pressed.Add(e.KeyCode);
             }
+
         }
 
         private void tbMessage_Enter(object sender, EventArgs e)
@@ -240,6 +291,11 @@ namespace RildasApp.Forms
         private void tbMessage_KeyUp(object sender, KeyEventArgs e)
         {
             pressed.Remove(e.KeyCode);
+        }
+
+        private void richTextBox1_LinkClicked(object sender, LinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start(e.LinkText);
         }
     }
 }

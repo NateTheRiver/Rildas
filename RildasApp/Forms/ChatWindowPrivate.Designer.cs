@@ -85,6 +85,7 @@ namespace RildasApp.Forms
             this.richTextBox1.Size = new System.Drawing.Size(572, 230);
             this.richTextBox1.TabIndex = 5;
             this.richTextBox1.Text = "";
+            this.richTextBox1.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.richTextBox1_LinkClicked);
             // 
             // panel1
             // 

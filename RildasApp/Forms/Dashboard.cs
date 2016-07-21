@@ -37,7 +37,7 @@ namespace RildasApp.Forms
         Timetable.Event moveEvent;
         string[,] animes; 
         string[] selectedAnime;
-        int month;
+        int month = 0;
         int year;
 
         public Dashboard()
@@ -118,6 +118,7 @@ namespace RildasApp.Forms
             if (ConfigApp.screenWidth < 1920)
             {
                 this.Size = new Size(1366, 740);
+                this.WindowState = FormWindowState.Maximized;
                 metroTabControl1.Size = new Size(1325, metroTabControl1.Height);
                 metroLabel_ConnectionLost.Location = new Point(this.Width - metroLabel_ConnectionLost.Width, metroLabel_ConnectionLost.Location.Y);
                 MetroButton button = new MetroButton();
@@ -343,6 +344,7 @@ namespace RildasApp.Forms
             if (this.WindowState == FormWindowState.Minimized)
             {
                 notifyIcon1.Visible = true;
+                notifyIcon1.BalloonTipText = "Rildas je tu stále s Vámi";
                 notifyIcon1.ShowBalloonTip(500);
                 this.ShowInTaskbar = false;
             }
@@ -1476,11 +1478,6 @@ namespace RildasApp.Forms
             chatPanelPrivate.VerticalScroll.Value = (chatPanelPrivate.PreferredSize.Height - chatPanelPrivate.Size.Height) < 0 ? 0 : ((chatPanelPrivate.PreferredSize.Height - chatPanelPrivate.Size.Height) * metroScrollBar2.Value) / 100;
         }
 
-        private void chatPanelPrivate_Scroll(object sender, ScrollEventArgs e)
-        {
-
-        }
-
         private void publish_AnimeComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             Anime an = Global.GetAnime(publish_AnimeComboBox.SelectedItem.ToString());
@@ -1490,7 +1487,7 @@ namespace RildasApp.Forms
             _publishSetLabels(ver);
             if(an != null)
             publish_animePicturebox.Image = (Bitmap)Resources.ResourceManager.GetObject(Path.GetFileNameWithoutExtension(an.post_img));
-
+            publish_animePicturebox.Visible = true;
             myPanel2.Refresh();
         }
 

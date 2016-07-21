@@ -180,7 +180,7 @@ namespace RildasApp.Forms
             this.metroTabControl1.Controls.Add(this._settings);
             this.metroTabControl1.Location = new System.Drawing.Point(23, 63);
             this.metroTabControl1.Name = "metroTabControl1";
-            this.metroTabControl1.SelectedIndex = 9;
+            this.metroTabControl1.SelectedIndex = 7;
             this.metroTabControl1.Size = new System.Drawing.Size(1455, 649);
             this.metroTabControl1.TabIndex = 0;
             this.metroTabControl1.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -1289,7 +1289,7 @@ namespace RildasApp.Forms
             // 
             this.metroDateTime1.CalendarMonthBackground = System.Drawing.SystemColors.WindowText;
             this.metroDateTime1.Location = new System.Drawing.Point(315, 331);
-            this.metroDateTime1.MinimumSize = new System.Drawing.Size(4, 29);
+            this.metroDateTime1.MinimumSize = new System.Drawing.Size(0, 29);
             this.metroDateTime1.Name = "metroDateTime1";
             this.metroDateTime1.Size = new System.Drawing.Size(200, 29);
             this.metroDateTime1.Style = MetroFramework.MetroColorStyle.Blue;
@@ -1400,6 +1400,7 @@ namespace RildasApp.Forms
             this.publish_animePicturebox.Size = new System.Drawing.Size(560, 160);
             this.publish_animePicturebox.TabIndex = 2;
             this.publish_animePicturebox.TabStop = false;
+            this.publish_animePicturebox.Visible = false;
             // 
             // metroLabel16
             // 
@@ -1432,7 +1433,6 @@ namespace RildasApp.Forms
             // _states
             // 
             this._states.AutoScroll = true;
-            this._states.HorizontalScrollbar = true;
             this._states.HorizontalScrollbarBarColor = false;
             this._states.HorizontalScrollbarHighlightOnWheel = false;
             this._states.HorizontalScrollbarSize = 10;
@@ -1684,7 +1684,6 @@ namespace RildasApp.Forms
             this.chatPanelPrivate.VerticalScrollbarBarColor = true;
             this.chatPanelPrivate.VerticalScrollbarHighlightOnWheel = false;
             this.chatPanelPrivate.VerticalScrollbarSize = 10;
-            this.chatPanelPrivate.Scroll += new System.Windows.Forms.ScrollEventHandler(this.chatPanelPrivate_Scroll);
             // 
             // chatGroupAdd
             // 
