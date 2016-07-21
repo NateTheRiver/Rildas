@@ -431,7 +431,7 @@ namespace RildasApp.Forms
                     type = rbPreklad.Checked ? EpisodeVersion.Type.PŘEKLAD : EpisodeVersion.Type.KOREKCE,
                     animeId = animeId,
                     episode = int.Parse(cbEpisode.SelectedItem.ToString()),
-                    state = cbReady.Checked ? -3 : (rbPreklad.Checked && anime.translatorid != 0) ? -1 : 0,
+                    state = cbReady.Checked ? -3 : (rbPreklad.Checked && anime.correctorid != 0) ? -1 : 0,
                     title = finalName1,
                     titleEN = finalName2,
                     name = safeName1,
@@ -476,15 +476,21 @@ namespace RildasApp.Forms
             panel3.Visible = false;
             Episode ep = (cb2Episodes.SelectedItem as ComboboxItem).Value as Episode;
             EpisodeVersion[] episodeVersions = Global.GetEpisodeVersions(ep.animeid, ep.ep_number, ep.special, true);
-
-            for (int i = 0; i < episodeVersions.Length; i++)
+            try
             {
-                string currName = episodeVersions[i].type + " od " + Global.GetUser(episodeVersions[i].addedBy).username + " z " + episodeVersions[i].added;
-                if (episodeVersions[i].timeOn != "") currName += " [" + episodeVersions[i].timeOn + "]";
-                ComboboxItem item = new ComboboxItem();
-                item.Text = currName;
-                item.Value = episodeVersions[i];
-                cb2Version.Items.Add(item);
+                for (int i = 0; i < episodeVersions.Length; i++)
+                {
+                    string currName = episodeVersions[i].type + " od " + Global.GetUser(episodeVersions[i].addedBy).username + " z " + episodeVersions[i].added;
+                    if (episodeVersions[i].timeOn != "") currName += " [" + episodeVersions[i].timeOn + "]";
+                    ComboboxItem item = new ComboboxItem();
+                    item.Text = currName;
+                    item.Value = episodeVersions[i];
+                    cb2Version.Items.Add(item);
+                }
+            }
+            catch(Exception)
+            {
+                MessageBox.Show("Nastal problém s přidávám verzí epizod.");
             }
         }
         public void DisableForm()
@@ -825,7 +831,14 @@ namespace RildasApp.Forms
                     label1.Theme = MetroThemeStyle.Dark;
 
                     label1.TabIndex = 4;
-                    label1.Text = "Soubor nahrál: " + Global.GetUser(epver.addedBy).username;
+                    try
+                    {
+                        label1.Text = "Soubor nahrál: " + Global.GetUser(epver.addedBy).username;
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Nastal problém s zjišťováním informací o autorovi souboru.");
+                    }
                     // 
                     // metroLabel16
                     // 
@@ -863,16 +876,23 @@ namespace RildasApp.Forms
                     labelDone.Theme = MetroThemeStyle.Dark;
                     labelDone.TextAlign = ContentAlignment.BottomRight;
                     labelDone.Text = (epver.state == 1) ? "Připraveno na enkód" : "Vyžaduje korekci";
-                    switch (epver.state)
+                    try
                     {
-                        case -4: labelDone.Text = "Čeká na schválení překladatelem"; break;
-                        case -3: labelDone.Text = "Čeká se na schválení"; break;
-                        case -2: labelDone.Text = "Existuje novější verze souboru"; break;
-                        case -1: labelDone.Text = "Korekce zamluvena: " + Global.GetUser(epver.reservedBy).username; break;
-                        case 0: labelDone.Text = "Vyžaduje korekci"; break;
-                        case 1: labelDone.Text = "Připraveno na enkód"; break;
-                        case 2: labelDone.Text = "Připraveno ke zveřejnění"; break;
-                        case 3: labelDone.Text = "Zveřejněno"; break;
+                        switch (epver.state)
+                        {
+                            case -4: labelDone.Text = "Čeká na schválení překladatelem"; break;
+                            case -3: labelDone.Text = "Čeká se na schválení"; break;
+                            case -2: labelDone.Text = "Existuje novější verze souboru"; break;
+                            case -1: labelDone.Text = "Korekce zamluvena: " + Global.GetUser(epver.reservedBy).username; break;
+                            case 0: labelDone.Text = "Vyžaduje korekci"; break;
+                            case 1: labelDone.Text = "Připraveno na enkód"; break;
+                            case 2: labelDone.Text = "Připraveno ke zveřejnění"; break;
+                            case 3: labelDone.Text = "Zveřejněno"; break;
+                        }
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Vyskytl se problém s zjišťováním informací o zamluvené korekci.");
                     }
                     //
                     // Button
@@ -1053,9 +1073,17 @@ namespace RildasApp.Forms
             EpisodeVersion epver = (sender as MetroFramework.Controls.MetroLink).Tag as EpisodeVersion;
             cb2Anime.Text = Global.GetAnime(epver.animeId).name;
             cb2Episodes.Text = epver.episode.ToString();
-            string epVerText = epver.type + " od " + Global.GetUser(epver.addedBy).username + " z " + epver.added;
-            if (epver.timeOn != "") epVerText += " [" + epver.timeOn + "]";
-            cb2Version.Text = epVerText;
+            try
+            {
+                string epVerText = epver.type + " od " + Global.GetUser(epver.addedBy).username + " z " + epver.added;
+                if (epver.timeOn != "") epVerText += " [" + epver.timeOn + "]";
+                cb2Version.Text = epVerText;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Vyskytl se problém s zjišťováním informací o verzi anime.");
+            }
+
             panel3.Visible = true;
             tb3Comment.Text = epver.comment;
             tb3Download.Tag = epver;
@@ -1197,7 +1225,7 @@ namespace RildasApp.Forms
                 if ((anime.translatorid == Global.loggedUser.id && epver.state == -4) ||
                     (Global.loggedUser.access > 5 && epver.state == -3) ||
                     (epver.reservedBy == Global.loggedUser.id && epver.state == -1) ||
-                    (anime.correctorid == Global.loggedUser.id && epver.state == 0) ||
+                    (epver.state == 0) ||
                     (Global.loggedUser.id == 4 && epver.state == 1) || // Sorry Dane. :D
                     (anime.translatorid == Global.loggedUser.id && epver.state == 2))
                     filteredVersions.Add(epver);
@@ -1285,7 +1313,16 @@ namespace RildasApp.Forms
                     label1.Theme = MetroThemeStyle.Dark;
 
                     label1.TabIndex = 4;
-                    label1.Text = "Soubor nahrál: " + Global.GetUser(epver.addedBy).username;
+                    try
+                    {
+                        label1.Text = "Soubor nahrál: " + Global.GetUser(epver.addedBy).username;
+                    }
+
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Vyskytl se problém s zjišťováním informací o autorovi souboru.");
+                    }
+
                     // 
                     // metroLabel16
                     // 
@@ -1323,17 +1360,25 @@ namespace RildasApp.Forms
                     labelDone.Theme = MetroThemeStyle.Dark;
                     labelDone.TextAlign = ContentAlignment.BottomRight;
                     labelDone.Text = (epver.state == 1) ? "Připraveno na enkód" : "Vyžaduje korekci";
-                    switch (epver.state)
+                    try
                     {
-                        case -4: labelDone.Text = "Čeká na schválení překladatelem"; break;
-                        case -3: labelDone.Text = "Čeká se na schválení"; break;
-                        case -2: labelDone.Text = "Existuje novější verze souboru"; break;
-                        case -1: labelDone.Text = "Korekce zamluvena: " + Global.GetUser(epver.reservedBy).username; break;
-                        case 0: labelDone.Text = "Vyžaduje korekci"; break;
-                        case 1: labelDone.Text = "Připraveno na enkód"; break;
-                        case 2: labelDone.Text = "Připraveno ke zveřejnění"; break;
-                        case 3: labelDone.Text = "Zveřejněno"; break;
+                        switch (epver.state)
+                        {
+                            case -4: labelDone.Text = "Čeká na schválení překladatelem"; break;
+                            case -3: labelDone.Text = "Čeká se na schválení"; break;
+                            case -2: labelDone.Text = "Existuje novější verze souboru"; break;
+                            case -1: labelDone.Text = "Korekce zamluvena: " + Global.GetUser(epver.reservedBy).username; break;
+                            case 0: labelDone.Text = "Vyžaduje korekci"; break;
+                            case 1: labelDone.Text = "Připraveno na enkód"; break;
+                            case 2: labelDone.Text = "Připraveno ke zveřejnění"; break;
+                            case 3: labelDone.Text = "Zveřejněno"; break;
+                        }
                     }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Vyskytl se problém s zjišťováním informací o zamluvené korekci.");
+                    }
+                    
                     //
                     // Button
                     //
