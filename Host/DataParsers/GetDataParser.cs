@@ -44,7 +44,7 @@ namespace Host.DataParsers
 
         private void GetLoggedUsers(Client sender)
         {
-            User[] loggedUsers = ConnectionManager.connections.Where(x=>x.loggedUser != null).Select(x => x.loggedUser).ToArray();
+            User[] loggedUsers = ConnectionManager.Connections.Where(x=>x.loggedUser != null).Select(x => x.loggedUser).ToArray();
             sender.Send("CHAT_USER_ONLINELIST_" + Serializer.Serialize(loggedUsers));
         }
 

@@ -39,7 +39,7 @@ namespace Host.DataParsers
             string text = String.Join("_", textMessage);
             ChatGroup chatGroup = GlobalData.GetChatGroup(groupId);
 
-            List<Client> clients = ConnectionManager.connections;
+            List<Client> clients = ConnectionManager.Connections;
             for (int i = 0; i < clients.Count; i++)
             {
                 if (clients[i].loggedUser != null && chatGroup.members.Exists(x => x.id == clients[i].loggedUser.id))
@@ -51,7 +51,7 @@ namespace Host.DataParsers
 
         private void SendAlert(Client sender, int recipient)
         {
-            List<Client> clients = ConnectionManager.connections;
+            List<Client> clients = ConnectionManager.Connections;
             for (int i = 0; i < clients.Count; i++)
             {
                 if (clients[i].loggedUser != null && clients[i].loggedUser.id == recipient)
@@ -64,7 +64,7 @@ namespace Host.DataParsers
         private static void SendText(Client sender, int recipient, string[] data)
         {
             string text = String.Join("_", data);
-            List<Client> clients = ConnectionManager.connections;
+            List<Client> clients = ConnectionManager.Connections;
             bool sent = false;
             for (int i = 0; i < clients.Count; i++)
             {

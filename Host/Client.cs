@@ -72,7 +72,10 @@ namespace Host
                 {
                     sck.BeginReceive(new byte[] { 0 }, 0, 0, 0, callback, null);
                 }
-                else Disconnected(this);
+                else
+                {
+                    Disconnected?.Invoke(this);
+                }
             }
             catch (Exception ex)
             {
@@ -148,10 +151,7 @@ namespace Host
         {
             Logger.Log(String.Format("Socket {0} disconnected.", sck.RemoteEndPoint), Logger.SEVERITY.MESSAGE);
 
-            if (Disconnected != null)
-            {
-                Disconnected(this);
-            }
+            Disconnected?.Invoke(this);
             sck.Disconnect(true);
         }
         public delegate void ClientRecievedHandler(Client sender, string data);

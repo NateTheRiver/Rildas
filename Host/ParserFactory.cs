@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -31,6 +32,7 @@ namespace Host
                 if (parser.GetParserName() == id)
                     return parser;
             }
+            
             throw new Exception(String.Format("Parser {0} not found.", id));
         }
     }
