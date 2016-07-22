@@ -1,23 +1,35 @@
 ﻿using Host.DataParsers;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.Composition;
+using System.ComponentModel.Composition.Hosting;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Host
 {
-    class ParserFactory
+    static class ParserFactory
     {
+        static private IEnumerable<IParser> parsers
+        {
+            get; set;
+        }
+        static ParserFactory()
+        {
+            var registrationBuilder = new System.ComponentModel.Composition.Registration.RegistrationBuilder();
+            registrationBuilder.ForTypesDerivedFrom<IParser>().ExportInterfaces();
+            var assemblyCatalog = new System.ComponentModel.Composition.Hosting.AssemblyCatalog(typeof(IParser).Assembly, registrationBuilder);
+            var compositionContainer = new CompositionContainer(assemblyCatalog);
+            parsers = compositionContainer.GetExportedValues<IParser>();
+        }
+            
         public static IParser GetParser(string id)
         {
-            switch(id)
+            foreach (IParser parser in parsers)
             {
-                case "CLIENT": return ClientParser.Instance;
-                case "GETDATA": return GetDataParser.Instance;
-                case "CHANGEDATA": return ChangeDataParser.Instance;
-                case "FILE": return FileParser.Instance;
-                case "CHAT": return ChatParser.Instance;
+                if (parser.GetParserName() == id)
+                    return parser;
             }
             throw new Exception(String.Format("Parser {0} not found.", id));
         }

@@ -14,6 +14,12 @@ namespace Host.DataParsers
         {
             get { return instance = instance ?? new FileParser(); }
         }
+
+        public string GetParserName()
+        {
+            return "FILE";
+        }
+
         public void ParseData(Client sender, string[] data)
         {
             try

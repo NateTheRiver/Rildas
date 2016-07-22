@@ -10,5 +10,6 @@ namespace Host.DataParsers
     interface IParser
     {
         void ParseData(Client sender, string[] data);
+        string GetParserName();
     }
 }
