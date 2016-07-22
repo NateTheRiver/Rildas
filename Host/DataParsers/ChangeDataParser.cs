@@ -88,5 +88,10 @@ namespace Host.DataParsers
                 GlobalData.AddEpisodeVersion(epVer);
             }
         }
+
+        public string GetParserName()
+        {
+            return "CHANGEDATA";
+        }
     }
 }

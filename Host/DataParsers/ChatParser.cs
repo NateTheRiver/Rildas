@@ -82,5 +82,9 @@ namespace Host.DataParsers
             }
         }
 
+        public string GetParserName()
+        {
+            return "CHAT";
+        }
     }
 }

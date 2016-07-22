@@ -73,5 +73,9 @@ namespace Host.DataParsers
             return hashedString;
         }
 
+        public string GetParserName()
+        {
+            return "CLIENT";
+        }
     }
 }
