@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -19,6 +20,7 @@ namespace Host
                 case "FILE": return FileParser.Instance;
                 case "CHAT": return ChatParser.Instance;
             }
+            
             throw new Exception(String.Format("Parser {0} not found.", id));
         }
     }

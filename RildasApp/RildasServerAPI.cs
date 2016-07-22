@@ -15,8 +15,7 @@ namespace RildasApp
         /// <param name="username">Jméno</param>
         /// <param name="password">Heslo</param>
         /// <returns>Údaje o lognutém uživateli. V případě neúspěchu vrací null.</returns>
-        /// 
-       
+        ///
         internal static void Login(string username, string password)
         {
             ConnectionManager.Send(String.Format("CLIENT_LOGIN_{0}_{1}_{2}", username.Count(f => f == '_'), username, password));

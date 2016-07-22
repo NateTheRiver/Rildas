@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -28,12 +27,10 @@ namespace RildasApp.Forms
         // Flash continuously until the window comes to the foreground. 
         public const UInt32 FLASHW_TIMERNOFG = 12;
 
-        bool focus = false;
+        bool _focus = false;
         List<Keys> pressed;
-        protected override bool ShowWithoutActivation
-        {
-            get { return true; }
-        }
+        protected override bool ShowWithoutActivation => true;
+
         public ChatWindowPrivate()
         {
             InitializeComponent();
@@ -151,14 +148,14 @@ namespace RildasApp.Forms
             Append(richTextBox1, ": " + tbMessage.Text, Color.White);
             Append(richTextBox1, Environment.NewLine, Color.White);
             richTextBox1.ScrollToCaret();
-            RildasServerAPI.SendMessage((this.Tag as User).id, tbMessage.Text);
+            RildasServerAPI.SendMessage(((User)this.Tag).id, tbMessage.Text);
             tbMessage.Text = "";
             this.tbMessage.Focus();
         }
 
         private void btnNotice_Click(object sender, EventArgs e)
         {
-            RildasServerAPI.SendNoticeRequest((Tag as User).id);
+            RildasServerAPI.SendNoticeRequest(((User) Tag).id);
             Append(richTextBox1, String.Format("[{0}]", DateTime.Now.ToString("HH:mm")), Color.FromArgb(60, 130, 231));
             Append(richTextBox1, " Žádost o pozornost odeslána.", Color.FromArgb(60, 130, 231));
             Append(richTextBox1, Environment.NewLine, Color.White);
@@ -170,7 +167,7 @@ namespace RildasApp.Forms
             this.Invoke(new MethodInvoker(delegate
             {
                 Append(richTextBox1, String.Format("[{0}]", DateTime.Now.ToString("HH:mm")), Color.FromArgb(231, 76, 60));
-                Append(richTextBox1, " " + (this.Tag as User).username + " si vyžaduje vaši pozornost.", Color.FromArgb(231, 76, 60));
+                Append(richTextBox1, " " + ((User)this.Tag).username + " si vyžaduje vaši pozornost.", Color.FromArgb(231, 76, 60));
                 Append(richTextBox1, Environment.NewLine, Color.White);
                 richTextBox1.ScrollToCaret();
                 this.Activate();
@@ -244,7 +241,7 @@ namespace RildasApp.Forms
                 Append(richTextBox1, ": " + tbMessage.Text, Color.White);
                 Append(richTextBox1, Environment.NewLine, Color.White);
                 richTextBox1.ScrollToCaret();
-                RildasServerAPI.SendMessage((this.Tag as User).id, tbMessage.Text);
+                RildasServerAPI.SendMessage(((User)this.Tag).id, tbMessage.Text);
                 tbMessage.Text = "";
                 e.Handled = e.SuppressKeyPress = true;
             }
@@ -257,20 +254,20 @@ namespace RildasApp.Forms
 
         private void tbMessage_Enter(object sender, EventArgs e)
         {
-            focus = true;
+            _focus = true;
             this.Refresh();
             this.Invalidate();
         }
 
         private void tbMessage_Leave(object sender, EventArgs e)
         {
-            focus = false;
+            _focus = false;
             this.Refresh();
         }
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
-            if (focus)
+            if (_focus)
             {
                 tbMessage.BorderStyle = System.Windows.Forms.BorderStyle.None;
                 Pen p = new Pen(Color.FromArgb(142, 188, 0));

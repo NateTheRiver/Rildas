@@ -9,15 +9,15 @@ namespace Host
 {
     class ConnectionManager
     {
-        public static List<Client> connections = new List<Client>();
+        public static List<Client> Connections = new List<Client>();
         public static void AddClient(Client e)
         {
-            connections.Add(e);
+            Connections.Add(e);
             e.Recieved += Client_Recieved;
         }
         public static void SendToAll(string message)
         {
-            foreach(Client client in connections)
+            foreach(Client client in Connections)
             {
                 client.Send(message);
             }
@@ -27,8 +27,8 @@ namespace Host
         {
             try
             {
-                connections.Remove(e);
-                foreach (Client client in connections)
+                Connections.Remove(e);
+                foreach (Client client in Connections)
                 {
                     client.Send("CHAT_USER_DISCONNECTED_" + e.loggedUser.id);
                 }

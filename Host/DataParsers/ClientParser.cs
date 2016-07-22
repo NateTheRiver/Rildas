@@ -53,7 +53,7 @@ namespace Host.DataParsers
                     {
                         sender.loggedUser = user;
                         sender.Send("CLIENT_LOGIN_SUCCESS_" + Serializer.Serialize(user));
-                        foreach(Client client in ConnectionManager.connections)
+                        foreach(Client client in ConnectionManager.Connections)
                         {
                             if (client != sender) client.Send("CHAT_USER_CONNECTED_" + user.id);
                         }

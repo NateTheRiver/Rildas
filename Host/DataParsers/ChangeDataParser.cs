@@ -6,8 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Host.DataParsers
 {
+    
     class ChangeDataParser : IParser
     {
         private static ChangeDataParser instance;
@@ -55,8 +57,8 @@ namespace Host.DataParsers
             if (data[1] == "EPISODEVERSION")
             {
                 int id = int.Parse(data[2]);
-
-
+                EpisodeVersion episodeVersion = GlobalData.GetEpisodeVersions().First(version => version.id == id);
+                Database.Instance.UpdateQuery("episodes", "visible='1', email_notif='1'", String.Format("anime_id='{0}' AND ep_number='{1}' AND special='{2}'", episodeVersion.animeId, episodeVersion.episode, episodeVersion.special));
             }
         }
         private void ChangeObject(Client sender, string[] data)
