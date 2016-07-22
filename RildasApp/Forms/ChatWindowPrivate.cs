@@ -30,6 +30,7 @@ namespace RildasApp.Forms
 
         bool focus = false;
         List<Keys> pressed;
+        string directory = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().Location);
         protected override bool ShowWithoutActivation
         {
             get { return true; }
@@ -52,6 +53,7 @@ namespace RildasApp.Forms
             {
                 this.Invoke(new MethodInvoker(delegate
                 {
+                    picture_userState.Load(directory + "/Images/green.png");
                     Append(richTextBox1, "Uživatel " + (this.Tag as User).username + " se nad Vámi slitoval a opět je tady.", Color.White);
                     Append(richTextBox1, Environment.NewLine, Color.White);
                     richTextBox1.ScrollToCaret();
@@ -65,6 +67,7 @@ namespace RildasApp.Forms
             {
                 this.Invoke(new MethodInvoker(delegate
                 {
+                    picture_userState.Load(directory + "/Images/red.png");
                     Append(richTextBox1, "Uživatel "+ (this.Tag as User).username+ " se na Vás vykašlal a prostě to vypnul.", Color.White);
                     Append(richTextBox1, Environment.NewLine, Color.White);
                     richTextBox1.ScrollToCaret();
@@ -296,6 +299,14 @@ namespace RildasApp.Forms
         private void richTextBox1_LinkClicked(object sender, LinkClickedEventArgs e)
         {
             System.Diagnostics.Process.Start(e.LinkText);
+        }
+
+        private void ChatWindowPrivate_Load(object sender, EventArgs e)
+        {
+            if (Global.GetLoggedUsers().Exists(x => x.username == (this.Tag as User).username))
+                picture_userState.Load(directory + "/Images/green.png");
+            else
+                picture_userState.Load(directory + "/Images/red.png");
         }
     }
 }
