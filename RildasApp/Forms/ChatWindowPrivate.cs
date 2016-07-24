@@ -20,7 +20,7 @@ namespace RildasApp.Forms
         [DllImport("user32.dll")]
         [return: MarshalAs(UnmanagedType.Bool)]
         static extern bool FlashWindowEx(ref FLASHWINFO pwfi);
-
+        string directory = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().Location);
         //Flash both the window caption and taskbar button.
         //This is equivalent to setting the FLASHW_CAPTION | FLASHW_TRAY flags. 
         public const UInt32 FLASHW_ALL = 3;

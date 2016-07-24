@@ -60,3 +60,25 @@ C:\Users\Richard\Rildas\Aplikace\RildasApp\obj\Debug\RildasApp.exe
 C:\Users\Richard\Rildas\Aplikace\RildasApp\obj\Debug\RildasApp.pdb
 C:\Users\Richard\Rildas\Aplikace\RildasApp\obj\Debug\RildasApp.Forms.NewNotification.resources
 C:\Users\Deny\Documents\Visual Studio 2015\GitHub_RildasApp\Rildas\RildasApp\obj\Debug\RildasApp.Forms.NewNotification.resources
+C:\Users\Richard.Strnad\Documents\GitHub\Rildas\RildasApp\bin\Debug\RildasApp.exe.config
+C:\Users\Richard.Strnad\Documents\GitHub\Rildas\RildasApp\obj\Debug\RildasApp.exe
+C:\Users\Richard.Strnad\Documents\GitHub\Rildas\RildasApp\obj\Debug\RildasApp.pdb
+C:\Users\Richard.Strnad\Documents\GitHub\Rildas\RildasApp\obj\Debug\RildasApp.csprojResolveAssemblyReference.cache
+C:\Users\Richard.Strnad\Documents\GitHub\Rildas\RildasApp\obj\Debug\RildasApp.Forms.ApplicationUpdateInformationForm.resources
+C:\Users\Richard.Strnad\Documents\GitHub\Rildas\RildasApp\obj\Debug\RildasApp.Forms.ChatWindowGroup.resources
+C:\Users\Richard.Strnad\Documents\GitHub\Rildas\RildasApp\obj\Debug\RildasApp.Forms.ChatWindowPrivate.resources
+C:\Users\Richard.Strnad\Documents\GitHub\Rildas\RildasApp\obj\Debug\RildasApp.Forms.Dashboard.resources
+C:\Users\Richard.Strnad\Documents\GitHub\Rildas\RildasApp\obj\Debug\RildasApp.Forms.EventEdit.resources
+C:\Users\Richard.Strnad\Documents\GitHub\Rildas\RildasApp\obj\Debug\RildasApp.Forms.LoginForm.resources
+C:\Users\Richard.Strnad\Documents\GitHub\Rildas\RildasApp\obj\Debug\RildasApp.Forms.NewNotification.resources
+C:\Users\Richard.Strnad\Documents\GitHub\Rildas\RildasApp\obj\Debug\RildasApp.Properties.Resources.resources
+C:\Users\Richard.Strnad\Documents\GitHub\Rildas\RildasApp\obj\Debug\RildasApp.Forms.XDCCDownloadingForm.resources
+C:\Users\Richard.Strnad\Documents\GitHub\Rildas\RildasApp\obj\Debug\RildasApp.csproj.GenerateResource.Cache
+C:\Users\Richard.Strnad\Documents\GitHub\Rildas\RildasApp\bin\Debug\RildasApp.exe
+C:\Users\Richard.Strnad\Documents\GitHub\Rildas\RildasApp\bin\Debug\RildasApp.pdb
+C:\Users\Richard.Strnad\Documents\GitHub\Rildas\RildasApp\bin\Debug\ChatSharp.dll
+C:\Users\Richard.Strnad\Documents\GitHub\Rildas\RildasApp\bin\Debug\MetroFramework.Design.dll
+C:\Users\Richard.Strnad\Documents\GitHub\Rildas\RildasApp\bin\Debug\MetroFramework.dll
+C:\Users\Richard.Strnad\Documents\GitHub\Rildas\RildasApp\bin\Debug\MetroFramework.Fonts.dll
+C:\Users\Richard.Strnad\Documents\GitHub\Rildas\RildasApp\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Richard.Strnad\Documents\GitHub\Rildas\RildasApp\bin\Debug\Newtonsoft.Json.xml
