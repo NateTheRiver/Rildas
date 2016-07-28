@@ -189,6 +189,9 @@
     <EmbeddedResource Include="Forms\Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EventControler.resx">
+      <DependentUpon>EventControler.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\EventEdit.resx">
       <DependentUpon>EventEdit.cs</DependentUpon>
     </EmbeddedResource>

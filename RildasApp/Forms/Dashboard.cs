@@ -80,6 +80,8 @@ namespace RildasApp.Forms
             /*--------------*/
 
             SetApplicationSize();
+            HideToDo();
+            metroTabControl1.SelectedIndex = 0;
 
             this.News.MouseWheel += News_MouseWheel;
             this.chatPanelPrivate.MouseWheel += ChatPanelPrivate_MouseWheel;
@@ -109,6 +111,22 @@ namespace RildasApp.Forms
             xdccGridView.CellContentClick += XdccGridView_CellContentClick;
             if (!String.IsNullOrEmpty(ConfigurationManager.AppSettings["xdccSaveDir"])) _xdccSaveDir.Text = ConfigurationManager.AppSettings["xdccSaveDir"];
             else _xdccSaveDir.Text = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Rildas Anime Files");
+        }
+
+        /**
+        * Funkce pro „skrytí“ tabů, které zatím nejsou dodělané
+        */
+        private void HideToDo()
+        {
+            List<string> notYet = new List<string>() { "_calendar", "_stats", "_helpers" };
+            for (int i = 0; i < metroTabControl1.TabPages.Count; ++i)
+            {
+                if (notYet.Exists(x => x == metroTabControl1.TabPages[i].Name))
+                {
+                    metroTabControl1.TabPages.Remove(metroTabControl1.TabPages[i]);
+                    i--;
+                }
+            }
         }
 
         private void SetApplicationSize()

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ApplicationUpdateInformationForm));
             this._lbCurr = new MetroFramework.Controls.MetroLabel();
             this._lbServerVersion = new MetroFramework.Controls.MetroLabel();
             this._lbDownloading = new MetroFramework.Controls.MetroLabel();
@@ -122,6 +123,7 @@
             this.Controls.Add(this._lbDownloading);
             this.Controls.Add(this._lbServerVersion);
             this.Controls.Add(this._lbCurr);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ApplicationUpdateInformationForm";
             this.Text = "Updating to new version";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;

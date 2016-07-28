@@ -29,6 +29,7 @@ namespace RildasApp.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChatWindowPrivate));
             this.cbAlwaysOnTop = new MetroFramework.Controls.MetroCheckBox();
             this.btnSend = new MetroFramework.Controls.MetroButton();
             this.btnNotice = new MetroFramework.Controls.MetroButton();
@@ -133,6 +134,7 @@ namespace RildasApp.Forms
             this.Controls.Add(this.btnNotice);
             this.Controls.Add(this.btnSend);
             this.Controls.Add(this.cbAlwaysOnTop);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ChatWindowPrivate";
             this.Style = MetroFramework.MetroColorStyle.Lime;
             this.Text = "Private chat - NateTheRiver";

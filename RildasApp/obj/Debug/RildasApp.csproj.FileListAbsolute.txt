@@ -104,3 +104,4 @@ C:\Users\Deny\Documents\Visual Studio 2015\Projects\git_rildas_app\RildasApp\obj
 C:\Users\Deny\Documents\Visual Studio 2015\Projects\git_rildas_app\RildasApp\obj\Debug\RildasApp.Properties.Resources.resources
 C:\Users\Deny\Documents\Visual Studio 2015\Projects\git_rildas_app\RildasApp\obj\Debug\RildasApp.Forms.XDCCDownloadingForm.resources
 C:\Users\Deny\Documents\Visual Studio 2015\Projects\git_rildas_app\RildasApp\obj\Debug\RildasApp.csproj.GenerateResource.Cache
+C:\Users\Deny\Documents\Visual Studio 2015\Projects\git_rildas_app\RildasApp\obj\Debug\RildasApp.Forms.EventControler.resources

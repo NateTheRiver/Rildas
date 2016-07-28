@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(XDCCDownloadingForm));
             this._lbFileName = new MetroFramework.Controls.MetroLabel();
             this._lbFileSize = new MetroFramework.Controls.MetroLabel();
             this._progressBar = new MetroFramework.Controls.MetroProgressBar();
@@ -165,6 +166,7 @@
             this.Controls.Add(this._progressBar);
             this.Controls.Add(this._lbFileSize);
             this.Controls.Add(this._lbFileName);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "XDCCDownloadingForm";
             this.Resizable = false;
             this.Text = "Downloading #11674 from HelloKittyBot";
