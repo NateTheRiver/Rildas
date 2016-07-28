@@ -644,6 +644,18 @@ namespace RildasApp.Forms
                     }
                 }
             }
+            if (metroTabControl1.SelectedTab.Name == "_encode")
+            {
+                encode_comboAnime.Items.Clear();
+                foreach (Anime a in Global.GetAnimes())
+                {
+                    Episode[] ep = Global.GetEpisodes(a.id).Where(x => x.epState == state.Final).ToArray();
+                    if (ep.Length > 0)
+                    {
+                        encode_comboAnime.Items.Add(a.name);
+                    }
+                }
+            }
         }
 
         private void CheckAnimeList(object sender, EventArgs e)
@@ -1777,6 +1789,41 @@ namespace RildasApp.Forms
             else
             {
                 Global.SetApplicationSettings("silentNotifications", "false");
+            }
+        }
+
+        private void _encode_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void encode_comboEpisode_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            encode_buttonEncode.Enabled = true;
+        }
+
+        private void encode_comboAnime_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var an = Global.GetAnimes().Where(x => x.name == encode_comboAnime.SelectedItem.ToString()).ToArray();
+            if (an.Count() > 0)
+            {
+                var ep = Global.GetEpisodes(an[0].id).Where(x => x.epState == state.Final).ToList();
+                ep.ForEach(x => encode_comboEpisode.Items.Add(x));
+            }
+        }
+
+        private void encode_buttonEncode_Click(object sender, EventArgs e)
+        {
+            var an = Global.GetAnimes().Where(x => x.name == encode_comboAnime.SelectedItem.ToString()).ToArray();
+            if (an.Count() > 0)
+            {
+                var ep = Global.GetEpisodes(an[0].id).Where(x => x.epState == state.Final && x.ep_number == Int32.Parse(encode_comboEpisode.SelectedItem.ToString())).ToList();
+                if (ep.Count() > 0)
+                {
+                    ep[0].link_mega = encode_textMega.Text;
+                    ep[0].link_ulozto = encode_textUlozto.Text;
+                    ep[0].link_online = encode_textOnline.Text;
+                }
             }
         }
 
