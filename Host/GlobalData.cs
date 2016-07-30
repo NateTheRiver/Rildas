@@ -97,8 +97,28 @@ namespace Host
                         }
                         _episodeVersions[i] = episodeVersion;
                         ConnectionManager.SendToAll("CHANGEDATA_UPDATE_EPISODEVERSION_" + Serializer.Serialize(episodeVersion));
+                        //TODO: Update database
                         return;
                     } 
+
+                }
+            }
+        }
+        public static void UpdateEpisode(Episode episode)
+        {
+
+            lock (EpisodeLock)
+            {
+                for (int i = 0; i < _episodes.Count; i++)
+                {
+                    if (_episodes[i].id == episode.id)
+                    {
+                       
+                        _episodes[i] = episode;
+                        ConnectionManager.SendToAll("CHANGEDATA_UPDATE_EPISODE_" + Serializer.Serialize(episode));
+                        Database.Instance.UpdateQuery("episodes", String.Format("special='{0}', name='{1}', downlink1='{2}', downlink2='{3}', online='{4}'", episode.special, episode.name, episode.link_mega, episode.link_ulozto, episode.link_online), String.Format("id='{0}'", episode.id));
+                        return;
+                    }
 
                 }
             }

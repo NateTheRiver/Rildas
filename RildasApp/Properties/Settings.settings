@@ -11,5 +11,8 @@
     <Setting Name="DataPreload" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
+    <Setting Name="IP" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">81.2.245.46</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EventEdit));
             this.metroButton1 = new MetroFramework.Controls.MetroButton();
             this.metroComboBoxAction = new MetroFramework.Controls.MetroComboBox();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
@@ -270,6 +271,7 @@
             this.Controls.Add(this.metroLabel1);
             this.Controls.Add(this.metroComboBoxAction);
             this.Controls.Add(this.metroButton1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "EventEdit";
             this.Text = "Událost";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;

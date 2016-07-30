@@ -1,0 +1,14 @@
+C:\Users\Richard.Strnad\Documents\GitHub\Rildas\Host\bin\Release\Host.exe.config
+C:\Users\Richard.Strnad\Documents\GitHub\Rildas\Host\bin\Release\Host.exe
+C:\Users\Richard.Strnad\Documents\GitHub\Rildas\Host\bin\Release\Host.pdb
+C:\Users\Richard.Strnad\Documents\GitHub\Rildas\Host\bin\Release\ChatSharp.dll
+C:\Users\Richard.Strnad\Documents\GitHub\Rildas\Host\bin\Release\MetroFramework.Fonts.dll
+C:\Users\Richard.Strnad\Documents\GitHub\Rildas\Host\bin\Release\MySql.Data.dll
+C:\Users\Richard.Strnad\Documents\GitHub\Rildas\Host\bin\Release\Newtonsoft.Json.dll
+C:\Users\Richard.Strnad\Documents\GitHub\Rildas\Host\bin\Release\SimpleIRCLib.dll
+C:\Users\Richard.Strnad\Documents\GitHub\Rildas\Host\bin\Release\MetroFramework.dll
+C:\Users\Richard.Strnad\Documents\GitHub\Rildas\Host\bin\Release\MySql.Data.xml
+C:\Users\Richard.Strnad\Documents\GitHub\Rildas\Host\bin\Release\Newtonsoft.Json.xml
+C:\Users\Richard.Strnad\Documents\GitHub\Rildas\Host\obj\Release\Host.csprojResolveAssemblyReference.cache
+C:\Users\Richard.Strnad\Documents\GitHub\Rildas\Host\obj\Release\Host.exe
+C:\Users\Richard.Strnad\Documents\GitHub\Rildas\Host\obj\Release\Host.pdb

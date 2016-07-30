@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChatWindowGroup));
             this.tbMessage = new MetroFramework.Controls.MetroTextBox();
             this.cbAlwaysOnTop = new MetroFramework.Controls.MetroCheckBox();
             this.btnSend = new MetroFramework.Controls.MetroButton();
@@ -144,6 +145,7 @@
             this.Controls.Add(this.btnSend);
             this.Controls.Add(this.cbAlwaysOnTop);
             this.Controls.Add(this.tbMessage);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ChatWindowGroup";
             this.Style = MetroFramework.MetroColorStyle.Lime;
             this.Text = "Group chat: Rildas";

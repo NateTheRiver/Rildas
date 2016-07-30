@@ -80,6 +80,8 @@ namespace RildasApp.Forms
             /*--------------*/
 
             SetApplicationSize();
+            HideToDo();
+            metroTabControl1.SelectedIndex = 0;
 
             this.News.MouseWheel += News_MouseWheel;
             this.chatPanelPrivate.MouseWheel += ChatPanelPrivate_MouseWheel;
@@ -109,6 +111,22 @@ namespace RildasApp.Forms
             xdccGridView.CellContentClick += XdccGridView_CellContentClick;
             if (!String.IsNullOrEmpty(ConfigurationManager.AppSettings["xdccSaveDir"])) _xdccSaveDir.Text = ConfigurationManager.AppSettings["xdccSaveDir"];
             else _xdccSaveDir.Text = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Rildas Anime Files");
+        }
+
+        /**
+        * Funkce pro „skrytí“ tabů, které zatím nejsou dodělané
+        */
+        private void HideToDo()
+        {
+            List<string> notYet = new List<string>() { "_calendar", "_stats", "_helpers" };
+            for (int i = 0; i < metroTabControl1.TabPages.Count; ++i)
+            {
+                if (notYet.Exists(x => x == metroTabControl1.TabPages[i].Name))
+                {
+                    metroTabControl1.TabPages.Remove(metroTabControl1.TabPages[i]);
+                    i--;
+                }
+            }
         }
 
         private void SetApplicationSize()
@@ -641,6 +659,18 @@ namespace RildasApp.Forms
                     if (anime.status != Anime.Status.PŘELOŽENO && (anime.translatorid == Global.loggedUser.id || Global.loggedUser.access > 5))
                     {
                         publish_AnimeComboBox.Items.Add(anime.name);
+                    }
+                }
+            }
+            if (metroTabControl1.SelectedTab.Name == "_encode")
+            {
+                encode_comboAnime.Items.Clear();
+                foreach (Anime a in Global.GetAnimes())
+                {
+                    Episode[] ep = Global.GetEpisodes(a.id).Where(x => x.epState == state.Final).ToArray();
+                    if (ep.Length > 0)
+                    {
+                        encode_comboAnime.Items.Add(a.name);
                     }
                 }
             }
@@ -1777,6 +1807,41 @@ namespace RildasApp.Forms
             else
             {
                 Global.SetApplicationSettings("silentNotifications", "false");
+            }
+        }
+
+        private void _encode_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void encode_comboEpisode_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            encode_buttonEncode.Enabled = true;
+        }
+
+        private void encode_comboAnime_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var an = Global.GetAnimes().Where(x => x.name == encode_comboAnime.SelectedItem.ToString()).ToArray();
+            if (an.Count() > 0)
+            {
+                var ep = Global.GetEpisodes(an[0].id).Where(x => x.epState == state.Final).ToList();
+                ep.ForEach(x => encode_comboEpisode.Items.Add(x));
+            }
+        }
+
+        private void encode_buttonEncode_Click(object sender, EventArgs e)
+        {
+            var an = Global.GetAnimes().Where(x => x.name == encode_comboAnime.SelectedItem.ToString()).ToArray();
+            if (an.Count() > 0)
+            {
+                var ep = Global.GetEpisodes(an[0].id).Where(x => x.epState == state.Final && x.ep_number == Int32.Parse(encode_comboEpisode.SelectedItem.ToString())).ToList();
+                if (ep.Count() > 0)
+                {
+                    ep[0].link_mega = encode_textMega.Text;
+                    ep[0].link_ulozto = encode_textUlozto.Text;
+                    ep[0].link_online = encode_textOnline.Text;
+                }
             }
         }
 

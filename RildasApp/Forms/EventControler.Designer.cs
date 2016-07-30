@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EventControler));
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.metroDateTime1 = new MetroFramework.Controls.MetroDateTime();
             this.metroAddButton = new MetroFramework.Controls.MetroButton();
@@ -100,6 +101,7 @@
             this.Controls.Add(this.metroAddButton);
             this.Controls.Add(this.metroDateTime1);
             this.Controls.Add(this.metroLabel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "EventControler";
             this.ShowIcon = false;
             this.Text = "Události";

@@ -20,7 +20,7 @@ namespace RildasApp.Forms
         [DllImport("user32.dll")]
         [return: MarshalAs(UnmanagedType.Bool)]
         static extern bool FlashWindowEx(ref FLASHWINFO pwfi);
-
+        string directory = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().Location);
         //Flash both the window caption and taskbar button.
         //This is equivalent to setting the FLASHW_CAPTION | FLASHW_TRAY flags. 
         public const UInt32 FLASHW_ALL = 3;
@@ -49,6 +49,7 @@ namespace RildasApp.Forms
             {
                 this.Invoke(new MethodInvoker(delegate
                 {
+                    picture_userState.Load(directory + "/Images/green.png");
                     Append(richTextBox1, "Uživatel " + (this.Tag as User).username + " se nad Vámi slitoval a opět je tady.", Color.White);
                     Append(richTextBox1, Environment.NewLine, Color.White);
                     richTextBox1.ScrollToCaret();
@@ -62,6 +63,7 @@ namespace RildasApp.Forms
             {
                 this.Invoke(new MethodInvoker(delegate
                 {
+                    picture_userState.Load(directory + "/Images/red.png");
                     Append(richTextBox1, "Uživatel "+ (this.Tag as User).username+ " se na Vás vykašlal a prostě to vypnul.", Color.White);
                     Append(richTextBox1, Environment.NewLine, Color.White);
                     richTextBox1.ScrollToCaret();
@@ -293,6 +295,14 @@ namespace RildasApp.Forms
         private void richTextBox1_LinkClicked(object sender, LinkClickedEventArgs e)
         {
             System.Diagnostics.Process.Start(e.LinkText);
+        }
+
+        private void ChatWindowPrivate_Load(object sender, EventArgs e)
+        {
+            if (Global.GetLoggedUsers().Exists(x => x.username == (this.Tag as User).username))
+                picture_userState.Load(directory + "/Images/green.png");
+            else
+                picture_userState.Load(directory + "/Images/red.png");
         }
     }
 }

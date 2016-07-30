@@ -55,5 +55,14 @@ namespace RildasApp.Properties {
                 this["DataPreload"] = value;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("81.2.245.46")]
+        public string IP {
+            get {
+                return ((string)(this["IP"]));
+            }
+        }
     }
 }
