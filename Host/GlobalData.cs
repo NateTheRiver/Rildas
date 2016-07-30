@@ -38,6 +38,11 @@ namespace Host
 
         }
 
+        public static void PublishEpisode(int episodeId)
+        {
+            EpisodeVersion episodeVersion = GlobalData.GetEpisodeVersions().First(version => version.id == episodeId);
+            Database.Instance.UpdateQuery("episodes", "visible='1', email_notif='1'", String.Format("anime_id='{0}' AND ep_number='{1}' AND special='{2}'", episodeVersion.animeId, episodeVersion.episode, episodeVersion.special));
+        }
         public static void SendNotification(User user, string header, string text)
         {
 

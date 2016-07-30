@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+using Timer = System.Timers.Timer;
 
 
 namespace Host.DataParsers
@@ -48,7 +50,14 @@ namespace Host.DataParsers
             if (data[1] == "EPISODEVERSION")
             {
                 int id = int.Parse(data[2]);
-                DateTime dateTime = DateTime.ParseExact(data[3], "dd MM yyyy hh:mm", System.Globalization.CultureInfo.InvariantCulture);
+                DateTime dateTime = DateTime.ParseExact(data[3], "dd.MM.yyyy hh:mm", System.Globalization.CultureInfo.InvariantCulture);
+                string[] columns = {"episode_id", "publishAt"};
+                string[] values = {id.ToString(), GlobalData.DateTimeToUnixTimestamp(dateTime).ToString()};
+                Database.Instance.InsertQuery("app_toPublish", columns, values);
+                Timer timer = new Timer();
+                timer.Interval = dateTime.Subtract(DateTime.Now).TotalMilliseconds;
+                timer.Elapsed += (o, args) => { GlobalData.PublishEpisode(id); };
+                timer.Start();
 
             }
         }
@@ -57,8 +66,7 @@ namespace Host.DataParsers
             if (data[1] == "EPISODEVERSION")
             {
                 int id = int.Parse(data[2]);
-                EpisodeVersion episodeVersion = GlobalData.GetEpisodeVersions().First(version => version.id == id);
-                Database.Instance.UpdateQuery("episodes", "visible='1', email_notif='1'", String.Format("anime_id='{0}' AND ep_number='{1}' AND special='{2}'", episodeVersion.animeId, episodeVersion.episode, episodeVersion.special));
+                GlobalData.PublishEpisode(id);
             }
         }
         private void ChangeObject(Client sender, string[] data)

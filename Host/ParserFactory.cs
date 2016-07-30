@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
+using System.ComponentModel.Composition.Registration;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -18,9 +19,9 @@ namespace Host
         }
         static ParserFactory()
         {
-            var registrationBuilder = new System.ComponentModel.Composition.Registration.RegistrationBuilder();
+            var registrationBuilder = new RegistrationBuilder();
             registrationBuilder.ForTypesDerivedFrom<IParser>().ExportInterfaces();
-            var assemblyCatalog = new System.ComponentModel.Composition.Hosting.AssemblyCatalog(typeof(IParser).Assembly, registrationBuilder);
+            var assemblyCatalog = new AssemblyCatalog(typeof(IParser).Assembly, registrationBuilder);
             var compositionContainer = new CompositionContainer(assemblyCatalog);
             parsers = compositionContainer.GetExportedValues<IParser>();
         }
