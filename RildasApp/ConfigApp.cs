@@ -15,6 +15,7 @@ namespace RildasApp
         public static bool silentGroupMessages { get { return Global.GetApplicationSettings("silentGroupMessages") == "true"; } }
         public static bool silentPrivateMessages { get { return Global.GetApplicationSettings("silentPrivateMessages") == "true"; } }
         public static bool silentNotifications { get { return Global.GetApplicationSettings("silentNotifications") == "true"; } }
+        public static string ConnectionIp { get { return Properties.Settings.Default.IP; } }
         static ConfigApp()
         {
             screenWidth = Screen.PrimaryScreen.Bounds.Width;

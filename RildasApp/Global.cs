@@ -86,6 +86,7 @@ namespace RildasApp
                     case "DATA_NOTIFICATION_FULL": { notifications = new List<Notification>(Serializer.Deserialize<Notification[]>(rest)); if (NotificationListUpdated != null) NotificationListUpdated(); } break;
 
                     // CHANGEDATA
+                    case "CHANGEDATA_UPDATE_EPISODE": UpdateEpisode(Serializer.Deserialize<Episode>(rest)); break;
                     case "CHANGEDATA_UPDATE_EPISODEVERSION": UpdateEpisodeVersion(Serializer.Deserialize<EpisodeVersion>(rest)); break;
                     case "CHANGEDATA_ADD_EPISODEVERSION": AddEpisodeVersion(Serializer.Deserialize<EpisodeVersion>(rest)); break;
                     case "CHANGEDATA_ADD_IRCXDCCPACKAGE": AddXDCCPackage(Serializer.Deserialize<XDCCPackageDetails>(rest)); break;
@@ -338,7 +339,18 @@ namespace RildasApp
                 }
             }
         }
-
+        private static void UpdateEpisode(Episode ep)
+        {
+            for (int i = 0; i < episodes.Count(); i++)
+            {
+                if (episodes[i].id == ep.id)
+                {
+                    episodes[i] = ep;
+                    if (EpisodeListUpdated != null) EpisodeListUpdated();
+                    return;
+                }
+            }
+        }
         public static List<Anime> GetAnimes()
         {
             return animes;
