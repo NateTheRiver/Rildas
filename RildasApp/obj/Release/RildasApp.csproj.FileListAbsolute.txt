@@ -20,3 +20,4 @@ C:\Users\Richard\Rildas\Aplikace\RildasApp\obj\Release\RildasApp.Forms.XDCCDownl
 C:\Users\Richard\Rildas\Aplikace\RildasApp\obj\Release\RildasApp.csproj.GenerateResource.Cache
 C:\Users\Richard\Rildas\Aplikace\RildasApp\obj\Release\RildasApp.exe
 C:\Users\Richard\Rildas\Aplikace\RildasApp\obj\Release\RildasApp.pdb
+C:\Users\Richard\Rildas\Aplikace\RildasApp\obj\Release\RildasApp.Forms.EventControler.resources

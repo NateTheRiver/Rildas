@@ -12,3 +12,17 @@ C:\Users\Richard.Strnad\Documents\GitHub\Rildas\Host\bin\Release\Newtonsoft.Json
 C:\Users\Richard.Strnad\Documents\GitHub\Rildas\Host\obj\Release\Host.csprojResolveAssemblyReference.cache
 C:\Users\Richard.Strnad\Documents\GitHub\Rildas\Host\obj\Release\Host.exe
 C:\Users\Richard.Strnad\Documents\GitHub\Rildas\Host\obj\Release\Host.pdb
+C:\Users\Richard\Rildas\Aplikace\Host\bin\Release\Host.exe.config
+C:\Users\Richard\Rildas\Aplikace\Host\obj\Release\Host.exe
+C:\Users\Richard\Rildas\Aplikace\Host\obj\Release\Host.pdb
+C:\Users\Richard\Rildas\Aplikace\Host\bin\Release\Host.exe
+C:\Users\Richard\Rildas\Aplikace\Host\bin\Release\Host.pdb
+C:\Users\Richard\Rildas\Aplikace\Host\bin\Release\ChatSharp.dll
+C:\Users\Richard\Rildas\Aplikace\Host\bin\Release\MetroFramework.Fonts.dll
+C:\Users\Richard\Rildas\Aplikace\Host\bin\Release\Newtonsoft.Json.dll
+C:\Users\Richard\Rildas\Aplikace\Host\bin\Release\SimpleIRCLib.dll
+C:\Users\Richard\Rildas\Aplikace\Host\bin\Release\MetroFramework.dll
+C:\Users\Richard\Rildas\Aplikace\Host\bin\Release\Newtonsoft.Json.xml
+C:\Users\Richard\Rildas\Aplikace\Host\bin\Release\System.ComponentModel.Composition.dll
+C:\Users\Richard\Rildas\Aplikace\Host\bin\Release\System.ComponentModel.Composition.Registration.dll
+C:\Users\Richard\Rildas\Aplikace\Host\bin\Release\System.Reflection.Context.dll

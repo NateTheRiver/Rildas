@@ -20,8 +20,8 @@ namespace RildasApp.Forms
 {
     public partial class LoginForm : MetroForm
     {
-        System.Timers.Timer timer = new System.Timers.Timer();
-        System.Timers.Timer progressBarTimer = new System.Timers.Timer();
+        readonly System.Timers.Timer timer = new System.Timers.Timer();
+        readonly System.Timers.Timer progressBarTimer = new System.Timers.Timer();
         private const string CONNECTION_FAILED = "Připojení selhalo, aplikace se pokusí spojení obnovit.";
         private const string LOGIN_FAILED = "Chybné uživatelské jméno nebo heslo, zkuste to prosím znovu.";
         int nextValue = 0;

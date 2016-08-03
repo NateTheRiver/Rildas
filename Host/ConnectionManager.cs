@@ -53,7 +53,7 @@ namespace Host
             }
             catch (Exception ex)
             {
-                Logger.Log(String.Format("Data parsing failed. Data: {0} Ex: {1}.", command, ex.Message), Logger.SEVERITY.ERROR);
+                Logger.Log(String.Format("Data parsing failed. Data: {0} Ex: {1}. Inner: {2}", command, ex.Message, ex.InnerException?.Message ), Logger.SEVERITY.ERROR);
 
             }
 

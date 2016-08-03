@@ -131,7 +131,7 @@ namespace RildasApp.Forms
 
         private void SetApplicationSize()
         {
-            if (ConfigApp.ScreenWidth < 1920)
+            if (ConfigApp.screenWidth < 1920)
             {
                 this.Size = new Size(1366, 740);
                 this.WindowState = FormWindowState.Maximized;
