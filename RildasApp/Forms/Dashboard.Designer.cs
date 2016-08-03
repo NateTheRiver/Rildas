@@ -132,6 +132,7 @@ namespace RildasApp.Forms
             this.publish_fromlabel = new MetroFramework.Controls.MetroLabel();
             this.publish_episodelabel = new MetroFramework.Controls.MetroLabel();
             this.publish_animelabel = new MetroFramework.Controls.MetroLabel();
+            this.publish_animePicturebox = new System.Windows.Forms.PictureBox();
             this.metroLabel16 = new MetroFramework.Controls.MetroLabel();
             this.publish_AnimeComboBox = new MetroFramework.Controls.MetroComboBox();
             this._settings = new MetroFramework.Controls.MetroTabPage();
@@ -156,7 +157,6 @@ namespace RildasApp.Forms
             this.chatPanelPrivate = new MetroFramework.Controls.MetroPanel();
             this.chatGroupAdd = new MetroFramework.Controls.MetroButton();
             this.metroScrollBar2 = new MetroFramework.Controls.MetroScrollBar();
-            this.publish_animePicturebox = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).BeginInit();
             this.metroTabControl1.SuspendLayout();
             this._dashboard.SuspendLayout();
@@ -171,8 +171,8 @@ namespace RildasApp.Forms
             this._encode.SuspendLayout();
             this._publish.SuspendLayout();
             this.metroPanel1.SuspendLayout();
-            this._settings.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.publish_animePicturebox)).BeginInit();
+            this._settings.SuspendLayout();
             this.SuspendLayout();
             // 
             // metroStyleManager1
@@ -1578,6 +1578,15 @@ namespace RildasApp.Forms
             this.publish_animelabel.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.publish_animelabel.UseStyleColors = true;
             // 
+            // publish_animePicturebox
+            // 
+            this.publish_animePicturebox.Location = new System.Drawing.Point(87, 4);
+            this.publish_animePicturebox.Name = "publish_animePicturebox";
+            this.publish_animePicturebox.Size = new System.Drawing.Size(560, 160);
+            this.publish_animePicturebox.TabIndex = 2;
+            this.publish_animePicturebox.TabStop = false;
+            this.publish_animePicturebox.Visible = false;
+            // 
             // metroLabel16
             // 
             this.metroLabel16.AutoSize = true;
@@ -1886,20 +1895,11 @@ namespace RildasApp.Forms
             this.metroScrollBar2.UseSelectable = true;
             this.metroScrollBar2.Scroll += new System.Windows.Forms.ScrollEventHandler(this.metroScrollBar2_Scroll);
             // 
-            // publish_animePicturebox
-            // 
-            this.publish_animePicturebox.Location = new System.Drawing.Point(87, 4);
-            this.publish_animePicturebox.Name = "publish_animePicturebox";
-            this.publish_animePicturebox.Size = new System.Drawing.Size(560, 160);
-            this.publish_animePicturebox.TabIndex = 2;
-            this.publish_animePicturebox.TabStop = false;
-            this.publish_animePicturebox.Visible = false;
-            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1370, 746);
+            this.ClientSize = new System.Drawing.Size(1679, 746);
             this.Controls.Add(this.metroScrollBar2);
             this.Controls.Add(this.chatGroupAdd);
             this.Controls.Add(this.chatPanelPrivate);
@@ -1940,9 +1940,9 @@ namespace RildasApp.Forms
             this._publish.PerformLayout();
             this.metroPanel1.ResumeLayout(false);
             this.metroPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.publish_animePicturebox)).EndInit();
             this._settings.ResumeLayout(false);
             this._settings.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.publish_animePicturebox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

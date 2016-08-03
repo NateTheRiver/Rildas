@@ -48,7 +48,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="ChatSharp">
-      <HintPath>..\..\..\Documents\Visual Studio 2015\Projects\Host\Host\bin\Debug\ChatSharp.dll</HintPath>
+      <HintPath>.\ChatSharp.dll</HintPath>
     </Reference>
     <Reference Include="MetroFramework, Version=1.3.5.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -188,6 +188,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EventControler.resx">
+      <DependentUpon>EventControler.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\EventEdit.resx">
       <DependentUpon>EventEdit.cs</DependentUpon>

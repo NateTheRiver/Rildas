@@ -1,29 +1,36 @@
 ﻿using Host.DataParsers;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.Composition;
-using System.ComponentModel.Composition.Hosting;
-using System.ComponentModel.Composition.Registration;
+
 using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
+using System.Reflection;
 
 namespace Host
 {
     static class ParserFactory
     {
-        static private IEnumerable<IParser> parsers
+        static private List<IParser> parsers
         {
             get; set;
         }
         static ParserFactory()
         {
-            var registrationBuilder = new RegistrationBuilder();
-            registrationBuilder.ForTypesDerivedFrom<IParser>().ExportInterfaces();
-            var assemblyCatalog = new AssemblyCatalog(typeof(IParser).Assembly, registrationBuilder);
-            var compositionContainer = new CompositionContainer(assemblyCatalog);
-            parsers = compositionContainer.GetExportedValues<IParser>();
+            try
+            {
+                parsers = new List<IParser>();
+                Assembly mscorlib = typeof(IParser).Assembly;
+                foreach (Type type in mscorlib.GetTypes())
+                {
+                    if(type.GetInterfaces().FirstOrDefault(x => x.FullName == typeof(IParser).FullName) != null) parsers.Add(Activator.CreateInstance(type) as IParser);
+                }
+
+                
+            }
+            catch (Exception e)
+            {
+
+                Logger.Log("Failed to compose. Ex: " + e.Message);
+            }
         }
             
         public static IParser GetParser(string id)
