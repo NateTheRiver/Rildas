@@ -4,3 +4,9 @@ C:\Users\Richard\Rildas\Aplikace\RildasAppUpdater\bin\Debug\RildasAppUpdater.pdb
 C:\Users\Richard\Rildas\Aplikace\RildasAppUpdater\obj\Debug\RildasAppUpdater.csprojResolveAssemblyReference.cache
 C:\Users\Richard\Rildas\Aplikace\RildasAppUpdater\obj\Debug\RildasAppUpdater.exe
 C:\Users\Richard\Rildas\Aplikace\RildasAppUpdater\obj\Debug\RildasAppUpdater.pdb
+C:\Users\danie\Documents\Visual Studio 2015\Projects\Rildas_app_git\Rildas\RildasAppUpdater\bin\Debug\RildasAppUpdater.exe.config
+C:\Users\danie\Documents\Visual Studio 2015\Projects\Rildas_app_git\Rildas\RildasAppUpdater\bin\Debug\RildasAppUpdater.exe
+C:\Users\danie\Documents\Visual Studio 2015\Projects\Rildas_app_git\Rildas\RildasAppUpdater\bin\Debug\RildasAppUpdater.pdb
+C:\Users\danie\Documents\Visual Studio 2015\Projects\Rildas_app_git\Rildas\RildasAppUpdater\obj\Debug\RildasAppUpdater.csprojResolveAssemblyReference.cache
+C:\Users\danie\Documents\Visual Studio 2015\Projects\Rildas_app_git\Rildas\RildasAppUpdater\obj\Debug\RildasAppUpdater.exe
+C:\Users\danie\Documents\Visual Studio 2015\Projects\Rildas_app_git\Rildas\RildasAppUpdater\obj\Debug\RildasAppUpdater.pdb

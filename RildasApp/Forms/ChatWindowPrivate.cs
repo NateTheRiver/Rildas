@@ -11,6 +11,7 @@ using RildasApp.Models;
 using System.Runtime.InteropServices;
 using Microsoft.Win32;
 using System.Threading;
+using RildasApp.Properties;
 
 namespace RildasApp.Forms
 {
@@ -49,7 +50,7 @@ namespace RildasApp.Forms
             {
                 this.Invoke(new MethodInvoker(delegate
                 {
-                    picture_userState.Load(directory + "/Images/green.png");
+                    picture_userState.Image = Resources.green;
                     Append(richTextBox1, "Uživatel " + (this.Tag as User).username + " se nad Vámi slitoval a opět je tady.", Color.White);
                     Append(richTextBox1, Environment.NewLine, Color.White);
                     richTextBox1.ScrollToCaret();
@@ -63,7 +64,7 @@ namespace RildasApp.Forms
             {
                 this.Invoke(new MethodInvoker(delegate
                 {
-                    picture_userState.Load(directory + "/Images/red.png");
+                    picture_userState.Image = Resources.red;
                     Append(richTextBox1, "Uživatel "+ (this.Tag as User).username+ " se na Vás vykašlal a prostě to vypnul.", Color.White);
                     Append(richTextBox1, Environment.NewLine, Color.White);
                     richTextBox1.ScrollToCaret();
@@ -300,9 +301,9 @@ namespace RildasApp.Forms
         private void ChatWindowPrivate_Load(object sender, EventArgs e)
         {
             if (Global.GetLoggedUsers().Exists(x => x.username == (this.Tag as User).username))
-                picture_userState.Load(directory + "/Images/green.png");
+                picture_userState.Image = Resources.green;
             else
-                picture_userState.Load(directory + "/Images/red.png");
+                picture_userState.Image = Resources.red;
         }
     }
 }

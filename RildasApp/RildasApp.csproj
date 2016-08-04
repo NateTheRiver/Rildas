@@ -129,6 +129,12 @@
     <Compile Include="Forms\NewNotification.Designer.cs">
       <DependentUpon>NewNotification.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\UpdateNotification.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UpdateNotification.Designer.cs">
+      <DependentUpon>UpdateNotification.cs</DependentUpon>
+    </Compile>
     <Compile Include="Global.cs" />
     <Compile Include="Models\Anime.cs" />
     <Compile Include="Forms\LoginForm.cs">
@@ -200,6 +206,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\NewNotification.resx">
       <DependentUpon>NewNotification.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UpdateNotification.resx">
+      <DependentUpon>UpdateNotification.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -433,6 +442,8 @@
     <None Include="Images\animeList\locodol.jpg" />
     <None Include="Images\animeList\log_horizon2.jpg" />
     <None Include="Images\animeList\magi.png" />
+    <None Include="bin\Debug\Images\red.png" />
+    <None Include="bin\Debug\Images\green.png" />
     <Content Include="Timetable.html" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
