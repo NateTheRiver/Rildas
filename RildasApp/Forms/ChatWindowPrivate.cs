@@ -135,11 +135,7 @@ namespace RildasApp.Forms
         }
         private void cbAlwaysOnTop_CheckedChanged(object sender, EventArgs e)
         {
-            if (cbAlwaysOnTop.Checked)
-            {
-                this.TopMost = true;
-            }
-            else this.TopMost = false;
+            this.TopMost = cbAlwaysOnTop.Checked;
         }
 
         private void metroButton1_Click(object sender, EventArgs e)

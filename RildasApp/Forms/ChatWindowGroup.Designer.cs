@@ -70,6 +70,7 @@
             this.tbMessage.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.tbMessage.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             this.tbMessage.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbMessage_KeyDown);
+            this.tbMessage.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tbMessage_KeyUp);
             // 
             // cbAlwaysOnTop
             // 
@@ -151,6 +152,7 @@
             this.Text = "Group chat: Rildas";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.TopMost = true;
+            this.Shown += new System.EventHandler(this.ChatWindowGroup_Shown);
             this.Resize += new System.EventHandler(this.ChatWindow_Resize);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);

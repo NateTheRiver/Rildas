@@ -58,16 +58,21 @@ namespace Host.DataParsers
             if (data[0] == "PACKAGES")
             {
                 bool dirty = data[1] == "DIRTY";
-                string[] filters = data.Skip(2).ToArray();
+                List<string> filters = data.Skip(2).ToList();
                 
                 List<XDCCPackageDetails> filteredDetails = new List<XDCCPackageDetails>();
                 XDCCPackageDetails[] allDetails = AutoXDCCUpdater.GetPackageDetails().ToArray();
                 allDetails=  allDetails.Reverse().ToArray();
+
+                filters = filters.ConvertAll(x => x.ToLower());
+
                 foreach (XDCCPackageDetails package in allDetails) 
                 {
                     bool everyFilterMatch = true;
+
                     foreach (string filter in filters)
                     {
+                        
                         if (package.quality.Contains(filter) || package.botName.Contains(filter) || package.fansubGroup.Contains(filter)) continue;
                         if (package.filename.Contains(filter))
                         {

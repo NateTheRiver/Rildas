@@ -59,6 +59,9 @@ namespace Host
         {
 
             SendNotification(GetUser(GetAnime(episodeVersion.animeId).translatorid), "Nová verze", "Byla přidána nová verze anime, které překládáte.");
+            if (episodeVersion.reservedBy != 0)
+                SendNotification(GetUser(episodeVersion.reservedBy), "Nová verze.",
+                    String.Format("Uživatel {0} nahrál novou verzi anime {1}. Verze čeká na vaši korekci.", GetUser(episodeVersion.reservedBy).username, GetAnime(episodeVersion.animeId).name));
             lock (EpisodeVersionLock)   
             {
                 _episodeVersions.Add(episodeVersion);
@@ -77,11 +80,8 @@ namespace Host
                     {
                         if (_episodeVersions[i].reservedBy != episodeVersion.reservedBy)
                         {
-
-                        }
-                        if (_episodeVersions[i].special != episodeVersion.special)
-                        {
-
+                            SendNotification(GetUser(_episodeVersions[i].reservedBy), "Korekce odebrána", String.Format("Anime {0} již nečekává vaši korekci. :(", GetAnime(episodeVersion.animeId).name));
+                            SendNotification(GetUser(episodeVersion.reservedBy), "Korekce", String.Format("Díl anime {0} očekává vaši korekci.", GetAnime(episodeVersion.animeId).name));
                         }
                         if (_episodeVersions[i].episode != episodeVersion.episode)
                         {

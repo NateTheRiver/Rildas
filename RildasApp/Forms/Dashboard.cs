@@ -28,12 +28,10 @@ namespace RildasApp.Forms
         int mouseX, mouseY;
         int selectedPublish;
         EpisodeVersion selectedVersion;
-        Timetable.Timetable table;
+        readonly Timetable.Timetable table;
         MyPanel myPanel;
         MyPanel myPanel2;
         EventControler econtrol;
-        MetroFramework.Controls.MetroButton leftButton;
-        MetroFramework.Controls.MetroButton rightButton;
         Timetable.Event moveEvent;
         string[,] animes; 
         string[] selectedAnime;
@@ -45,11 +43,7 @@ namespace RildasApp.Forms
             mouseY = 0;
             selectedPublish = -1;
             /*Testovaci část*/
-            myPanel = new MyPanel();
-            myPanel.Location = new Point(5, 5);
-            myPanel.Name = "panel1";
-            myPanel.Size = new Size(650, 600);
-            myPanel.TabIndex = 3;
+            myPanel = new MyPanel {Location = new Point(5, 5), Name = "panel1", Size = new Size(650, 600), TabIndex = 3};
             myPanel.Paint += new PaintEventHandler(this.metroPanel1_Paint);
             myPanel.MouseMove += new MouseEventHandler(this.metroPanel1_MouseMove);
             myPanel.MouseClick += new MouseEventHandler(myPanel_Click);
@@ -65,12 +59,14 @@ namespace RildasApp.Forms
             /*--------------*/
             // Made by Dan
             /*Panel pro zveřejnění*/
-            myPanel2 = new MyPanel();
-            myPanel2.Location = new Point(19, 99);
-            myPanel2.Name = "publish_panelAnime";
-            myPanel2.Size = new Size(305, 460);
-            myPanel2.BackColor = Color.FromArgb(17, 17, 17);
-            myPanel2.TabIndex = 4;
+            myPanel2 = new MyPanel
+            {
+                Location = new Point(19, 99),
+                Name = "publish_panelAnime",
+                Size = new Size(305, 460),
+                BackColor = Color.FromArgb(17, 17, 17),
+                TabIndex = 4
+            };
             myPanel2.Paint += new PaintEventHandler(this.publish_panelAnime_Paint);
             myPanel2.MouseMove += new MouseEventHandler(publishPanel_MouseMove);
             myPanel2.MouseClick += new MouseEventHandler(publishPanel_MouseClick);
@@ -457,6 +453,7 @@ namespace RildasApp.Forms
                     timeOn = tbTime.Text,
                     addedBy = Global.loggedUser.id,
                     _hash = hash.ToString("X"),
+                    reservedBy = anime.correctorid
                 };
                 RildasServerAPI.AddVersion(version);
                 metroTabControl1.SelectedIndex = 0;
@@ -1085,7 +1082,7 @@ namespace RildasApp.Forms
                     name.Tag = user;
                     name.Click += User_Click;
                     name.TextAlign = ContentAlignment.TopLeft;
-                    if (unseenMessages.Count() > 0)
+                    if (unseenMessages.Any())
                     {
                         name.ForeColor = Color.DarkOrange;
                         name.UseStyleColors = true;

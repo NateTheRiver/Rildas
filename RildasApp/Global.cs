@@ -156,16 +156,18 @@ namespace RildasApp
         {
             return ConfigurationManager.AppSettings[pstrKey];
         }
-        private static void AddNotification(Notification notification)
+        private static void AddNotification(Notification notification, int time = 10)
         {
             notifications.Add(notification);
-            if (NotificationListUpdated != null) NotificationListUpdated();
+            NotificationListUpdated?.Invoke();
             if (!ConfigApp.silentNotifications)
             {
-                Dashboard.instance.StyleManager = new MetroFramework.Components.MetroStyleManager();
-                Dashboard.instance.StyleManager.Theme = MetroFramework.MetroThemeStyle.Dark;
-                Dashboard.instance.StyleManager.Style = MetroFramework.MetroColorStyle.Green;
-                MetroTaskWindow.ShowTaskWindow(Dashboard.instance, "Upozornění", new NewNotification(notification.header, notification.text), 10);
+                Dashboard.instance.StyleManager = new MetroFramework.Components.MetroStyleManager
+                {
+                    Theme = MetroFramework.MetroThemeStyle.Dark,
+                    Style = MetroFramework.MetroColorStyle.Green
+                };
+                MetroTaskWindow.ShowTaskWindow(Dashboard.instance, "Upozornění", new NewNotification(notification.header, notification.text), time);
             }
         }
 
@@ -217,16 +219,30 @@ namespace RildasApp
         {
             if (Dashboard.instance == null) return;
             User user = Global.GetUser(id);
-            if (UserConnected != null) UserConnected(user);
+            UserConnected?.Invoke(user);
             loggedUsers.Add(user);
+            //TODO: if silent login 
+            Dashboard.instance.StyleManager = new MetroFramework.Components.MetroStyleManager
+            {
+                Theme = MetroFramework.MetroThemeStyle.Dark,
+                Style = MetroFramework.MetroColorStyle.Green
+            };
+            MetroTaskWindow.ShowTaskWindow(Dashboard.instance, "Upozornění", new NewNotification(user.username + " je nyní online.", user.username + " je nyní online."), 5);
         }
 
         private static void ChatUserDisconnected(int id)
         {
             if (Dashboard.instance == null) return;
             User user = Global.GetUser(id);
-            if (UserDisconnected != null) UserDisconnected(user);
+            UserDisconnected?.Invoke(user);
             loggedUsers.Remove(user);
+            //TODO: if silent login
+            Dashboard.instance.StyleManager = new MetroFramework.Components.MetroStyleManager
+            {
+                Theme = MetroFramework.MetroThemeStyle.Dark,
+                Style = MetroFramework.MetroColorStyle.Green
+            };
+            MetroTaskWindow.ShowTaskWindow(Dashboard.instance, "Upozornění", new NewNotification(user.username + " se odhlásil.", user.username + " tě opustil. Nyní se můžeš dále utápět v beznaději."), 5);
         }
 
         internal static List<ChatGroup> GetChatGroups()
@@ -485,7 +501,9 @@ namespace RildasApp
             }));
             return window;
         }
-        public static ChatWindowGroup OpenIfNeeded(ChatGroup chatGroup, GroupMessage message = null, bool userTriggeredAction = false)
+
+        public static ChatWindowGroup OpenIfNeeded(ChatGroup chatGroup, GroupMessage message = null,
+            bool userTriggeredAction = false)
         {
             foreach (ChatWindowGroup chat in groupChatWindows)
             {
@@ -499,17 +517,18 @@ namespace RildasApp
             if (ConfigApp.silentGroupMessages && !userTriggeredAction)
             {
                 unseenGroupMessages.Add(message);
-                if (UnseenGroupMessagesUpdated != null) UnseenGroupMessagesUpdated();
-                return window;
+                UnseenGroupMessagesUpdated?.Invoke();
+                return null;
             }
             Dashboard.instance.Invoke(new MethodInvoker(delegate
             {
-                window = new ChatWindowGroup();
-                window.Tag = chatGroup;
-                window.Text = "Group Chat - " + chatGroup.name;
+                window = new ChatWindowGroup(chatGroup, loggedUsers)
+                {
+                    Tag = chatGroup,
+                    Text = string.Format("Group Chat - {0}", chatGroup.name),
+                    ShowInTaskbar = true
+                };
                 window.FormClosed += GroupWindow_FormClosed;
-                window.ShowInTaskbar = true;
-                
                 window.Show();
                 window.Activate();
                 var unseenMessages = GetUnseenMessages(chatGroup, true);
@@ -522,6 +541,7 @@ namespace RildasApp
             return window;
 
         }
+
         private static void GroupWindow_FormClosed(object sender, FormClosedEventArgs e)
         {
             for (int i = 0; i < groupChatWindows.Count; i++)
