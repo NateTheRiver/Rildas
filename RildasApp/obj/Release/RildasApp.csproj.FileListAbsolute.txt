@@ -21,3 +21,27 @@ C:\Users\Richard\Rildas\Aplikace\RildasApp\obj\Release\RildasApp.csproj.Generate
 C:\Users\Richard\Rildas\Aplikace\RildasApp\obj\Release\RildasApp.exe
 C:\Users\Richard\Rildas\Aplikace\RildasApp\obj\Release\RildasApp.pdb
 C:\Users\Richard\Rildas\Aplikace\RildasApp\obj\Release\RildasApp.Forms.EventControler.resources
+C:\Users\danie\Documents\Visual Studio 2015\Projects\Rildas_app_git\Rildas\RildasApp\bin\Release\RildasApp.exe.config
+C:\Users\danie\Documents\Visual Studio 2015\Projects\Rildas_app_git\Rildas\RildasApp\obj\Release\RildasApp.exe
+C:\Users\danie\Documents\Visual Studio 2015\Projects\Rildas_app_git\Rildas\RildasApp\obj\Release\RildasApp.pdb
+C:\Users\danie\Documents\Visual Studio 2015\Projects\Rildas_app_git\Rildas\RildasApp\bin\Release\RildasApp.exe
+C:\Users\danie\Documents\Visual Studio 2015\Projects\Rildas_app_git\Rildas\RildasApp\bin\Release\RildasApp.pdb
+C:\Users\danie\Documents\Visual Studio 2015\Projects\Rildas_app_git\Rildas\RildasApp\bin\Release\ChatSharp.dll
+C:\Users\danie\Documents\Visual Studio 2015\Projects\Rildas_app_git\Rildas\RildasApp\bin\Release\MetroFramework.Design.dll
+C:\Users\danie\Documents\Visual Studio 2015\Projects\Rildas_app_git\Rildas\RildasApp\bin\Release\MetroFramework.dll
+C:\Users\danie\Documents\Visual Studio 2015\Projects\Rildas_app_git\Rildas\RildasApp\bin\Release\MetroFramework.Fonts.dll
+C:\Users\danie\Documents\Visual Studio 2015\Projects\Rildas_app_git\Rildas\RildasApp\bin\Release\Newtonsoft.Json.dll
+C:\Users\danie\Documents\Visual Studio 2015\Projects\Rildas_app_git\Rildas\RildasApp\bin\Release\Newtonsoft.Json.xml
+C:\Users\danie\Documents\Visual Studio 2015\Projects\Rildas_app_git\Rildas\RildasApp\obj\Release\RildasApp.csprojResolveAssemblyReference.cache
+C:\Users\danie\Documents\Visual Studio 2015\Projects\Rildas_app_git\Rildas\RildasApp\obj\Release\RildasApp.Forms.ApplicationUpdateInformationForm.resources
+C:\Users\danie\Documents\Visual Studio 2015\Projects\Rildas_app_git\Rildas\RildasApp\obj\Release\RildasApp.Forms.ChatWindowGroup.resources
+C:\Users\danie\Documents\Visual Studio 2015\Projects\Rildas_app_git\Rildas\RildasApp\obj\Release\RildasApp.Forms.ChatWindowPrivate.resources
+C:\Users\danie\Documents\Visual Studio 2015\Projects\Rildas_app_git\Rildas\RildasApp\obj\Release\RildasApp.Forms.Dashboard.resources
+C:\Users\danie\Documents\Visual Studio 2015\Projects\Rildas_app_git\Rildas\RildasApp\obj\Release\RildasApp.Forms.EventControler.resources
+C:\Users\danie\Documents\Visual Studio 2015\Projects\Rildas_app_git\Rildas\RildasApp\obj\Release\RildasApp.Forms.EventEdit.resources
+C:\Users\danie\Documents\Visual Studio 2015\Projects\Rildas_app_git\Rildas\RildasApp\obj\Release\RildasApp.Forms.LoginForm.resources
+C:\Users\danie\Documents\Visual Studio 2015\Projects\Rildas_app_git\Rildas\RildasApp\obj\Release\RildasApp.Forms.NewNotification.resources
+C:\Users\danie\Documents\Visual Studio 2015\Projects\Rildas_app_git\Rildas\RildasApp\obj\Release\RildasApp.Properties.Resources.resources
+C:\Users\danie\Documents\Visual Studio 2015\Projects\Rildas_app_git\Rildas\RildasApp\obj\Release\RildasApp.Forms.XDCCDownloadingForm.resources
+C:\Users\danie\Documents\Visual Studio 2015\Projects\Rildas_app_git\Rildas\RildasApp\obj\Release\RildasApp.csproj.GenerateResource.Cache
+C:\Users\danie\Documents\Visual Studio 2015\Projects\Rildas_app_git\Rildas\RildasApp\obj\Release\RildasApp.Forms.UpdateNotification.resources

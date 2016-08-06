@@ -310,13 +310,13 @@ namespace RildasApp.Forms
         private void ChatDelUser(User user)
         {
             string directory = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
-            ((PictureBox) chatPanelPrivate.Controls.Find(user.username + "_state", false)[0]).Load(directory + "/Images/red.png");
+            ((PictureBox)chatPanelPrivate.Controls.Find(user.username + "_state", false)[0]).Image = (Resources.red);
         }
 
         private void ChatAddUser(User user)
         {
             string directory = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
-            (chatPanelPrivate.Controls.Find(user.username + "_state", false)[0] as PictureBox).Load(directory + "/Images/green.png");
+            (chatPanelPrivate.Controls.Find(user.username + "_state", false)[0] as PictureBox).Image = Resources.green;
         }
 
         private void Global_AnimeListUpdated()
@@ -1093,9 +1093,11 @@ namespace RildasApp.Forms
                     state.Location = new Point(1, name.Location.Y);
                     state.Name = user.username + "_state";
                     if (logged.Exists(x => x.username == user.username))
-                        state.Load(directory + "/Images/green.png");
+                        //state.Load(directory + "/Images/green.png");
+                        state.Image = Resources.green;
                     else
-                        state.Load(directory + "/Images/red.png");
+                        //state.Load(directory + "/Images/red.png");
+                        state.Image = Resources.red;
                     chatPanelPrivate.Controls.Add(name);
                     chatPanelPrivate.Controls.Add(state);
                     state.BringToFront();
