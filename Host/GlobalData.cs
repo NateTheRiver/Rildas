@@ -9,6 +9,14 @@ namespace Host
 {
     public static class GlobalData
     {
+        public class GroupMessage
+        {
+            public int groupId;
+            public int senderId;
+            public string text;
+            public DateTime time;
+        }
+
         private static object AnimeLock = new object();
         private static object EpisodeLock = new object();
         private static object EpisodeVersionLock = new object();
@@ -21,6 +29,8 @@ namespace Host
         private static List<User> _users = new List<User>();
         private static List<ApplicationVersion> _versions = new List<ApplicationVersion>();
         private static List<ChatGroup> chatGroups = new List<ChatGroup>();
+        private static List<Notification> _notifications = new List<Notification>(); 
+        private static List<GroupMessage> _groupMessages = new List<GroupMessage>(); 
         public static void Init()
         {
             Logger.Log("GlobalData downloading started.", Logger.SEVERITY.MESSAGE);
@@ -33,19 +43,50 @@ namespace Host
             CalculateMissingEpisodes();
             DownloadClientVersionsData();
             DownloadChatGroupData();
+            DownloadNotifications();
             sw.Stop();
             Logger.Log("GlobalData initialized. Time elapsed: " + sw.ElapsedMilliseconds + "ms");
 
         }
 
+        public static void AddGroupMessage(int userId, int groupId, string text)
+        {
+            _groupMessages.Add(new GroupMessage() {groupId = groupId, senderId = userId, text = text, time = DateTime.Now});
+        }
+        public static GroupMessage[] GetGroupChatLogs()
+        {
+            return _groupMessages.ToArray();
+        }
         public static void PublishEpisode(int episodeId)
         {
             EpisodeVersion episodeVersion = GlobalData.GetEpisodeVersions().First(version => version.id == episodeId);
             Database.Instance.UpdateQuery("episodes", "visible='1', email_notif='1'", String.Format("anime_id='{0}' AND ep_number='{1}' AND special='{2}'", episodeVersion.animeId, episodeVersion.episode, episodeVersion.special));
         }
-        public static void SendNotification(User user, string header, string text)
+        public static void SendNotification(User user, string header, string text, bool saveIfOffline = true)
         {
-
+            Notification notif = new Notification()
+            {
+                header = header,
+                text = text,
+                id = -1,
+                time = DateTime.Now
+            };
+            bool sent = false;
+            List<Client> clients = ConnectionManager.Connections;
+            foreach (Client client in clients)
+            {
+                if (client.loggedUser != null && client.loggedUser.id == user.id)
+                {
+                    sent = true;
+                    client.Send(String.Format("CHANGEDATA_ADD_NOTIFICATION_{0}", Serializer.Serialize(notif)));
+                }
+            }
+            if (!sent && saveIfOffline)
+            {
+                string[] columns = { "header", "text", "time" };
+                string[] values = { header, text, GlobalData.DateTimeToUnixTimestamp(DateTime.Now).ToString() };
+                Database.Instance.InsertQuery("app_notifications", columns, values);
+            }
         }
         public static User GetUser(int id)
         {
@@ -58,7 +99,34 @@ namespace Host
         public static void AddEpisodeVersion(EpisodeVersion episodeVersion)
         {
 
-            SendNotification(GetUser(GetAnime(episodeVersion.animeId).translatorid), "Nová verze", "Byla přidána nová verze anime, které překládáte.");
+            Episode ep =
+                GetEpisodes()
+                    .First(
+                        x =>
+                            x.animeid == episodeVersion.animeId && x.ep_number == episodeVersion.episode &&
+                            x.special == episodeVersion.special);
+                switch (episodeVersion.state)
+                {
+                    case -4:
+                    case -3: ep.epState = state.Potvrzeni; break;
+                    case -1:
+                    case 0: ep.epState = state.Korekce; break;
+                    case 1: ep.epState = state.Final; break;
+                    case 2:
+                    case 3: ep.epState = state.Done; break;
+                }
+
+            if (episodeVersion.state == 0)
+            {
+                lock (UsersLock)
+                {
+                    foreach (var user in _users.Where(x => x.access > 2))
+                    {
+                        SendNotification(user, "Korekce", String.Format("Je dostupná nový překlad anime {0}. Díl je připraven ke korekci.", GetAnime(episodeVersion.animeId).name), false);
+                    }
+                }
+            }
+            SendNotification(GetUser(GetAnime(episodeVersion.animeId).translatorid), "Nová verze", String.Format("Byla přidána nová verze anime {0}, které překládáte.", GetAnime(episodeVersion.animeId).name));
             if (episodeVersion.reservedBy != 0)
                 SendNotification(GetUser(episodeVersion.reservedBy), "Nová verze.",
                     String.Format("Uživatel {0} nahrál novou verzi anime {1}. Verze čeká na vaši korekci.", GetUser(episodeVersion.reservedBy).username, GetAnime(episodeVersion.animeId).name));
@@ -66,7 +134,7 @@ namespace Host
             {
                 _episodeVersions.Add(episodeVersion);
                 ConnectionManager.SendToAll("CHANGEDATA_ADD_EPISODEVERSION_" + Serializer.Serialize(episodeVersion));
-                return;
+                ConnectionManager.SendToAll("CHANGEDATA_UPDATE_EPISODE_" + Serializer.Serialize(ep));
             }
         }
         public static void UpdateEpisodeVersion(EpisodeVersion episodeVersion)
@@ -89,7 +157,13 @@ namespace Host
                         }
                         if (_episodeVersions[i].state != episodeVersion.state)
                         {
-
+                            if (episodeVersion.state == 0)
+                            {
+                                foreach (var user in _users.Where(x => x.access > 2))
+                                {
+                                    SendNotification(user, "Korekce", String.Format("Je dostupná překlad anime {0}. Díl je připraven ke korekci.", GetAnime(episodeVersion.animeId).name), false);
+                                }
+                            }
                         }
                         if (_episodeVersions[i].timeOn != episodeVersion.timeOn)
                         {
@@ -179,7 +253,7 @@ namespace Host
                 {
                     IEnumerable<EpisodeVersion> epvers = _episodeVersions.Where(x => x.animeId == anime.id && x.episode == i && !x.special);
                     EpisodeVersion episodeVersion = null;
-                    if (epvers.Count() > 0)
+                    if (epvers.Any())
                     {
                         int maxId = epvers.Max(x => x.id);
                         episodeVersion = _episodeVersions.FirstOrDefault(x => x.id == maxId);
@@ -216,7 +290,7 @@ namespace Host
                 {
                     IEnumerable<EpisodeVersion> epvers = _episodeVersions.Where(x => x.animeId == anime.id && x.episode == i && x.special);
                     EpisodeVersion episodeVersion = null;
-                    if (epvers.Count() > 0)
+                    if (epvers.Any())
                     {
                         int maxId = epvers.Max(x => x.id);
                         episodeVersion = _episodeVersions.FirstOrDefault(x => x.id == maxId);
@@ -384,6 +458,23 @@ namespace Host
             }
             Logger.Log(String.Format("Loaded {0} animes.", _animes.Count()), Logger.SEVERITY.INFO);
         }
+
+        private static void DownloadNotifications()
+        {
+            List<string> result = Database.Instance.SelectQuery("*", "app_notifications");
+            for (int i = 0; i < result.Count;)
+            {
+                Notification notif= new Notification();
+                notif.id = int.Parse(result[i++]);
+                notif.header = result[i++];
+                notif.text = result[i++];
+                notif.time = UnixTimeStampToDateTime(int.Parse(result[i++]));
+                _notifications.Add(notif);
+            }
+            Logger.Log(String.Format("Loaded {0} notifications.", _notifications.Count()), Logger.SEVERITY.INFO);
+
+        }
+
         private static void DownloadChatGroupData()
         {
             List<string> result = Database.Instance.SelectQuery("*", "app_chatgroup");

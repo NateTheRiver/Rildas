@@ -75,6 +75,11 @@ namespace Host
             {
                 if (IRCChannelMessage != null) IRCChannelMessage(e.PrivateMessage);
             };
+            client.NoticeRecieved += (s, e) =>
+            {
+                Console.WriteLine("Notice received: " + e.Notice);
+            };
+            client.RawMessageRecieved += Client_RawMessageRecieved;
 
         }
         public static bool GetPackage(string bot, string package, string downloadPath)
@@ -91,18 +96,18 @@ namespace Host
                 return false;
             }
             XDCCService.downloadPath = downloadPath;
-            client.RawMessageRecieved += Client_RawMessageRecieved;
+            
             System.Threading.Thread.Sleep(100);
             isProcessing = true;
             botName = bot;
             packNum = package;
             gotResponse = false;
             client.SendMessage("xdcc send " + package, bot);
-            Thread.Sleep(5000);
+            Thread.Sleep(8000);
             if (!gotResponse)
             {
+                Console.WriteLine("Did not get response. :<");
                 isProcessing = false;
-                client.RawMessageRecieved -= Client_RawMessageRecieved;
                 return false;
             }
             return true;
@@ -110,12 +115,12 @@ namespace Host
 
         private static void Client_RawMessageRecieved(object sender, ChatSharp.Events.RawMessageEventArgs e)
         {
+            Console.WriteLine("Raw:" + e.Message);
             if (e.Message.Contains("DCC SEND") && e.Message.Contains(nickname))
             {
                 gotResponse = true;
                 System.Diagnostics.Debug.WriteLine("Got response. Downloading started.");
                 startDownloader(e.Message, downloadPath, botName, packNum);
-                client.RawMessageRecieved -= Client_RawMessageRecieved;
             }
         }
         public static void startDownloader(string dccString, string downloaddir, string bot, string pack)
@@ -225,7 +230,7 @@ namespace Host
             {
                 if (File.Exists(finalFileName))
                 {
-                    finalFileName = Path.Combine(Path.GetDirectoryName(dlDirAndFileName), String.Format("{0} ({1}).{2}", Path.GetFileNameWithoutExtension(dlDirAndFileName), i, Path.GetExtension(dlDirAndFileName)));
+                    finalFileName = Path.Combine(curDownloadDir, String.Format("{0}({1}){2}", Path.GetFileNameWithoutExtension(dlDirAndFileName), i, Path.GetExtension(dlDirAndFileName)));
                 }
                 else break;
             }

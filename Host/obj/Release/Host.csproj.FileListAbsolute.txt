@@ -26,3 +26,4 @@ C:\Users\Richard\Rildas\Aplikace\Host\bin\Release\Newtonsoft.Json.xml
 C:\Users\Richard\Rildas\Aplikace\Host\bin\Release\System.ComponentModel.Composition.dll
 C:\Users\Richard\Rildas\Aplikace\Host\bin\Release\System.ComponentModel.Composition.Registration.dll
 C:\Users\Richard\Rildas\Aplikace\Host\bin\Release\System.Reflection.Context.dll
+C:\Users\Richard\Rildas\Aplikace\Host\obj\Release\Host.csprojResolveAssemblyReference.cache

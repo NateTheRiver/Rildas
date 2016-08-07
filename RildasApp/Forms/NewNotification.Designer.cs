@@ -62,6 +62,7 @@
             this.metroTextBox1.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.metroTextBox1.CustomButton.UseSelectable = true;
             this.metroTextBox1.CustomButton.Visible = false;
+            this.metroTextBox1.Enabled = false;
             this.metroTextBox1.Lines = new string[] {
         resources.GetString("metroTextBox1.Lines")};
             this.metroTextBox1.Location = new System.Drawing.Point(0, 43);

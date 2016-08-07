@@ -18,8 +18,8 @@ namespace Host
             Listener list = new Listener(51200);
             list.SocketAccepted += List_SocketAccepted;
             list.Start();
-           // Thread packageAutoUpdate = new Thread(AutoXDCCUpdater.DownloadAndParse);
-           // packageAutoUpdate.Start();
+            Thread packageAutoUpdate = new Thread(AutoXDCCUpdater.DownloadAndParse);
+            packageAutoUpdate.Start();
             while (true) Console.ReadLine();
         }
 

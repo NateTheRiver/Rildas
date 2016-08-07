@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using RildasApp.Forms;
+using RildasApp.VLC;
+
 namespace RildasApp
 {
     static class Program
@@ -14,9 +16,11 @@ namespace RildasApp
         [STAThread]
         static void Main()
         {
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new LoginForm());
+            //Application.Run(new RildasPlayer());
         }
     }
 }

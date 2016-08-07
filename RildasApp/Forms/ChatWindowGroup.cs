@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,15 +11,23 @@ using System.Windows.Forms;
 using MetroFramework.Controls;
 using RildasApp.Models;
 using System.Runtime.InteropServices;
+using MetroFramework;
 using Microsoft.Win32;
+using RildasApp.Properties;
 
 namespace RildasApp.Forms
 {
     public partial class ChatWindowGroup : MetroFramework.Forms.MetroForm
     {
+        public struct GroupMessage
+        {
+            public string username;
+            public string text;
+            public DateTime time;
+        }
         private readonly ChatGroup _chatGroup;
-        private readonly List<User> _loggedUsers;
-        // To support flashing.
+        private static List<GroupMessage> loggedMessages = new List<GroupMessage>();
+            // To support flashing.
         [DllImport("user32.dll")]
         [return: MarshalAs(UnmanagedType.Bool)]
         static extern bool FlashWindowEx(ref FLASHWINFO pwfi);
@@ -31,16 +40,43 @@ namespace RildasApp.Forms
         readonly List<Keys> _pressed;
         protected override bool ShowWithoutActivation => true;
 
-        public ChatWindowGroup(ChatGroup chatGroup, List<User> loggedUsers )
+        public ChatWindowGroup(ChatGroup chatGroup)
         {
             _chatGroup = chatGroup;
-            _loggedUsers = loggedUsers;
             _pressed = new List<Keys>();
             InitializeComponent();
             richTextBox1.Location = new Point(1, 1);
             panel1.Size = new Size(richTextBox1.Size.Width + 2, richTextBox1.Size.Height + 2);
+            Global.OnlineUsersListUpdated += LoadLoggedState;
+            Global.UserConnected += Global_UserConnected;
+            Global.UserDisconnected += Global_UserDisconnected;
+            if (loggedMessages.Any())
+            {
+                loggedMessages = loggedMessages.Skip(Math.Max(0, loggedMessages.Count - 50)).ToList();
+                foreach (var message in loggedMessages)
+                {
+                    AppendMessage(message.username, message.text, message.time, true);
+                }
+            }
+            else
+            {
+                var groupMessages = Global.GetLoggedGroupMessages(chatGroup.id);
+                groupMessages = groupMessages.Skip(Math.Max(0, groupMessages.Count() - 50)).ToList();
+                foreach (var message in groupMessages)
+                {
+                    AppendMessage(Global.GetUser(message.senderId).username, message.text, message.time);
+                }
+            }
+        }
+        private void Global_UserDisconnected(User user)
+        {
+            ((PictureBox)usersPanel.Controls.Find(user.username + "_state", false)[0]).Image = Resources.red;
         }
 
+        private void Global_UserConnected(User user)
+        {
+            ((PictureBox) usersPanel.Controls.Find(user.username + "_state", false)[0]).Image = Resources.green;
+        }
 
         [StructLayout(LayoutKind.Sequential)]
         public struct FLASHWINFO
@@ -81,7 +117,7 @@ namespace RildasApp.Forms
         {
             // TODO: Resize všech komponent
         }
-        public void AppendMessage(string username, string message, DateTime time)
+        public void AppendMessage(string username, string message, DateTime time, bool doNotLog = false)
         {
             this.Invoke(new MethodInvoker(delegate
             {
@@ -92,7 +128,18 @@ namespace RildasApp.Forms
                 richTextBox1.ScrollToCaret();
             }));
 
-
+            if (doNotLog) return;
+            try
+            {
+                string dirPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "RildasLogs");
+                if (!Directory.Exists(dirPath)) Directory.CreateDirectory(dirPath);
+                File.AppendAllText(Path.Combine(dirPath, "group_" + _chatGroup.name + ".txt"), String.Format("[{0}]{1}: {2}", time.ToString("HH:mm"), username, message) + Environment.NewLine);
+                loggedMessages.Add(new GroupMessage() { username = username, text = message, time = time });
+            }
+            catch (Exception)
+            {
+            }
+            
         }
         private static void Append(RichTextBox box, string text, Color color)
         {
@@ -196,10 +243,42 @@ namespace RildasApp.Forms
 
         private void ChatWindowGroup_Shown(object sender, EventArgs e)
         {
-            foreach (var user in _chatGroup.members)
+            LoadLoggedState();
+        }
+
+        private void LoadLoggedState()
+        {
+            List<User> logged = Global.GetLoggedUsers();
+            int positionIterator = 0;
+
+            usersPanel.Invoke(new MethodInvoker(delegate
             {
-                //user.
-            }
+                usersPanel.Controls.Clear();
+                _chatGroup.members.Sort((x, y) => String.Compare(x.username, y.username, StringComparison.Ordinal));
+                foreach (User user in _chatGroup.members)
+                {
+                    MetroLink name = new MetroLink();
+                    PictureBox state = new PictureBox();
+                    name.FontSize = MetroFramework.MetroLinkSize.Medium;
+                    name.Location = new System.Drawing.Point(25, positionIterator*25);
+                    name.Name = "namePrivateChat" + user.username;
+                    name.Size = new System.Drawing.Size(150, 23);
+                    name.TabIndex = 3;
+                    name.Text = user.username;
+                    name.Theme = MetroFramework.MetroThemeStyle.Dark;
+                    name.UseSelectable = true;
+                    name.TextAlign = ContentAlignment.TopLeft;
+                    state.Size = new Size(20, 20);
+                    state.Location = new Point(1, name.Location.Y);
+                    state.Name = user.username + "_state";
+                    state.Image = logged.Exists(x => x.username == user.username) ? Resources.green : Resources.red;
+                    usersPanel.Controls.Add(name);
+                    usersPanel.Controls.Add(state);
+                    state.BringToFront();
+                    positionIterator++;
+                }
+                usersPanel.Refresh();
+            }));
         }
     }
 }

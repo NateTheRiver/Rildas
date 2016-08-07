@@ -94,6 +94,10 @@ namespace RildasApp
             }
         }
 
+        internal static void GetGroupLogs()
+        {
+            ConnectionManager.Send("GETDATA_CHATLOGS_GROUPS");
+        }
         internal static void GetAllXDCCVersions()
         {
             GetFilteredXDCCVersions("", false);

@@ -35,6 +35,7 @@
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.metroLabel13 = new MetroFramework.Controls.MetroLabel();
+            this.usersPanel = new MetroFramework.Controls.MetroPanel();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -136,11 +137,26 @@
             this.metroLabel13.UseStyleColors = true;
             this.metroLabel13.Visible = false;
             // 
+            // usersPanel
+            // 
+            this.usersPanel.HorizontalScrollbarBarColor = true;
+            this.usersPanel.HorizontalScrollbarHighlightOnWheel = false;
+            this.usersPanel.HorizontalScrollbarSize = 10;
+            this.usersPanel.Location = new System.Drawing.Point(617, 63);
+            this.usersPanel.Name = "usersPanel";
+            this.usersPanel.Size = new System.Drawing.Size(150, 300);
+            this.usersPanel.TabIndex = 8;
+            this.usersPanel.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.usersPanel.VerticalScrollbarBarColor = true;
+            this.usersPanel.VerticalScrollbarHighlightOnWheel = false;
+            this.usersPanel.VerticalScrollbarSize = 10;
+            // 
             // ChatWindowGroup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(865, 408);
+            this.ClientSize = new System.Drawing.Size(829, 408);
+            this.Controls.Add(this.usersPanel);
             this.Controls.Add(this.metroLabel13);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnSend);
@@ -167,5 +183,6 @@
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Panel panel1;
         private MetroFramework.Controls.MetroLabel metroLabel13;
+        private MetroFramework.Controls.MetroPanel usersPanel;
     }
 }
