@@ -91,6 +91,10 @@ namespace RildasApp.Forms
             this._helpers = new MetroFramework.Controls.MetroTabPage();
             this.metroTabControl2 = new MetroFramework.Controls.MetroTabControl();
             this.tab2Page1 = new MetroFramework.Controls.MetroTabPage();
+            this.metroComboBox1 = new MetroFramework.Controls.MetroComboBox();
+            this.metroLabel24 = new MetroFramework.Controls.MetroLabel();
+            this.metroComboBox2 = new MetroFramework.Controls.MetroComboBox();
+            this.metroLabel25 = new MetroFramework.Controls.MetroLabel();
             this.Přehrávač = new MetroFramework.Controls.MetroTabPage();
             this._xdccCenter = new MetroFramework.Controls.MetroTabPage();
             this.xdccDirtySearch = new MetroFramework.Controls.MetroCheckBox();
@@ -135,7 +139,10 @@ namespace RildasApp.Forms
             this.publish_animePicturebox = new System.Windows.Forms.PictureBox();
             this.metroLabel16 = new MetroFramework.Controls.MetroLabel();
             this.publish_AnimeComboBox = new MetroFramework.Controls.MetroComboBox();
+            this._stats = new MetroFramework.Controls.MetroTabPage();
+            this._states = new MetroFramework.Controls.MetroTabPage();
             this._settings = new MetroFramework.Controls.MetroTabPage();
+            this.configMinToSysTray = new MetroFramework.Controls.MetroCheckBox();
             this.configSilentNotifications = new MetroFramework.Controls.MetroCheckBox();
             this.configSilentPrivateMessages = new MetroFramework.Controls.MetroCheckBox();
             this.configSilentGroupMessages = new MetroFramework.Controls.MetroCheckBox();
@@ -144,8 +151,6 @@ namespace RildasApp.Forms
             this._settingsAutoLogin = new MetroFramework.Controls.MetroCheckBox();
             this.metroLabel13 = new MetroFramework.Controls.MetroLabel();
             this._settingsOnStartUp = new MetroFramework.Controls.MetroCheckBox();
-            this._stats = new MetroFramework.Controls.MetroTabPage();
-            this._states = new MetroFramework.Controls.MetroTabPage();
             this.metroStyleExtender1 = new MetroFramework.Components.MetroStyleExtender(this.components);
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
@@ -166,6 +171,7 @@ namespace RildasApp.Forms
             this._calendar.SuspendLayout();
             this._helpers.SuspendLayout();
             this.metroTabControl2.SuspendLayout();
+            this.tab2Page1.SuspendLayout();
             this._xdccCenter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.xdccGridView)).BeginInit();
             this._encode.SuspendLayout();
@@ -190,12 +196,12 @@ namespace RildasApp.Forms
             this.metroTabControl1.Controls.Add(this._xdccCenter);
             this.metroTabControl1.Controls.Add(this._encode);
             this.metroTabControl1.Controls.Add(this._publish);
-            this.metroTabControl1.Controls.Add(this._settings);
             this.metroTabControl1.Controls.Add(this._stats);
             this.metroTabControl1.Controls.Add(this._states);
+            this.metroTabControl1.Controls.Add(this._settings);
             this.metroTabControl1.Location = new System.Drawing.Point(23, 63);
             this.metroTabControl1.Name = "metroTabControl1";
-            this.metroTabControl1.SelectedIndex = 0;
+            this.metroTabControl1.SelectedIndex = 2;
             this.metroTabControl1.Size = new System.Drawing.Size(1455, 649);
             this.metroTabControl1.TabIndex = 0;
             this.metroTabControl1.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -220,7 +226,7 @@ namespace RildasApp.Forms
             this._dashboard.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
             this._dashboard.Size = new System.Drawing.Size(1447, 607);
             this._dashboard.TabIndex = 0;
-            this._dashboard.Text = "Dashboard      ";
+            this._dashboard.Text = "Dashboard    ";
             this._dashboard.Theme = MetroFramework.MetroThemeStyle.Dark;
             this._dashboard.VerticalScrollbarBarColor = false;
             this._dashboard.VerticalScrollbarHighlightOnWheel = false;
@@ -385,7 +391,7 @@ namespace RildasApp.Forms
             this._translate.Name = "_translate";
             this._translate.Size = new System.Drawing.Size(1447, 607);
             this._translate.TabIndex = 1;
-            this._translate.Text = "Nahrát překlad/korekci   ";
+            this._translate.Text = "Nahrát překlad/korekci    ";
             this._translate.Theme = MetroFramework.MetroThemeStyle.Dark;
             this._translate.VerticalScrollbarBarColor = true;
             this._translate.VerticalScrollbarHighlightOnWheel = false;
@@ -681,7 +687,7 @@ namespace RildasApp.Forms
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Size = new System.Drawing.Size(1447, 607);
             this.tabPage5.TabIndex = 7;
-            this.tabPage5.Text = "Stáhnout díl ke korekci     ";
+            this.tabPage5.Text = "Stáhnout díl ke korekci    ";
             this.tabPage5.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.tabPage5.VerticalScrollbarBarColor = true;
             this.tabPage5.VerticalScrollbarHighlightOnWheel = false;
@@ -709,7 +715,7 @@ namespace RildasApp.Forms
             // 
             // tb3DownloadAJ
             // 
-            this.tb3DownloadAJ.Location = new System.Drawing.Point(314, 111);
+            this.tb3DownloadAJ.Location = new System.Drawing.Point(317, 143);
             this.tb3DownloadAJ.Name = "tb3DownloadAJ";
             this.tb3DownloadAJ.Size = new System.Drawing.Size(119, 42);
             this.tb3DownloadAJ.TabIndex = 3;
@@ -721,7 +727,7 @@ namespace RildasApp.Forms
             // 
             // tb3Download
             // 
-            this.tb3Download.Location = new System.Drawing.Point(172, 111);
+            this.tb3Download.Location = new System.Drawing.Point(172, 143);
             this.tb3Download.Name = "tb3Download";
             this.tb3Download.Size = new System.Drawing.Size(119, 42);
             this.tb3Download.TabIndex = 2;
@@ -736,9 +742,9 @@ namespace RildasApp.Forms
             // 
             // 
             this.tb3Comment.CustomButton.Image = null;
-            this.tb3Comment.CustomButton.Location = new System.Drawing.Point(409, 1);
+            this.tb3Comment.CustomButton.Location = new System.Drawing.Point(443, 2);
             this.tb3Comment.CustomButton.Name = "";
-            this.tb3Comment.CustomButton.Size = new System.Drawing.Size(57, 57);
+            this.tb3Comment.CustomButton.Size = new System.Drawing.Size(103, 103);
             this.tb3Comment.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.tb3Comment.CustomButton.TabIndex = 1;
             this.tb3Comment.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -747,16 +753,16 @@ namespace RildasApp.Forms
             this.tb3Comment.Enabled = false;
             this.tb3Comment.Lines = new string[] {
         "metroTextBox1"};
-            this.tb3Comment.Location = new System.Drawing.Point(172, 29);
+            this.tb3Comment.Location = new System.Drawing.Point(90, 29);
             this.tb3Comment.MaxLength = 32767;
             this.tb3Comment.Multiline = true;
             this.tb3Comment.Name = "tb3Comment";
             this.tb3Comment.PasswordChar = '\0';
-            this.tb3Comment.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.tb3Comment.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.tb3Comment.SelectedText = "";
             this.tb3Comment.SelectionLength = 0;
             this.tb3Comment.SelectionStart = 0;
-            this.tb3Comment.Size = new System.Drawing.Size(467, 59);
+            this.tb3Comment.Size = new System.Drawing.Size(549, 108);
             this.tb3Comment.TabIndex = 1;
             this.tb3Comment.Text = "metroTextBox1";
             this.tb3Comment.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -867,7 +873,7 @@ namespace RildasApp.Forms
             this._calendar.Name = "_calendar";
             this._calendar.Size = new System.Drawing.Size(1447, 607);
             this._calendar.TabIndex = 8;
-            this._calendar.Text = "Kalendář   ";
+            this._calendar.Text = "Kalendář    ";
             this._calendar.Theme = MetroFramework.MetroThemeStyle.Dark;
             this._calendar.VerticalScrollbarBarColor = true;
             this._calendar.VerticalScrollbarHighlightOnWheel = false;
@@ -973,6 +979,10 @@ namespace RildasApp.Forms
             // 
             // tab2Page1
             // 
+            this.tab2Page1.Controls.Add(this.metroComboBox1);
+            this.tab2Page1.Controls.Add(this.metroLabel24);
+            this.tab2Page1.Controls.Add(this.metroComboBox2);
+            this.tab2Page1.Controls.Add(this.metroLabel25);
             this.tab2Page1.HorizontalScrollbarBarColor = true;
             this.tab2Page1.HorizontalScrollbarHighlightOnWheel = false;
             this.tab2Page1.HorizontalScrollbarSize = 10;
@@ -980,11 +990,53 @@ namespace RildasApp.Forms
             this.tab2Page1.Name = "tab2Page1";
             this.tab2Page1.Size = new System.Drawing.Size(1191, 451);
             this.tab2Page1.TabIndex = 0;
-            this.tab2Page1.Text = "Porovnávač";
+            this.tab2Page1.Text = "Porovnávač     ";
             this.tab2Page1.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.tab2Page1.VerticalScrollbarBarColor = true;
             this.tab2Page1.VerticalScrollbarHighlightOnWheel = false;
             this.tab2Page1.VerticalScrollbarSize = 10;
+            // 
+            // metroComboBox1
+            // 
+            this.metroComboBox1.FormattingEnabled = true;
+            this.metroComboBox1.ItemHeight = 23;
+            this.metroComboBox1.Location = new System.Drawing.Point(99, 66);
+            this.metroComboBox1.Name = "metroComboBox1";
+            this.metroComboBox1.Size = new System.Drawing.Size(75, 29);
+            this.metroComboBox1.TabIndex = 14;
+            this.metroComboBox1.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroComboBox1.UseSelectable = true;
+            // 
+            // metroLabel24
+            // 
+            this.metroLabel24.AutoSize = true;
+            this.metroLabel24.Location = new System.Drawing.Point(3, 76);
+            this.metroLabel24.Name = "metroLabel24";
+            this.metroLabel24.Size = new System.Drawing.Size(27, 19);
+            this.metroLabel24.TabIndex = 13;
+            this.metroLabel24.Text = "Díl:";
+            this.metroLabel24.Theme = MetroFramework.MetroThemeStyle.Dark;
+            // 
+            // metroComboBox2
+            // 
+            this.metroComboBox2.FormattingEnabled = true;
+            this.metroComboBox2.ItemHeight = 23;
+            this.metroComboBox2.Location = new System.Drawing.Point(99, 31);
+            this.metroComboBox2.Name = "metroComboBox2";
+            this.metroComboBox2.Size = new System.Drawing.Size(228, 29);
+            this.metroComboBox2.TabIndex = 12;
+            this.metroComboBox2.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroComboBox2.UseSelectable = true;
+            // 
+            // metroLabel25
+            // 
+            this.metroLabel25.AutoSize = true;
+            this.metroLabel25.Location = new System.Drawing.Point(3, 41);
+            this.metroLabel25.Name = "metroLabel25";
+            this.metroLabel25.Size = new System.Drawing.Size(90, 19);
+            this.metroLabel25.TabIndex = 11;
+            this.metroLabel25.Text = "Vybrat anime:";
+            this.metroLabel25.Theme = MetroFramework.MetroThemeStyle.Dark;
             // 
             // Přehrávač
             // 
@@ -1019,7 +1071,7 @@ namespace RildasApp.Forms
             this._xdccCenter.Name = "_xdccCenter";
             this._xdccCenter.Size = new System.Drawing.Size(1447, 607);
             this._xdccCenter.TabIndex = 9;
-            this._xdccCenter.Text = "XDCC Centrum";
+            this._xdccCenter.Text = "XDCC Centrum    ";
             this._xdccCenter.Theme = MetroFramework.MetroThemeStyle.Dark;
             this._xdccCenter.VerticalScrollbarBarColor = true;
             this._xdccCenter.VerticalScrollbarHighlightOnWheel = false;
@@ -1259,7 +1311,7 @@ namespace RildasApp.Forms
             this._encode.Name = "_encode";
             this._encode.Size = new System.Drawing.Size(1447, 607);
             this._encode.TabIndex = 11;
-            this._encode.Text = "Encode";
+            this._encode.Text = "Encode    ";
             this._encode.Theme = MetroFramework.MetroThemeStyle.Dark;
             this._encode.VerticalScrollbarBarColor = true;
             this._encode.VerticalScrollbarHighlightOnWheel = false;
@@ -1617,8 +1669,44 @@ namespace RildasApp.Forms
             this.publish_AnimeComboBox.UseSelectable = true;
             this.publish_AnimeComboBox.SelectedIndexChanged += new System.EventHandler(this.publish_AnimeComboBox_SelectedIndexChanged);
             // 
+            // _stats
+            // 
+            this._stats.HorizontalScrollbarBarColor = true;
+            this._stats.HorizontalScrollbarHighlightOnWheel = false;
+            this._stats.HorizontalScrollbarSize = 10;
+            this._stats.Location = new System.Drawing.Point(4, 38);
+            this._stats.Name = "_stats";
+            this._stats.Size = new System.Drawing.Size(1447, 607);
+            this._stats.TabIndex = 6;
+            this._stats.Text = "Statistiky    ";
+            this._stats.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._stats.VerticalScrollbarBarColor = true;
+            this._stats.VerticalScrollbarHighlightOnWheel = false;
+            this._stats.VerticalScrollbarSize = 10;
+            // 
+            // _states
+            // 
+            this._states.AutoScroll = true;
+            this._states.HorizontalScrollbar = true;
+            this._states.HorizontalScrollbarBarColor = false;
+            this._states.HorizontalScrollbarHighlightOnWheel = false;
+            this._states.HorizontalScrollbarSize = 10;
+            this._states.Location = new System.Drawing.Point(4, 38);
+            this._states.Name = "_states";
+            this._states.Size = new System.Drawing.Size(1447, 607);
+            this._states.Style = MetroFramework.MetroColorStyle.Black;
+            this._states.TabIndex = 2;
+            this._states.Text = "Stavy anime    ";
+            this._states.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._states.UseStyleColors = true;
+            this._states.VerticalScrollbar = true;
+            this._states.VerticalScrollbarBarColor = false;
+            this._states.VerticalScrollbarHighlightOnWheel = false;
+            this._states.VerticalScrollbarSize = 10;
+            // 
             // _settings
             // 
+            this._settings.Controls.Add(this.configMinToSysTray);
             this._settings.Controls.Add(this.configSilentNotifications);
             this._settings.Controls.Add(this.configSilentPrivateMessages);
             this._settings.Controls.Add(this.configSilentGroupMessages);
@@ -1634,11 +1722,23 @@ namespace RildasApp.Forms
             this._settings.Name = "_settings";
             this._settings.Size = new System.Drawing.Size(1447, 607);
             this._settings.TabIndex = 10;
-            this._settings.Text = "Nastavení";
+            this._settings.Text = "Nastavení    ";
             this._settings.Theme = MetroFramework.MetroThemeStyle.Dark;
             this._settings.VerticalScrollbarBarColor = true;
             this._settings.VerticalScrollbarHighlightOnWheel = false;
             this._settings.VerticalScrollbarSize = 10;
+            // 
+            // configMinToSysTray
+            // 
+            this.configMinToSysTray.AutoSize = true;
+            this.configMinToSysTray.Location = new System.Drawing.Point(3, 122);
+            this.configMinToSysTray.Name = "configMinToSysTray";
+            this.configMinToSysTray.Size = new System.Drawing.Size(206, 15);
+            this.configMinToSysTray.TabIndex = 20;
+            this.configMinToSysTray.Text = "Minimalizovat na systémovou lištu";
+            this.configMinToSysTray.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.configMinToSysTray.UseSelectable = true;
+            this.configMinToSysTray.CheckedChanged += new System.EventHandler(this.metroCheckBox1_CheckedChanged_1);
             // 
             // configSilentNotifications
             // 
@@ -1742,41 +1842,6 @@ namespace RildasApp.Forms
             this._settingsOnStartUp.UseSelectable = true;
             this._settingsOnStartUp.CheckedChanged += new System.EventHandler(this._settingsOnStartUp_CheckedChanged);
             // 
-            // _stats
-            // 
-            this._stats.HorizontalScrollbarBarColor = true;
-            this._stats.HorizontalScrollbarHighlightOnWheel = false;
-            this._stats.HorizontalScrollbarSize = 10;
-            this._stats.Location = new System.Drawing.Point(4, 38);
-            this._stats.Name = "_stats";
-            this._stats.Size = new System.Drawing.Size(1447, 607);
-            this._stats.TabIndex = 6;
-            this._stats.Text = "Statistiky    ";
-            this._stats.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this._stats.VerticalScrollbarBarColor = true;
-            this._stats.VerticalScrollbarHighlightOnWheel = false;
-            this._stats.VerticalScrollbarSize = 10;
-            // 
-            // _states
-            // 
-            this._states.AutoScroll = true;
-            this._states.HorizontalScrollbar = true;
-            this._states.HorizontalScrollbarBarColor = false;
-            this._states.HorizontalScrollbarHighlightOnWheel = false;
-            this._states.HorizontalScrollbarSize = 10;
-            this._states.Location = new System.Drawing.Point(4, 38);
-            this._states.Name = "_states";
-            this._states.Size = new System.Drawing.Size(1447, 607);
-            this._states.Style = MetroFramework.MetroColorStyle.Black;
-            this._states.TabIndex = 2;
-            this._states.Text = "Stavy anime    ";
-            this._states.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this._states.UseStyleColors = true;
-            this._states.VerticalScrollbar = true;
-            this._states.VerticalScrollbarBarColor = false;
-            this._states.VerticalScrollbarHighlightOnWheel = false;
-            this._states.VerticalScrollbarSize = 10;
-            // 
             // metroStyleExtender1
             // 
             this.metroStyleExtender1.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -1862,7 +1927,7 @@ namespace RildasApp.Forms
             this.chatPanelPrivate.HorizontalScrollbarSize = 10;
             this.chatPanelPrivate.Location = new System.Drawing.Point(1484, 411);
             this.chatPanelPrivate.Name = "chatPanelPrivate";
-            this.chatPanelPrivate.Size = new System.Drawing.Size(150, 297);
+            this.chatPanelPrivate.Size = new System.Drawing.Size(150, 277);
             this.chatPanelPrivate.TabIndex = 3;
             this.chatPanelPrivate.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.chatPanelPrivate.VerticalScrollbarBarColor = true;
@@ -1883,14 +1948,14 @@ namespace RildasApp.Forms
             // 
             this.metroScrollBar2.HighlightOnWheel = true;
             this.metroScrollBar2.LargeChange = 10;
-            this.metroScrollBar2.Location = new System.Drawing.Point(1640, 433);
+            this.metroScrollBar2.Location = new System.Drawing.Point(1640, 411);
             this.metroScrollBar2.Maximum = 100;
             this.metroScrollBar2.Minimum = 0;
             this.metroScrollBar2.MouseWheelBarPartitions = 10;
             this.metroScrollBar2.Name = "metroScrollBar2";
             this.metroScrollBar2.Orientation = MetroFramework.Controls.MetroScrollOrientation.Vertical;
             this.metroScrollBar2.ScrollbarSize = 10;
-            this.metroScrollBar2.Size = new System.Drawing.Size(10, 279);
+            this.metroScrollBar2.Size = new System.Drawing.Size(10, 277);
             this.metroScrollBar2.SmallChange = 8;
             this.metroScrollBar2.TabIndex = 12;
             this.metroScrollBar2.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -1902,7 +1967,7 @@ namespace RildasApp.Forms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1370, 746);
+            this.ClientSize = new System.Drawing.Size(1673, 749);
             this.Controls.Add(this.metroScrollBar2);
             this.Controls.Add(this.chatGroupAdd);
             this.Controls.Add(this.chatPanelPrivate);
@@ -1914,7 +1979,6 @@ namespace RildasApp.Forms
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Dashboard";
-            this.Resizable = false;
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Dashboard_FormClosing);
             this.Load += new System.EventHandler(this.Dashboard_Load);
@@ -1934,6 +1998,8 @@ namespace RildasApp.Forms
             this._calendar.PerformLayout();
             this._helpers.ResumeLayout(false);
             this.metroTabControl2.ResumeLayout(false);
+            this.tab2Page1.ResumeLayout(false);
+            this.tab2Page1.PerformLayout();
             this._xdccCenter.ResumeLayout(false);
             this._xdccCenter.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.xdccGridView)).EndInit();
@@ -2077,5 +2143,10 @@ namespace RildasApp.Forms
         private MetroFramework.Controls.MetroComboBox encode_comboAnime;
         private MetroFramework.Controls.MetroLabel metroLabel23;
         private MetroFramework.Controls.MetroButton encode_buttonEncode;
+        private MetroFramework.Controls.MetroComboBox metroComboBox1;
+        private MetroFramework.Controls.MetroLabel metroLabel24;
+        private MetroFramework.Controls.MetroComboBox metroComboBox2;
+        private MetroFramework.Controls.MetroLabel metroLabel25;
+        private MetroFramework.Controls.MetroCheckBox configMinToSysTray;
     }
 }

@@ -13,20 +13,25 @@ namespace Host
         public static DateTime lastUpdated = new DateTime(1970,1,1);
         public static List<XDCCPackageDetails> listOfDetails = new List<XDCCPackageDetails>();
         public static List<string> botlist = new List<string>() { "Gintoki", "HelloKitty", "[xdcc]Ecchilicious", "NIBL|Arutha" };
-        public static List<string> channelsToJoin = new List<string>() { "#HorribleSubs", "#intel", "#Ecchilicious" };
+        public static List<string> channelsToJoin = new List<string>() { "#intel", "#Ecchilicious", "#NIBL" };
         private static List<XDCCPackageDetails> tempList = new List<XDCCPackageDetails>();
         public static void DownloadAndParse()
         {
             try
             {
                 tempList.Clear();
+#if DEBUG
+                XDCCService.Connect("RildasServiceDebugMode");
+#else
+
                 XDCCService.Connect("RildasService");
+#endif
                 while (!XDCCService.isConnected) System.Threading.Thread.Sleep(500);
                 foreach (string channel in channelsToJoin)
                 {
                     XDCCService.client.JoinChannel(channel);
                 }
-                System.Threading.Thread.Sleep(100);
+                System.Threading.Thread.Sleep(15000);
                 XDCCService.DownloadCompleted += XDCCService_DownloadCompleted;
                 foreach (string bot in botlist)
                 {
@@ -68,7 +73,7 @@ namespace Host
                 {
                     case "Ginpachi-Sensei":
                         {
-                            if (message.Source != "#HorribleSubs") return;
+                            if (message.Source != "#NIBL") return;
                             details = new XDCCPackageDetails();
                             string[] splitBySlash = message.Message.Split('/');
                             details.botName = splitBySlash[splitBySlash.Length - 1].Split(' ')[1];
@@ -83,7 +88,7 @@ namespace Host
                         }; break;
                     case "MyMelody":
                         {
-                            if (message.Source != "#HorribleSubs") return;
+                            if (message.Source != "#NIBL") return;
                             details = new XDCCPackageDetails();
                             string[] splitBySpace = message.Message.Split(' ');
                             details.botName = "HelloKitty";
@@ -96,7 +101,7 @@ namespace Host
                         break;
                     case "NIBL|Arutha":
                         {
-                            if (message.Source != "#HorribleSubs") return;
+                            if (message.Source != "#NIBL") return;
                             details = new XDCCPackageDetails();
                             string[] splitByStar = message.Message.Split('*');
                             details.botName = "NIBL|Arutha";
@@ -110,7 +115,8 @@ namespace Host
                         }
                         break;
                 }
-                if (details == null) return;
+                int n;
+                if (details == null || !int.TryParse(details.packageNum, out n)) return;
                 details.addedToList = DateTime.Now;
                 Logger.Log(String.Format("Adding file {0}. Bot: {1}, Size: {2}, PackageNum: {3}", details.filename, details.botName, details.packageSize, details.packageNum), Logger.SEVERITY.INFO);
 

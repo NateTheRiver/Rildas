@@ -47,6 +47,7 @@ namespace Host.DataParsers
                     clients[i].Send(String.Format("CHAT_RECEIVE_GROUPMESSAGE_{0}_{1}_{2}_{3}", groupId, sender.loggedUser.id , GlobalData.DateTimeToUnixTimestamp(DateTime.Now), text));
                 }
             }
+            GlobalData.AddGroupMessage(sender.loggedUser.id, groupId, text);
         }
 
         private void SendAlert(Client sender, int recipient)

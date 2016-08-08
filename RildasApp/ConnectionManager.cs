@@ -20,9 +20,12 @@ namespace RildasApp
             sck = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             try
             {
-                //sck.Connect(IPAddress.Parse("127.0.0.1"), 51200);
+#if DEBUG
+                sck.Connect(IPAddress.Parse("127.0.0.1"), 51200);
+#else
                 sck.Connect(IPAddress.Parse(ConfigApp.ConnectionIp), 51200);
-                sck.BeginReceive(new byte[] { 0 }, 0, 0, 0, callback, null);
+#endif 
+    sck.BeginReceive(new byte[] { 0 }, 0, 0, 0, callback, null);
             }
             catch(Exception e)
             {

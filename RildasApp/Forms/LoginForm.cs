@@ -118,17 +118,30 @@ namespace RildasApp.Forms
             }
             else
             {
-                metroButton1.Invoke(new MethodInvoker(delegate { metroButton1.Enabled = true; }));
-            }
-            this.Invoke(new MethodInvoker(delegate {
-                if (textPassword.Text != "")
+                if (Global.GetApplicationSettings("firstrun") != "false")
                 {
-                    label_fail.Visible = false;
-                    metroButton1.Visible = false;
-                    loginSpinner.Visible = true;
-                    Auth();
+                    Global.SetApplicationSettings("firstrun", "false");
+                    this.Invoke(new MethodInvoker(delegate
+                    {
+                        ApplicationUpdateInformationForm updateForm = new ApplicationUpdateInformationForm(version);
+                        updateForm.Show();
+                        updateForm.Activate();
+                    }));
+
+
                 }
-            }));
+                metroButton1.Invoke(new MethodInvoker(delegate { metroButton1.Enabled = true; }));
+                this.Invoke(new MethodInvoker(delegate {
+                    if (textPassword.Text != "")
+                    {
+                        label_fail.Visible = false;
+                        metroButton1.Visible = false;
+                        loginSpinner.Visible = true;
+                        Auth();
+                    }
+                }));
+            }
+
         }
 
         public void LoginSuccess(string userdata)
@@ -179,6 +192,7 @@ namespace RildasApp.Forms
             RildasServerAPI.GetTeamMembers();
             nextValue = 100;
             RildasServerAPI.GetLoggedUsers();
+            RildasServerAPI.GetGroupLogs();
             System.Threading.Thread.Sleep(50);
             progressBarTimer.Stop();
             ConnectionManager.Recieved -= ConnectionManager_Recieved;

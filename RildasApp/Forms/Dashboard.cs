@@ -6,17 +6,12 @@ using RildasApp.Models;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
-using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-
 using System.Text;
-using RildasApp;
 using System.Windows.Forms;
 using RildasApp.Properties;
-using System.Resources;
-using System.Reflection;
 
 namespace RildasApp.Forms
 {
@@ -28,12 +23,10 @@ namespace RildasApp.Forms
         int mouseX, mouseY;
         int selectedPublish;
         EpisodeVersion selectedVersion;
-        Timetable.Timetable table;
+        readonly Timetable.Timetable table;
         MyPanel myPanel;
         MyPanel myPanel2;
         EventControler econtrol;
-        MetroFramework.Controls.MetroButton leftButton;
-        MetroFramework.Controls.MetroButton rightButton;
         Timetable.Event moveEvent;
         string[,] animes; 
         string[] selectedAnime;
@@ -45,11 +38,7 @@ namespace RildasApp.Forms
             mouseY = 0;
             selectedPublish = -1;
             /*Testovaci část*/
-            myPanel = new MyPanel();
-            myPanel.Location = new Point(5, 5);
-            myPanel.Name = "panel1";
-            myPanel.Size = new Size(650, 600);
-            myPanel.TabIndex = 3;
+            myPanel = new MyPanel {Location = new Point(5, 5), Name = "panel1", Size = new Size(650, 600), TabIndex = 3};
             myPanel.Paint += new PaintEventHandler(this.metroPanel1_Paint);
             myPanel.MouseMove += new MouseEventHandler(this.metroPanel1_MouseMove);
             myPanel.MouseClick += new MouseEventHandler(myPanel_Click);
@@ -65,12 +54,14 @@ namespace RildasApp.Forms
             /*--------------*/
             // Made by Dan
             /*Panel pro zveřejnění*/
-            myPanel2 = new MyPanel();
-            myPanel2.Location = new Point(19, 99);
-            myPanel2.Name = "publish_panelAnime";
-            myPanel2.Size = new Size(305, 460);
-            myPanel2.BackColor = Color.FromArgb(17, 17, 17);
-            myPanel2.TabIndex = 4;
+            myPanel2 = new MyPanel
+            {
+                Location = new Point(19, 99),
+                Name = "publish_panelAnime",
+                Size = new Size(305, 460),
+                BackColor = Color.FromArgb(17, 17, 17),
+                TabIndex = 4
+            };
             myPanel2.Paint += new PaintEventHandler(this.publish_panelAnime_Paint);
             myPanel2.MouseMove += new MouseEventHandler(publishPanel_MouseMove);
             myPanel2.MouseClick += new MouseEventHandler(publishPanel_MouseClick);
@@ -86,6 +77,7 @@ namespace RildasApp.Forms
             this.News.MouseWheel += News_MouseWheel;
             this.chatPanelPrivate.MouseWheel += ChatPanelPrivate_MouseWheel;
             metroScrollBar1.Scroll += MetroScrollBar1_Scroll;
+            this.StyleManager = metroStyleManager1;
             instance = this;
             for(int i = 0; i <= 23; i++)
             {
@@ -282,7 +274,6 @@ namespace RildasApp.Forms
 
         private void ChatPanelPrivate_MouseWheel(object sender, MouseEventArgs e)
         {
-            int value;
             if (e.Delta > 0)
             {
 
@@ -317,14 +308,12 @@ namespace RildasApp.Forms
 
         private void ChatDelUser(User user)
         {
-            string directory = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
             ((PictureBox)chatPanelPrivate.Controls.Find(user.username + "_state", false)[0]).Image = (Resources.red);
         }
 
         private void ChatAddUser(User user)
         {
-            string directory = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
-            (chatPanelPrivate.Controls.Find(user.username + "_state", false)[0] as PictureBox).Image = Resources.green;
+            ((PictureBox) chatPanelPrivate.Controls.Find(user.username + "_state", false)[0]).Image = Resources.green;
         }
 
         private void Global_AnimeListUpdated()
@@ -339,7 +328,6 @@ namespace RildasApp.Forms
 
         private void News_MouseWheel(object sender, MouseEventArgs e)
         {
-            int value;
             if (e.Delta > 0)
             {
 
@@ -360,7 +348,7 @@ namespace RildasApp.Forms
 
         private void Dashboard_Resize(object sender, EventArgs e)
         {
-            if (this.WindowState == FormWindowState.Minimized)
+            if (this.WindowState == FormWindowState.Minimized && ConfigApp.minimalizateToSystemTray)
             {
                 notifyIcon1.Visible = true;
                 notifyIcon1.BalloonTipText = "Rildas je tu stále s Vámi";
@@ -461,6 +449,7 @@ namespace RildasApp.Forms
                     timeOn = tbTime.Text,
                     addedBy = Global.loggedUser.id,
                     _hash = hash.ToString("X"),
+                    reservedBy = anime.correctorid
                 };
                 RildasServerAPI.AddVersion(version);
                 metroTabControl1.SelectedIndex = 0;
@@ -478,14 +467,14 @@ namespace RildasApp.Forms
             if (selectedAnime == null) return;
             animeId = selectedAnime.id;
             Episode[] episodes = Global.GetEpisodes(selectedAnime.id);
-            for (int i = 0; i < episodes.Length; i++)
+            foreach (Episode ep in episodes)
             {
                 ComboboxItem item = new ComboboxItem();
                 //item.Text = currName;
-                item.Value = episodes[i];           
-                if (episodes[i].epState == state.Not_ready) continue;
-                if (episodes[i].special) item.Text = "SP" + episodes[i].ep_number; //cb2Episodes.Items.Add("SP" + publishedEps[i].ep_number);
-                else item.Text = episodes[i].ep_number.ToString();
+                item.Value = ep;           
+                if (ep.epState == state.Not_ready) continue;
+                if (ep.special) item.Text = "SP" + ep.ep_number; //cb2Episodes.Items.Add("SP" + publishedEps[i].ep_number);
+                else item.Text = ep.ep_number.ToString();
                 cb2Episodes.Items.Add(item);
             }
         }
@@ -499,13 +488,13 @@ namespace RildasApp.Forms
             EpisodeVersion[] episodeVersions = Global.GetEpisodeVersions(ep.animeid, ep.ep_number, ep.special, true);
             try
             {
-            for (int i = 0; i < episodeVersions.Length; i++)
+            foreach (EpisodeVersion epVer in episodeVersions)
             {
-                string currName = episodeVersions[i].type + " od " + Global.GetUser(episodeVersions[i].addedBy).username + " z " + episodeVersions[i].added;
-                if (episodeVersions[i].timeOn != "") currName += " [" + episodeVersions[i].timeOn + "]";
+                string currName = epVer.type + " od " + Global.GetUser(epVer.addedBy).username + " z " + epVer.added;
+                if (epVer.timeOn != "") currName += " [" + epVer.timeOn + "]";
                 ComboboxItem item = new ComboboxItem();
                 item.Text = currName;
-                item.Value = episodeVersions[i];
+                item.Value = epVer;
                 cb2Version.Items.Add(item);
             }
         }
@@ -540,8 +529,7 @@ namespace RildasApp.Forms
             tb3Comment.Text = version.comment;
             tb3Download.Tag = version;
             tb3DownloadAJ.Tag = version;
-            if (version.titleEN == "") tb3DownloadAJ.Visible = false;
-            else tb3DownloadAJ.Visible = true;
+            tb3DownloadAJ.Visible = version.titleEN != "";
         }
 
         private void DownloadMyTag(object sender, EventArgs e)
@@ -688,9 +676,9 @@ namespace RildasApp.Forms
             {
                 Anime[] animes = Global.GetAnimesOfUser(Global.loggedUser);
                 //var animes = cbDoneAnime.Checked ? Global.Query("SELECT name FROM anime WHERE translator_id='" + Global.loggedUser.id + "'") : Global.Query("SELECT name FROM anime WHERE translator_id='" + Global.loggedUser.id + "' AND status='PŘEKLÁDÁ SE'");
-                for (int i = 0; i < animes.Length; i++)
+                foreach (Anime anime in animes)
                 {
-                    if(cbDoneAnime.Checked || animes[i].status == Anime.Status.PŘEKLÁDÁ_SE) cbAnime.Items.Add(animes[i].name);
+                    if(cbDoneAnime.Checked || anime.status == Anime.Status.PŘEKLÁDÁ_SE) cbAnime.Items.Add(anime.name);
                 }
                 lbAJ.Visible = true;
                 lbAJ2.Visible = true;
@@ -716,7 +704,7 @@ namespace RildasApp.Forms
 
         private void cbReady_CheckedChanged(object sender, EventArgs e)
         {
-            if(cbReady.Checked == true)
+            if(cbReady.Checked)
             {
                 DialogResult dr = MetroMessageBox.Show(this, "Při zaškrtnutí této možnosti bude překlad odeslán ke schválení. Jste si tím jisti?", "Schválit?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dr == DialogResult.No) cbReady.Checked = false;
@@ -1067,7 +1055,6 @@ namespace RildasApp.Forms
             IEnumerable<User> users = Global.GetUsers().Where(x => x.access > 1);
             List<User> logged = Global.GetLoggedUsers();
             users = users.OrderBy(x => x.username);
-            string directory = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().Location);
             int positionIterator = 0;
             chatPanelPrivate.Invoke(new MethodInvoker(delegate
             {
@@ -1089,7 +1076,7 @@ namespace RildasApp.Forms
                     name.Tag = user;
                     name.Click += User_Click;
                     name.TextAlign = ContentAlignment.TopLeft;
-                    if (unseenMessages.Count() > 0)
+                    if (unseenMessages.Any())
                     {
                         name.ForeColor = Color.DarkOrange;
                         name.UseStyleColors = true;
@@ -1100,10 +1087,8 @@ namespace RildasApp.Forms
                     state.Location = new Point(1, name.Location.Y);
                     state.Name = user.username + "_state";
                     if (logged.Exists(x => x.username == user.username))
-                        //state.Load(directory + "/Images/green.png");
                         state.Image = Resources.green;
                     else
-                        //state.Load(directory + "/Images/red.png");
                         state.Image = Resources.red;
                     chatPanelPrivate.Controls.Add(name);
                     chatPanelPrivate.Controls.Add(state);
@@ -1124,18 +1109,18 @@ namespace RildasApp.Forms
         private void Name_Click(object sender, EventArgs e)
         {
             metroTabControl1.SelectedIndex = 2;
-            EpisodeVersion epver = (sender as MetroFramework.Controls.MetroLink).Tag as EpisodeVersion;
+            EpisodeVersion epver = (sender as Control).Tag as EpisodeVersion;
             cb2Anime.Text = Global.GetAnime(epver.animeId).name;
             cb2Episodes.Text = epver.episode.ToString();
             try
             {
-            string epVerText = epver.type + " od " + Global.GetUser(epver.addedBy).username + " z " + epver.added;
-            if (epver.timeOn != "") epVerText += " [" + epver.timeOn + "]";
-            cb2Version.Text = epVerText;
+                string epVerText = epver.type + " od " + Global.GetUser(epver.addedBy).username + " z " + epver.added;
+                if (epver.timeOn != "") epVerText += " [" + epver.timeOn + "]";
+                cb2Version.Text = epVerText;
             }
             catch (Exception)
             {
-                MessageBox.Show("Vyskytl se problém s zjišťováním informací o verzi anime.");
+                MessageBox.Show("Vyskytl se problém se zjišťováním informací o verzi anime.");
             }
 
             panel3.Visible = true;
@@ -1487,7 +1472,8 @@ namespace RildasApp.Forms
                     button2.Theme = MetroThemeStyle.Dark;
                     button2.TabIndex = 9;
                     button2.UseSelectable = true;
-                    button2.Click += new System.EventHandler(NewsButton_Click);
+                    button2.Tag = epver;
+                    button2.Click += new System.EventHandler(Name_Click);
                     if (epver.state == -3 && Global.loggedUser.access > 5)
                     {
                         button2.Text = "Stáhnout";
@@ -1509,7 +1495,6 @@ namespace RildasApp.Forms
                         panel.Controls.Add(button2);
                     }
                     panel.Controls.Add(labelDone);
-                    panel.Controls.Add(button2);
                     panel.Controls.Add(label1);
                     panel.Controls.Add(label2);
                     panel.Controls.Add(labelTime);
@@ -1782,38 +1767,18 @@ namespace RildasApp.Forms
 
         private void configSilentGroupMessages_CheckedChanged(object sender, EventArgs e)
         {
-            if(configSilentGroupMessages.Checked)
-            {
-                Global.SetApplicationSettings("silentGroupMessages", "true");
-            }
-            else
-            {
-                Global.SetApplicationSettings("silentGroupMessages", "false");
-            }
+            Global.SetApplicationSettings("silentGroupMessages", configSilentGroupMessages.Checked ? "true" : "false");
         }
 
         private void configSilentPrivateMessages_CheckedChanged(object sender, EventArgs e)
         {
-            if (configSilentPrivateMessages.Checked)
-            {
-                Global.SetApplicationSettings("silentPrivateMessages", "true");
-            }
-            else
-            {
-                Global.SetApplicationSettings("silentPrivateMessages", "false");
-            }
+            Global.SetApplicationSettings("silentPrivateMessages",
+                configSilentPrivateMessages.Checked ? "true" : "false");
         }
 
         private void configSilentNotifications_CheckedChanged(object sender, EventArgs e)
         {
-            if (configSilentGroupMessages.Checked)
-            {
-                Global.SetApplicationSettings("silentNotifications", "true");
-            }
-            else
-            {
-                Global.SetApplicationSettings("silentNotifications", "false");
-            }
+            Global.SetApplicationSettings("silentNotifications", configSilentGroupMessages.Checked ? "true" : "false");
         }
 
         private void _encode_Click(object sender, EventArgs e)
@@ -1829,17 +1794,22 @@ namespace RildasApp.Forms
         private void encode_comboAnime_SelectedIndexChanged(object sender, EventArgs e)
         {
             var an = Global.GetAnimes().Where(x => x.name == encode_comboAnime.SelectedItem.ToString()).ToArray();
-            if (an.Count() > 0)
+            if (an.Any())
             {
                 var ep = Global.GetEpisodes(an[0].id).Where(x => x.epState == state.Korekce).ToList();
                 ep.ForEach(x => encode_comboEpisode.Items.Add(x));
             }
         }
 
+        private void metroCheckBox1_CheckedChanged_1(object sender, EventArgs e)
+        {
+            Global.SetApplicationSettings("minimalizateToSystemTray", configMinToSysTray.Checked ? "true" : "false");
+        }
+
         private void encode_buttonEncode_Click(object sender, EventArgs e)
         {
             var an = Global.GetAnimes().Where(x => x.name == encode_comboAnime.SelectedItem.ToString()).ToArray();
-            if (an.Count() > 0)
+            if (an.Any())
             {
                 var ep = Global.GetEpisodes(an[0].id).Where(x => x.epState == state.Korekce && x.ep_number == Int32.Parse(encode_comboEpisode.SelectedItem.ToString())).ToList();
                 if (ep.Count() > 0)
@@ -1848,22 +1818,6 @@ namespace RildasApp.Forms
                     ep[0].link_ulozto = encode_textUlozto.Text;
                     ep[0].link_online = encode_textOnline.Text;
                 }
-            }
-        }
-
-        private void timetable_panel_Paint(object sender, PaintEventArgs e)
-        {
-            var p = sender as Panel;
-            var g = e.Graphics;
-
-            int users = 10; //Počet lidí, kteří jsou v týmu
-
-            Point[] points = new Point[(users + 1) * 2];
-            Pen pen = new Pen(Color.Black);
-
-            for (int i = 1; i < (points.Length - 1); i = i + 2)
-            {
-                g.DrawLine(pen, new Point(10, i * ((p.Height / 2) / (users + 2))), new Point(p.Width - 10, i * ((p.Height / 2) / (users + 2))));
             }
         }
 

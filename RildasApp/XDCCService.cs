@@ -37,6 +37,7 @@ namespace RildasApp
         private static Thread downloader;
         private static string newFileName;
         private static int newFileSize;
+        private static string finalFileName = "";
         private static string newIp;
         private static int newPortNum;
         public static bool isProcessing { get; private set; }
@@ -101,6 +102,7 @@ namespace RildasApp
                 if (DebugMessage != null) DebugMessage("Already downloading. Please wait.");
                 return false;
             }
+            XDCCService.finalFileName = "";
             XDCCService.downloadPath = downloadPath;
             client.RawMessageRecieved += Client_RawMessageRecieved;
             System.Threading.Thread.Sleep(100);
@@ -232,7 +234,7 @@ namespace RildasApp
             }
             string[] pathToCombine = new string[] { curDownloadDir, newFileName };
             string dlDirAndFileName = Path.Combine(pathToCombine);
-            string finalFileName = dlDirAndFileName;
+            finalFileName = dlDirAndFileName;
             for (int i = 1; i < 10000; i++)
             {
                 if (File.Exists(dlDirAndFileName))
@@ -438,6 +440,7 @@ namespace RildasApp
             try
             {
                 downloader.Abort();
+                if(File.Exists(finalFileName)) File.Delete(finalFileName);
             }
             catch (Exception) { }
         }

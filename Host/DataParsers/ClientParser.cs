@@ -58,7 +58,16 @@ namespace Host.DataParsers
                             if (client != sender) client.Send("CHAT_USER_CONNECTED_" + user.id);
                         }
                     }
+#if !DEBUG
                     else sender.Send("CLIENT_LOGIN_FAILED");
+#else
+                        sender.loggedUser = user;
+                        sender.Send("CLIENT_LOGIN_SUCCESS_" + Serializer.Serialize(user));
+                        foreach(Client client in ConnectionManager.Connections)
+                        {
+                            if (client != sender) client.Send("CHAT_USER_CONNECTED_" + user.id);
+                        }
+  #endif
                     return;
                 }
             }

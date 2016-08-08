@@ -125,7 +125,7 @@
             this.Controls.Add(this._lbCurr);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ApplicationUpdateInformationForm";
-            this.Text = "Updating to new version";
+            this.Text = "Patch notes";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.ResumeLayout(false);
             this.PerformLayout();

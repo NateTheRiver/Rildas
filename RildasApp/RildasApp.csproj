@@ -78,6 +78,22 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="Vlc.DotNet.Core, Version=2.1.126.0, Culture=neutral, PublicKeyToken=84529da31f4eb963, processorArchitecture=x86">
+      <HintPath>..\packages\Vlc.DotNet.Core.2.1.126\lib\net45\x86\Vlc.DotNet.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Vlc.DotNet.Core.Interops, Version=2.1.126.0, Culture=neutral, PublicKeyToken=84529da31f4eb963, processorArchitecture=x86">
+      <HintPath>..\packages\Vlc.DotNet.Core.Interops.2.1.126\lib\net45\x86\Vlc.DotNet.Core.Interops.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Vlc.DotNet.Forms, Version=2.1.126.0, Culture=neutral, PublicKeyToken=84529da31f4eb963, processorArchitecture=x86">
+      <HintPath>..\packages\Vlc.DotNet.Forms.2.1.126\lib\net45\x86\Vlc.DotNet.Forms.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Vlc.DotNet.Wpf, Version=2.1.126.0, Culture=neutral, PublicKeyToken=84529da31f4eb963, processorArchitecture=x86">
+      <HintPath>..\packages\Vlc.DotNet.Wpf.2.1.126\lib\net45\x86\Vlc.DotNet.Wpf.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="config.Designer.cs">
@@ -86,6 +102,7 @@
       <DependentUpon>config.settings</DependentUpon>
     </Compile>
     <Compile Include="ConfigApp.cs" />
+    <Compile Include="DiffCalculator.cs" />
     <Compile Include="Forms\ApplicationUpdateInformationForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -162,6 +179,7 @@
     <Compile Include="Timetable\Day.cs" />
     <Compile Include="Timetable\Event.cs" />
     <Compile Include="Timetable\Timetable.cs" />
+    <Compile Include="VLC\Extensions.cs" />
     <Compile Include="VLC\InnerVlcWindow.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -169,6 +187,12 @@
       <DependentUpon>InnerVlcWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="VLC\NativeLibVlc.cs" />
+    <Compile Include="VLC\RildasPlayer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VLC\RildasPlayer.Designer.cs">
+      <DependentUpon>RildasPlayer.cs</DependentUpon>
+    </Compile>
     <Compile Include="VLC\VlcUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -222,6 +246,12 @@
     </Compile>
     <EmbeddedResource Include="Forms\XDCCDownloadingForm.resx">
       <DependentUpon>XDCCDownloadingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VLC\InnerVlcWindow.resx">
+      <DependentUpon>InnerVlcWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VLC\RildasPlayer.resx">
+      <DependentUpon>RildasPlayer.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="config.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

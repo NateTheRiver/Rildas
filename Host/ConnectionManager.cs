@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 
 namespace Host
 {
@@ -28,6 +29,7 @@ namespace Host
             try
             {
                 Connections.Remove(e);
+                if (Connections.Exists(x => x.loggedUser.id == e.loggedUser.id)) return;
                 foreach (Client client in Connections)
                 {
                     client.Send("CHAT_USER_DISCONNECTED_" + e.loggedUser.id);

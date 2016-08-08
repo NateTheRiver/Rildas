@@ -35,6 +35,7 @@
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.metroLabel13 = new MetroFramework.Controls.MetroLabel();
+            this.usersPanel = new MetroFramework.Controls.MetroPanel();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -70,12 +71,11 @@
             this.tbMessage.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.tbMessage.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             this.tbMessage.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbMessage_KeyDown);
+            this.tbMessage.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tbMessage_KeyUp);
             // 
             // cbAlwaysOnTop
             // 
             this.cbAlwaysOnTop.AutoSize = true;
-            this.cbAlwaysOnTop.Checked = true;
-            this.cbAlwaysOnTop.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cbAlwaysOnTop.Location = new System.Drawing.Point(500, 32);
             this.cbAlwaysOnTop.Name = "cbAlwaysOnTop";
             this.cbAlwaysOnTop.Size = new System.Drawing.Size(98, 15);
@@ -135,11 +135,26 @@
             this.metroLabel13.UseStyleColors = true;
             this.metroLabel13.Visible = false;
             // 
+            // usersPanel
+            // 
+            this.usersPanel.HorizontalScrollbarBarColor = true;
+            this.usersPanel.HorizontalScrollbarHighlightOnWheel = false;
+            this.usersPanel.HorizontalScrollbarSize = 10;
+            this.usersPanel.Location = new System.Drawing.Point(617, 63);
+            this.usersPanel.Name = "usersPanel";
+            this.usersPanel.Size = new System.Drawing.Size(150, 300);
+            this.usersPanel.TabIndex = 8;
+            this.usersPanel.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.usersPanel.VerticalScrollbarBarColor = true;
+            this.usersPanel.VerticalScrollbarHighlightOnWheel = false;
+            this.usersPanel.VerticalScrollbarSize = 10;
+            // 
             // ChatWindowGroup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(865, 408);
+            this.ClientSize = new System.Drawing.Size(829, 408);
+            this.Controls.Add(this.usersPanel);
             this.Controls.Add(this.metroLabel13);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnSend);
@@ -151,6 +166,8 @@
             this.Text = "Group chat: Rildas";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.TopMost = true;
+            this.Activated += new System.EventHandler(this.ChatWindowGroup_Activated);
+            this.Shown += new System.EventHandler(this.ChatWindowGroup_Shown);
             this.Resize += new System.EventHandler(this.ChatWindow_Resize);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -165,5 +182,6 @@
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Panel panel1;
         private MetroFramework.Controls.MetroLabel metroLabel13;
+        private MetroFramework.Controls.MetroPanel usersPanel;
     }
 }

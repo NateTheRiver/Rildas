@@ -29,6 +29,7 @@ namespace Host.DataParsers
                     case "TEAMMEMBER": GetTeamMemberData(sender, data[1]); break;
                     case "IRCXDCCDATA": GetIRCXDCCData(sender, data.Skip(1).ToArray()); break;
                     case "LOGGEDUSERS": GetLoggedUsers(sender); break;
+                    case "CHATLOGS": GetChatLogs(sender, data[1]); break;
                 }
             }
             catch (Exception e)
@@ -37,6 +38,13 @@ namespace Host.DataParsers
             }
         }
 
+        private void GetChatLogs(Client sender, string data)
+        {
+            if (data == "GROUPS")
+            {
+                sender.Send("DATA_CHATLOGS_GROUP_" + Serializer.Serialize(GlobalData.GetGroupChatLogs()));
+            }
+        }
         private void GetTeamMemberData(Client sender, string data)
         {
             if (data == "ALL") { sender.Send("DATA_TEAMMEMBER_FULL_" + Serializer.Serialize(GlobalData.GetUsers().Where(x => x.access > 1).ToArray())); }
@@ -58,31 +66,39 @@ namespace Host.DataParsers
             if (data[0] == "PACKAGES")
             {
                 bool dirty = data[1] == "DIRTY";
-                string[] filters = data.Skip(2).ToArray();
+                List<string> filters = data.Skip(2).ToList();
                 
                 List<XDCCPackageDetails> filteredDetails = new List<XDCCPackageDetails>();
                 XDCCPackageDetails[] allDetails = AutoXDCCUpdater.GetPackageDetails().ToArray();
                 allDetails=  allDetails.Reverse().ToArray();
+
+                filters = filters.ConvertAll(x => x.ToLower());
+
                 foreach (XDCCPackageDetails package in allDetails) 
                 {
                     bool everyFilterMatch = true;
+
                     foreach (string filter in filters)
                     {
-                        if (package.quality.Contains(filter) || package.botName.Contains(filter) || package.fansubGroup.Contains(filter)) continue;
-                        if (package.filename.Contains(filter))
+                        
+                        if (package.quality.Contains(filter) || package.botName.ToLower().Contains(filter) || package.fansubGroup.ToLower().Contains(filter)) continue;
+                        if (package.filename.ToLower().Contains(filter))
                         {
+                            Console.WriteLine(String.Format("Matched {0} in {1}.", filter, package.filename));
                             if (dirty) continue;
-                            int position = package.filename.IndexOf(filter);
-                            int firstClosingBrack = package.filename.IndexOf("]", position);
+                            int position = package.filename.ToLower().IndexOf(filter, StringComparison.Ordinal);
+                            int firstClosingBrack = package.filename.ToLower().IndexOf("]", position, StringComparison.Ordinal);
                             if (firstClosingBrack == -1) continue; // Pokud za textem není žádná "]", tak text nemůže být uzavřen v závorkách
-                            int firstOpeningBrack = package.filename.IndexOf("[", position);
+                            int firstOpeningBrack = package.filename.ToLower().IndexOf("[", position, StringComparison.Ordinal);
                             if(firstOpeningBrack == -1) // Pokud se za textem nachází "]", ale nikoliv "[", tak text musí být v závorkách
                             {
+                                Console.WriteLine("und failed");
                                 everyFilterMatch = false;
                                 break;
                             }
                             if(firstOpeningBrack > firstClosingBrack)
                             {
+                                Console.WriteLine("und failed");
                                 everyFilterMatch = false;
                                 break;
                             }

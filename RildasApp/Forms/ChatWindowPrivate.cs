@@ -1,18 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using MetroFramework.Controls;
 using RildasApp.Models;
 using System.Runtime.InteropServices;
-using Microsoft.Win32;
-using System.Threading;
 using RildasApp.Properties;
-
+using System.IO;
 namespace RildasApp.Forms
 {
     public partial class ChatWindowPrivate : MetroFramework.Forms.MetroForm
@@ -27,7 +20,6 @@ namespace RildasApp.Forms
         public const UInt32 FLASHW_ALL = 3;
         // Flash continuously until the window comes to the foreground. 
         public const UInt32 FLASHW_TIMERNOFG = 12;
-
         bool _focus = false;
         List<Keys> pressed;
         protected override bool ShowWithoutActivation => true;
@@ -38,10 +30,16 @@ namespace RildasApp.Forms
             pressed = new List<Keys>();
             Global.UserDisconnected += UserLeave;
             Global.UserConnected += UserEnter;
+            this.FormClosing += OnFormClosing;
             richTextBox1.Location = new Point(1, 1);
             panel1.Size = new Size(richTextBox1.Size.Width + 2, richTextBox1.Size.Height + 2);
             this.SetStyle(ControlStyles.UserPaint, true);
+        }
 
+        private void OnFormClosing(object sender, FormClosingEventArgs formClosingEventArgs)
+        {
+            Global.UserDisconnected -= UserLeave;
+            Global.UserConnected -= UserEnter;
         }
 
         private void UserEnter(User user)
@@ -116,17 +114,28 @@ namespace RildasApp.Forms
         {
             this.Invoke(new MethodInvoker(delegate
             {
-                Append(richTextBox1, String.Format("[{0}]", time.ToString("HH:mm")), Color.FromArgb(231, 76, 60));
+                Append(richTextBox1, String.Format("[{0}] ", time.ToString("HH:mm")), Color.FromArgb(231, 76, 60));
                 Append(richTextBox1, (this.Tag as User).username, Color.FromArgb(231, 76, 60));
                 Append(richTextBox1, ": " + message, Color.White);
                 Append(richTextBox1, Environment.NewLine, Color.White);
                 richTextBox1.ScrollToCaret();
             }));
 
+            string dirPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "RildasLogs");
 
+            try
+            {
+                if (!Directory.Exists(dirPath)) Directory.CreateDirectory(dirPath);
+                File.AppendAllText(Path.Combine(dirPath, (this.Tag as User).username + ".txt"), String.Format("[{0}]{1}: {2}", time.ToString("HH:mm"), (this.Tag as User).username, message) + Environment.NewLine);
+
+            }
+            catch (Exception)
+            {
+            }   
         }
         private static void Append(RichTextBox box, string text, Color color)
         {
+
             box.SelectionStart = box.TextLength;
             box.SelectionLength = 0;
 
@@ -136,11 +145,7 @@ namespace RildasApp.Forms
         }
         private void cbAlwaysOnTop_CheckedChanged(object sender, EventArgs e)
         {
-            if (cbAlwaysOnTop.Checked)
-            {
-                this.TopMost = true;
-            }
-            else this.TopMost = false;
+            this.TopMost = cbAlwaysOnTop.Checked;
         }
 
         private void metroButton1_Click(object sender, EventArgs e)
@@ -152,8 +157,20 @@ namespace RildasApp.Forms
             Append(richTextBox1, Environment.NewLine, Color.White);
             richTextBox1.ScrollToCaret();
             RildasServerAPI.SendMessage(((User)this.Tag).id, tbMessage.Text);
-            tbMessage.Text = "";
             this.tbMessage.Focus();
+            string dirPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "RildasLogs");
+
+            try
+            {
+                if (!Directory.Exists(dirPath)) Directory.CreateDirectory(dirPath);
+                File.AppendAllText(Path.Combine(dirPath, (this.Tag as User).username + ".txt"), String.Format("[{0}]{1}: {2}", DateTime.Now.ToString("HH:mm"), Global.loggedUser.username, tbMessage.Text) + Environment.NewLine);
+
+            }
+            catch (Exception)
+            {
+            }
+            tbMessage.Text = "";
+
         }
 
         private void btnNotice_Click(object sender, EventArgs e)
@@ -245,8 +262,20 @@ namespace RildasApp.Forms
                 Append(richTextBox1, Environment.NewLine, Color.White);
                 richTextBox1.ScrollToCaret();
                 RildasServerAPI.SendMessage(((User)this.Tag).id, tbMessage.Text);
-                tbMessage.Text = "";
                 e.Handled = e.SuppressKeyPress = true;
+                string dirPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "RildasLogs");
+
+                try
+                {
+                    if (!Directory.Exists(dirPath)) Directory.CreateDirectory(dirPath);
+                    File.AppendAllText(Path.Combine(dirPath, (this.Tag as User).username + ".txt"), String.Format("[{0}]{1}: {2}", DateTime.Now.ToString("HH:mm"), Global.loggedUser.username, tbMessage.Text) + Environment.NewLine);
+
+                }
+                catch (Exception)
+                {
+                }
+                tbMessage.Text = "";
+
             }
             if (!pressed.Exists(x => x == e.KeyCode))
             {
@@ -304,6 +333,11 @@ namespace RildasApp.Forms
                 picture_userState.Image = Resources.green;
             else
                 picture_userState.Image = Resources.red;
+        }
+
+        private void ChatWindowPrivate_Activated(object sender, EventArgs e)
+        {
+            this.tbMessage.Focus();
         }
     }
 }

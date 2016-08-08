@@ -34,7 +34,7 @@ namespace RildasApp.Forms
                 updateForm.Show();
                 updateForm.Activate();
             }));
-            Properties.Settings.Default.FirstRun = true;
+            Global.SetApplicationSettings("firstrun", "true");
             Properties.Settings.Default.Save();
 
             Process p = new Process();

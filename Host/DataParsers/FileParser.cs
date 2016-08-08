@@ -42,7 +42,7 @@ namespace Host.DataParsers
             {
                 string path = String.Join("_", filepath);
                 string enVer = englishVersion ? "en_" : "";
-                byte[] filebytes = File.ReadAllBytes(Path.GetFullPath("./EpVersions/" + enVer + id));
+                byte[] filebytes = File.ReadAllBytes(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "EpVersions", enVer + id));
                 sender.Send(String.Format("FILE_DOWNLOAD_FILEVERSION_{0}_{1}_{2}_{3}", id, filepath.Length - 1, path, Encoding.UTF8.GetString(filebytes)));
             }
         }
@@ -60,7 +60,7 @@ namespace Host.DataParsers
             data = data.Skip(numberOfUnderscoresInName + 1).ToArray();
             string fileName = "";
             byte[] fileData = Encoding.UTF8.GetBytes(String.Join("_", data));
-            if(type == "EPISODEVERSION") fileName = Path.GetFullPath("./EpVersionsTmp/" + name);
+            if(type == "EPISODEVERSION") fileName = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "EpVersionsTmp", name);
 
             if(fileName == "")
             {
