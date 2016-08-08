@@ -108,6 +108,8 @@
             this.richTextBox1.Size = new System.Drawing.Size(572, 253);
             this.richTextBox1.TabIndex = 5;
             this.richTextBox1.Text = "";
+            this.richTextBox1.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.RichTextBox1_LinkClicked);
+
             // 
             // panel1
             // 

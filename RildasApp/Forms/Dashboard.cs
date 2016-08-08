@@ -1190,6 +1190,7 @@ namespace RildasApp.Forms
             int iterator = 0;
             this.Invoke(new MethodInvoker(delegate
             {
+                dashboard_notificationsPanel.Controls.Clear();
                 foreach (Notification notif in notifications)
                 {
                     MetroPanel panel = new MetroPanel();
@@ -1212,7 +1213,7 @@ namespace RildasApp.Forms
                     // metroLabel14
                     // 
                     timeLabel.AutoSize = true;
-                    timeLabel.Location = new System.Drawing.Point(337, 78 + 100 * iterator);
+                    timeLabel.Location = new System.Drawing.Point(300, 78);
                     timeLabel.Name = "metroLabel1Notif" + notif.id; ;
                     timeLabel.Size = new System.Drawing.Size(95, 19);
                     timeLabel.Text = notif.time.ToLongDateString();
@@ -1224,7 +1225,7 @@ namespace RildasApp.Forms
                     // 
                     // 
                     textBox.CustomButton.Visible = false;
-                    textBox.Location = new System.Drawing.Point(3, 24 + 100 * iterator);
+                    textBox.Location = new System.Drawing.Point(3, 24);
                     textBox.MaxLength = 32767;
                     textBox.Multiline = true;
                     textBox.Name = "metroTextBoxNotif" + notif.id;
@@ -1237,7 +1238,7 @@ namespace RildasApp.Forms
                     // 
                     // metroLink2
                     // 
-                    header.Location = new System.Drawing.Point(0, 0 + 100 * iterator);
+                    header.Location = new System.Drawing.Point(0, 0);
                     header.Name = "metroLinkNotif" + notif.id;
                     header.Size = new System.Drawing.Size(435, 23);
                     header.Text = notif.header;

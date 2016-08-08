@@ -164,10 +164,6 @@ namespace Host
                             {
                                 SendNotification(GetUser(episodeVersion.addedBy), "Schválení", String.Format("Překlad anime {0} byl odeslán ke schválení. ", GetAnime(episodeVersion.animeId).name), false);
                             }
-                            if (episodeVersion.state == -1)
-                            {
-                                SendNotification(GetUser(episodeVersion.addedBy), "Schválení", String.Format("Překlad anime {0} byl odeslán ke schválení. ", GetAnime(episodeVersion.animeId).name), false);
-                            }
                             if (episodeVersion.state == 0)
                             {
                                 foreach (var user in _users.Where(x => x.access > 2))

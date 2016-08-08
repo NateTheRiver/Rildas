@@ -51,6 +51,7 @@ namespace RildasApp.Forms
             Global.OnlineUsersListUpdated += LoadLoggedState;
             Global.UserConnected += Global_UserConnected;
             this.FormClosing += ChatWindowGroup_FormClosing;
+            this.richTextBox1.LinkClicked += RichTextBox1_LinkClicked;
 
             Global.UserDisconnected += Global_UserDisconnected;
             if (loggedMessages.Any())
@@ -70,6 +71,11 @@ namespace RildasApp.Forms
                     AppendMessage(Global.GetUser(message.senderId).username, message.text, message.time);
                 }
             }
+        }
+
+        private void RichTextBox1_LinkClicked(object sender, LinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start(e.LinkText);
         }
 
         private void ChatWindowGroup_FormClosing(object sender, FormClosingEventArgs e)
@@ -265,7 +271,8 @@ namespace RildasApp.Forms
                 _pressed.Add(e.KeyCode);
             }
 
-        }
+        }            
+
 
         private void tbMessage_KeyUp(object sender, KeyEventArgs e)
         {
