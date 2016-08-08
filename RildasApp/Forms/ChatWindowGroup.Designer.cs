@@ -166,7 +166,6 @@
             this.Style = MetroFramework.MetroColorStyle.Lime;
             this.Text = "Group chat: Rildas";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.TopMost = true;
             this.Activated += new System.EventHandler(this.ChatWindowGroup_Activated);
             this.Shown += new System.EventHandler(this.ChatWindowGroup_Shown);
             this.Resize += new System.EventHandler(this.ChatWindow_Resize);

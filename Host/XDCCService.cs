@@ -66,18 +66,11 @@ namespace Host
             };
             client.NetworkError += (s, e) =>
             {
-                if (IRCNetworkError != null)
-                {
-                    IRCNetworkError(e.SocketError.ToString());
-                }
+                IRCNetworkError?.Invoke(e.SocketError.ToString());
             };
             client.ChannelMessageRecieved += (s, e) =>
             {
-                if (IRCChannelMessage != null) IRCChannelMessage(e.PrivateMessage);
-            };
-            client.NoticeRecieved += (s, e) =>
-            {
-                Console.WriteLine("Notice received: " + e.Notice);
+                IRCChannelMessage?.Invoke(e.PrivateMessage);
             };
             client.RawMessageRecieved += Client_RawMessageRecieved;
 

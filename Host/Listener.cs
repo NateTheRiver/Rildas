@@ -60,10 +60,7 @@ namespace Host
             {
                 Logger.Log("socket accepted", Logger.SEVERITY.INFO);
                 Socket s = this.s.EndAccept(ar);
-                if (SocketAccepted != null)
-                {
-                    SocketAccepted(s);
-                }
+                SocketAccepted?.Invoke(s);
                 this.s.BeginAccept(callback, null);
             }
             catch (Exception e)

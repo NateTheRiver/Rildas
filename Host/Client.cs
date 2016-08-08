@@ -65,7 +65,7 @@ namespace Host
                     }
                     catch(Exception e)
                     {
-
+                        Logger.Log("Failed to recieve data from client: " + e.Message);
                     }
                 }
                 if (IsConnected)

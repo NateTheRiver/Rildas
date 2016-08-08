@@ -61,6 +61,8 @@ namespace Host
         {
             EpisodeVersion episodeVersion = GlobalData.GetEpisodeVersions().First(version => version.id == episodeId);
             Database.Instance.UpdateQuery("episodes", "visible='1', email_notif='1'", String.Format("anime_id='{0}' AND ep_number='{1}' AND special='{2}'", episodeVersion.animeId, episodeVersion.episode, episodeVersion.special));
+            episodeVersion.state = 3;
+            UpdateEpisodeVersion(episodeVersion);
         }
         public static void SendNotification(User user, string header, string text, bool saveIfOffline = true)
         {
@@ -68,6 +70,7 @@ namespace Host
             {
                 header = header,
                 text = text,
+                userId = user.id,
                 id = -1,
                 time = DateTime.Now
             };
@@ -83,8 +86,8 @@ namespace Host
             }
             if (!sent && saveIfOffline)
             {
-                string[] columns = { "header", "text", "time" };
-                string[] values = { header, text, GlobalData.DateTimeToUnixTimestamp(DateTime.Now).ToString() };
+                string[] columns = { "header", "userId", "text", "time" };
+                string[] values = { header, user.id.ToString(), text, GlobalData.DateTimeToUnixTimestamp(DateTime.Now).ToString() };
                 Database.Instance.InsertQuery("app_notifications", columns, values);
             }
         }
@@ -122,7 +125,7 @@ namespace Host
                 {
                     foreach (var user in _users.Where(x => x.access > 2))
                     {
-                        SendNotification(user, "Korekce", String.Format("Je dostupná nový překlad anime {0}. Díl je připraven ke korekci.", GetAnime(episodeVersion.animeId).name), false);
+                        SendNotification(user, "Korekce", String.Format("Je dostupná nová verze anime {0}. Verze je připravena ke korekci.", GetAnime(episodeVersion.animeId).name), false);
                     }
                 }
             }
@@ -151,32 +154,51 @@ namespace Host
                             if(_episodeVersions[i].reservedBy != 0) SendNotification(GetUser(_episodeVersions[i].reservedBy), "Korekce odebrána", String.Format("Anime {0} již nečekává vaši korekci. :(", GetAnime(episodeVersion.animeId).name));
                             if(episodeVersion.reservedBy != 0) SendNotification(GetUser(episodeVersion.reservedBy), "Korekce", String.Format("Díl anime {0} očekává vaši korekci.", GetAnime(episodeVersion.animeId).name));
                         }
-                        if (_episodeVersions[i].episode != episodeVersion.episode)
-                        {
-
-                        }
                         if (_episodeVersions[i].state != episodeVersion.state)
                         {
+                            if (episodeVersion.state == -4)
+                            {
+                                SendNotification(GetUser(GetAnime(episodeVersion.animeId).translatorid), "Schválení", String.Format("Překlad anime {0} byl schválen. Nyní očekává vaše potvrzení.", GetAnime(episodeVersion.animeId).name), false);
+                            }
+                            if(episodeVersion.state == -3)
+                            {
+                                SendNotification(GetUser(episodeVersion.addedBy), "Schválení", String.Format("Překlad anime {0} byl odeslán ke schválení. ", GetAnime(episodeVersion.animeId).name), false);
+                            }
+                            if (episodeVersion.state == -1)
+                            {
+                                SendNotification(GetUser(episodeVersion.addedBy), "Schválení", String.Format("Překlad anime {0} byl odeslán ke schválení. ", GetAnime(episodeVersion.animeId).name), false);
+                            }
                             if (episodeVersion.state == 0)
                             {
                                 foreach (var user in _users.Where(x => x.access > 2))
                                 {
-                                    SendNotification(user, "Korekce", String.Format("Je dostupná překlad anime {0}. Díl je připraven ke korekci.", GetAnime(episodeVersion.animeId).name), false);
+                                    SendNotification(user, "Korekce", String.Format("Je dostupný překlad anime {0}. Díl je připraven ke korekci.", GetAnime(episodeVersion.animeId).name), false);
                                 }
                             }
-                        }
-                        if (_episodeVersions[i].timeOn != episodeVersion.timeOn)
-                        {
-
+                            if (episodeVersion.state == 1)
+                            {
+                                SendNotification(GetUser(GetAnime(episodeVersion.animeId).translatorid), "Enkód", String.Format("Překlad anime {0} nyní čeká na enkód. Vyčkejte, nebo kopněte do Dana.", GetAnime(episodeVersion.animeId).name), false);
+                            }
+                            if (episodeVersion.state == 2)
+                            {
+                                SendNotification(GetUser(GetAnime(episodeVersion.animeId).translatorid), "Připraveno ke zveřejnění", String.Format("Překlad anime {0} byl je připraven ke zveřejnění.", GetAnime(episodeVersion.animeId).name), false);
+                            }
+                            if (episodeVersion.state == 3)
+                            {
+                                SendNotification(GetUser(GetAnime(episodeVersion.animeId).translatorid), "Zveřejnění", String.Format("Díl vašeho anime {0} byl úspěšně zveřejněn.", GetAnime(episodeVersion.animeId).name), false);
+                            }
                         }
                         _episodeVersions[i] = episodeVersion;
                         ConnectionManager.SendToAll("CHANGEDATA_UPDATE_EPISODEVERSION_" + Serializer.Serialize(episodeVersion));
-                        //TODO: Update database
-                        return;
+                        
+                        break;
                     } 
 
                 }
             }
+            Database.Instance.UpdateQuery("app_files",
+            String.Format("special='{0}', ready='{1}', comment='{2}', timeOn='{3}', reservedBy='{4}'",
+                episodeVersion.special ? "1" : "0", episodeVersion.state, episodeVersion.comment, episodeVersion.timeOn, episodeVersion.reservedBy), String.Format("id='{0}'", episodeVersion.id));
         }
         public static void UpdateEpisode(Episode episode)
         {
@@ -466,6 +488,7 @@ namespace Host
             {
                 Notification notif= new Notification();
                 notif.id = int.Parse(result[i++]);
+                notif.userId = int.Parse(result[i++]);
                 notif.header = result[i++];
                 notif.text = result[i++];
                 notif.time = UnixTimeStampToDateTime(int.Parse(result[i++]));

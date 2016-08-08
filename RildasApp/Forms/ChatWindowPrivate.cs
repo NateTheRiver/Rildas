@@ -41,6 +41,15 @@ namespace RildasApp.Forms
             Global.UserConnected -= UserEnter;
         }
 
+        public void GetOnTop()
+        {
+            this.TopMost = true;
+            this.Focus();
+            this.BringToFront();
+            this.Activate();
+            this.TopMost = cbAlwaysOnTop.Checked;
+        }
+
         private void UserEnter(User user)
         {
             if ((this.Tag as User).id == user.id)
@@ -48,6 +57,7 @@ namespace RildasApp.Forms
                 this.Invoke(new MethodInvoker(delegate
                 {
                     picture_userState.Image = Resources.green;
+                    Append(richTextBox1, (this.Tag as User).username + " se nad Vámi slitoval a opět je tady.", Color.White);
                     this.Style = MetroFramework.MetroColorStyle.Lime;
                     Append(richTextBox1, "Uživatel " + (this.Tag as User).username + " se nad Vámi slitoval a opět je tady.", Color.White);
                     Append(richTextBox1, Environment.NewLine, Color.White);
@@ -66,6 +76,7 @@ namespace RildasApp.Forms
 
                     this.Style = MetroFramework.MetroColorStyle.Red;
                     Append(richTextBox1, "Uživatel "+ (this.Tag as User).username+ " se na Vás vykašlal a prostě to vypnul.", Color.White);
+                    Append(richTextBox1, (this.Tag as User).username+ " se na Vás vykašlal a prostě to vypnul.", Color.White);
                     Append(richTextBox1, Environment.NewLine, Color.White);
                     richTextBox1.ScrollToCaret();
                 }));

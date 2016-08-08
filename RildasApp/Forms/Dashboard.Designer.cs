@@ -31,9 +31,9 @@ namespace RildasApp.Forms
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
             this.metroStyleManager1 = new MetroFramework.Components.MetroStyleManager(this.components);
             this.metroTabControl1 = new MetroFramework.Controls.MetroTabControl();
@@ -162,6 +162,7 @@ namespace RildasApp.Forms
             this.chatPanelPrivate = new MetroFramework.Controls.MetroPanel();
             this.chatGroupAdd = new MetroFramework.Controls.MetroButton();
             this.metroScrollBar2 = new MetroFramework.Controls.MetroScrollBar();
+            this.chatsPanel = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).BeginInit();
             this.metroTabControl1.SuspendLayout();
             this._dashboard.SuspendLayout();
@@ -179,6 +180,7 @@ namespace RildasApp.Forms
             this.metroPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.publish_animePicturebox)).BeginInit();
             this._settings.SuspendLayout();
+            this.chatsPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // metroStyleManager1
@@ -1197,14 +1199,14 @@ namespace RildasApp.Forms
             this.xdccGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.xdccGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.xdccGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.xdccGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.xdccGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.xdccGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.xdccGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.BotName,
@@ -1213,14 +1215,14 @@ namespace RildasApp.Forms
             this.FileName,
             this.Qualitty,
             this.FileSize});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.xdccGridView.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.xdccGridView.DefaultCellStyle = dataGridViewCellStyle5;
             this.xdccGridView.EnableHeadersVisualStyles = false;
             this.xdccGridView.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.xdccGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
@@ -1229,14 +1231,14 @@ namespace RildasApp.Forms
             this.xdccGridView.Name = "xdccGridView";
             this.xdccGridView.ReadOnly = true;
             this.xdccGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.xdccGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.xdccGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.xdccGridView.RowHeadersWidth = 25;
             this.xdccGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.xdccGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -1881,7 +1883,7 @@ namespace RildasApp.Forms
             this.chatPanelGroups.HorizontalScrollbarBarColor = true;
             this.chatPanelGroups.HorizontalScrollbarHighlightOnWheel = false;
             this.chatPanelGroups.HorizontalScrollbarSize = 10;
-            this.chatPanelGroups.Location = new System.Drawing.Point(1484, 135);
+            this.chatPanelGroups.Location = new System.Drawing.Point(4, 34);
             this.chatPanelGroups.Name = "chatPanelGroups";
             this.chatPanelGroups.Size = new System.Drawing.Size(150, 245);
             this.chatPanelGroups.TabIndex = 2;
@@ -1896,7 +1898,7 @@ namespace RildasApp.Forms
             this.metroLabel1.FontSize = MetroFramework.MetroLabelSize.Tall;
             this.metroLabel1.FontWeight = MetroFramework.MetroLabelWeight.Bold;
             this.metroLabel1.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.metroLabel1.Location = new System.Drawing.Point(1484, 101);
+            this.metroLabel1.Location = new System.Drawing.Point(4, 6);
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(117, 25);
             this.metroLabel1.Style = MetroFramework.MetroColorStyle.Blue;
@@ -1911,7 +1913,7 @@ namespace RildasApp.Forms
             this.metroLabel15.FontSize = MetroFramework.MetroLabelSize.Tall;
             this.metroLabel15.FontWeight = MetroFramework.MetroLabelWeight.Bold;
             this.metroLabel15.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.metroLabel15.Location = new System.Drawing.Point(1480, 383);
+            this.metroLabel15.Location = new System.Drawing.Point(7, 282);
             this.metroLabel15.Name = "metroLabel15";
             this.metroLabel15.Size = new System.Drawing.Size(116, 25);
             this.metroLabel15.Style = MetroFramework.MetroColorStyle.Blue;
@@ -1925,7 +1927,7 @@ namespace RildasApp.Forms
             this.chatPanelPrivate.HorizontalScrollbarBarColor = true;
             this.chatPanelPrivate.HorizontalScrollbarHighlightOnWheel = false;
             this.chatPanelPrivate.HorizontalScrollbarSize = 10;
-            this.chatPanelPrivate.Location = new System.Drawing.Point(1484, 411);
+            this.chatPanelPrivate.Location = new System.Drawing.Point(4, 310);
             this.chatPanelPrivate.Name = "chatPanelPrivate";
             this.chatPanelPrivate.Size = new System.Drawing.Size(150, 277);
             this.chatPanelPrivate.TabIndex = 3;
@@ -1936,7 +1938,7 @@ namespace RildasApp.Forms
             // 
             // chatGroupAdd
             // 
-            this.chatGroupAdd.Location = new System.Drawing.Point(1607, 101);
+            this.chatGroupAdd.Location = new System.Drawing.Point(127, 6);
             this.chatGroupAdd.Name = "chatGroupAdd";
             this.chatGroupAdd.Size = new System.Drawing.Size(25, 25);
             this.chatGroupAdd.TabIndex = 5;
@@ -1948,7 +1950,7 @@ namespace RildasApp.Forms
             // 
             this.metroScrollBar2.HighlightOnWheel = true;
             this.metroScrollBar2.LargeChange = 10;
-            this.metroScrollBar2.Location = new System.Drawing.Point(1640, 411);
+            this.metroScrollBar2.Location = new System.Drawing.Point(160, 307);
             this.metroScrollBar2.Maximum = 100;
             this.metroScrollBar2.Minimum = 0;
             this.metroScrollBar2.MouseWheelBarPartitions = 10;
@@ -1963,19 +1965,27 @@ namespace RildasApp.Forms
             this.metroScrollBar2.UseSelectable = true;
             this.metroScrollBar2.Scroll += new System.Windows.Forms.ScrollEventHandler(this.metroScrollBar2_Scroll);
             // 
+            // chatsPanel
+            // 
+            this.chatsPanel.Controls.Add(this.chatPanelPrivate);
+            this.chatsPanel.Controls.Add(this.metroScrollBar2);
+            this.chatsPanel.Controls.Add(this.metroLabel1);
+            this.chatsPanel.Controls.Add(this.chatGroupAdd);
+            this.chatsPanel.Controls.Add(this.metroLabel15);
+            this.chatsPanel.Controls.Add(this.chatPanelGroups);
+            this.chatsPanel.Location = new System.Drawing.Point(1480, 101);
+            this.chatsPanel.Name = "chatsPanel";
+            this.chatsPanel.Size = new System.Drawing.Size(179, 594);
+            this.chatsPanel.TabIndex = 13;
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1673, 749);
-            this.Controls.Add(this.metroScrollBar2);
-            this.Controls.Add(this.chatGroupAdd);
-            this.Controls.Add(this.chatPanelPrivate);
-            this.Controls.Add(this.metroLabel15);
-            this.Controls.Add(this.metroLabel1);
-            this.Controls.Add(this.chatPanelGroups);
             this.Controls.Add(this.metroLabel_ConnectionLost);
             this.Controls.Add(this.metroTabControl1);
+            this.Controls.Add(this.chatsPanel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Dashboard";
@@ -2012,6 +2022,8 @@ namespace RildasApp.Forms
             ((System.ComponentModel.ISupportInitialize)(this.publish_animePicturebox)).EndInit();
             this._settings.ResumeLayout(false);
             this._settings.PerformLayout();
+            this.chatsPanel.ResumeLayout(false);
+            this.chatsPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2148,5 +2160,6 @@ namespace RildasApp.Forms
         private MetroFramework.Controls.MetroComboBox metroComboBox2;
         private MetroFramework.Controls.MetroLabel metroLabel25;
         private MetroFramework.Controls.MetroCheckBox configMinToSysTray;
+        private System.Windows.Forms.Panel chatsPanel;
     }
 }
