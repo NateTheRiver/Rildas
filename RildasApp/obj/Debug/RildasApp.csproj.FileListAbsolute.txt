@@ -129,3 +129,4 @@ C:\Users\danie\Documents\Visual Studio 2015\Projects\Rildas_app_git\Rildas\Rilda
 C:\Users\danie\Documents\Visual Studio 2015\Projects\Rildas_app_git\Rildas\RildasApp\obj\Debug\RildasApp.Forms.XDCCDownloadingForm.resources
 C:\Users\danie\Documents\Visual Studio 2015\Projects\Rildas_app_git\Rildas\RildasApp\obj\Debug\RildasApp.csproj.GenerateResource.Cache
 C:\Users\danie\Documents\Visual Studio 2015\Projects\Rildas_app_git\Rildas\RildasApp\obj\Debug\RildasApp.Forms.UpdateNotification.resources
+C:\Users\danie\Documents\Visual Studio 2015\Projects\Rildas_app_git\Rildas\RildasApp\obj\Debug\RildasApp.VLC.InnerVlcWindow.resources

@@ -32,7 +32,6 @@ namespace RildasApp.Forms
             Global.UserConnected += UserEnter;
             this.FormClosing += OnFormClosing;
             richTextBox1.Location = new Point(1, 1);
-            panel1.Size = new Size(richTextBox1.Size.Width + 2, richTextBox1.Size.Height + 2);
             this.SetStyle(ControlStyles.UserPaint, true);
         }
 
@@ -49,6 +48,7 @@ namespace RildasApp.Forms
                 this.Invoke(new MethodInvoker(delegate
                 {
                     picture_userState.Image = Resources.green;
+                    this.Style = MetroFramework.MetroColorStyle.Lime;
                     Append(richTextBox1, "Uživatel " + (this.Tag as User).username + " se nad Vámi slitoval a opět je tady.", Color.White);
                     Append(richTextBox1, Environment.NewLine, Color.White);
                     richTextBox1.ScrollToCaret();
@@ -63,6 +63,8 @@ namespace RildasApp.Forms
                 this.Invoke(new MethodInvoker(delegate
                 {
                     picture_userState.Image = Resources.red;
+
+                    this.Style = MetroFramework.MetroColorStyle.Red;
                     Append(richTextBox1, "Uživatel "+ (this.Tag as User).username+ " se na Vás vykašlal a prostě to vypnul.", Color.White);
                     Append(richTextBox1, Environment.NewLine, Color.White);
                     richTextBox1.ScrollToCaret();
@@ -108,6 +110,14 @@ namespace RildasApp.Forms
 
         private void ChatWindow_Resize(object sender, EventArgs e)
         {
+            const int padding = 24;
+            const int textboxPadding = 5;
+            const int buttonPading = 3;
+            richTextBox1.Size = new Size(this.Width - (padding * 2), tbMessage.Location.Y - (richTextBox1.Location.Y + textboxPadding));
+            btnNotice.Location = new Point(this.Width - (btnNotice.Width + padding), this.Height - (btnNotice.Height + padding));
+            btnSend.Location = new Point(this.Width - (btnSend.Width + padding), this.Height - (btnNotice.Location.Y + buttonPading));
+            tbMessage.Location = new Point(tbMessage.Location.X, richTextBox1.Location.Y + richTextBox1.Height + textboxPadding);
+            tbMessage.Size = new Size(btnNotice.Location.X - (tbMessage.Location.X + buttonPading), tbMessage.Height);
             // TODO: Resize všech komponent
         }
         public void AppendMessage(string message, DateTime time)
@@ -299,11 +309,23 @@ namespace RildasApp.Forms
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
+            Graphics g = e.Graphics;
+            // Border around richtextbox
+            g.DrawRectangle(new Pen(Color.Gray), richTextBox1.Location.X - 1, richTextBox1.Location.Y - 1, richTextBox1.Width + 2, richTextBox1.Height + 2);
+
             if (_focus)
             {
                 tbMessage.BorderStyle = System.Windows.Forms.BorderStyle.None;
-                Pen p = new Pen(Color.FromArgb(142, 188, 0));
-                Graphics g = e.Graphics;
+                Pen p;
+                switch (this.Style)
+                {
+                    
+                    case MetroFramework.MetroColorStyle.Red: p = new Pen(Color.Red); break;
+                    case MetroFramework.MetroColorStyle.Yellow: p = new Pen(Color.Yellow); break;
+                    default: p = new Pen(Color.FromArgb(142, 188, 0)); break;
+
+                }
+                
                 int variance = 3;
                 g.DrawRectangle(p, new Rectangle(tbMessage.Location.X - variance, tbMessage.Location.Y - variance, tbMessage.Width + variance, tbMessage.Height + variance));
             }
@@ -330,9 +352,15 @@ namespace RildasApp.Forms
         private void ChatWindowPrivate_Load(object sender, EventArgs e)
         {
             if (Global.GetLoggedUsers().Exists(x => x.username == (this.Tag as User).username))
+            {
                 picture_userState.Image = Resources.green;
+                this.Style = MetroFramework.MetroColorStyle.Lime;
+            }
             else
+            {
                 picture_userState.Image = Resources.red;
+                this.Style = MetroFramework.MetroColorStyle.Red;
+            }
         }
 
         private void ChatWindowPrivate_Activated(object sender, EventArgs e)
