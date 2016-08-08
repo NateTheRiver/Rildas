@@ -81,7 +81,7 @@ namespace RildasApp
                 }
                 else
                 {
-                    if(Disconnected != null) Disconnected();
+                    Disconnected?.Invoke();
                 }
             }
             catch (Exception ex)

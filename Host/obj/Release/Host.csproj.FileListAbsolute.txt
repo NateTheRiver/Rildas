@@ -42,3 +42,4 @@ C:\Users\danie\Documents\Visual Studio 2015\Projects\Rildas_app_git\Rildas\Host\
 C:\Users\danie\Documents\Visual Studio 2015\Projects\Rildas_app_git\Rildas\Host\bin\Release\MetroFramework.dll
 C:\Users\danie\Documents\Visual Studio 2015\Projects\Rildas_app_git\Rildas\Host\bin\Release\Newtonsoft.Json.xml
 C:\Users\danie\Documents\Visual Studio 2015\Projects\Rildas_app_git\Rildas\Host\obj\Release\Host.exe
+C:\Users\Richard\Rildas\Aplikace\Host\obj\Release\Host.csprojResolveAssemblyReference.cache

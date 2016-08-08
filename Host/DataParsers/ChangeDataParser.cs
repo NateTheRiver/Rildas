@@ -54,8 +54,7 @@ namespace Host.DataParsers
                 string[] columns = {"episode_id", "publishAt"};
                 string[] values = {id.ToString(), GlobalData.DateTimeToUnixTimestamp(dateTime).ToString()};
                 Database.Instance.InsertQuery("app_toPublish", columns, values);
-                Timer timer = new Timer();
-                timer.Interval = dateTime.Subtract(DateTime.Now).TotalMilliseconds;
+                Timer timer = new Timer {Interval = dateTime.Subtract(DateTime.Now).TotalMilliseconds};
                 timer.Elapsed += (o, args) => { GlobalData.PublishEpisode(id); };
                 timer.Start();
 
