@@ -9,6 +9,7 @@ namespace RildasApp.Models
     public class Notification
     {
         public int id;
+        public int userId;
         public string header;
         public string text;
         public DateTime time;

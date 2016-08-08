@@ -470,14 +470,19 @@ namespace RildasApp
         public static ChatWindowPrivate OpenIfNeeded(User user, PrivateMessage message = null, bool userTriggeredAction = false)
         {
 
-            foreach (ChatWindowPrivate chat in chatWindows)
+            for(int i = 0; i < chatWindows.Count; i++)
             {
-                if ((chat.Tag as User).id == user.id)
+                ChatWindowPrivate chat = chatWindows[i];
+                if ((chat.Tag as User).id != user.id) continue;
+                chat.Invoke(new MethodInvoker(delegate
                 {
-                    if(ConfigApp.silentPrivateMessages && !userTriggeredAction) chat.Activate();
-                    return chat;
-                }
-
+                    if (chat.WindowState == FormWindowState.Minimized) chat.WindowState = FormWindowState.Normal;
+                    if (!ConfigApp.silentPrivateMessages || userTriggeredAction)
+                    {
+                        chat.GetOnTop();
+                    }
+                }));
+                return chat;
             }
             ChatWindowPrivate window = null;
             if (ConfigApp.silentPrivateMessages && !userTriggeredAction)
@@ -488,9 +493,7 @@ namespace RildasApp
             }
             Dashboard.instance.Invoke(new MethodInvoker(delegate
             {
-                window = new ChatWindowPrivate();
-                window.Tag = user;
-                window.Text = "Private Chat - " + user.username;
+                window = new ChatWindowPrivate {Tag = user, Text = "Private Chat - " + user.username};
                 window.FormClosed += Window_FormClosed;
                 window.ShowInTaskbar = true;
                 window.Show();
@@ -510,13 +513,19 @@ namespace RildasApp
         public static ChatWindowGroup OpenIfNeeded(ChatGroup chatGroup, GroupMessage message = null,
             bool userTriggeredAction = false)
         {
-            foreach (ChatWindowGroup chat in groupChatWindows)
+            for (int i = 0; i < groupChatWindows.Count; i++)
             {
-                if ((chat.Tag as ChatGroup).id == chatGroup.id)
+                ChatWindowGroup chat = groupChatWindows[i];
+                if ((chat.Tag as ChatGroup).id != chatGroup.id) continue;
+                chat.Invoke(new MethodInvoker(delegate
                 {
-                    if (ConfigApp.silentPrivateMessages && !userTriggeredAction) chat.Activate();
-                    return chat;
-                }
+                    if (chat.WindowState == FormWindowState.Minimized) chat.WindowState = FormWindowState.Normal;
+                    if (!ConfigApp.silentGroupMessages || userTriggeredAction)
+                    {
+                        chat.GetOnTop();
+                    }
+                }));
+                return chat;
             }
             ChatWindowGroup window = null;
             if (ConfigApp.silentGroupMessages && !userTriggeredAction)

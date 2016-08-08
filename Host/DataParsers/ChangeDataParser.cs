@@ -75,6 +75,8 @@ namespace Host.DataParsers
             {
                 EpisodeVersion epVer = Serializer.Deserialize<EpisodeVersion>(String.Join("_", data.Skip(2).ToArray()));
                 GlobalData.UpdateEpisodeVersion(epVer);
+
+
             }
         }
 
@@ -84,6 +86,7 @@ namespace Host.DataParsers
             {
                 EpisodeVersion epVer = Serializer.Deserialize<EpisodeVersion>(String.Join("_", data.Skip(2).ToArray()));
                 epVer.added = DateTime.Now;
+
                 string type = epVer.type == EpisodeVersion.Type.PŘEKLAD? "PŘEKLAD": "KOREKCE"; 
                 string[] columns = new string[] { "type", "anime_id", "episode", "special" , "ready", "comment", "timeOn", "addedBy", "added", "reservedBy" };
                 string[] values = new string[] { type, epVer.animeId.ToString(), epVer.episode.ToString(), epVer.special?"1":"0", epVer.state.ToString(), epVer.comment, epVer.timeOn, epVer.addedBy.ToString(), epVer.added.Date.ToString("yyyy-MM-dd HH:mm:ss"), epVer.reservedBy.ToString() };
@@ -92,7 +95,16 @@ namespace Host.DataParsers
                 string path2 = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "EpVersionsTmp", "en_" + epVer._hash);
                 if (File.Exists(path1)) File.Move(path1, Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "EpVersions/" + epVer.id));
                 if (File.Exists(path2)) File.Move(path2, Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "EpVersions/en_" + epVer.id));
-                
+                EpisodeVersion[] episodeVersions = GlobalData.GetEpisodeVersions();
+                for (int i = 0; i < episodeVersions.Length; i++)
+                {
+                    if (epVer.animeId == episodeVersions[i].animeId && epVer.special == episodeVersions[i].special &&
+                        epVer.episode == episodeVersions[i].episode)
+                    {
+                        episodeVersions[i].state = -2;
+                        GlobalData.UpdateEpisodeVersion(episodeVersions[i]);
+                    }
+                }
                 GlobalData.AddEpisodeVersion(epVer);
             }
         }

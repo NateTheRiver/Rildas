@@ -1082,10 +1082,7 @@ namespace RildasApp.Forms
                     state.Size = new Size(20, 20);
                     state.Location = new Point(1, name.Location.Y);
                     state.Name = user.username + "_state";
-                    if (logged.Exists(x => x.username == user.username))
-                        state.Image = Resources.green;
-                    else
-                        state.Image = Resources.red;
+                    state.Image = logged.Exists(x => x.username == user.username) ? Resources.green : Resources.red;
                     chatPanelPrivate.Controls.Add(name);
                     chatPanelPrivate.Controls.Add(state);
                     state.BringToFront();
@@ -1699,6 +1696,7 @@ namespace RildasApp.Forms
             Global.UserDisconnected += ChatDelUser;
             Global.UnseenPrivateMessagesUpdated += LoadTeamMembers;
             Global.UnseenGroupMessagesUpdated += LoadChatGroups;
+            Global.NotificationListUpdated += LoadNotifications;
         }
 
         private void LoadDefaultSettings()

@@ -80,18 +80,24 @@ namespace RildasApp.Forms
 
         private void Global_UserDisconnected(User user)
         {
-            Append(richTextBox1, (this.Tag as User).username + " se na to vykašlal a prostě to vypnul.", Color.White);
+            Append(richTextBox1, user.username + " se na to vykašlal a prostě to vypnul.", Color.White);
             Append(richTextBox1, Environment.NewLine, Color.White);
-            richTextBox1.ScrollToCaret();
-            ((PictureBox)usersPanel.Controls.Find(user.username + "_state", false)[0]).Image = Resources.red;
+            this.Invoke(new MethodInvoker(delegate
+            {
+                richTextBox1.ScrollToCaret();
+                ((PictureBox) usersPanel.Controls.Find(user.username + "_state", false)[0]).Image = Resources.red;
+            }));
         }
 
         private void Global_UserConnected(User user)
         {
-            Append(richTextBox1, (this.Tag as User).username + " se rozhodl naší skupinu obdařit svou božskou přítomností.", Color.White);
+            Append(richTextBox1, user.username + " se rozhodl naší skupinu obdařit svou božskou přítomností.", Color.White);
             Append(richTextBox1, Environment.NewLine, Color.White);
-            richTextBox1.ScrollToCaret();
-            ((PictureBox) usersPanel.Controls.Find(user.username + "_state", false)[0]).Image = Resources.green;
+            this.Invoke(new MethodInvoker(delegate
+            {
+                richTextBox1.ScrollToCaret();
+                ((PictureBox) usersPanel.Controls.Find(user.username + "_state", false)[0]).Image = Resources.green;
+            }));
 
         }
 
@@ -165,12 +171,15 @@ namespace RildasApp.Forms
         }
         private static void Append(RichTextBox box, string text, Color color)
         {
-            box.SelectionStart = box.TextLength;
-            box.SelectionLength = 0;
+            box.Invoke(new MethodInvoker(delegate
+            {
+                box.SelectionStart = box.TextLength;
+                box.SelectionLength = 0;
 
-            box.SelectionColor = color;
-            box.AppendText(text);
-            box.SelectionColor = box.ForeColor;
+                box.SelectionColor = color;
+                box.AppendText(text);
+                box.SelectionColor = box.ForeColor;
+            }));
         }
         private void cbAlwaysOnTop_CheckedChanged(object sender, EventArgs e)
         {
@@ -267,40 +276,64 @@ namespace RildasApp.Forms
         {
             LoadLoggedState();
         }
-
+        public void GetOnTop()
+        {
+            this.TopMost = true;
+            this.Focus();
+            this.BringToFront();
+            this.Activate();
+            this.TopMost = cbAlwaysOnTop.Checked;
+        }
         private void LoadLoggedState()
         {
-            List<User> logged = Global.GetLoggedUsers();
-            int positionIterator = 0;
-
-            usersPanel.Invoke(new MethodInvoker(delegate
+            try
             {
-                usersPanel.Controls.Clear();
-                _chatGroup.members.Sort((x, y) => String.Compare(x.username, y.username, StringComparison.Ordinal));
-                foreach (User user in _chatGroup.members)
+                List<User> logged = Global.GetLoggedUsers();
+                int positionIterator = 0;
+
+                usersPanel.Invoke(new MethodInvoker(delegate
                 {
-                    MetroLink name = new MetroLink();
-                    PictureBox state = new PictureBox();
-                    name.FontSize = MetroFramework.MetroLinkSize.Medium;
-                    name.Location = new System.Drawing.Point(25, positionIterator*25);
-                    name.Name = "namePrivateChat" + user.username;
-                    name.Size = new System.Drawing.Size(150, 23);
-                    name.TabIndex = 3;
-                    name.Text = user.username;
-                    name.Theme = MetroFramework.MetroThemeStyle.Dark;
-                    name.UseSelectable = true;
-                    name.TextAlign = ContentAlignment.TopLeft;
-                    state.Size = new Size(20, 20);
-                    state.Location = new Point(1, name.Location.Y);
-                    state.Name = user.username + "_state";
-                    state.Image = logged.Exists(x => x.username == user.username) ? Resources.green : Resources.red;
-                    usersPanel.Controls.Add(name);
-                    usersPanel.Controls.Add(state);
-                    state.BringToFront();
-                    positionIterator++;
-                }
-                usersPanel.Refresh();
-            }));
+                    usersPanel.Controls.Clear();
+                    _chatGroup.members.Sort((x, y) => String.Compare(x.username, y.username, StringComparison.Ordinal));
+                    foreach (User user in _chatGroup.members)
+                    {
+                        MetroLink name = new MetroLink();
+                        PictureBox state = new PictureBox();
+                        name.Click += Name_Click;
+                        name.FontSize = MetroFramework.MetroLinkSize.Medium;
+                        name.Location = new System.Drawing.Point(25, positionIterator * 25);
+                        name.Name = "namePrivateChat" + user.username;
+                        name.Size = new System.Drawing.Size(150, 23);
+                        name.TabIndex = 3;
+                        name.Text = user.username;
+                        name.Tag = user;
+                        name.Theme = MetroFramework.MetroThemeStyle.Dark;
+                        name.UseSelectable = true;
+                        name.TextAlign = ContentAlignment.TopLeft;
+                        state.Size = new Size(20, 20);
+                        state.Location = new Point(1, name.Location.Y);
+                        state.Name = user.username + "_state";
+                        state.Image = logged.Exists(x => x.username == user.username) ? Resources.green : Resources.red;
+                        usersPanel.Controls.Add(name);
+                        usersPanel.Controls.Add(state);
+                        state.BringToFront();
+                        positionIterator++;
+                    }
+                    usersPanel.Refresh();
+                }));
+            }
+            catch (Exception e)
+            {
+
+                MessageBox.Show(e.Message);
+            }
+
+        }
+
+        private void Name_Click(object sender, EventArgs e)
+        {
+            User user = (sender as MetroLink).Tag as User;
+            Global.OpenIfNeeded(user, userTriggeredAction: true);
         }
 
         private void ChatWindowGroup_Activated(object sender, EventArgs e)
