@@ -128,7 +128,6 @@ namespace RildasApp.Forms
 
             if (ConfigApp.screenWidth < 1920)
             {
-
                 this.Size = new Size(SmallerWidth, SmallerHeight);
                 this.BorderStyle = MetroFormBorderStyle.FixedSingle;
                 metroTabControl1.Size = new Size(SmallerWidth, metroTabControl1.Height);
@@ -144,16 +143,10 @@ namespace RildasApp.Forms
                 News.Visible = false;
                 metroComboBox_Last20.Visible = false;
                 metroLabel_Last20.Visible = false;
-                chatPanelGroups.Location = new Point(this.Width - chatPanelGroups.Width, chatPanelGroups.Location.Y);
-                chatPanelPrivate.Location = new Point(this.Width - chatPanelPrivate.Width, chatPanelPrivate.Location.Y);
-                metroLabel1.Location = new Point(chatPanelPrivate.Location.X, metroLabel1.Location.Y);
-                metroLabel15.Location = new Point(chatPanelPrivate.Location.X, metroLabel15.Location.Y);
-                metroScrollBar2.Location = new Point(this.Width - metroScrollBar2.Width, metroScrollBar2.Location.Y);
-                metroLabel1.Visible = false;
-                metroLabel15.Visible = false;
-                metroScrollBar2.Visible = false;
-                chatPanelGroups.Visible = false;
-                chatPanelPrivate.Visible = false;
+                chatsPanel.Size = new Size(chatsPanel.Width, metroTabControl1.Height);
+                chatsPanel.Location = new Point(this.Width - chatsPanel.Width, chatsPanel.Location.Y);
+                chatsPanel.Visible = false;
+                chatsPanel.BringToFront();
                 button.BringToFront();
             }
         }
@@ -169,21 +162,14 @@ namespace RildasApp.Forms
                 metroLabel1.Visible = true;
                 metroLabel15.Visible = true;
                 metroScrollBar2.Visible = true;
-                chatPanelGroups.BringToFront();
-                chatPanelPrivate.BringToFront();
-                metroLabel1.BringToFront();
-                metroLabel15.BringToFront();
-                metroScrollBar2.BringToFront();
-                (sender as MetroButton).Location = new Point(this.Width - (sender as MetroButton).Width - chatPanelGroups.Width, metroTabControl1.Location.Y + 40);
+                chatsPanel.Visible = true;
+                (sender as MetroButton).Location = new Point(this.Width - (sender as MetroButton).Width - chatsPanel.Width, metroTabControl1.Location.Y + 40);
+                chatsPanel.BringToFront();
             }
             else
             {
                 (sender as MetroButton).Text = "<";
-                chatPanelGroups.Visible = false;
-                chatPanelPrivate.Visible = false;
-                metroLabel1.Visible = false;
-                metroLabel15.Visible = false;
-                metroScrollBar2.Visible = false;
+                chatsPanel.Visible = false;
                 (sender as MetroButton).Location = new Point(this.Width - (sender as MetroButton).Width, metroTabControl1.Location.Y + 40);
             }
         }

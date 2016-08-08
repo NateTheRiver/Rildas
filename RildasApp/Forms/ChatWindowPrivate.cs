@@ -57,9 +57,8 @@ namespace RildasApp.Forms
                 this.Invoke(new MethodInvoker(delegate
                 {
                     picture_userState.Image = Resources.green;
-                    Append(richTextBox1, (this.Tag as User).username + " se nad Vámi slitoval a opět je tady.", Color.White);
                     this.Style = MetroFramework.MetroColorStyle.Lime;
-                    Append(richTextBox1, "Uživatel " + (this.Tag as User).username + " se nad Vámi slitoval a opět je tady.", Color.White);
+                    Append(richTextBox1, (this.Tag as User).username + " se nad Vámi slitoval a opět je tady.", Color.White);                    
                     Append(richTextBox1, Environment.NewLine, Color.White);
                     richTextBox1.ScrollToCaret();
                 }));
@@ -73,9 +72,7 @@ namespace RildasApp.Forms
                 this.Invoke(new MethodInvoker(delegate
                 {
                     picture_userState.Image = Resources.red;
-
                     this.Style = MetroFramework.MetroColorStyle.Red;
-                    Append(richTextBox1, "Uživatel "+ (this.Tag as User).username+ " se na Vás vykašlal a prostě to vypnul.", Color.White);
                     Append(richTextBox1, (this.Tag as User).username+ " se na Vás vykašlal a prostě to vypnul.", Color.White);
                     Append(richTextBox1, Environment.NewLine, Color.White);
                     richTextBox1.ScrollToCaret();
@@ -122,13 +119,16 @@ namespace RildasApp.Forms
         private void ChatWindow_Resize(object sender, EventArgs e)
         {
             const int padding = 24;
-            const int textboxPadding = 5;
-            const int buttonPading = 3;
-            richTextBox1.Size = new Size(this.Width - (padding * 2), tbMessage.Location.Y - (richTextBox1.Location.Y + textboxPadding));
-            btnNotice.Location = new Point(this.Width - (btnNotice.Width + padding), this.Height - (btnNotice.Height + padding));
-            btnSend.Location = new Point(this.Width - (btnSend.Width + padding), this.Height - (btnNotice.Location.Y + buttonPading));
-            tbMessage.Location = new Point(tbMessage.Location.X, richTextBox1.Location.Y + richTextBox1.Height + textboxPadding);
+            const int textboxPadding = 10;
+            const int buttonPading = 5;
+            
+            tbMessage.Location = new Point(padding, this.Height - (padding + tbMessage.Height));
             tbMessage.Size = new Size(btnNotice.Location.X - (tbMessage.Location.X + buttonPading), tbMessage.Height);
+            richTextBox1.Location = new Point(padding, 63);
+            richTextBox1.Size = new Size(this.Width - (padding * 2), tbMessage.Location.Y - (richTextBox1.Location.Y + textboxPadding));
+            cbAlwaysOnTop.Location = new Point(richTextBox1.Location.X + richTextBox1.Width - cbAlwaysOnTop.Width, cbAlwaysOnTop.Location.Y);
+            btnNotice.Location = new Point(this.Width - (btnNotice.Width + padding), this.Height - (btnNotice.Height + padding));
+            btnSend.Location = new Point(this.Width - (btnSend.Width + padding), btnNotice.Location.Y - buttonPading - btnSend.Height);            
             // TODO: Resize všech komponent
         }
         public void AppendMessage(string message, DateTime time)
@@ -329,15 +329,13 @@ namespace RildasApp.Forms
                 tbMessage.BorderStyle = System.Windows.Forms.BorderStyle.None;
                 Pen p;
                 switch (this.Style)
-                {
-                    
-                    case MetroFramework.MetroColorStyle.Red: p = new Pen(Color.Red); break;
-                    case MetroFramework.MetroColorStyle.Yellow: p = new Pen(Color.Yellow); break;
+                {                    
+                    case MetroFramework.MetroColorStyle.Red: p = new Pen(Color.FromArgb(209, 17, 65)); break;
+                    case MetroFramework.MetroColorStyle.Yellow: p = new Pen(Color.Yellow); break; // TODO: Najít barvu pro Yellow
                     default: p = new Pen(Color.FromArgb(142, 188, 0)); break;
-
                 }
                 
-                int variance = 3;
+                int variance = 1;
                 g.DrawRectangle(p, new Rectangle(tbMessage.Location.X - variance, tbMessage.Location.Y - variance, tbMessage.Width + variance, tbMessage.Height + variance));
             }
             else

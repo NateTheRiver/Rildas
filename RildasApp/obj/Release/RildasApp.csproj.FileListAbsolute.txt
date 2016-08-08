@@ -52,3 +52,9 @@ C:\Users\Richard\Rildas\Aplikace\RildasApp\bin\Release\Vlc.DotNet.Wpf.dll
 C:\Users\Richard\Rildas\Aplikace\RildasApp\obj\Release\RildasApp.Forms.UpdateNotification.resources
 C:\Users\Richard\Rildas\Aplikace\RildasApp\obj\Release\RildasApp.VLC.InnerVlcWindow.resources
 C:\Users\Richard\Rildas\Aplikace\RildasApp\obj\Release\RildasApp.VLC.RildasPlayer.resources
+C:\Users\danie\Documents\Visual Studio 2015\Projects\Rildas_app_git\Rildas\RildasApp\bin\Release\Vlc.DotNet.Core.dll
+C:\Users\danie\Documents\Visual Studio 2015\Projects\Rildas_app_git\Rildas\RildasApp\bin\Release\Vlc.DotNet.Core.Interops.dll
+C:\Users\danie\Documents\Visual Studio 2015\Projects\Rildas_app_git\Rildas\RildasApp\bin\Release\Vlc.DotNet.Forms.dll
+C:\Users\danie\Documents\Visual Studio 2015\Projects\Rildas_app_git\Rildas\RildasApp\bin\Release\Vlc.DotNet.Wpf.dll
+C:\Users\danie\Documents\Visual Studio 2015\Projects\Rildas_app_git\Rildas\RildasApp\obj\Release\RildasApp.VLC.InnerVlcWindow.resources
+C:\Users\danie\Documents\Visual Studio 2015\Projects\Rildas_app_git\Rildas\RildasApp\obj\Release\RildasApp.VLC.RildasPlayer.resources
