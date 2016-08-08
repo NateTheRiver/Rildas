@@ -249,6 +249,8 @@ namespace RildasApp.Forms
             // 
             // importantFiles
             // 
+            this.importantFiles.AutoScroll = true;
+            this.importantFiles.HorizontalScrollbar = true;
             this.importantFiles.HorizontalScrollbarBarColor = true;
             this.importantFiles.HorizontalScrollbarHighlightOnWheel = false;
             this.importantFiles.HorizontalScrollbarSize = 10;
@@ -257,6 +259,7 @@ namespace RildasApp.Forms
             this.importantFiles.Size = new System.Drawing.Size(482, 531);
             this.importantFiles.TabIndex = 13;
             this.importantFiles.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.importantFiles.VerticalScrollbar = true;
             this.importantFiles.VerticalScrollbarBarColor = true;
             this.importantFiles.VerticalScrollbarHighlightOnWheel = false;
             this.importantFiles.VerticalScrollbarSize = 10;
