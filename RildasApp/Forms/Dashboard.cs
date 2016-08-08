@@ -131,11 +131,15 @@ namespace RildasApp.Forms
 
         private void SetApplicationSize()
         {
+            const int SmallerWidth = 1300;
+            const int SmallerHeight = 700;
+
             if (ConfigApp.screenWidth < 1920)
             {
-                this.Size = new Size(1366, 740);
-                this.WindowState = FormWindowState.Maximized;
-                metroTabControl1.Size = new Size(1325, metroTabControl1.Height);
+
+                this.Size = new Size(SmallerWidth, SmallerHeight);
+                this.BorderStyle = MetroFormBorderStyle.FixedSingle;
+                metroTabControl1.Size = new Size(SmallerWidth, metroTabControl1.Height);
                 metroLabel_ConnectionLost.Location = new Point(this.Width - metroLabel_ConnectionLost.Width, metroLabel_ConnectionLost.Location.Y);
                 MetroButton button = new MetroButton();
                 button.Size = new Size(15, metroTabControl1.Height - 15);
@@ -586,7 +590,7 @@ namespace RildasApp.Forms
             const int rightPadding = 15;
             const int downPadding = 70;
             const int textpadding = -7;
-            int animesInRow = (_states.Width / (imageSize + rightPadding));
+            int animesInRow = ((_states.Width - rightPadding) / (imageSize + rightPadding));
             List<Anime> animeList = Global.GetAnimes();
             animeList = animeList.OrderBy(i => i.name).ToList();
 
@@ -667,7 +671,7 @@ namespace RildasApp.Forms
                 encode_comboAnime.Items.Clear();
                 foreach (Anime a in Global.GetAnimes())
                 {
-                    Episode[] ep = Global.GetEpisodes(a.id).Where(x => x.epState == state.Final).ToArray();
+                    Episode[] ep = Global.GetEpisodes(a.id).Where(x => x.epState == state.Korekce).ToArray();
                     if (ep.Length > 0)
                     {
                         encode_comboAnime.Items.Add(a.name);
@@ -1435,7 +1439,7 @@ namespace RildasApp.Forms
                     //
 
                     MetroFramework.Controls.MetroButton button = new MetroFramework.Controls.MetroButton();
-                    button.Location = new System.Drawing.Point(350, 36);
+                    button.Location = new System.Drawing.Point(347, 36);
                     button.Name = "newsButton" + epver.id;
                     button.Size = new System.Drawing.Size(125, 23);
                     //button.AutoSize = true;
@@ -1827,7 +1831,7 @@ namespace RildasApp.Forms
             var an = Global.GetAnimes().Where(x => x.name == encode_comboAnime.SelectedItem.ToString()).ToArray();
             if (an.Count() > 0)
             {
-                var ep = Global.GetEpisodes(an[0].id).Where(x => x.epState == state.Final).ToList();
+                var ep = Global.GetEpisodes(an[0].id).Where(x => x.epState == state.Korekce).ToList();
                 ep.ForEach(x => encode_comboEpisode.Items.Add(x));
             }
         }
@@ -1837,7 +1841,7 @@ namespace RildasApp.Forms
             var an = Global.GetAnimes().Where(x => x.name == encode_comboAnime.SelectedItem.ToString()).ToArray();
             if (an.Count() > 0)
             {
-                var ep = Global.GetEpisodes(an[0].id).Where(x => x.epState == state.Final && x.ep_number == Int32.Parse(encode_comboEpisode.SelectedItem.ToString())).ToList();
+                var ep = Global.GetEpisodes(an[0].id).Where(x => x.epState == state.Korekce && x.ep_number == Int32.Parse(encode_comboEpisode.SelectedItem.ToString())).ToList();
                 if (ep.Count() > 0)
                 {
                     ep[0].link_mega = encode_textMega.Text;

@@ -195,7 +195,7 @@ namespace RildasApp.Forms
             this.metroTabControl1.Controls.Add(this._states);
             this.metroTabControl1.Location = new System.Drawing.Point(23, 63);
             this.metroTabControl1.Name = "metroTabControl1";
-            this.metroTabControl1.SelectedIndex = 7;
+            this.metroTabControl1.SelectedIndex = 0;
             this.metroTabControl1.Size = new System.Drawing.Size(1455, 649);
             this.metroTabControl1.TabIndex = 0;
             this.metroTabControl1.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -243,6 +243,8 @@ namespace RildasApp.Forms
             // 
             // importantFiles
             // 
+            this.importantFiles.AutoScroll = true;
+            this.importantFiles.HorizontalScrollbar = true;
             this.importantFiles.HorizontalScrollbarBarColor = true;
             this.importantFiles.HorizontalScrollbarHighlightOnWheel = false;
             this.importantFiles.HorizontalScrollbarSize = 10;
@@ -251,6 +253,7 @@ namespace RildasApp.Forms
             this.importantFiles.Size = new System.Drawing.Size(482, 531);
             this.importantFiles.TabIndex = 13;
             this.importantFiles.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.importantFiles.VerticalScrollbar = true;
             this.importantFiles.VerticalScrollbarBarColor = true;
             this.importantFiles.VerticalScrollbarHighlightOnWheel = false;
             this.importantFiles.VerticalScrollbarSize = 10;
@@ -1474,7 +1477,7 @@ namespace RildasApp.Forms
             // 
             this.publish_date.CalendarMonthBackground = System.Drawing.SystemColors.WindowText;
             this.publish_date.Location = new System.Drawing.Point(315, 348);
-            this.publish_date.MinimumSize = new System.Drawing.Size(0, 29);
+            this.publish_date.MinimumSize = new System.Drawing.Size(4, 29);
             this.publish_date.Name = "publish_date";
             this.publish_date.Size = new System.Drawing.Size(200, 29);
             this.publish_date.Style = MetroFramework.MetroColorStyle.Blue;
@@ -1899,7 +1902,7 @@ namespace RildasApp.Forms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1679, 746);
+            this.ClientSize = new System.Drawing.Size(1370, 746);
             this.Controls.Add(this.metroScrollBar2);
             this.Controls.Add(this.chatGroupAdd);
             this.Controls.Add(this.chatPanelPrivate);
