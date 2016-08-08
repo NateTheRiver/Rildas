@@ -110,7 +110,9 @@ namespace RildasApp
             }
             catch (Exception e)
             {
-                ;
+                string dirPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "RildasLogs");
+                if (!Directory.Exists(dirPath)) Directory.CreateDirectory(dirPath);
+                File.AppendAllText(Path.Combine(dirPath, "log.txt"), string.Format("{0} {1} {2}{3}", data, e.Message, e.Source, Environment.NewLine));
             }
 
         }

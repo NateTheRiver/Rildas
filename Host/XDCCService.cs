@@ -115,7 +115,7 @@ namespace Host
 
         private static void Client_RawMessageRecieved(object sender, ChatSharp.Events.RawMessageEventArgs e)
         {
-            Console.WriteLine("Raw:" + e.Message);
+            //Console.WriteLine("Raw:" + e.Message);
             if (e.Message.Contains("DCC SEND") && e.Message.Contains(nickname))
             {
                 gotResponse = true;
@@ -185,6 +185,7 @@ namespace Host
 
                 newFileSize = Convert.ToInt32(matches.Groups["size"].Value.Trim());
                 //convert bitwise ip to normal ip
+                
                 try
                 {
                     newFileName = Regex.Replace(regEx.Replace(newFileName, ""), @"\s+", " ");

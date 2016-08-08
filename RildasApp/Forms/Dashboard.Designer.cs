@@ -91,6 +91,10 @@ namespace RildasApp.Forms
             this._helpers = new MetroFramework.Controls.MetroTabPage();
             this.metroTabControl2 = new MetroFramework.Controls.MetroTabControl();
             this.tab2Page1 = new MetroFramework.Controls.MetroTabPage();
+            this.metroComboBox1 = new MetroFramework.Controls.MetroComboBox();
+            this.metroLabel24 = new MetroFramework.Controls.MetroLabel();
+            this.metroComboBox2 = new MetroFramework.Controls.MetroComboBox();
+            this.metroLabel25 = new MetroFramework.Controls.MetroLabel();
             this.Přehrávač = new MetroFramework.Controls.MetroTabPage();
             this._xdccCenter = new MetroFramework.Controls.MetroTabPage();
             this.xdccDirtySearch = new MetroFramework.Controls.MetroCheckBox();
@@ -138,6 +142,7 @@ namespace RildasApp.Forms
             this._stats = new MetroFramework.Controls.MetroTabPage();
             this._states = new MetroFramework.Controls.MetroTabPage();
             this._settings = new MetroFramework.Controls.MetroTabPage();
+            this.configMinToSysTray = new MetroFramework.Controls.MetroCheckBox();
             this.configSilentNotifications = new MetroFramework.Controls.MetroCheckBox();
             this.configSilentPrivateMessages = new MetroFramework.Controls.MetroCheckBox();
             this.configSilentGroupMessages = new MetroFramework.Controls.MetroCheckBox();
@@ -157,10 +162,6 @@ namespace RildasApp.Forms
             this.chatPanelPrivate = new MetroFramework.Controls.MetroPanel();
             this.chatGroupAdd = new MetroFramework.Controls.MetroButton();
             this.metroScrollBar2 = new MetroFramework.Controls.MetroScrollBar();
-            this.metroComboBox1 = new MetroFramework.Controls.MetroComboBox();
-            this.metroLabel24 = new MetroFramework.Controls.MetroLabel();
-            this.metroComboBox2 = new MetroFramework.Controls.MetroComboBox();
-            this.metroLabel25 = new MetroFramework.Controls.MetroLabel();
             ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).BeginInit();
             this.metroTabControl1.SuspendLayout();
             this._dashboard.SuspendLayout();
@@ -200,7 +201,7 @@ namespace RildasApp.Forms
             this.metroTabControl1.Controls.Add(this._settings);
             this.metroTabControl1.Location = new System.Drawing.Point(23, 63);
             this.metroTabControl1.Name = "metroTabControl1";
-            this.metroTabControl1.SelectedIndex = 4;
+            this.metroTabControl1.SelectedIndex = 2;
             this.metroTabControl1.Size = new System.Drawing.Size(1455, 649);
             this.metroTabControl1.TabIndex = 0;
             this.metroTabControl1.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -711,7 +712,7 @@ namespace RildasApp.Forms
             // 
             // tb3DownloadAJ
             // 
-            this.tb3DownloadAJ.Location = new System.Drawing.Point(314, 111);
+            this.tb3DownloadAJ.Location = new System.Drawing.Point(317, 143);
             this.tb3DownloadAJ.Name = "tb3DownloadAJ";
             this.tb3DownloadAJ.Size = new System.Drawing.Size(119, 42);
             this.tb3DownloadAJ.TabIndex = 3;
@@ -723,7 +724,7 @@ namespace RildasApp.Forms
             // 
             // tb3Download
             // 
-            this.tb3Download.Location = new System.Drawing.Point(172, 111);
+            this.tb3Download.Location = new System.Drawing.Point(172, 143);
             this.tb3Download.Name = "tb3Download";
             this.tb3Download.Size = new System.Drawing.Size(119, 42);
             this.tb3Download.TabIndex = 2;
@@ -738,9 +739,9 @@ namespace RildasApp.Forms
             // 
             // 
             this.tb3Comment.CustomButton.Image = null;
-            this.tb3Comment.CustomButton.Location = new System.Drawing.Point(409, 1);
+            this.tb3Comment.CustomButton.Location = new System.Drawing.Point(443, 2);
             this.tb3Comment.CustomButton.Name = "";
-            this.tb3Comment.CustomButton.Size = new System.Drawing.Size(57, 57);
+            this.tb3Comment.CustomButton.Size = new System.Drawing.Size(103, 103);
             this.tb3Comment.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.tb3Comment.CustomButton.TabIndex = 1;
             this.tb3Comment.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -749,16 +750,16 @@ namespace RildasApp.Forms
             this.tb3Comment.Enabled = false;
             this.tb3Comment.Lines = new string[] {
         "metroTextBox1"};
-            this.tb3Comment.Location = new System.Drawing.Point(172, 29);
+            this.tb3Comment.Location = new System.Drawing.Point(90, 29);
             this.tb3Comment.MaxLength = 32767;
             this.tb3Comment.Multiline = true;
             this.tb3Comment.Name = "tb3Comment";
             this.tb3Comment.PasswordChar = '\0';
-            this.tb3Comment.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.tb3Comment.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.tb3Comment.SelectedText = "";
             this.tb3Comment.SelectionLength = 0;
             this.tb3Comment.SelectionStart = 0;
-            this.tb3Comment.Size = new System.Drawing.Size(467, 59);
+            this.tb3Comment.Size = new System.Drawing.Size(549, 108);
             this.tb3Comment.TabIndex = 1;
             this.tb3Comment.Text = "metroTextBox1";
             this.tb3Comment.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -991,6 +992,48 @@ namespace RildasApp.Forms
             this.tab2Page1.VerticalScrollbarBarColor = true;
             this.tab2Page1.VerticalScrollbarHighlightOnWheel = false;
             this.tab2Page1.VerticalScrollbarSize = 10;
+            // 
+            // metroComboBox1
+            // 
+            this.metroComboBox1.FormattingEnabled = true;
+            this.metroComboBox1.ItemHeight = 23;
+            this.metroComboBox1.Location = new System.Drawing.Point(99, 66);
+            this.metroComboBox1.Name = "metroComboBox1";
+            this.metroComboBox1.Size = new System.Drawing.Size(75, 29);
+            this.metroComboBox1.TabIndex = 14;
+            this.metroComboBox1.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroComboBox1.UseSelectable = true;
+            // 
+            // metroLabel24
+            // 
+            this.metroLabel24.AutoSize = true;
+            this.metroLabel24.Location = new System.Drawing.Point(3, 76);
+            this.metroLabel24.Name = "metroLabel24";
+            this.metroLabel24.Size = new System.Drawing.Size(27, 19);
+            this.metroLabel24.TabIndex = 13;
+            this.metroLabel24.Text = "Díl:";
+            this.metroLabel24.Theme = MetroFramework.MetroThemeStyle.Dark;
+            // 
+            // metroComboBox2
+            // 
+            this.metroComboBox2.FormattingEnabled = true;
+            this.metroComboBox2.ItemHeight = 23;
+            this.metroComboBox2.Location = new System.Drawing.Point(99, 31);
+            this.metroComboBox2.Name = "metroComboBox2";
+            this.metroComboBox2.Size = new System.Drawing.Size(228, 29);
+            this.metroComboBox2.TabIndex = 12;
+            this.metroComboBox2.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroComboBox2.UseSelectable = true;
+            // 
+            // metroLabel25
+            // 
+            this.metroLabel25.AutoSize = true;
+            this.metroLabel25.Location = new System.Drawing.Point(3, 41);
+            this.metroLabel25.Name = "metroLabel25";
+            this.metroLabel25.Size = new System.Drawing.Size(90, 19);
+            this.metroLabel25.TabIndex = 11;
+            this.metroLabel25.Text = "Vybrat anime:";
+            this.metroLabel25.Theme = MetroFramework.MetroThemeStyle.Dark;
             // 
             // Přehrávač
             // 
@@ -1660,6 +1703,7 @@ namespace RildasApp.Forms
             // 
             // _settings
             // 
+            this._settings.Controls.Add(this.configMinToSysTray);
             this._settings.Controls.Add(this.configSilentNotifications);
             this._settings.Controls.Add(this.configSilentPrivateMessages);
             this._settings.Controls.Add(this.configSilentGroupMessages);
@@ -1680,6 +1724,18 @@ namespace RildasApp.Forms
             this._settings.VerticalScrollbarBarColor = true;
             this._settings.VerticalScrollbarHighlightOnWheel = false;
             this._settings.VerticalScrollbarSize = 10;
+            // 
+            // configMinToSysTray
+            // 
+            this.configMinToSysTray.AutoSize = true;
+            this.configMinToSysTray.Location = new System.Drawing.Point(3, 122);
+            this.configMinToSysTray.Name = "configMinToSysTray";
+            this.configMinToSysTray.Size = new System.Drawing.Size(206, 15);
+            this.configMinToSysTray.TabIndex = 20;
+            this.configMinToSysTray.Text = "Minimalizovat na systémovou lištu";
+            this.configMinToSysTray.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.configMinToSysTray.UseSelectable = true;
+            this.configMinToSysTray.CheckedChanged += new System.EventHandler(this.metroCheckBox1_CheckedChanged_1);
             // 
             // configSilentNotifications
             // 
@@ -1904,48 +1960,6 @@ namespace RildasApp.Forms
             this.metroScrollBar2.UseSelectable = true;
             this.metroScrollBar2.Scroll += new System.Windows.Forms.ScrollEventHandler(this.metroScrollBar2_Scroll);
             // 
-            // metroComboBox1
-            // 
-            this.metroComboBox1.FormattingEnabled = true;
-            this.metroComboBox1.ItemHeight = 23;
-            this.metroComboBox1.Location = new System.Drawing.Point(99, 66);
-            this.metroComboBox1.Name = "metroComboBox1";
-            this.metroComboBox1.Size = new System.Drawing.Size(75, 29);
-            this.metroComboBox1.TabIndex = 14;
-            this.metroComboBox1.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroComboBox1.UseSelectable = true;
-            // 
-            // metroLabel24
-            // 
-            this.metroLabel24.AutoSize = true;
-            this.metroLabel24.Location = new System.Drawing.Point(3, 76);
-            this.metroLabel24.Name = "metroLabel24";
-            this.metroLabel24.Size = new System.Drawing.Size(27, 19);
-            this.metroLabel24.TabIndex = 13;
-            this.metroLabel24.Text = "Díl:";
-            this.metroLabel24.Theme = MetroFramework.MetroThemeStyle.Dark;
-            // 
-            // metroComboBox2
-            // 
-            this.metroComboBox2.FormattingEnabled = true;
-            this.metroComboBox2.ItemHeight = 23;
-            this.metroComboBox2.Location = new System.Drawing.Point(99, 31);
-            this.metroComboBox2.Name = "metroComboBox2";
-            this.metroComboBox2.Size = new System.Drawing.Size(228, 29);
-            this.metroComboBox2.TabIndex = 12;
-            this.metroComboBox2.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroComboBox2.UseSelectable = true;
-            // 
-            // metroLabel25
-            // 
-            this.metroLabel25.AutoSize = true;
-            this.metroLabel25.Location = new System.Drawing.Point(3, 41);
-            this.metroLabel25.Name = "metroLabel25";
-            this.metroLabel25.Size = new System.Drawing.Size(90, 19);
-            this.metroLabel25.TabIndex = 11;
-            this.metroLabel25.Text = "Vybrat anime:";
-            this.metroLabel25.Theme = MetroFramework.MetroThemeStyle.Dark;
-            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2130,5 +2144,6 @@ namespace RildasApp.Forms
         private MetroFramework.Controls.MetroLabel metroLabel24;
         private MetroFramework.Controls.MetroComboBox metroComboBox2;
         private MetroFramework.Controls.MetroLabel metroLabel25;
+        private MetroFramework.Controls.MetroCheckBox configMinToSysTray;
     }
 }

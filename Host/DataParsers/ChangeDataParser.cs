@@ -88,10 +88,10 @@ namespace Host.DataParsers
                 string[] columns = new string[] { "type", "anime_id", "episode", "special" , "ready", "comment", "timeOn", "addedBy", "added", "reservedBy" };
                 string[] values = new string[] { type, epVer.animeId.ToString(), epVer.episode.ToString(), epVer.special?"1":"0", epVer.state.ToString(), epVer.comment, epVer.timeOn, epVer.addedBy.ToString(), epVer.added.Date.ToString("yyyy-MM-dd HH:mm:ss"), epVer.reservedBy.ToString() };
                 epVer.id = Database.Instance.InsertQuery("app_files", columns, values);
-                string path1 = Path.GetFullPath("./EpVersionsTmp/" + epVer._hash);
-                string path2 = Path.GetFullPath("./EpVersionsTmp/en_" + epVer._hash);
-                if (File.Exists(path1)) File.Move(path1, Path.GetFullPath("./EpVersions/" + epVer.id));
-                if (File.Exists(path2)) File.Move(path2, Path.GetFullPath("./EpVersions/en_" + epVer.id));
+                string path1 = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "EpVersionsTmp", epVer._hash);
+                string path2 = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "EpVersionsTmp", "en_" + epVer._hash);
+                if (File.Exists(path1)) File.Move(path1, Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "EpVersions/" + epVer.id));
+                if (File.Exists(path2)) File.Move(path2, Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "EpVersions/en_" + epVer.id));
                 
                 GlobalData.AddEpisodeVersion(epVer);
             }

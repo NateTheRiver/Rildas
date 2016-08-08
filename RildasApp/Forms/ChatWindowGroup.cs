@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using MetroFramework.Controls;
 using RildasApp.Models;
 using System.Runtime.InteropServices;
+using System.Security.Cryptography;
 using MetroFramework;
 using Microsoft.Win32;
 using RildasApp.Properties;
@@ -49,6 +50,8 @@ namespace RildasApp.Forms
             panel1.Size = new Size(richTextBox1.Size.Width + 2, richTextBox1.Size.Height + 2);
             Global.OnlineUsersListUpdated += LoadLoggedState;
             Global.UserConnected += Global_UserConnected;
+            this.FormClosing += ChatWindowGroup_FormClosing;
+
             Global.UserDisconnected += Global_UserDisconnected;
             if (loggedMessages.Any())
             {
@@ -68,14 +71,28 @@ namespace RildasApp.Forms
                 }
             }
         }
+
+        private void ChatWindowGroup_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Global.OnlineUsersListUpdated -= LoadLoggedState;
+            Global.UserConnected -= Global_UserConnected;
+        }
+
         private void Global_UserDisconnected(User user)
         {
+            Append(richTextBox1, (this.Tag as User).username + " se na to vykašlal a prostě to vypnul.", Color.White);
+            Append(richTextBox1, Environment.NewLine, Color.White);
+            richTextBox1.ScrollToCaret();
             ((PictureBox)usersPanel.Controls.Find(user.username + "_state", false)[0]).Image = Resources.red;
         }
 
         private void Global_UserConnected(User user)
         {
+            Append(richTextBox1, (this.Tag as User).username + " se rozhodl naší skupinu obdařit svou božskou přítomností.", Color.White);
+            Append(richTextBox1, Environment.NewLine, Color.White);
+            richTextBox1.ScrollToCaret();
             ((PictureBox) usersPanel.Controls.Find(user.username + "_state", false)[0]).Image = Resources.green;
+
         }
 
         [StructLayout(LayoutKind.Sequential)]
@@ -121,8 +138,13 @@ namespace RildasApp.Forms
         {
             this.Invoke(new MethodInvoker(delegate
             {
-                Append(richTextBox1, String.Format("[{0}]", time.ToString("HH:mm")), Color.FromArgb(231, 76, 60));
-                Append(richTextBox1, username, Color.FromArgb(231, 76, 60));
+                var md5 = MD5.Create();
+                var value = username;
+                var hash = md5.ComputeHash(Encoding.UTF8.GetBytes(value));
+                var color = Color.FromArgb(hash[0], hash[1], hash[2]);
+                if (username == Global.loggedUser.username) color = Color.FromArgb(60, 130, 231);
+                Append(richTextBox1, String.Format("[{0}]", time.ToString("HH:mm")), color);
+                Append(richTextBox1, username, color);
                 Append(richTextBox1, ": " + message, Color.White);
                 Append(richTextBox1, Environment.NewLine, Color.White);
                 richTextBox1.ScrollToCaret();
@@ -279,6 +301,11 @@ namespace RildasApp.Forms
                 }
                 usersPanel.Refresh();
             }));
+        }
+
+        private void ChatWindowGroup_Activated(object sender, EventArgs e)
+        {
+            this.tbMessage.Focus();
         }
     }
 }

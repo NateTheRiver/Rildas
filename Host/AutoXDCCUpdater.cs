@@ -31,7 +31,7 @@ namespace Host
                 {
                     XDCCService.client.JoinChannel(channel);
                 }
-                System.Threading.Thread.Sleep(100);
+                System.Threading.Thread.Sleep(15000);
                 XDCCService.DownloadCompleted += XDCCService_DownloadCompleted;
                 foreach (string bot in botlist)
                 {
@@ -115,7 +115,8 @@ namespace Host
                         }
                         break;
                 }
-                if (details == null) return;
+                int n;
+                if (details == null || !int.TryParse(details.packageNum, out n)) return;
                 details.addedToList = DateTime.Now;
                 Logger.Log(String.Format("Adding file {0}. Bot: {1}, Size: {2}, PackageNum: {3}", details.filename, details.botName, details.packageSize, details.packageNum), Logger.SEVERITY.INFO);
 

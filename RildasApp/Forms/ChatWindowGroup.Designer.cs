@@ -76,8 +76,6 @@
             // cbAlwaysOnTop
             // 
             this.cbAlwaysOnTop.AutoSize = true;
-            this.cbAlwaysOnTop.Checked = true;
-            this.cbAlwaysOnTop.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cbAlwaysOnTop.Location = new System.Drawing.Point(500, 32);
             this.cbAlwaysOnTop.Name = "cbAlwaysOnTop";
             this.cbAlwaysOnTop.Size = new System.Drawing.Size(98, 15);
@@ -168,6 +166,7 @@
             this.Text = "Group chat: Rildas";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.TopMost = true;
+            this.Activated += new System.EventHandler(this.ChatWindowGroup_Activated);
             this.Shown += new System.EventHandler(this.ChatWindowGroup_Shown);
             this.Resize += new System.EventHandler(this.ChatWindow_Resize);
             this.panel1.ResumeLayout(false);

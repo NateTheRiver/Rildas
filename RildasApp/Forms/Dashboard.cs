@@ -344,7 +344,7 @@ namespace RildasApp.Forms
 
         private void Dashboard_Resize(object sender, EventArgs e)
         {
-            if (this.WindowState == FormWindowState.Minimized)
+            if (this.WindowState == FormWindowState.Minimized && ConfigApp.minimalizateToSystemTray)
             {
                 notifyIcon1.Visible = true;
                 notifyIcon1.BalloonTipText = "Rildas je tu stále s Vámi";
@@ -1491,7 +1491,6 @@ namespace RildasApp.Forms
                         panel.Controls.Add(button2);
                     }
                     panel.Controls.Add(labelDone);
-                    panel.Controls.Add(button2);
                     panel.Controls.Add(label1);
                     panel.Controls.Add(label2);
                     panel.Controls.Add(labelTime);
@@ -1796,6 +1795,11 @@ namespace RildasApp.Forms
                 var ep = Global.GetEpisodes(an[0].id).Where(x => x.epState == state.Final).ToList();
                 ep.ForEach(x => encode_comboEpisode.Items.Add(x));
             }
+        }
+
+        private void metroCheckBox1_CheckedChanged_1(object sender, EventArgs e)
+        {
+            Global.SetApplicationSettings("minimalizateToSystemTray", configMinToSysTray.Checked ? "true" : "false");
         }
 
         private void encode_buttonEncode_Click(object sender, EventArgs e)

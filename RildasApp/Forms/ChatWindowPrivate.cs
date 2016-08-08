@@ -30,9 +30,16 @@ namespace RildasApp.Forms
             pressed = new List<Keys>();
             Global.UserDisconnected += UserLeave;
             Global.UserConnected += UserEnter;
+            this.FormClosing += OnFormClosing;
             richTextBox1.Location = new Point(1, 1);
             panel1.Size = new Size(richTextBox1.Size.Width + 2, richTextBox1.Size.Height + 2);
             this.SetStyle(ControlStyles.UserPaint, true);
+        }
+
+        private void OnFormClosing(object sender, FormClosingEventArgs formClosingEventArgs)
+        {
+            Global.UserDisconnected -= UserLeave;
+            Global.UserConnected -= UserEnter;
         }
 
         private void UserEnter(User user)
@@ -119,12 +126,12 @@ namespace RildasApp.Forms
             try
             {
                 if (!Directory.Exists(dirPath)) Directory.CreateDirectory(dirPath);
-                File.AppendAllText(Path.Combine(dirPath, (this.Parent.Tag as User).username + ".txt"), String.Format("[{0}]{1}: {2}", time.ToString("HH:mm"), (this.Parent.Tag as User).username, message) + Environment.NewLine);
+                File.AppendAllText(Path.Combine(dirPath, (this.Tag as User).username + ".txt"), String.Format("[{0}]{1}: {2}", time.ToString("HH:mm"), (this.Tag as User).username, message) + Environment.NewLine);
 
             }
             catch (Exception)
             {
-            }
+            }   
         }
         private static void Append(RichTextBox box, string text, Color color)
         {
@@ -326,6 +333,11 @@ namespace RildasApp.Forms
                 picture_userState.Image = Resources.green;
             else
                 picture_userState.Image = Resources.red;
+        }
+
+        private void ChatWindowPrivate_Activated(object sender, EventArgs e)
+        {
+            this.tbMessage.Focus();
         }
     }
 }

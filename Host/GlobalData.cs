@@ -148,8 +148,8 @@ namespace Host
                     {
                         if (_episodeVersions[i].reservedBy != episodeVersion.reservedBy)
                         {
-                            SendNotification(GetUser(_episodeVersions[i].reservedBy), "Korekce odebrána", String.Format("Anime {0} již nečekává vaši korekci. :(", GetAnime(episodeVersion.animeId).name));
-                            SendNotification(GetUser(episodeVersion.reservedBy), "Korekce", String.Format("Díl anime {0} očekává vaši korekci.", GetAnime(episodeVersion.animeId).name));
+                            if(_episodeVersions[i].reservedBy != 0) SendNotification(GetUser(_episodeVersions[i].reservedBy), "Korekce odebrána", String.Format("Anime {0} již nečekává vaši korekci. :(", GetAnime(episodeVersion.animeId).name));
+                            if(episodeVersion.reservedBy != 0) SendNotification(GetUser(episodeVersion.reservedBy), "Korekce", String.Format("Díl anime {0} očekává vaši korekci.", GetAnime(episodeVersion.animeId).name));
                         }
                         if (_episodeVersions[i].episode != episodeVersion.episode)
                         {

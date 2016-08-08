@@ -139,6 +139,7 @@ namespace RildasApp.Forms
             this.Style = MetroFramework.MetroColorStyle.Lime;
             this.Text = "Private chat - NateTheRiver";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.Activated += new System.EventHandler(this.ChatWindowPrivate_Activated);
             this.Load += new System.EventHandler(this.ChatWindowPrivate_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.ChatWindowPrivate_Paint);
             this.Resize += new System.EventHandler(this.ChatWindow_Resize);

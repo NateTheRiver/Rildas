@@ -41,7 +41,7 @@ namespace Host
             database = AppSettings.Default.database;
             uid = AppSettings.Default.user;
             password = AppSettings.Default.password;
-            var connectionString = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + "; convert zero datetime=True";
+            var connectionString = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + "; convert zero datetime=True; CharSet=utf8;";
 
             connection = new MySqlConnection(connectionString);
         }
@@ -54,6 +54,7 @@ namespace Host
             try
             {
                 connection.Open();
+                
                 return true;
             }
             catch (MySqlException ex)
