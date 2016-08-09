@@ -35,6 +35,11 @@ namespace RildasApp.Forms
             this.SetStyle(ControlStyles.UserPaint, true);
         }
 
+        private void RichTextBox1OnLinkClicked(object sender, LinkClickedEventArgs linkClickedEventArgs)
+        {
+
+        }
+
         private void OnFormClosing(object sender, FormClosingEventArgs formClosingEventArgs)
         {
             Global.UserDisconnected -= UserLeave;
@@ -58,7 +63,7 @@ namespace RildasApp.Forms
                 {
                     picture_userState.Image = Resources.green;
                     this.Style = MetroFramework.MetroColorStyle.Lime;
-                    Append(richTextBox1, (this.Tag as User).username + " se nad Vámi slitoval a opět je tady.", Color.White);                    
+                    Append(richTextBox1, (this.Tag as User).username + " se nad Vámi slitoval a opět je tady.", Color.White);
                     Append(richTextBox1, Environment.NewLine, Color.White);
                     richTextBox1.ScrollToCaret();
                 }));
@@ -135,7 +140,7 @@ namespace RildasApp.Forms
         {
             this.Invoke(new MethodInvoker(delegate
             {
-                Append(richTextBox1, String.Format("[{0}] ", time.ToString("HH:mm")), Color.FromArgb(231, 76, 60));
+                Append(richTextBox1, String.Format("[{0}]", time.ToString("HH:mm")), Color.FromArgb(231, 76, 60));
                 Append(richTextBox1, (this.Tag as User).username, Color.FromArgb(231, 76, 60));
                 Append(richTextBox1, ": " + message, Color.White);
                 Append(richTextBox1, Environment.NewLine, Color.White);
@@ -172,7 +177,7 @@ namespace RildasApp.Forms
         private void metroButton1_Click(object sender, EventArgs e)
         {
             if (tbMessage.Text == "") return;
-            Append(richTextBox1, String.Format("[{0}] ", DateTime.Now.ToString("HH:mm")), Color.FromArgb(60, 130, 231));
+            Append(richTextBox1, String.Format("[{0}]", DateTime.Now.ToString("HH:mm")), Color.FromArgb(60, 130, 231));
             Append(richTextBox1, Global.loggedUser.username, Color.FromArgb(60, 130, 231));
             Append(richTextBox1, ": " + tbMessage.Text, Color.White);
             Append(richTextBox1, Environment.NewLine, Color.White);

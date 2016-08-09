@@ -172,6 +172,7 @@ namespace RildasApp
         {
             notifications.Add(notification);
             NotificationListUpdated?.Invoke();
+            System.Threading.Thread.Sleep(250);
             if (!ConfigApp.silentNotifications)
             {
                 Dashboard.instance.Invoke(new MethodInvoker(delegate { 

@@ -129,9 +129,3 @@ C:\Users\danie\Documents\Visual Studio 2015\Projects\Rildas_app_git\Rildas\Rilda
 C:\Users\danie\Documents\Visual Studio 2015\Projects\Rildas_app_git\Rildas\RildasApp\obj\Debug\RildasApp.Forms.XDCCDownloadingForm.resources
 C:\Users\danie\Documents\Visual Studio 2015\Projects\Rildas_app_git\Rildas\RildasApp\obj\Debug\RildasApp.csproj.GenerateResource.Cache
 C:\Users\danie\Documents\Visual Studio 2015\Projects\Rildas_app_git\Rildas\RildasApp\obj\Debug\RildasApp.Forms.UpdateNotification.resources
-C:\Users\danie\Documents\Visual Studio 2015\Projects\Rildas_app_git\Rildas\RildasApp\obj\Debug\RildasApp.VLC.InnerVlcWindow.resources
-C:\Users\danie\Documents\Visual Studio 2015\Projects\Rildas_app_git\Rildas\RildasApp\bin\Debug\Vlc.DotNet.Core.dll
-C:\Users\danie\Documents\Visual Studio 2015\Projects\Rildas_app_git\Rildas\RildasApp\bin\Debug\Vlc.DotNet.Core.Interops.dll
-C:\Users\danie\Documents\Visual Studio 2015\Projects\Rildas_app_git\Rildas\RildasApp\bin\Debug\Vlc.DotNet.Forms.dll
-C:\Users\danie\Documents\Visual Studio 2015\Projects\Rildas_app_git\Rildas\RildasApp\bin\Debug\Vlc.DotNet.Wpf.dll
-C:\Users\danie\Documents\Visual Studio 2015\Projects\Rildas_app_git\Rildas\RildasApp\obj\Debug\RildasApp.VLC.RildasPlayer.resources
