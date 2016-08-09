@@ -28,8 +28,6 @@ namespace RildasApp.Forms
         MyPanel myPanel2;
         EventControler econtrol;
         Timetable.Event moveEvent;
-        string[,] animes; 
-        string[] selectedAnime;
 
         public Dashboard()
         {            
@@ -110,6 +108,10 @@ namespace RildasApp.Forms
         */
         private void HideToDo()
         {
+            if (Global.loggedUser.access < 4)
+            {
+                metroTabControl1.TabPages.Remove(_admin);
+            }
             List<string> notYet = new List<string>() { "_calendar", "_stats", "_helpers" };
             for (int i = 0; i < metroTabControl1.TabPages.Count; ++i)
             {
@@ -125,15 +127,19 @@ namespace RildasApp.Forms
         {
             const int SmallerWidth = 1300;
             const int SmallerHeight = 700;
+            const int padding = 20;
 
             if (ConfigApp.screenWidth < 1920)
             {
                 this.Size = new Size(SmallerWidth, SmallerHeight);
+                this.MinimumSize = new Size(SmallerWidth, SmallerHeight);
+                this.MaximumSize = new Size(SmallerWidth, SmallerHeight);
                 this.BorderStyle = MetroFormBorderStyle.FixedSingle;
-                metroTabControl1.Size = new Size(SmallerWidth, metroTabControl1.Height);
+                metroTabControl1.Size = new Size(SmallerWidth, this.Height - metroTabControl1.Location.Y - 10);
+                _adminTabControl.Size = new Size(metroTabControl1.Width - _adminTabControl.Location.X - padding, metroTabControl1.Height - _adminTabControl.Location.Y - padding);
                 metroLabel_ConnectionLost.Location = new Point(this.Width - metroLabel_ConnectionLost.Width, metroLabel_ConnectionLost.Location.Y);
                 MetroButton button = new MetroButton();
-                button.Size = new Size(15, metroTabControl1.Height - 15);
+                button.Size = new Size(15, metroTabControl1.Height - 37);
                 button.Location = new Point(this.Width - button.Width, metroTabControl1.Location.Y + 40);
                 button.Theme = MetroThemeStyle.Dark;
                 button.Text = "<";
@@ -640,12 +646,21 @@ namespace RildasApp.Forms
                     }
                 }
             }
-            if (metroTabControl1.SelectedTab.Name == "_encode")
+            if (metroTabControl1.SelectedTab.Name == "_admin")
             {
                 encode_comboAnime.Items.Clear();
-                foreach (Anime a in Global.GetAnimes())
+                _adminAnimeEditCombo.Items.Clear();
+                animeEdit_comboState.Items.Clear();
+                animeEdit_comboTranslator.Items.Clear();
+                Global.GetUsers().OrderBy(x => x.username).ToList().ForEach(x => animeEdit_comboTranslator.Items.Add(x.username));
+                foreach (Anime.Status status in Anime.Status.GetValues(typeof(Anime.Status)))
                 {
-                    Episode[] ep = Global.GetEpisodes(a.id).Where(x => x.epState == state.Korekce).ToArray();
+                    animeEdit_comboState.Items.Add(status.ToString());
+                }
+                foreach (Anime a in Global.GetAnimes().OrderBy(x => x.name))
+                {
+                    _adminAnimeEditCombo.Items.Add(a.name);
+                    Episode[] ep = Global.GetEpisodes(a.id).Where(x => x.epState == state.Potvrzeni).ToArray();
                     if (ep.Length > 0)
                     {
                         encode_comboAnime.Items.Add(a.name);
@@ -1449,7 +1464,7 @@ namespace RildasApp.Forms
                     }
                     // BUTTON 2
                     MetroFramework.Controls.MetroButton button2 = new MetroFramework.Controls.MetroButton();
-                    button2.Location = new System.Drawing.Point(350, 64);
+                    button2.Location = new System.Drawing.Point(347, 64);
                     button2.Name = "newsButton" + epver.id;
                     button2.Size = new System.Drawing.Size(125, 23);
                     //button.AutoSize = true;
@@ -1571,13 +1586,13 @@ namespace RildasApp.Forms
         private void btn_publishNow_Click(object sender, EventArgs e)
         {
             RildasServerAPI.PublishEpisodeVersion(selectedVersion);
-
+            metroTabControl1.SelectedIndex = 0;
         }
 
         private void publish_publishPlan_Click(object sender, EventArgs e)
         {
             RildasServerAPI.PublishEpisodeVersion(selectedVersion, publish_date.Value, (int)publish_cbHours.SelectedValue, (int)publish_cbMinutes.SelectedValue);
-
+            metroTabControl1.SelectedIndex = 0;
         }
 
         private void metroGrid1_MouseDown(object sender, MouseEventArgs e)
@@ -1766,11 +1781,6 @@ namespace RildasApp.Forms
             Global.SetApplicationSettings("silentNotifications", configSilentGroupMessages.Checked ? "true" : "false");
         }
 
-        private void _encode_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void encode_comboEpisode_SelectedIndexChanged(object sender, EventArgs e)
         {
             encode_buttonEncode.Enabled = true;
@@ -1781,14 +1791,66 @@ namespace RildasApp.Forms
             var an = Global.GetAnimes().Where(x => x.name == encode_comboAnime.SelectedItem.ToString()).ToArray();
             if (an.Any())
             {
-                var ep = Global.GetEpisodes(an[0].id).Where(x => x.epState == state.Korekce).ToList();
-                ep.ForEach(x => encode_comboEpisode.Items.Add(x));
+                var ep = Global.GetEpisodes(an[0].id).Where(x => x.epState == state.Potvrzeni).ToList();
+                ep.ForEach(x => encode_comboEpisode.Items.Add(x.ep_number));
             }
         }
 
         private void metroCheckBox1_CheckedChanged_1(object sender, EventArgs e)
         {
             Global.SetApplicationSettings("minimalizateToSystemTray", configMinToSysTray.Checked ? "true" : "false");
+        }
+
+        private void SetAnimeEdit(Anime anime)
+        {
+            if (anime == null)
+            {
+                animeEdit_textAnime.Text = "";
+                animeEdit_textAnimelist.Text = "";
+                animeEdit_textBanner.Text = "";
+                animeEdit_textBannerText.Text = "";
+                animeEdit_textFilename.Text = "";
+                animeEdit_textPlot.Text = "";
+                animeEdit_textPost.Text = "";
+                animeEdit_comboTranslator.Text = "";
+                animeEdit_comboState.Text = "";
+                animeEdit_age.Value = 0;
+                animeEdit_episodeCount.Value = 0;
+                animeEdit_release.Value = 0;
+                animeEdit_specialCount.Value = 0;
+                animeEdit_Id.Value = 0;
+                animeEdit_bannerShow.Checked = false;
+                animeEdit_addAsNew.Checked = false;
+            }
+            else
+            {
+                animeEdit_textAnime.Text = anime.name;
+                animeEdit_textAnimelist.Text = anime.animelist_img;
+                animeEdit_textBanner.Text = anime.banner_img;
+                animeEdit_textBannerText.Text = anime.banner_text;
+                animeEdit_textFilename.Text = anime.filename;
+                animeEdit_textPlot.Text = anime.plot;
+                animeEdit_textPost.Text = anime.post_img;
+                animeEdit_comboTranslator.Text = Global.GetUser(anime.translatorid).username;
+                animeEdit_comboState.Text = anime.status.ToString();
+                animeEdit_age.Value = anime.age;
+                animeEdit_episodeCount.Value = anime.ep_count;
+                animeEdit_release.Value = anime.release_year;
+                animeEdit_specialCount.Value = anime.special_ep_count;
+                animeEdit_Id.Value = anime.id;
+                animeEdit_bannerShow.Checked = anime.banner_show;
+                animeEdit_addAsNew.Checked = false;
+            }
+        }
+
+        private void _adminAnimeEditCombo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           SetAnimeEdit(Global.GetAnimes().Single(x => x.name == _adminAnimeEditCombo.SelectedItem.ToString()));
+        }
+
+        private void metroButton3_Click(object sender, EventArgs e)
+        {
+            //TODO: dodělat přidání a upravení anime
         }
 
         private void encode_buttonEncode_Click(object sender, EventArgs e)

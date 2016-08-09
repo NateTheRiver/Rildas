@@ -31,9 +31,9 @@ namespace RildasApp.Forms
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
             this.metroStyleManager1 = new MetroFramework.Components.MetroStyleManager(this.components);
             this.metroTabControl1 = new MetroFramework.Controls.MetroTabControl();
@@ -111,19 +111,6 @@ namespace RildasApp.Forms
             this.FileName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Qualitty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FileSize = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._encode = new MetroFramework.Controls.MetroTabPage();
-            this.encode_textOnline = new System.Windows.Forms.TextBox();
-            this.encode_textMega = new System.Windows.Forms.TextBox();
-            this.metroLabel22 = new MetroFramework.Controls.MetroLabel();
-            this.encode_textUlozto = new System.Windows.Forms.TextBox();
-            this.metroLabel21 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel20 = new MetroFramework.Controls.MetroLabel();
-            this.encode_labelLinks = new MetroFramework.Controls.MetroLabel();
-            this.encode_comboEpisode = new MetroFramework.Controls.MetroComboBox();
-            this.encode_comboAnime = new MetroFramework.Controls.MetroComboBox();
-            this.metroLabel23 = new MetroFramework.Controls.MetroLabel();
-            this.encode_labelAnime = new MetroFramework.Controls.MetroLabel();
-            this.encode_buttonEncode = new MetroFramework.Controls.MetroButton();
             this._publish = new MetroFramework.Controls.MetroTabPage();
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
             this.publish_cbMinutes = new MetroFramework.Controls.MetroComboBox();
@@ -139,8 +126,6 @@ namespace RildasApp.Forms
             this.publish_animePicturebox = new System.Windows.Forms.PictureBox();
             this.metroLabel16 = new MetroFramework.Controls.MetroLabel();
             this.publish_AnimeComboBox = new MetroFramework.Controls.MetroComboBox();
-            this._stats = new MetroFramework.Controls.MetroTabPage();
-            this._states = new MetroFramework.Controls.MetroTabPage();
             this._settings = new MetroFramework.Controls.MetroTabPage();
             this.configMinToSysTray = new MetroFramework.Controls.MetroCheckBox();
             this.configSilentNotifications = new MetroFramework.Controls.MetroCheckBox();
@@ -151,6 +136,57 @@ namespace RildasApp.Forms
             this._settingsAutoLogin = new MetroFramework.Controls.MetroCheckBox();
             this.metroLabel13 = new MetroFramework.Controls.MetroLabel();
             this._settingsOnStartUp = new MetroFramework.Controls.MetroCheckBox();
+            this._admin = new MetroFramework.Controls.MetroTabPage();
+            this._adminTabControl = new MetroFramework.Controls.MetroTabControl();
+            this._adminEncode = new MetroFramework.Controls.MetroTabPage();
+            this.encode_textOnline = new System.Windows.Forms.TextBox();
+            this.encode_textMega = new System.Windows.Forms.TextBox();
+            this.metroLabel26 = new MetroFramework.Controls.MetroLabel();
+            this.encode_textUlozto = new System.Windows.Forms.TextBox();
+            this.metroLabel27 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel28 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel29 = new MetroFramework.Controls.MetroLabel();
+            this.encode_comboEpisode = new MetroFramework.Controls.MetroComboBox();
+            this.encode_comboAnime = new MetroFramework.Controls.MetroComboBox();
+            this.metroLabel30 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel31 = new MetroFramework.Controls.MetroLabel();
+            this.encode_buttonEncode = new MetroFramework.Controls.MetroButton();
+            this._adminAnimeEdit = new MetroFramework.Controls.MetroTabPage();
+            this.animeEdit_addAsNew = new MetroFramework.Controls.MetroCheckBox();
+            this.metroButton3 = new MetroFramework.Controls.MetroButton();
+            this.metroLabel42 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel22 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel40 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel39 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel38 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel37 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel41 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel36 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel35 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel34 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel33 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel32 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel23 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel21 = new MetroFramework.Controls.MetroLabel();
+            this.animeEdit_bannerShow = new MetroFramework.Controls.MetroCheckBox();
+            this.animeEdit_age = new System.Windows.Forms.NumericUpDown();
+            this.animeEdit_release = new System.Windows.Forms.NumericUpDown();
+            this.animeEdit_specialCount = new System.Windows.Forms.NumericUpDown();
+            this.animeEdit_Id = new System.Windows.Forms.NumericUpDown();
+            this.animeEdit_episodeCount = new System.Windows.Forms.NumericUpDown();
+            this.animeEdit_comboTranslator = new MetroFramework.Controls.MetroComboBox();
+            this.animeEdit_comboState = new MetroFramework.Controls.MetroComboBox();
+            this.animeEdit_textBannerText = new MetroFramework.Controls.MetroTextBox();
+            this.animeEdit_textPlot = new MetroFramework.Controls.MetroTextBox();
+            this.animeEdit_textPost = new MetroFramework.Controls.MetroTextBox();
+            this.animeEdit_textBanner = new MetroFramework.Controls.MetroTextBox();
+            this.animeEdit_textAnimelist = new MetroFramework.Controls.MetroTextBox();
+            this.animeEdit_textFilename = new MetroFramework.Controls.MetroTextBox();
+            this.animeEdit_textAnime = new MetroFramework.Controls.MetroTextBox();
+            this.metroLabel20 = new MetroFramework.Controls.MetroLabel();
+            this._adminAnimeEditCombo = new MetroFramework.Controls.MetroComboBox();
+            this._stats = new MetroFramework.Controls.MetroTabPage();
+            this._states = new MetroFramework.Controls.MetroTabPage();
             this.metroStyleExtender1 = new MetroFramework.Components.MetroStyleExtender(this.components);
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
@@ -175,11 +211,19 @@ namespace RildasApp.Forms
             this.tab2Page1.SuspendLayout();
             this._xdccCenter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.xdccGridView)).BeginInit();
-            this._encode.SuspendLayout();
             this._publish.SuspendLayout();
             this.metroPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.publish_animePicturebox)).BeginInit();
             this._settings.SuspendLayout();
+            this._admin.SuspendLayout();
+            this._adminTabControl.SuspendLayout();
+            this._adminEncode.SuspendLayout();
+            this._adminAnimeEdit.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.animeEdit_age)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.animeEdit_release)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.animeEdit_specialCount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.animeEdit_Id)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.animeEdit_episodeCount)).BeginInit();
             this.chatsPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -196,14 +240,14 @@ namespace RildasApp.Forms
             this.metroTabControl1.Controls.Add(this._calendar);
             this.metroTabControl1.Controls.Add(this._helpers);
             this.metroTabControl1.Controls.Add(this._xdccCenter);
-            this.metroTabControl1.Controls.Add(this._encode);
             this.metroTabControl1.Controls.Add(this._publish);
+            this.metroTabControl1.Controls.Add(this._settings);
+            this.metroTabControl1.Controls.Add(this._admin);
             this.metroTabControl1.Controls.Add(this._stats);
             this.metroTabControl1.Controls.Add(this._states);
-            this.metroTabControl1.Controls.Add(this._settings);
             this.metroTabControl1.Location = new System.Drawing.Point(23, 63);
             this.metroTabControl1.Name = "metroTabControl1";
-            this.metroTabControl1.SelectedIndex = 2;
+            this.metroTabControl1.SelectedIndex = 8;
             this.metroTabControl1.Size = new System.Drawing.Size(1455, 649);
             this.metroTabControl1.TabIndex = 0;
             this.metroTabControl1.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -1199,14 +1243,14 @@ namespace RildasApp.Forms
             this.xdccGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.xdccGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.xdccGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.xdccGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.xdccGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.xdccGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.xdccGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.BotName,
@@ -1215,14 +1259,14 @@ namespace RildasApp.Forms
             this.FileName,
             this.Qualitty,
             this.FileSize});
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.xdccGridView.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.xdccGridView.DefaultCellStyle = dataGridViewCellStyle2;
             this.xdccGridView.EnableHeadersVisualStyles = false;
             this.xdccGridView.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.xdccGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
@@ -1231,14 +1275,14 @@ namespace RildasApp.Forms
             this.xdccGridView.Name = "xdccGridView";
             this.xdccGridView.ReadOnly = true;
             this.xdccGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.xdccGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.xdccGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.xdccGridView.RowHeadersWidth = 25;
             this.xdccGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.xdccGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -1291,176 +1335,6 @@ namespace RildasApp.Forms
             this.FileSize.Name = "FileSize";
             this.FileSize.ReadOnly = true;
             this.FileSize.Width = 68;
-            // 
-            // _encode
-            // 
-            this._encode.Controls.Add(this.encode_textOnline);
-            this._encode.Controls.Add(this.encode_textMega);
-            this._encode.Controls.Add(this.metroLabel22);
-            this._encode.Controls.Add(this.encode_textUlozto);
-            this._encode.Controls.Add(this.metroLabel21);
-            this._encode.Controls.Add(this.metroLabel20);
-            this._encode.Controls.Add(this.encode_labelLinks);
-            this._encode.Controls.Add(this.encode_comboEpisode);
-            this._encode.Controls.Add(this.encode_comboAnime);
-            this._encode.Controls.Add(this.metroLabel23);
-            this._encode.Controls.Add(this.encode_labelAnime);
-            this._encode.Controls.Add(this.encode_buttonEncode);
-            this._encode.HorizontalScrollbarBarColor = true;
-            this._encode.HorizontalScrollbarHighlightOnWheel = false;
-            this._encode.HorizontalScrollbarSize = 10;
-            this._encode.Location = new System.Drawing.Point(4, 38);
-            this._encode.Name = "_encode";
-            this._encode.Size = new System.Drawing.Size(1447, 607);
-            this._encode.TabIndex = 11;
-            this._encode.Text = "Encode    ";
-            this._encode.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this._encode.VerticalScrollbarBarColor = true;
-            this._encode.VerticalScrollbarHighlightOnWheel = false;
-            this._encode.VerticalScrollbarSize = 10;
-            this._encode.Click += new System.EventHandler(this._encode_Click);
-            // 
-            // encode_textOnline
-            // 
-            this.encode_textOnline.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            this.encode_textOnline.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.encode_textOnline.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.encode_textOnline.Location = new System.Drawing.Point(519, 129);
-            this.encode_textOnline.Name = "encode_textOnline";
-            this.encode_textOnline.Size = new System.Drawing.Size(373, 26);
-            this.encode_textOnline.TabIndex = 5;
-            // 
-            // encode_textMega
-            // 
-            this.encode_textMega.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            this.encode_textMega.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.encode_textMega.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.encode_textMega.Location = new System.Drawing.Point(519, 97);
-            this.encode_textMega.Name = "encode_textMega";
-            this.encode_textMega.Size = new System.Drawing.Size(373, 26);
-            this.encode_textMega.TabIndex = 5;
-            // 
-            // metroLabel22
-            // 
-            this.metroLabel22.AutoSize = true;
-            this.metroLabel22.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.metroLabel22.Location = new System.Drawing.Point(422, 129);
-            this.metroLabel22.Name = "metroLabel22";
-            this.metroLabel22.Size = new System.Drawing.Size(67, 25);
-            this.metroLabel22.TabIndex = 4;
-            this.metroLabel22.Text = "Online:";
-            this.metroLabel22.Theme = MetroFramework.MetroThemeStyle.Dark;
-            // 
-            // encode_textUlozto
-            // 
-            this.encode_textUlozto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            this.encode_textUlozto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.encode_textUlozto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.encode_textUlozto.Location = new System.Drawing.Point(519, 65);
-            this.encode_textUlozto.Name = "encode_textUlozto";
-            this.encode_textUlozto.Size = new System.Drawing.Size(373, 26);
-            this.encode_textUlozto.TabIndex = 5;
-            // 
-            // metroLabel21
-            // 
-            this.metroLabel21.AutoSize = true;
-            this.metroLabel21.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.metroLabel21.Location = new System.Drawing.Point(422, 97);
-            this.metroLabel21.Name = "metroLabel21";
-            this.metroLabel21.Size = new System.Drawing.Size(59, 25);
-            this.metroLabel21.TabIndex = 4;
-            this.metroLabel21.Text = "Mega:";
-            this.metroLabel21.Theme = MetroFramework.MetroThemeStyle.Dark;
-            // 
-            // metroLabel20
-            // 
-            this.metroLabel20.AutoSize = true;
-            this.metroLabel20.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.metroLabel20.Location = new System.Drawing.Point(422, 65);
-            this.metroLabel20.Name = "metroLabel20";
-            this.metroLabel20.Size = new System.Drawing.Size(65, 25);
-            this.metroLabel20.TabIndex = 4;
-            this.metroLabel20.Text = "Uloz.to";
-            this.metroLabel20.Theme = MetroFramework.MetroThemeStyle.Dark;
-            // 
-            // encode_labelLinks
-            // 
-            this.encode_labelLinks.AutoSize = true;
-            this.encode_labelLinks.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.encode_labelLinks.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.encode_labelLinks.Location = new System.Drawing.Point(422, 32);
-            this.encode_labelLinks.Name = "encode_labelLinks";
-            this.encode_labelLinks.Size = new System.Drawing.Size(62, 25);
-            this.encode_labelLinks.Style = MetroFramework.MetroColorStyle.Blue;
-            this.encode_labelLinks.TabIndex = 4;
-            this.encode_labelLinks.Text = "Linky:";
-            this.encode_labelLinks.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.encode_labelLinks.UseStyleColors = true;
-            // 
-            // encode_comboEpisode
-            // 
-            this.encode_comboEpisode.FormattingEnabled = true;
-            this.encode_comboEpisode.ItemHeight = 23;
-            this.encode_comboEpisode.Location = new System.Drawing.Point(47, 133);
-            this.encode_comboEpisode.Name = "encode_comboEpisode";
-            this.encode_comboEpisode.Size = new System.Drawing.Size(261, 29);
-            this.encode_comboEpisode.TabIndex = 3;
-            this.encode_comboEpisode.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.encode_comboEpisode.UseSelectable = true;
-            this.encode_comboEpisode.SelectedIndexChanged += new System.EventHandler(this.encode_comboEpisode_SelectedIndexChanged);
-            // 
-            // encode_comboAnime
-            // 
-            this.encode_comboAnime.FormattingEnabled = true;
-            this.encode_comboAnime.ItemHeight = 23;
-            this.encode_comboAnime.Location = new System.Drawing.Point(47, 61);
-            this.encode_comboAnime.Name = "encode_comboAnime";
-            this.encode_comboAnime.Size = new System.Drawing.Size(261, 29);
-            this.encode_comboAnime.TabIndex = 3;
-            this.encode_comboAnime.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.encode_comboAnime.UseSelectable = true;
-            this.encode_comboAnime.SelectedIndexChanged += new System.EventHandler(this.encode_comboAnime_SelectedIndexChanged);
-            // 
-            // metroLabel23
-            // 
-            this.metroLabel23.AutoSize = true;
-            this.metroLabel23.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.metroLabel23.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.metroLabel23.Location = new System.Drawing.Point(46, 105);
-            this.metroLabel23.Name = "metroLabel23";
-            this.metroLabel23.Size = new System.Drawing.Size(40, 25);
-            this.metroLabel23.Style = MetroFramework.MetroColorStyle.Blue;
-            this.metroLabel23.TabIndex = 2;
-            this.metroLabel23.Text = "Díl:";
-            this.metroLabel23.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroLabel23.UseStyleColors = true;
-            // 
-            // encode_labelAnime
-            // 
-            this.encode_labelAnime.AutoSize = true;
-            this.encode_labelAnime.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.encode_labelAnime.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.encode_labelAnime.Location = new System.Drawing.Point(46, 32);
-            this.encode_labelAnime.Name = "encode_labelAnime";
-            this.encode_labelAnime.Size = new System.Drawing.Size(72, 25);
-            this.encode_labelAnime.Style = MetroFramework.MetroColorStyle.Blue;
-            this.encode_labelAnime.TabIndex = 2;
-            this.encode_labelAnime.Text = "Anime:";
-            this.encode_labelAnime.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.encode_labelAnime.UseStyleColors = true;
-            // 
-            // encode_buttonEncode
-            // 
-            this.encode_buttonEncode.Enabled = false;
-            this.encode_buttonEncode.FontSize = MetroFramework.MetroButtonSize.Medium;
-            this.encode_buttonEncode.Location = new System.Drawing.Point(773, 321);
-            this.encode_buttonEncode.Name = "encode_buttonEncode";
-            this.encode_buttonEncode.Size = new System.Drawing.Size(119, 34);
-            this.encode_buttonEncode.TabIndex = 6;
-            this.encode_buttonEncode.Text = "Encodovat";
-            this.encode_buttonEncode.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.encode_buttonEncode.UseSelectable = true;
-            this.encode_buttonEncode.Click += new System.EventHandler(this.encode_buttonEncode_Click);
             // 
             // _publish
             // 
@@ -1531,7 +1405,7 @@ namespace RildasApp.Forms
             // 
             this.publish_date.CalendarMonthBackground = System.Drawing.SystemColors.WindowText;
             this.publish_date.Location = new System.Drawing.Point(315, 348);
-            this.publish_date.MinimumSize = new System.Drawing.Size(4, 29);
+            this.publish_date.MinimumSize = new System.Drawing.Size(0, 29);
             this.publish_date.Name = "publish_date";
             this.publish_date.Size = new System.Drawing.Size(200, 29);
             this.publish_date.Style = MetroFramework.MetroColorStyle.Blue;
@@ -1671,41 +1545,6 @@ namespace RildasApp.Forms
             this.publish_AnimeComboBox.UseSelectable = true;
             this.publish_AnimeComboBox.SelectedIndexChanged += new System.EventHandler(this.publish_AnimeComboBox_SelectedIndexChanged);
             // 
-            // _stats
-            // 
-            this._stats.HorizontalScrollbarBarColor = true;
-            this._stats.HorizontalScrollbarHighlightOnWheel = false;
-            this._stats.HorizontalScrollbarSize = 10;
-            this._stats.Location = new System.Drawing.Point(4, 38);
-            this._stats.Name = "_stats";
-            this._stats.Size = new System.Drawing.Size(1447, 607);
-            this._stats.TabIndex = 6;
-            this._stats.Text = "Statistiky    ";
-            this._stats.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this._stats.VerticalScrollbarBarColor = true;
-            this._stats.VerticalScrollbarHighlightOnWheel = false;
-            this._stats.VerticalScrollbarSize = 10;
-            // 
-            // _states
-            // 
-            this._states.AutoScroll = true;
-            this._states.HorizontalScrollbar = true;
-            this._states.HorizontalScrollbarBarColor = false;
-            this._states.HorizontalScrollbarHighlightOnWheel = false;
-            this._states.HorizontalScrollbarSize = 10;
-            this._states.Location = new System.Drawing.Point(4, 38);
-            this._states.Name = "_states";
-            this._states.Size = new System.Drawing.Size(1447, 607);
-            this._states.Style = MetroFramework.MetroColorStyle.Black;
-            this._states.TabIndex = 2;
-            this._states.Text = "Stavy anime    ";
-            this._states.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this._states.UseStyleColors = true;
-            this._states.VerticalScrollbar = true;
-            this._states.VerticalScrollbarBarColor = false;
-            this._states.VerticalScrollbarHighlightOnWheel = false;
-            this._states.VerticalScrollbarSize = 10;
-            // 
             // _settings
             // 
             this._settings.Controls.Add(this.configMinToSysTray);
@@ -1843,6 +1682,824 @@ namespace RildasApp.Forms
             this._settingsOnStartUp.Theme = MetroFramework.MetroThemeStyle.Dark;
             this._settingsOnStartUp.UseSelectable = true;
             this._settingsOnStartUp.CheckedChanged += new System.EventHandler(this._settingsOnStartUp_CheckedChanged);
+            // 
+            // _admin
+            // 
+            this._admin.Controls.Add(this._adminTabControl);
+            this._admin.HorizontalScrollbarBarColor = true;
+            this._admin.HorizontalScrollbarHighlightOnWheel = false;
+            this._admin.HorizontalScrollbarSize = 10;
+            this._admin.Location = new System.Drawing.Point(4, 38);
+            this._admin.Name = "_admin";
+            this._admin.Size = new System.Drawing.Size(1447, 607);
+            this._admin.TabIndex = 12;
+            this._admin.Text = "Administrace";
+            this._admin.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._admin.VerticalScrollbarBarColor = true;
+            this._admin.VerticalScrollbarHighlightOnWheel = false;
+            this._admin.VerticalScrollbarSize = 10;
+            // 
+            // _adminTabControl
+            // 
+            this._adminTabControl.Controls.Add(this._adminEncode);
+            this._adminTabControl.Controls.Add(this._adminAnimeEdit);
+            this._adminTabControl.Location = new System.Drawing.Point(3, 6);
+            this._adminTabControl.Name = "_adminTabControl";
+            this._adminTabControl.SelectedIndex = 0;
+            this._adminTabControl.Size = new System.Drawing.Size(1325, 642);
+            this._adminTabControl.TabIndex = 2;
+            this._adminTabControl.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._adminTabControl.UseSelectable = true;
+            // 
+            // _adminEncode
+            // 
+            this._adminEncode.Controls.Add(this.encode_textOnline);
+            this._adminEncode.Controls.Add(this.encode_textMega);
+            this._adminEncode.Controls.Add(this.metroLabel26);
+            this._adminEncode.Controls.Add(this.encode_textUlozto);
+            this._adminEncode.Controls.Add(this.metroLabel27);
+            this._adminEncode.Controls.Add(this.metroLabel28);
+            this._adminEncode.Controls.Add(this.metroLabel29);
+            this._adminEncode.Controls.Add(this.encode_comboEpisode);
+            this._adminEncode.Controls.Add(this.encode_comboAnime);
+            this._adminEncode.Controls.Add(this.metroLabel30);
+            this._adminEncode.Controls.Add(this.metroLabel31);
+            this._adminEncode.Controls.Add(this.encode_buttonEncode);
+            this._adminEncode.HorizontalScrollbarBarColor = true;
+            this._adminEncode.HorizontalScrollbarHighlightOnWheel = false;
+            this._adminEncode.HorizontalScrollbarSize = 10;
+            this._adminEncode.Location = new System.Drawing.Point(4, 38);
+            this._adminEncode.Name = "_adminEncode";
+            this._adminEncode.Size = new System.Drawing.Size(1317, 600);
+            this._adminEncode.TabIndex = 0;
+            this._adminEncode.Text = "Enkód";
+            this._adminEncode.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._adminEncode.VerticalScrollbarBarColor = true;
+            this._adminEncode.VerticalScrollbarHighlightOnWheel = false;
+            this._adminEncode.VerticalScrollbarSize = 10;
+            // 
+            // encode_textOnline
+            // 
+            this.encode_textOnline.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.encode_textOnline.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.encode_textOnline.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.encode_textOnline.Location = new System.Drawing.Point(476, 116);
+            this.encode_textOnline.Name = "encode_textOnline";
+            this.encode_textOnline.Size = new System.Drawing.Size(373, 26);
+            this.encode_textOnline.TabIndex = 15;
+            // 
+            // encode_textMega
+            // 
+            this.encode_textMega.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.encode_textMega.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.encode_textMega.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.encode_textMega.Location = new System.Drawing.Point(476, 84);
+            this.encode_textMega.Name = "encode_textMega";
+            this.encode_textMega.Size = new System.Drawing.Size(373, 26);
+            this.encode_textMega.TabIndex = 16;
+            // 
+            // metroLabel26
+            // 
+            this.metroLabel26.AutoSize = true;
+            this.metroLabel26.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel26.Location = new System.Drawing.Point(379, 116);
+            this.metroLabel26.Name = "metroLabel26";
+            this.metroLabel26.Size = new System.Drawing.Size(67, 25);
+            this.metroLabel26.TabIndex = 11;
+            this.metroLabel26.Text = "Online:";
+            this.metroLabel26.Theme = MetroFramework.MetroThemeStyle.Dark;
+            // 
+            // encode_textUlozto
+            // 
+            this.encode_textUlozto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.encode_textUlozto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.encode_textUlozto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.encode_textUlozto.Location = new System.Drawing.Point(476, 52);
+            this.encode_textUlozto.Name = "encode_textUlozto";
+            this.encode_textUlozto.Size = new System.Drawing.Size(373, 26);
+            this.encode_textUlozto.TabIndex = 17;
+            // 
+            // metroLabel27
+            // 
+            this.metroLabel27.AutoSize = true;
+            this.metroLabel27.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel27.Location = new System.Drawing.Point(379, 84);
+            this.metroLabel27.Name = "metroLabel27";
+            this.metroLabel27.Size = new System.Drawing.Size(59, 25);
+            this.metroLabel27.TabIndex = 12;
+            this.metroLabel27.Text = "Mega:";
+            this.metroLabel27.Theme = MetroFramework.MetroThemeStyle.Dark;
+            // 
+            // metroLabel28
+            // 
+            this.metroLabel28.AutoSize = true;
+            this.metroLabel28.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel28.Location = new System.Drawing.Point(379, 52);
+            this.metroLabel28.Name = "metroLabel28";
+            this.metroLabel28.Size = new System.Drawing.Size(65, 25);
+            this.metroLabel28.TabIndex = 13;
+            this.metroLabel28.Text = "Uloz.to";
+            this.metroLabel28.Theme = MetroFramework.MetroThemeStyle.Dark;
+            // 
+            // metroLabel29
+            // 
+            this.metroLabel29.AutoSize = true;
+            this.metroLabel29.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel29.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabel29.Location = new System.Drawing.Point(379, 19);
+            this.metroLabel29.Name = "metroLabel29";
+            this.metroLabel29.Size = new System.Drawing.Size(62, 25);
+            this.metroLabel29.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroLabel29.TabIndex = 14;
+            this.metroLabel29.Text = "Linky:";
+            this.metroLabel29.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel29.UseStyleColors = true;
+            // 
+            // encode_comboEpisode
+            // 
+            this.encode_comboEpisode.FormattingEnabled = true;
+            this.encode_comboEpisode.ItemHeight = 23;
+            this.encode_comboEpisode.Location = new System.Drawing.Point(4, 120);
+            this.encode_comboEpisode.Name = "encode_comboEpisode";
+            this.encode_comboEpisode.Size = new System.Drawing.Size(261, 29);
+            this.encode_comboEpisode.TabIndex = 9;
+            this.encode_comboEpisode.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.encode_comboEpisode.UseSelectable = true;
+            this.encode_comboEpisode.SelectedIndexChanged += new System.EventHandler(this.encode_comboEpisode_SelectedIndexChanged);
+            // 
+            // encode_comboAnime
+            // 
+            this.encode_comboAnime.FormattingEnabled = true;
+            this.encode_comboAnime.ItemHeight = 23;
+            this.encode_comboAnime.Location = new System.Drawing.Point(4, 48);
+            this.encode_comboAnime.Name = "encode_comboAnime";
+            this.encode_comboAnime.Size = new System.Drawing.Size(261, 29);
+            this.encode_comboAnime.TabIndex = 10;
+            this.encode_comboAnime.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.encode_comboAnime.UseSelectable = true;
+            this.encode_comboAnime.SelectedIndexChanged += new System.EventHandler(this.encode_comboAnime_SelectedIndexChanged);
+            // 
+            // metroLabel30
+            // 
+            this.metroLabel30.AutoSize = true;
+            this.metroLabel30.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel30.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabel30.Location = new System.Drawing.Point(3, 92);
+            this.metroLabel30.Name = "metroLabel30";
+            this.metroLabel30.Size = new System.Drawing.Size(40, 25);
+            this.metroLabel30.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroLabel30.TabIndex = 7;
+            this.metroLabel30.Text = "Díl:";
+            this.metroLabel30.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel30.UseStyleColors = true;
+            // 
+            // metroLabel31
+            // 
+            this.metroLabel31.AutoSize = true;
+            this.metroLabel31.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel31.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabel31.Location = new System.Drawing.Point(3, 19);
+            this.metroLabel31.Name = "metroLabel31";
+            this.metroLabel31.Size = new System.Drawing.Size(72, 25);
+            this.metroLabel31.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroLabel31.TabIndex = 8;
+            this.metroLabel31.Text = "Anime:";
+            this.metroLabel31.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel31.UseStyleColors = true;
+            // 
+            // encode_buttonEncode
+            // 
+            this.encode_buttonEncode.Enabled = false;
+            this.encode_buttonEncode.FontSize = MetroFramework.MetroButtonSize.Medium;
+            this.encode_buttonEncode.Location = new System.Drawing.Point(730, 308);
+            this.encode_buttonEncode.Name = "encode_buttonEncode";
+            this.encode_buttonEncode.Size = new System.Drawing.Size(119, 34);
+            this.encode_buttonEncode.TabIndex = 18;
+            this.encode_buttonEncode.Text = "Enkódovat";
+            this.encode_buttonEncode.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.encode_buttonEncode.UseSelectable = true;
+            this.encode_buttonEncode.Click += new System.EventHandler(this.encode_buttonEncode_Click);
+            // 
+            // _adminAnimeEdit
+            // 
+            this._adminAnimeEdit.Controls.Add(this.animeEdit_addAsNew);
+            this._adminAnimeEdit.Controls.Add(this.metroButton3);
+            this._adminAnimeEdit.Controls.Add(this.metroLabel42);
+            this._adminAnimeEdit.Controls.Add(this.metroLabel22);
+            this._adminAnimeEdit.Controls.Add(this.metroLabel40);
+            this._adminAnimeEdit.Controls.Add(this.metroLabel39);
+            this._adminAnimeEdit.Controls.Add(this.metroLabel38);
+            this._adminAnimeEdit.Controls.Add(this.metroLabel37);
+            this._adminAnimeEdit.Controls.Add(this.metroLabel41);
+            this._adminAnimeEdit.Controls.Add(this.metroLabel36);
+            this._adminAnimeEdit.Controls.Add(this.metroLabel35);
+            this._adminAnimeEdit.Controls.Add(this.metroLabel34);
+            this._adminAnimeEdit.Controls.Add(this.metroLabel33);
+            this._adminAnimeEdit.Controls.Add(this.metroLabel32);
+            this._adminAnimeEdit.Controls.Add(this.metroLabel23);
+            this._adminAnimeEdit.Controls.Add(this.metroLabel21);
+            this._adminAnimeEdit.Controls.Add(this.animeEdit_bannerShow);
+            this._adminAnimeEdit.Controls.Add(this.animeEdit_age);
+            this._adminAnimeEdit.Controls.Add(this.animeEdit_release);
+            this._adminAnimeEdit.Controls.Add(this.animeEdit_specialCount);
+            this._adminAnimeEdit.Controls.Add(this.animeEdit_Id);
+            this._adminAnimeEdit.Controls.Add(this.animeEdit_episodeCount);
+            this._adminAnimeEdit.Controls.Add(this.animeEdit_comboTranslator);
+            this._adminAnimeEdit.Controls.Add(this.animeEdit_comboState);
+            this._adminAnimeEdit.Controls.Add(this.animeEdit_textBannerText);
+            this._adminAnimeEdit.Controls.Add(this.animeEdit_textPlot);
+            this._adminAnimeEdit.Controls.Add(this.animeEdit_textPost);
+            this._adminAnimeEdit.Controls.Add(this.animeEdit_textBanner);
+            this._adminAnimeEdit.Controls.Add(this.animeEdit_textAnimelist);
+            this._adminAnimeEdit.Controls.Add(this.animeEdit_textFilename);
+            this._adminAnimeEdit.Controls.Add(this.animeEdit_textAnime);
+            this._adminAnimeEdit.Controls.Add(this.metroLabel20);
+            this._adminAnimeEdit.Controls.Add(this._adminAnimeEditCombo);
+            this._adminAnimeEdit.HorizontalScrollbarBarColor = true;
+            this._adminAnimeEdit.HorizontalScrollbarHighlightOnWheel = false;
+            this._adminAnimeEdit.HorizontalScrollbarSize = 10;
+            this._adminAnimeEdit.Location = new System.Drawing.Point(4, 38);
+            this._adminAnimeEdit.Name = "_adminAnimeEdit";
+            this._adminAnimeEdit.Size = new System.Drawing.Size(1317, 600);
+            this._adminAnimeEdit.TabIndex = 1;
+            this._adminAnimeEdit.Text = "Přidat/Upravit Anime";
+            this._adminAnimeEdit.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._adminAnimeEdit.UseCustomForeColor = true;
+            this._adminAnimeEdit.VerticalScrollbarBarColor = true;
+            this._adminAnimeEdit.VerticalScrollbarHighlightOnWheel = false;
+            this._adminAnimeEdit.VerticalScrollbarSize = 10;
+            // 
+            // animeEdit_addAsNew
+            // 
+            this.animeEdit_addAsNew.AutoSize = true;
+            this.animeEdit_addAsNew.Location = new System.Drawing.Point(853, 317);
+            this.animeEdit_addAsNew.Name = "animeEdit_addAsNew";
+            this.animeEdit_addAsNew.Size = new System.Drawing.Size(144, 15);
+            this.animeEdit_addAsNew.TabIndex = 10;
+            this.animeEdit_addAsNew.Text = "Přidat jako nové anime";
+            this.animeEdit_addAsNew.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.animeEdit_addAsNew.UseSelectable = true;
+            // 
+            // metroButton3
+            // 
+            this.metroButton3.Location = new System.Drawing.Point(866, 360);
+            this.metroButton3.Name = "metroButton3";
+            this.metroButton3.Size = new System.Drawing.Size(131, 41);
+            this.metroButton3.TabIndex = 9;
+            this.metroButton3.Text = "Upravit/Přidat";
+            this.metroButton3.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroButton3.UseSelectable = true;
+            this.metroButton3.Click += new System.EventHandler(this.metroButton3_Click);
+            // 
+            // metroLabel42
+            // 
+            this.metroLabel42.AutoSize = true;
+            this.metroLabel42.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel42.Location = new System.Drawing.Point(370, 33);
+            this.metroLabel42.Name = "metroLabel42";
+            this.metroLabel42.Size = new System.Drawing.Size(63, 19);
+            this.metroLabel42.TabIndex = 8;
+            this.metroLabel42.Text = "Anime id";
+            this.metroLabel42.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel42.UseStyleColors = true;
+            // 
+            // metroLabel22
+            // 
+            this.metroLabel22.AutoSize = true;
+            this.metroLabel22.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel22.Location = new System.Drawing.Point(48, 117);
+            this.metroLabel22.Name = "metroLabel22";
+            this.metroLabel22.Size = new System.Drawing.Size(49, 19);
+            this.metroLabel22.TabIndex = 8;
+            this.metroLabel22.Text = "Jméno";
+            this.metroLabel22.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel22.UseStyleColors = true;
+            // 
+            // metroLabel40
+            // 
+            this.metroLabel40.AutoSize = true;
+            this.metroLabel40.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel40.Location = new System.Drawing.Point(3, 291);
+            this.metroLabel40.Name = "metroLabel40";
+            this.metroLabel40.Size = new System.Drawing.Size(94, 19);
+            this.metroLabel40.TabIndex = 8;
+            this.metroLabel40.Text = "Minimální věk";
+            this.metroLabel40.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel40.UseStyleColors = true;
+            // 
+            // metroLabel39
+            // 
+            this.metroLabel39.AutoSize = true;
+            this.metroLabel39.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel39.Location = new System.Drawing.Point(21, 265);
+            this.metroLabel39.Name = "metroLabel39";
+            this.metroLabel39.Size = new System.Drawing.Size(76, 19);
+            this.metroLabel39.TabIndex = 8;
+            this.metroLabel39.Text = "Rok vydání";
+            this.metroLabel39.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel39.UseStyleColors = true;
+            // 
+            // metroLabel38
+            // 
+            this.metroLabel38.AutoSize = true;
+            this.metroLabel38.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel38.Location = new System.Drawing.Point(3, 238);
+            this.metroLabel38.Name = "metroLabel38";
+            this.metroLabel38.Size = new System.Drawing.Size(94, 19);
+            this.metroLabel38.TabIndex = 8;
+            this.metroLabel38.Text = "Počet speciálů";
+            this.metroLabel38.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel38.UseStyleColors = true;
+            // 
+            // metroLabel37
+            // 
+            this.metroLabel37.AutoSize = true;
+            this.metroLabel37.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel37.Location = new System.Drawing.Point(11, 213);
+            this.metroLabel37.Name = "metroLabel37";
+            this.metroLabel37.Size = new System.Drawing.Size(86, 19);
+            this.metroLabel37.TabIndex = 8;
+            this.metroLabel37.Text = "Počet episod";
+            this.metroLabel37.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel37.UseStyleColors = true;
+            // 
+            // metroLabel41
+            // 
+            this.metroLabel41.AutoSize = true;
+            this.metroLabel41.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel41.Location = new System.Drawing.Point(539, 257);
+            this.metroLabel41.Name = "metroLabel41";
+            this.metroLabel41.Size = new System.Drawing.Size(76, 19);
+            this.metroLabel41.TabIndex = 8;
+            this.metroLabel41.Text = "Překladatel";
+            this.metroLabel41.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel41.UseStyleColors = true;
+            // 
+            // metroLabel36
+            // 
+            this.metroLabel36.AutoSize = true;
+            this.metroLabel36.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel36.Location = new System.Drawing.Point(50, 187);
+            this.metroLabel36.Name = "metroLabel36";
+            this.metroLabel36.Size = new System.Drawing.Size(47, 19);
+            this.metroLabel36.TabIndex = 8;
+            this.metroLabel36.Text = "Status";
+            this.metroLabel36.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel36.UseStyleColors = true;
+            // 
+            // metroLabel35
+            // 
+            this.metroLabel35.AutoSize = true;
+            this.metroLabel35.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel35.Location = new System.Drawing.Point(536, 290);
+            this.metroLabel35.Name = "metroLabel35";
+            this.metroLabel35.Size = new System.Drawing.Size(79, 19);
+            this.metroLabel35.TabIndex = 8;
+            this.metroLabel35.Text = "Banner text";
+            this.metroLabel35.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel35.UseStyleColors = true;
+            // 
+            // metroLabel34
+            // 
+            this.metroLabel34.AutoSize = true;
+            this.metroLabel34.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel34.Location = new System.Drawing.Point(36, 152);
+            this.metroLabel34.Name = "metroLabel34";
+            this.metroLabel34.Size = new System.Drawing.Size(61, 19);
+            this.metroLabel34.TabIndex = 8;
+            this.metroLabel34.Text = "Zápletka";
+            this.metroLabel34.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel34.UseStyleColors = true;
+            // 
+            // metroLabel33
+            // 
+            this.metroLabel33.AutoSize = true;
+            this.metroLabel33.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel33.Location = new System.Drawing.Point(512, 222);
+            this.metroLabel33.Name = "metroLabel33";
+            this.metroLabel33.Size = new System.Drawing.Size(103, 19);
+            this.metroLabel33.TabIndex = 8;
+            this.metroLabel33.Text = "Cesta post_img";
+            this.metroLabel33.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel33.UseStyleColors = true;
+            // 
+            // metroLabel32
+            // 
+            this.metroLabel32.AutoSize = true;
+            this.metroLabel32.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel32.Location = new System.Drawing.Point(496, 187);
+            this.metroLabel32.Name = "metroLabel32";
+            this.metroLabel32.Size = new System.Drawing.Size(119, 19);
+            this.metroLabel32.TabIndex = 8;
+            this.metroLabel32.Text = "Cesta banner_img";
+            this.metroLabel32.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel32.UseStyleColors = true;
+            // 
+            // metroLabel23
+            // 
+            this.metroLabel23.AutoSize = true;
+            this.metroLabel23.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel23.Location = new System.Drawing.Point(485, 152);
+            this.metroLabel23.Name = "metroLabel23";
+            this.metroLabel23.Size = new System.Drawing.Size(130, 19);
+            this.metroLabel23.TabIndex = 8;
+            this.metroLabel23.Text = "Cesta animelist_img";
+            this.metroLabel23.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel23.UseStyleColors = true;
+            // 
+            // metroLabel21
+            // 
+            this.metroLabel21.AutoSize = true;
+            this.metroLabel21.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel21.Location = new System.Drawing.Point(511, 117);
+            this.metroLabel21.Name = "metroLabel21";
+            this.metroLabel21.Size = new System.Drawing.Size(104, 19);
+            this.metroLabel21.TabIndex = 8;
+            this.metroLabel21.Text = "Jméno souboru";
+            this.metroLabel21.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel21.UseStyleColors = true;
+            // 
+            // animeEdit_bannerShow
+            // 
+            this.animeEdit_bannerShow.AutoSize = true;
+            this.animeEdit_bannerShow.Location = new System.Drawing.Point(621, 317);
+            this.animeEdit_bannerShow.Name = "animeEdit_bannerShow";
+            this.animeEdit_bannerShow.Size = new System.Drawing.Size(106, 15);
+            this.animeEdit_bannerShow.TabIndex = 7;
+            this.animeEdit_bannerShow.Text = "Zobrazit banner";
+            this.animeEdit_bannerShow.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.animeEdit_bannerShow.UseSelectable = true;
+            // 
+            // animeEdit_age
+            // 
+            this.animeEdit_age.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.animeEdit_age.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.animeEdit_age.Location = new System.Drawing.Point(103, 291);
+            this.animeEdit_age.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
+            this.animeEdit_age.Name = "animeEdit_age";
+            this.animeEdit_age.Size = new System.Drawing.Size(376, 20);
+            this.animeEdit_age.TabIndex = 6;
+            // 
+            // animeEdit_release
+            // 
+            this.animeEdit_release.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.animeEdit_release.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.animeEdit_release.Location = new System.Drawing.Point(103, 265);
+            this.animeEdit_release.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
+            this.animeEdit_release.Name = "animeEdit_release";
+            this.animeEdit_release.Size = new System.Drawing.Size(376, 20);
+            this.animeEdit_release.TabIndex = 6;
+            // 
+            // animeEdit_specialCount
+            // 
+            this.animeEdit_specialCount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.animeEdit_specialCount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.animeEdit_specialCount.Location = new System.Drawing.Point(103, 238);
+            this.animeEdit_specialCount.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
+            this.animeEdit_specialCount.Name = "animeEdit_specialCount";
+            this.animeEdit_specialCount.Size = new System.Drawing.Size(376, 20);
+            this.animeEdit_specialCount.TabIndex = 6;
+            // 
+            // animeEdit_Id
+            // 
+            this.animeEdit_Id.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.animeEdit_Id.Enabled = false;
+            this.animeEdit_Id.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.animeEdit_Id.Location = new System.Drawing.Point(370, 55);
+            this.animeEdit_Id.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
+            this.animeEdit_Id.Name = "animeEdit_Id";
+            this.animeEdit_Id.Size = new System.Drawing.Size(109, 20);
+            this.animeEdit_Id.TabIndex = 6;
+            // 
+            // animeEdit_episodeCount
+            // 
+            this.metroStyleExtender1.SetApplyMetroTheme(this.animeEdit_episodeCount, true);
+            this.animeEdit_episodeCount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.animeEdit_episodeCount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.animeEdit_episodeCount.Location = new System.Drawing.Point(103, 212);
+            this.animeEdit_episodeCount.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
+            this.animeEdit_episodeCount.Name = "animeEdit_episodeCount";
+            this.animeEdit_episodeCount.Size = new System.Drawing.Size(376, 20);
+            this.animeEdit_episodeCount.TabIndex = 6;
+            // 
+            // animeEdit_comboTranslator
+            // 
+            this.animeEdit_comboTranslator.FormattingEnabled = true;
+            this.animeEdit_comboTranslator.ItemHeight = 23;
+            this.animeEdit_comboTranslator.Location = new System.Drawing.Point(621, 247);
+            this.animeEdit_comboTranslator.Name = "animeEdit_comboTranslator";
+            this.animeEdit_comboTranslator.Size = new System.Drawing.Size(376, 29);
+            this.animeEdit_comboTranslator.TabIndex = 5;
+            this.animeEdit_comboTranslator.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.animeEdit_comboTranslator.UseSelectable = true;
+            // 
+            // animeEdit_comboState
+            // 
+            this.animeEdit_comboState.FormattingEnabled = true;
+            this.animeEdit_comboState.ItemHeight = 23;
+            this.animeEdit_comboState.Location = new System.Drawing.Point(103, 177);
+            this.animeEdit_comboState.Name = "animeEdit_comboState";
+            this.animeEdit_comboState.Size = new System.Drawing.Size(376, 29);
+            this.animeEdit_comboState.TabIndex = 5;
+            this.animeEdit_comboState.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.animeEdit_comboState.UseSelectable = true;
+            // 
+            // animeEdit_textBannerText
+            // 
+            // 
+            // 
+            // 
+            this.animeEdit_textBannerText.CustomButton.Image = null;
+            this.animeEdit_textBannerText.CustomButton.Location = new System.Drawing.Point(348, 1);
+            this.animeEdit_textBannerText.CustomButton.Name = "";
+            this.animeEdit_textBannerText.CustomButton.Size = new System.Drawing.Size(27, 27);
+            this.animeEdit_textBannerText.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.animeEdit_textBannerText.CustomButton.TabIndex = 1;
+            this.animeEdit_textBannerText.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.animeEdit_textBannerText.CustomButton.UseSelectable = true;
+            this.animeEdit_textBannerText.CustomButton.Visible = false;
+            this.animeEdit_textBannerText.FontSize = MetroFramework.MetroTextBoxSize.Medium;
+            this.animeEdit_textBannerText.Lines = new string[0];
+            this.animeEdit_textBannerText.Location = new System.Drawing.Point(621, 282);
+            this.animeEdit_textBannerText.MaxLength = 32767;
+            this.animeEdit_textBannerText.Name = "animeEdit_textBannerText";
+            this.animeEdit_textBannerText.PasswordChar = '\0';
+            this.animeEdit_textBannerText.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.animeEdit_textBannerText.SelectedText = "";
+            this.animeEdit_textBannerText.SelectionLength = 0;
+            this.animeEdit_textBannerText.SelectionStart = 0;
+            this.animeEdit_textBannerText.Size = new System.Drawing.Size(376, 29);
+            this.animeEdit_textBannerText.TabIndex = 4;
+            this.animeEdit_textBannerText.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.animeEdit_textBannerText.UseSelectable = true;
+            this.animeEdit_textBannerText.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.animeEdit_textBannerText.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // animeEdit_textPlot
+            // 
+            // 
+            // 
+            // 
+            this.animeEdit_textPlot.CustomButton.Image = null;
+            this.animeEdit_textPlot.CustomButton.Location = new System.Drawing.Point(348, 1);
+            this.animeEdit_textPlot.CustomButton.Name = "";
+            this.animeEdit_textPlot.CustomButton.Size = new System.Drawing.Size(27, 27);
+            this.animeEdit_textPlot.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.animeEdit_textPlot.CustomButton.TabIndex = 1;
+            this.animeEdit_textPlot.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.animeEdit_textPlot.CustomButton.UseSelectable = true;
+            this.animeEdit_textPlot.CustomButton.Visible = false;
+            this.animeEdit_textPlot.FontSize = MetroFramework.MetroTextBoxSize.Medium;
+            this.animeEdit_textPlot.Lines = new string[0];
+            this.animeEdit_textPlot.Location = new System.Drawing.Point(103, 142);
+            this.animeEdit_textPlot.MaxLength = 32767;
+            this.animeEdit_textPlot.Name = "animeEdit_textPlot";
+            this.animeEdit_textPlot.PasswordChar = '\0';
+            this.animeEdit_textPlot.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.animeEdit_textPlot.SelectedText = "";
+            this.animeEdit_textPlot.SelectionLength = 0;
+            this.animeEdit_textPlot.SelectionStart = 0;
+            this.animeEdit_textPlot.Size = new System.Drawing.Size(376, 29);
+            this.animeEdit_textPlot.TabIndex = 4;
+            this.animeEdit_textPlot.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.animeEdit_textPlot.UseSelectable = true;
+            this.animeEdit_textPlot.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.animeEdit_textPlot.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // animeEdit_textPost
+            // 
+            // 
+            // 
+            // 
+            this.animeEdit_textPost.CustomButton.Image = null;
+            this.animeEdit_textPost.CustomButton.Location = new System.Drawing.Point(348, 1);
+            this.animeEdit_textPost.CustomButton.Name = "";
+            this.animeEdit_textPost.CustomButton.Size = new System.Drawing.Size(27, 27);
+            this.animeEdit_textPost.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.animeEdit_textPost.CustomButton.TabIndex = 1;
+            this.animeEdit_textPost.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.animeEdit_textPost.CustomButton.UseSelectable = true;
+            this.animeEdit_textPost.CustomButton.Visible = false;
+            this.animeEdit_textPost.FontSize = MetroFramework.MetroTextBoxSize.Medium;
+            this.animeEdit_textPost.Lines = new string[0];
+            this.animeEdit_textPost.Location = new System.Drawing.Point(621, 212);
+            this.animeEdit_textPost.MaxLength = 32767;
+            this.animeEdit_textPost.Name = "animeEdit_textPost";
+            this.animeEdit_textPost.PasswordChar = '\0';
+            this.animeEdit_textPost.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.animeEdit_textPost.SelectedText = "";
+            this.animeEdit_textPost.SelectionLength = 0;
+            this.animeEdit_textPost.SelectionStart = 0;
+            this.animeEdit_textPost.Size = new System.Drawing.Size(376, 29);
+            this.animeEdit_textPost.TabIndex = 4;
+            this.animeEdit_textPost.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.animeEdit_textPost.UseSelectable = true;
+            this.animeEdit_textPost.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.animeEdit_textPost.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // animeEdit_textBanner
+            // 
+            // 
+            // 
+            // 
+            this.animeEdit_textBanner.CustomButton.Image = null;
+            this.animeEdit_textBanner.CustomButton.Location = new System.Drawing.Point(348, 1);
+            this.animeEdit_textBanner.CustomButton.Name = "";
+            this.animeEdit_textBanner.CustomButton.Size = new System.Drawing.Size(27, 27);
+            this.animeEdit_textBanner.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.animeEdit_textBanner.CustomButton.TabIndex = 1;
+            this.animeEdit_textBanner.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.animeEdit_textBanner.CustomButton.UseSelectable = true;
+            this.animeEdit_textBanner.CustomButton.Visible = false;
+            this.animeEdit_textBanner.FontSize = MetroFramework.MetroTextBoxSize.Medium;
+            this.animeEdit_textBanner.Lines = new string[0];
+            this.animeEdit_textBanner.Location = new System.Drawing.Point(621, 177);
+            this.animeEdit_textBanner.MaxLength = 32767;
+            this.animeEdit_textBanner.Name = "animeEdit_textBanner";
+            this.animeEdit_textBanner.PasswordChar = '\0';
+            this.animeEdit_textBanner.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.animeEdit_textBanner.SelectedText = "";
+            this.animeEdit_textBanner.SelectionLength = 0;
+            this.animeEdit_textBanner.SelectionStart = 0;
+            this.animeEdit_textBanner.Size = new System.Drawing.Size(376, 29);
+            this.animeEdit_textBanner.TabIndex = 4;
+            this.animeEdit_textBanner.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.animeEdit_textBanner.UseSelectable = true;
+            this.animeEdit_textBanner.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.animeEdit_textBanner.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // animeEdit_textAnimelist
+            // 
+            // 
+            // 
+            // 
+            this.animeEdit_textAnimelist.CustomButton.Image = null;
+            this.animeEdit_textAnimelist.CustomButton.Location = new System.Drawing.Point(348, 1);
+            this.animeEdit_textAnimelist.CustomButton.Name = "";
+            this.animeEdit_textAnimelist.CustomButton.Size = new System.Drawing.Size(27, 27);
+            this.animeEdit_textAnimelist.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.animeEdit_textAnimelist.CustomButton.TabIndex = 1;
+            this.animeEdit_textAnimelist.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.animeEdit_textAnimelist.CustomButton.UseSelectable = true;
+            this.animeEdit_textAnimelist.CustomButton.Visible = false;
+            this.animeEdit_textAnimelist.FontSize = MetroFramework.MetroTextBoxSize.Medium;
+            this.animeEdit_textAnimelist.Lines = new string[0];
+            this.animeEdit_textAnimelist.Location = new System.Drawing.Point(621, 142);
+            this.animeEdit_textAnimelist.MaxLength = 32767;
+            this.animeEdit_textAnimelist.Name = "animeEdit_textAnimelist";
+            this.animeEdit_textAnimelist.PasswordChar = '\0';
+            this.animeEdit_textAnimelist.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.animeEdit_textAnimelist.SelectedText = "";
+            this.animeEdit_textAnimelist.SelectionLength = 0;
+            this.animeEdit_textAnimelist.SelectionStart = 0;
+            this.animeEdit_textAnimelist.Size = new System.Drawing.Size(376, 29);
+            this.animeEdit_textAnimelist.TabIndex = 4;
+            this.animeEdit_textAnimelist.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.animeEdit_textAnimelist.UseSelectable = true;
+            this.animeEdit_textAnimelist.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.animeEdit_textAnimelist.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // animeEdit_textFilename
+            // 
+            // 
+            // 
+            // 
+            this.animeEdit_textFilename.CustomButton.Image = null;
+            this.animeEdit_textFilename.CustomButton.Location = new System.Drawing.Point(348, 1);
+            this.animeEdit_textFilename.CustomButton.Name = "";
+            this.animeEdit_textFilename.CustomButton.Size = new System.Drawing.Size(27, 27);
+            this.animeEdit_textFilename.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.animeEdit_textFilename.CustomButton.TabIndex = 1;
+            this.animeEdit_textFilename.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.animeEdit_textFilename.CustomButton.UseSelectable = true;
+            this.animeEdit_textFilename.CustomButton.Visible = false;
+            this.animeEdit_textFilename.FontSize = MetroFramework.MetroTextBoxSize.Medium;
+            this.animeEdit_textFilename.Lines = new string[0];
+            this.animeEdit_textFilename.Location = new System.Drawing.Point(621, 107);
+            this.animeEdit_textFilename.MaxLength = 32767;
+            this.animeEdit_textFilename.Name = "animeEdit_textFilename";
+            this.animeEdit_textFilename.PasswordChar = '\0';
+            this.animeEdit_textFilename.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.animeEdit_textFilename.SelectedText = "";
+            this.animeEdit_textFilename.SelectionLength = 0;
+            this.animeEdit_textFilename.SelectionStart = 0;
+            this.animeEdit_textFilename.Size = new System.Drawing.Size(376, 29);
+            this.animeEdit_textFilename.TabIndex = 4;
+            this.animeEdit_textFilename.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.animeEdit_textFilename.UseSelectable = true;
+            this.animeEdit_textFilename.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.animeEdit_textFilename.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // animeEdit_textAnime
+            // 
+            // 
+            // 
+            // 
+            this.animeEdit_textAnime.CustomButton.Image = null;
+            this.animeEdit_textAnime.CustomButton.Location = new System.Drawing.Point(348, 1);
+            this.animeEdit_textAnime.CustomButton.Name = "";
+            this.animeEdit_textAnime.CustomButton.Size = new System.Drawing.Size(27, 27);
+            this.animeEdit_textAnime.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.animeEdit_textAnime.CustomButton.TabIndex = 1;
+            this.animeEdit_textAnime.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.animeEdit_textAnime.CustomButton.UseSelectable = true;
+            this.animeEdit_textAnime.CustomButton.Visible = false;
+            this.animeEdit_textAnime.FontSize = MetroFramework.MetroTextBoxSize.Medium;
+            this.animeEdit_textAnime.Lines = new string[0];
+            this.animeEdit_textAnime.Location = new System.Drawing.Point(103, 107);
+            this.animeEdit_textAnime.MaxLength = 32767;
+            this.animeEdit_textAnime.Name = "animeEdit_textAnime";
+            this.animeEdit_textAnime.PasswordChar = '\0';
+            this.animeEdit_textAnime.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.animeEdit_textAnime.SelectedText = "";
+            this.animeEdit_textAnime.SelectionLength = 0;
+            this.animeEdit_textAnime.SelectionStart = 0;
+            this.animeEdit_textAnime.Size = new System.Drawing.Size(376, 29);
+            this.animeEdit_textAnime.TabIndex = 4;
+            this.animeEdit_textAnime.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.animeEdit_textAnime.UseSelectable = true;
+            this.animeEdit_textAnime.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.animeEdit_textAnime.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // metroLabel20
+            // 
+            this.metroLabel20.AutoSize = true;
+            this.metroLabel20.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel20.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabel20.Location = new System.Drawing.Point(102, 17);
+            this.metroLabel20.Name = "metroLabel20";
+            this.metroLabel20.Size = new System.Drawing.Size(72, 25);
+            this.metroLabel20.TabIndex = 3;
+            this.metroLabel20.Text = "Anime:";
+            this.metroLabel20.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel20.UseStyleColors = true;
+            // 
+            // _adminAnimeEditCombo
+            // 
+            this._adminAnimeEditCombo.FormattingEnabled = true;
+            this._adminAnimeEditCombo.ItemHeight = 23;
+            this._adminAnimeEditCombo.Location = new System.Drawing.Point(103, 46);
+            this._adminAnimeEditCombo.Name = "_adminAnimeEditCombo";
+            this._adminAnimeEditCombo.Size = new System.Drawing.Size(261, 29);
+            this._adminAnimeEditCombo.TabIndex = 2;
+            this._adminAnimeEditCombo.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._adminAnimeEditCombo.UseSelectable = true;
+            this._adminAnimeEditCombo.SelectedIndexChanged += new System.EventHandler(this._adminAnimeEditCombo_SelectedIndexChanged);
+            // 
+            // _stats
+            // 
+            this._stats.HorizontalScrollbarBarColor = true;
+            this._stats.HorizontalScrollbarHighlightOnWheel = false;
+            this._stats.HorizontalScrollbarSize = 10;
+            this._stats.Location = new System.Drawing.Point(4, 38);
+            this._stats.Name = "_stats";
+            this._stats.Size = new System.Drawing.Size(1447, 607);
+            this._stats.TabIndex = 6;
+            this._stats.Text = "Statistiky    ";
+            this._stats.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._stats.VerticalScrollbarBarColor = true;
+            this._stats.VerticalScrollbarHighlightOnWheel = false;
+            this._stats.VerticalScrollbarSize = 10;
+            // 
+            // _states
+            // 
+            this._states.AutoScroll = true;
+            this._states.HorizontalScrollbar = true;
+            this._states.HorizontalScrollbarBarColor = false;
+            this._states.HorizontalScrollbarHighlightOnWheel = false;
+            this._states.HorizontalScrollbarSize = 10;
+            this._states.Location = new System.Drawing.Point(4, 38);
+            this._states.Name = "_states";
+            this._states.Size = new System.Drawing.Size(1447, 607);
+            this._states.Style = MetroFramework.MetroColorStyle.Black;
+            this._states.TabIndex = 2;
+            this._states.Text = "Stavy anime    ";
+            this._states.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._states.UseStyleColors = true;
+            this._states.VerticalScrollbar = true;
+            this._states.VerticalScrollbarBarColor = false;
+            this._states.VerticalScrollbarHighlightOnWheel = false;
+            this._states.VerticalScrollbarSize = 10;
             // 
             // metroStyleExtender1
             // 
@@ -1982,13 +2639,14 @@ namespace RildasApp.Forms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1673, 749);
+            this.ClientSize = new System.Drawing.Size(1378, 749);
             this.Controls.Add(this.metroLabel_ConnectionLost);
             this.Controls.Add(this.metroTabControl1);
             this.Controls.Add(this.chatsPanel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Dashboard";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Dashboard_FormClosing);
             this.Load += new System.EventHandler(this.Dashboard_Load);
@@ -2013,8 +2671,6 @@ namespace RildasApp.Forms
             this._xdccCenter.ResumeLayout(false);
             this._xdccCenter.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.xdccGridView)).EndInit();
-            this._encode.ResumeLayout(false);
-            this._encode.PerformLayout();
             this._publish.ResumeLayout(false);
             this._publish.PerformLayout();
             this.metroPanel1.ResumeLayout(false);
@@ -2022,6 +2678,17 @@ namespace RildasApp.Forms
             ((System.ComponentModel.ISupportInitialize)(this.publish_animePicturebox)).EndInit();
             this._settings.ResumeLayout(false);
             this._settings.PerformLayout();
+            this._admin.ResumeLayout(false);
+            this._adminTabControl.ResumeLayout(false);
+            this._adminEncode.ResumeLayout(false);
+            this._adminEncode.PerformLayout();
+            this._adminAnimeEdit.ResumeLayout(false);
+            this._adminAnimeEdit.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.animeEdit_age)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.animeEdit_release)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.animeEdit_specialCount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.animeEdit_Id)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.animeEdit_episodeCount)).EndInit();
             this.chatsPanel.ResumeLayout(false);
             this.chatsPanel.PerformLayout();
             this.ResumeLayout(false);
@@ -2142,24 +2809,60 @@ namespace RildasApp.Forms
         private MetroFramework.Controls.MetroCheckBox _configSilentAll;
         private MetroFramework.Controls.MetroLabel metroLabel14;
         private MetroFramework.Controls.MetroCheckBox configSilentNotifications;
-        private MetroFramework.Controls.MetroLabel encode_labelAnime;
-        private MetroFramework.Controls.MetroTabPage _encode;
-        private System.Windows.Forms.TextBox encode_textOnline;
-        private System.Windows.Forms.TextBox encode_textMega;
-        private MetroFramework.Controls.MetroLabel metroLabel22;
-        private System.Windows.Forms.TextBox encode_textUlozto;
-        private MetroFramework.Controls.MetroLabel metroLabel21;
-        private MetroFramework.Controls.MetroLabel metroLabel20;
-        private MetroFramework.Controls.MetroLabel encode_labelLinks;
-        private MetroFramework.Controls.MetroComboBox encode_comboEpisode;
-        private MetroFramework.Controls.MetroComboBox encode_comboAnime;
-        private MetroFramework.Controls.MetroLabel metroLabel23;
-        private MetroFramework.Controls.MetroButton encode_buttonEncode;
         private MetroFramework.Controls.MetroComboBox metroComboBox1;
         private MetroFramework.Controls.MetroLabel metroLabel24;
         private MetroFramework.Controls.MetroComboBox metroComboBox2;
         private MetroFramework.Controls.MetroLabel metroLabel25;
         private MetroFramework.Controls.MetroCheckBox configMinToSysTray;
         private System.Windows.Forms.Panel chatsPanel;
+        private MetroFramework.Controls.MetroTabPage _admin;
+        private MetroFramework.Controls.MetroTabControl _adminTabControl;
+        private MetroFramework.Controls.MetroTabPage _adminEncode;
+        private MetroFramework.Controls.MetroTabPage _adminAnimeEdit;
+        private System.Windows.Forms.TextBox encode_textOnline;
+        private System.Windows.Forms.TextBox encode_textMega;
+        private MetroFramework.Controls.MetroLabel metroLabel26;
+        private System.Windows.Forms.TextBox encode_textUlozto;
+        private MetroFramework.Controls.MetroLabel metroLabel27;
+        private MetroFramework.Controls.MetroLabel metroLabel28;
+        private MetroFramework.Controls.MetroLabel metroLabel29;
+        private MetroFramework.Controls.MetroComboBox encode_comboEpisode;
+        private MetroFramework.Controls.MetroComboBox encode_comboAnime;
+        private MetroFramework.Controls.MetroLabel metroLabel30;
+        private MetroFramework.Controls.MetroLabel metroLabel31;
+        private MetroFramework.Controls.MetroButton encode_buttonEncode;
+        private MetroFramework.Controls.MetroLabel metroLabel20;
+        private MetroFramework.Controls.MetroComboBox _adminAnimeEditCombo;
+        private MetroFramework.Controls.MetroLabel metroLabel21;
+        private MetroFramework.Controls.MetroCheckBox animeEdit_bannerShow;
+        private System.Windows.Forms.NumericUpDown animeEdit_age;
+        private System.Windows.Forms.NumericUpDown animeEdit_release;
+        private System.Windows.Forms.NumericUpDown animeEdit_specialCount;
+        private System.Windows.Forms.NumericUpDown animeEdit_episodeCount;
+        private MetroFramework.Controls.MetroComboBox animeEdit_comboState;
+        private MetroFramework.Controls.MetroTextBox animeEdit_textBannerText;
+        private MetroFramework.Controls.MetroTextBox animeEdit_textPlot;
+        private MetroFramework.Controls.MetroTextBox animeEdit_textPost;
+        private MetroFramework.Controls.MetroTextBox animeEdit_textBanner;
+        private MetroFramework.Controls.MetroTextBox animeEdit_textAnimelist;
+        private MetroFramework.Controls.MetroTextBox animeEdit_textFilename;
+        private MetroFramework.Controls.MetroTextBox animeEdit_textAnime;
+        private MetroFramework.Controls.MetroLabel metroLabel22;
+        private MetroFramework.Controls.MetroLabel metroLabel40;
+        private MetroFramework.Controls.MetroLabel metroLabel39;
+        private MetroFramework.Controls.MetroLabel metroLabel38;
+        private MetroFramework.Controls.MetroLabel metroLabel37;
+        private MetroFramework.Controls.MetroLabel metroLabel36;
+        private MetroFramework.Controls.MetroLabel metroLabel35;
+        private MetroFramework.Controls.MetroLabel metroLabel34;
+        private MetroFramework.Controls.MetroLabel metroLabel33;
+        private MetroFramework.Controls.MetroLabel metroLabel32;
+        private MetroFramework.Controls.MetroLabel metroLabel23;
+        private MetroFramework.Controls.MetroLabel metroLabel41;
+        private MetroFramework.Controls.MetroComboBox animeEdit_comboTranslator;
+        private MetroFramework.Controls.MetroButton metroButton3;
+        private MetroFramework.Controls.MetroCheckBox animeEdit_addAsNew;
+        private MetroFramework.Controls.MetroLabel metroLabel42;
+        private System.Windows.Forms.NumericUpDown animeEdit_Id;
     }
 }
