@@ -32,8 +32,6 @@ namespace RildasApp.Forms
             Global.UserConnected += UserEnter;
             this.FormClosing += OnFormClosing;
             richTextBox1.Location = new Point(1, 1);
-           this.richTextBox1.LinkClicked += RichTextBox1OnLinkClicked;
-            panel1.Size = new Size(richTextBox1.Size.Width + 2, richTextBox1.Size.Height + 2);
             this.SetStyle(ControlStyles.UserPaint, true);
         }
 
