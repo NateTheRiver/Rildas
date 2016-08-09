@@ -81,6 +81,8 @@ namespace RildasApp.Forms
         {
             Global.OnlineUsersListUpdated -= LoadLoggedState;
             Global.UserConnected -= Global_UserConnected;
+            Global.UserDisconnected -= Global_UserDisconnected;
+
         }
 
         private void Global_UserDisconnected(User user)

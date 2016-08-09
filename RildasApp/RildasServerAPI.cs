@@ -136,7 +136,7 @@ namespace RildasApp
 
         internal static void PublishEpisodeVersion(EpisodeVersion selectedVersion)
         {
-            ConnectionManager.Send("CHANGEDATA_PUBLISH_EPISODEVERSION_  " + selectedVersion.id);
+            ConnectionManager.Send("CHANGEDATA_PUBLISH_EPISODEVERSION_" + selectedVersion.id);
         }
 
         internal static void PublishEpisodeVersion(EpisodeVersion selectedVersion, DateTime date, int hours, int minutes)
