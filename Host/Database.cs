@@ -38,7 +38,11 @@ namespace Host
         private void Initialize()
         {
             server = AppSettings.Default.server;
+#if DEBUG
+            database = "rildas-debug";
+#else
             database = AppSettings.Default.database;
+#endif
             uid = AppSettings.Default.user;
             password = AppSettings.Default.password;
             var connectionString = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + "; convert zero datetime=True; CharSet=utf8;";

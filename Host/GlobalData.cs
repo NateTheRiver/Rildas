@@ -62,6 +62,7 @@ namespace Host
             EpisodeVersion episodeVersion = GlobalData.GetEpisodeVersions().First(version => version.id == episodeId);
             Database.Instance.UpdateQuery("episodes", "visible='1', email_notif='1'", String.Format("anime_id='{0}' AND ep_number='{1}' AND special='{2}'", episodeVersion.animeId, episodeVersion.episode, episodeVersion.special));
             episodeVersion.state = 3;
+            SendNotification(GetUser(GetAnime(episodeVersion.animeId).translatorid), "Zveřejnění", String.Format("Díl vašeho anime {0} byl úspěšně zveřejněn.", GetAnime(episodeVersion.animeId).name), false);
             UpdateEpisodeVersion(episodeVersion);
         }
         public static void SendNotification(User user, string header, string text, bool saveIfOffline = true)

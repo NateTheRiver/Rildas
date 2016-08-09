@@ -1269,8 +1269,8 @@ namespace RildasApp.Forms
                     Theme = MetroFramework.MetroThemeStyle.Dark,
                     UseSelectable = true
                 };
-                importantFiles.Controls.Clear();
-                importantFiles.Refresh();
+                //importantFiles.Controls.Clear();
+                //importantFiles.Refresh();
 
                 importantFiles.Controls.Add(metroLink);
                 metroLink.Visible = true;
@@ -1282,8 +1282,17 @@ namespace RildasApp.Forms
             this.Invoke((MethodInvoker)delegate
             {
                 this.SuspendLayout();
-                foreach (EpisodeVersion epver in filteredVersions)
+                for (int i = 0; i < filteredVersions.ToArray().Length; i++)
                 {
+                    EpisodeVersion epver = filteredVersions.ToArray()[i];
+                    for (int j = 0; j < importantFiles.Controls.Count; j++)
+                    {
+                        Control control = importantFiles.Controls[j];
+                        if (((EpisodeVersion) control.Tag).id == epver.id)
+                        {
+                            control.Location = new Point(0, i*100);
+                        }
+                    }
                     Anime anime = animes.FirstOrDefault(x => x.id == epver.animeId);
 
                     if (anime == null) continue;
@@ -1296,20 +1305,22 @@ namespace RildasApp.Forms
                     PictureBox picture = new PictureBox();
 
 
-                    panel.Location = new System.Drawing.Point(0, positionIterator * 100);
+                    panel.Location = new System.Drawing.Point(0, positionIterator*100);
                     panel.Name = "metroPanel1" + epver.id;
                     panel.Size = new System.Drawing.Size(475, 110);
                     panel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
                     panel.TabIndex = 2;
                     panel.Theme = MetroThemeStyle.Dark;
-
+                    panel.Tag = epver;
 
                     picture.Location = new System.Drawing.Point(3, 3);
                     picture.Name = "pictureBox1";
                     picture.Size = new System.Drawing.Size(99, 103);
                     picture.TabIndex = 2;
                     picture.TabStop = false;
-                    picture.Image = (Bitmap)Resources.ResourceManager.GetObject(Path.GetFileNameWithoutExtension(anime.animelist_img));
+                    picture.Image =
+                        (Bitmap)
+                            Resources.ResourceManager.GetObject(Path.GetFileNameWithoutExtension(anime.animelist_img));
                     picture.SizeMode = PictureBoxSizeMode.StretchImage;
                     // 
                     // metroLink1
@@ -1319,9 +1330,12 @@ namespace RildasApp.Forms
                     name.Name = "nameInNews" + epver.id;
                     name.Size = new System.Drawing.Size(350, 23);
                     name.TabIndex = 3;
-                    name.Text = (epver.type == EpisodeVersion.Type.KOREKCE ? "Korekce" : "Překlad") + " " + anime.name + " " + epver.episode;
+                    name.Text = (epver.type == EpisodeVersion.Type.KOREKCE ? "Korekce" : "Překlad") + " " + anime.name +
+                                " " + epver.episode;
                     ToolTip toolTip = new ToolTip();
-                    toolTip.SetToolTip(name, (epver.type == EpisodeVersion.Type.KOREKCE ? "Korekce" : "Překlad") + " " + anime.name + " " + epver.episode);
+                    toolTip.SetToolTip(name,
+                        (epver.type == EpisodeVersion.Type.KOREKCE ? "Korekce" : "Překlad") + " " + anime.name + " " +
+                        epver.episode);
                     name.Theme = MetroFramework.MetroThemeStyle.Dark;
                     name.UseSelectable = true;
                     name.Tag = epver;
@@ -1339,7 +1353,7 @@ namespace RildasApp.Forms
                     label1.TabIndex = 4;
                     try
                     {
-                    label1.Text = "Soubor nahrál: " + Global.GetUser(epver.addedBy).username;
+                        label1.Text = "Soubor nahrál: " + Global.GetUser(epver.addedBy).username;
                     }
 
                     catch (Exception)
@@ -1386,23 +1400,39 @@ namespace RildasApp.Forms
                     labelDone.Text = (epver.state == 1) ? "Připraveno na enkód" : "Vyžaduje korekci";
                     try
                     {
-                    switch (epver.state)
-                    {
-                        case -4: labelDone.Text = "Čeká na schválení překladatelem"; break;
-                        case -3: labelDone.Text = "Čeká se na schválení"; break;
-                        case -2: labelDone.Text = "Existuje novější verze souboru"; break;
-                        case -1: labelDone.Text = "Korekce zamluvena: " + Global.GetUser(epver.reservedBy).username; break;
-                        case 0: labelDone.Text = "Vyžaduje korekci"; break;
-                        case 1: labelDone.Text = "Připraveno na enkód"; break;
-                        case 2: labelDone.Text = "Připraveno ke zveřejnění"; break;
-                        case 3: labelDone.Text = "Zveřejněno"; break;
-                    }
+                        switch (epver.state)
+                        {
+                            case -4:
+                                labelDone.Text = "Čeká na schválení překladatelem";
+                                break;
+                            case -3:
+                                labelDone.Text = "Čeká se na schválení";
+                                break;
+                            case -2:
+                                labelDone.Text = "Existuje novější verze souboru";
+                                break;
+                            case -1:
+                                labelDone.Text = "Korekce zamluvena: " + Global.GetUser(epver.reservedBy).username;
+                                break;
+                            case 0:
+                                labelDone.Text = "Vyžaduje korekci";
+                                break;
+                            case 1:
+                                labelDone.Text = "Připraveno na enkód";
+                                break;
+                            case 2:
+                                labelDone.Text = "Připraveno ke zveřejnění";
+                                break;
+                            case 3:
+                                labelDone.Text = "Zveřejněno";
+                                break;
+                        }
                     }
                     catch (Exception)
                     {
                         MessageBox.Show("Vyskytl se problém s zjišťováním informací o zamluvené korekci.");
                     }
-                    
+
                     //
                     // Button
                     //
@@ -1570,6 +1600,7 @@ namespace RildasApp.Forms
 
         private void btn_publishNow_Click(object sender, EventArgs e)
         {
+            metroTabControl1.SelectedIndex = 0;
             RildasServerAPI.PublishEpisodeVersion(selectedVersion);
 
         }

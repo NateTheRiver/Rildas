@@ -75,7 +75,6 @@ namespace Host.DataParsers
                 EpisodeVersion epVer = Serializer.Deserialize<EpisodeVersion>(String.Join("_", data.Skip(2).ToArray()));
                 GlobalData.UpdateEpisodeVersion(epVer);
 
-
             }
         }
 
