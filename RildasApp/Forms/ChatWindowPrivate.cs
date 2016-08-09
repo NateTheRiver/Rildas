@@ -61,7 +61,6 @@ namespace RildasApp.Forms
             {
                 this.Invoke(new MethodInvoker(delegate
                 {
-                    picture_userState.Image = Resources.green;
                     this.Style = MetroFramework.MetroColorStyle.Lime;
                     Append(richTextBox1, (this.Tag as User).username + " se nad Vámi slitoval a opět je tady.", Color.White);
                     Append(richTextBox1, Environment.NewLine, Color.White);
@@ -76,7 +75,6 @@ namespace RildasApp.Forms
             {
                 this.Invoke(new MethodInvoker(delegate
                 {
-                    picture_userState.Image = Resources.red;
                     this.Style = MetroFramework.MetroColorStyle.Red;
                     Append(richTextBox1, (this.Tag as User).username+ " se na Vás vykašlal a prostě to vypnul.", Color.White);
                     Append(richTextBox1, Environment.NewLine, Color.White);
@@ -367,12 +365,10 @@ namespace RildasApp.Forms
         {
             if (Global.GetLoggedUsers().Exists(x => x.username == (this.Tag as User).username))
             {
-                picture_userState.Image = Resources.green;
                 this.Style = MetroFramework.MetroColorStyle.Lime;
             }
             else
             {
-                picture_userState.Image = Resources.red;
                 this.Style = MetroFramework.MetroColorStyle.Red;
             }
         }

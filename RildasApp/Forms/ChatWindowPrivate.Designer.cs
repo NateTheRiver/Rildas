@@ -34,9 +34,7 @@ namespace RildasApp.Forms
             this.btnSend = new MetroFramework.Controls.MetroButton();
             this.btnNotice = new MetroFramework.Controls.MetroButton();
             this.tbMessage = new System.Windows.Forms.TextBox();
-            this.picture_userState = new System.Windows.Forms.PictureBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.picture_userState)).BeginInit();
             this.SuspendLayout();
             // 
             // cbAlwaysOnTop
@@ -90,14 +88,6 @@ namespace RildasApp.Forms
             this.tbMessage.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tbMessage_KeyUp);
             this.tbMessage.Leave += new System.EventHandler(this.tbMessage_Leave);
             // 
-            // picture_userState
-            // 
-            this.picture_userState.Location = new System.Drawing.Point(4, 27);
-            this.picture_userState.Name = "picture_userState";
-            this.picture_userState.Size = new System.Drawing.Size(20, 20);
-            this.picture_userState.TabIndex = 8;
-            this.picture_userState.TabStop = false;
-            // 
             // richTextBox1
             // 
             this.richTextBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
@@ -117,7 +107,6 @@ namespace RildasApp.Forms
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(624, 408);
             this.Controls.Add(this.richTextBox1);
-            this.Controls.Add(this.picture_userState);
             this.Controls.Add(this.tbMessage);
             this.Controls.Add(this.btnNotice);
             this.Controls.Add(this.btnSend);
@@ -132,7 +121,6 @@ namespace RildasApp.Forms
             this.Load += new System.EventHandler(this.ChatWindowPrivate_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.ChatWindowPrivate_Paint);
             this.Resize += new System.EventHandler(this.ChatWindow_Resize);
-            ((System.ComponentModel.ISupportInitialize)(this.picture_userState)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -143,7 +131,6 @@ namespace RildasApp.Forms
         private MetroFramework.Controls.MetroButton btnSend;
         private MetroFramework.Controls.MetroButton btnNotice;
         private System.Windows.Forms.TextBox tbMessage;
-        private System.Windows.Forms.PictureBox picture_userState;
         private System.Windows.Forms.RichTextBox richTextBox1;
     }
 }
