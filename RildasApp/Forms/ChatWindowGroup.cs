@@ -47,7 +47,6 @@ namespace RildasApp.Forms
             _pressed = new List<Keys>();
             InitializeComponent();
             richTextBox1.Location = new Point(1, 1);
-            panel1.Size = new Size(richTextBox1.Size.Width + 2, richTextBox1.Size.Height + 2);
             Global.OnlineUsersListUpdated += LoadLoggedState;
             Global.UserConnected += Global_UserConnected;
             this.FormClosing += ChatWindowGroup_FormClosing;
@@ -145,14 +144,19 @@ namespace RildasApp.Forms
         private void ChatWindow_Resize(object sender, EventArgs e)
         {
             const int padding = 24;
+            const int topPadding = 63;
             const int textboxPadding = 10;
             const int buttonPading = 5;
+            const int panelPadding = 20;
 
-            /*tbMessage.Location = new Point(padding, this.Height - (padding + tbMessage.Height));
-            tbMessage.Size = new Size(btnNotice.Location.X - (tbMessage.Location.X + buttonPading), tbMessage.Height);
-            richTextBox1.Location = new Point(padding, 63);
-            richTextBox1.Size = new Size(this.Width - (padding * 2), tbMessage.Location.Y - (richTextBox1.Location.Y + textboxPadding));
-            cbAlwaysOnTop.Location = new Point(richTextBox1.Location.X + richTextBox1.Width - cbAlwaysOnTop.Width, cbAlwaysOnTop.Location.Y);*/
+            usersPanel.Location = new Point(this.Width - (padding + usersPanel.Width), topPadding);
+            metroLabel13.Location = new Point(usersPanel.Location.X, metroLabel13.Location.Y);
+            tbMessage.Location = new Point(padding, this.Height - (padding + tbMessage.Height));
+            tbMessage.Size = new Size(usersPanel.Location.X - (tbMessage.Location.X + buttonPading + btnSend.Width + panelPadding), tbMessage.Height);
+            btnSend.Location = new Point(tbMessage.Location.X + tbMessage.Width + buttonPading, tbMessage.Location.Y);
+            richTextBox1.Location = new Point(padding, topPadding);
+            richTextBox1.Size = new Size(this.Width - (padding + (this.Width - usersPanel.Location.X) + panelPadding), tbMessage.Location.Y - (richTextBox1.Location.Y + textboxPadding));
+            cbAlwaysOnTop.Location = new Point(richTextBox1.Location.X + richTextBox1.Width - cbAlwaysOnTop.Width, cbAlwaysOnTop.Location.Y);
             // TODO: Resize všech komponent
         }
         public void AppendMessage(string username, string message, DateTime time, bool doNotLog = false)
@@ -346,6 +350,33 @@ namespace RildasApp.Forms
 
         }
 
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            base.OnPaint(e);
+            Graphics g = e.Graphics;
+            // Border around richtextbox
+            g.DrawRectangle(new Pen(Color.Gray), richTextBox1.Location.X - 1, richTextBox1.Location.Y - 1, richTextBox1.Width + 2, richTextBox1.Height + 2);
+
+            /*if (_focus)
+            {
+                tbMessage.BorderStyle = System.Windows.Forms.BorderStyle.None;
+                Pen p;
+                switch (this.Style)
+                {
+                    case MetroFramework.MetroColorStyle.Red: p = new Pen(Color.FromArgb(209, 17, 65)); break;
+                    case MetroFramework.MetroColorStyle.Yellow: p = new Pen(Color.Yellow); break; // TODO: Najít barvu pro Yellow
+                    default: p = new Pen(Color.FromArgb(142, 188, 0)); break;
+                }
+
+                int variance = 1;
+                g.DrawRectangle(p, new Rectangle(tbMessage.Location.X - variance, tbMessage.Location.Y - variance, tbMessage.Width + variance, tbMessage.Height + variance));
+            }
+            else
+            {
+                tbMessage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            }*/
+        }
+
         private void Name_Click(object sender, EventArgs e)
         {
             User user = (sender as MetroLink).Tag as User;
@@ -355,6 +386,11 @@ namespace RildasApp.Forms
         private void ChatWindowGroup_Activated(object sender, EventArgs e)
         {
             this.tbMessage.Focus();
+        }
+
+        private void ChatWindowGroup_Load(object sender, EventArgs e)
+        {
+            ChatWindow_Resize(this, new EventArgs());
         }
     }
 }

@@ -33,10 +33,8 @@
             this.cbAlwaysOnTop = new MetroFramework.Controls.MetroCheckBox();
             this.btnSend = new MetroFramework.Controls.MetroButton();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.metroLabel13 = new MetroFramework.Controls.MetroLabel();
             this.usersPanel = new MetroFramework.Controls.MetroPanel();
-            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tbMessage
@@ -102,24 +100,14 @@
             this.richTextBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBox1.Location = new System.Drawing.Point(1, 1);
+            this.richTextBox1.Location = new System.Drawing.Point(24, 63);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.ReadOnly = true;
-            this.richTextBox1.Size = new System.Drawing.Size(572, 253);
+            this.richTextBox1.Size = new System.Drawing.Size(572, 241);
             this.richTextBox1.TabIndex = 5;
             this.richTextBox1.Text = "";
             this.richTextBox1.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.RichTextBox1_LinkClicked);
 
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.Gray;
-            this.panel1.Controls.Add(this.richTextBox1);
-            this.panel1.ForeColor = System.Drawing.Color.Gray;
-            this.panel1.Location = new System.Drawing.Point(23, 63);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(574, 232);
-            this.panel1.TabIndex = 6;
             // 
             // metroLabel13
             // 
@@ -156,9 +144,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(829, 408);
+            this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.usersPanel);
             this.Controls.Add(this.metroLabel13);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnSend);
             this.Controls.Add(this.cbAlwaysOnTop);
             this.Controls.Add(this.tbMessage);
@@ -169,9 +157,9 @@
             this.Text = "Group chat: Rildas";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.Activated += new System.EventHandler(this.ChatWindowGroup_Activated);
+            this.Load += new System.EventHandler(this.ChatWindowGroup_Load);
             this.Shown += new System.EventHandler(this.ChatWindowGroup_Shown);
             this.Resize += new System.EventHandler(this.ChatWindow_Resize);
-            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -182,7 +170,6 @@
         private MetroFramework.Controls.MetroCheckBox cbAlwaysOnTop;
         private MetroFramework.Controls.MetroButton btnSend;
         private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.Panel panel1;
         private MetroFramework.Controls.MetroLabel metroLabel13;
         private MetroFramework.Controls.MetroPanel usersPanel;
     }
