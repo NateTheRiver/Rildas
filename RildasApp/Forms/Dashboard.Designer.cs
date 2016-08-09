@@ -199,6 +199,8 @@ namespace RildasApp.Forms
             this.chatGroupAdd = new MetroFramework.Controls.MetroButton();
             this.metroScrollBar2 = new MetroFramework.Controls.MetroScrollBar();
             this.chatsPanel = new System.Windows.Forms.Panel();
+            this.metroLabel43 = new MetroFramework.Controls.MetroLabel();
+            this.animeEdit_comboCorrector = new MetroFramework.Controls.MetroComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).BeginInit();
             this.metroTabControl1.SuspendLayout();
             this._dashboard.SuspendLayout();
@@ -1705,7 +1707,7 @@ namespace RildasApp.Forms
             this._adminTabControl.Controls.Add(this._adminAnimeEdit);
             this._adminTabControl.Location = new System.Drawing.Point(3, 6);
             this._adminTabControl.Name = "_adminTabControl";
-            this._adminTabControl.SelectedIndex = 0;
+            this._adminTabControl.SelectedIndex = 1;
             this._adminTabControl.Size = new System.Drawing.Size(1325, 642);
             this._adminTabControl.TabIndex = 2;
             this._adminTabControl.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -1892,6 +1894,7 @@ namespace RildasApp.Forms
             this._adminAnimeEdit.Controls.Add(this.metroLabel37);
             this._adminAnimeEdit.Controls.Add(this.metroLabel41);
             this._adminAnimeEdit.Controls.Add(this.metroLabel36);
+            this._adminAnimeEdit.Controls.Add(this.metroLabel43);
             this._adminAnimeEdit.Controls.Add(this.metroLabel35);
             this._adminAnimeEdit.Controls.Add(this.metroLabel34);
             this._adminAnimeEdit.Controls.Add(this.metroLabel33);
@@ -1904,6 +1907,7 @@ namespace RildasApp.Forms
             this._adminAnimeEdit.Controls.Add(this.animeEdit_specialCount);
             this._adminAnimeEdit.Controls.Add(this.animeEdit_Id);
             this._adminAnimeEdit.Controls.Add(this.animeEdit_episodeCount);
+            this._adminAnimeEdit.Controls.Add(this.animeEdit_comboCorrector);
             this._adminAnimeEdit.Controls.Add(this.animeEdit_comboTranslator);
             this._adminAnimeEdit.Controls.Add(this.animeEdit_comboState);
             this._adminAnimeEdit.Controls.Add(this.animeEdit_textBannerText);
@@ -1932,7 +1936,7 @@ namespace RildasApp.Forms
             // animeEdit_addAsNew
             // 
             this.animeEdit_addAsNew.AutoSize = true;
-            this.animeEdit_addAsNew.Location = new System.Drawing.Point(853, 317);
+            this.animeEdit_addAsNew.Location = new System.Drawing.Point(853, 363);
             this.animeEdit_addAsNew.Name = "animeEdit_addAsNew";
             this.animeEdit_addAsNew.Size = new System.Drawing.Size(144, 15);
             this.animeEdit_addAsNew.TabIndex = 10;
@@ -1942,7 +1946,7 @@ namespace RildasApp.Forms
             // 
             // metroButton3
             // 
-            this.metroButton3.Location = new System.Drawing.Point(866, 360);
+            this.metroButton3.Location = new System.Drawing.Point(866, 406);
             this.metroButton3.Name = "metroButton3";
             this.metroButton3.Size = new System.Drawing.Size(131, 41);
             this.metroButton3.TabIndex = 9;
@@ -2051,7 +2055,7 @@ namespace RildasApp.Forms
             // 
             this.metroLabel35.AutoSize = true;
             this.metroLabel35.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel35.Location = new System.Drawing.Point(536, 290);
+            this.metroLabel35.Location = new System.Drawing.Point(536, 327);
             this.metroLabel35.Name = "metroLabel35";
             this.metroLabel35.Size = new System.Drawing.Size(79, 19);
             this.metroLabel35.TabIndex = 8;
@@ -2122,7 +2126,7 @@ namespace RildasApp.Forms
             // animeEdit_bannerShow
             // 
             this.animeEdit_bannerShow.AutoSize = true;
-            this.animeEdit_bannerShow.Location = new System.Drawing.Point(621, 317);
+            this.animeEdit_bannerShow.Location = new System.Drawing.Point(621, 363);
             this.animeEdit_bannerShow.Name = "animeEdit_bannerShow";
             this.animeEdit_bannerShow.Size = new System.Drawing.Size(106, 15);
             this.animeEdit_bannerShow.TabIndex = 7;
@@ -2240,7 +2244,7 @@ namespace RildasApp.Forms
             this.animeEdit_textBannerText.CustomButton.Visible = false;
             this.animeEdit_textBannerText.FontSize = MetroFramework.MetroTextBoxSize.Medium;
             this.animeEdit_textBannerText.Lines = new string[0];
-            this.animeEdit_textBannerText.Location = new System.Drawing.Point(621, 282);
+            this.animeEdit_textBannerText.Location = new System.Drawing.Point(621, 317);
             this.animeEdit_textBannerText.MaxLength = 32767;
             this.animeEdit_textBannerText.Name = "animeEdit_textBannerText";
             this.animeEdit_textBannerText.PasswordChar = '\0';
@@ -2635,6 +2639,29 @@ namespace RildasApp.Forms
             this.chatsPanel.Size = new System.Drawing.Size(179, 594);
             this.chatsPanel.TabIndex = 13;
             // 
+            // metroLabel43
+            // 
+            this.metroLabel43.AutoSize = true;
+            this.metroLabel43.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel43.Location = new System.Drawing.Point(553, 292);
+            this.metroLabel43.Name = "metroLabel43";
+            this.metroLabel43.Size = new System.Drawing.Size(62, 19);
+            this.metroLabel43.TabIndex = 8;
+            this.metroLabel43.Text = "Korektor";
+            this.metroLabel43.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel43.UseStyleColors = true;
+            // 
+            // animeEdit_comboCorrector
+            // 
+            this.animeEdit_comboCorrector.FormattingEnabled = true;
+            this.animeEdit_comboCorrector.ItemHeight = 23;
+            this.animeEdit_comboCorrector.Location = new System.Drawing.Point(621, 282);
+            this.animeEdit_comboCorrector.Name = "animeEdit_comboCorrector";
+            this.animeEdit_comboCorrector.Size = new System.Drawing.Size(376, 29);
+            this.animeEdit_comboCorrector.TabIndex = 5;
+            this.animeEdit_comboCorrector.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.animeEdit_comboCorrector.UseSelectable = true;
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2864,5 +2891,7 @@ namespace RildasApp.Forms
         private MetroFramework.Controls.MetroCheckBox animeEdit_addAsNew;
         private MetroFramework.Controls.MetroLabel metroLabel42;
         private System.Windows.Forms.NumericUpDown animeEdit_Id;
+        private MetroFramework.Controls.MetroLabel metroLabel43;
+        private MetroFramework.Controls.MetroComboBox animeEdit_comboCorrector;
     }
 }
