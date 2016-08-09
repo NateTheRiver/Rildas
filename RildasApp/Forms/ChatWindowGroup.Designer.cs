@@ -163,6 +163,7 @@
             this.Controls.Add(this.cbAlwaysOnTop);
             this.Controls.Add(this.tbMessage);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MinimumSize = new System.Drawing.Size(829, 408);
             this.Name = "ChatWindowGroup";
             this.Style = MetroFramework.MetroColorStyle.Lime;
             this.Text = "Group chat: Rildas";

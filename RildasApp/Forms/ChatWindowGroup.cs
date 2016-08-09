@@ -144,6 +144,15 @@ namespace RildasApp.Forms
 
         private void ChatWindow_Resize(object sender, EventArgs e)
         {
+            const int padding = 24;
+            const int textboxPadding = 10;
+            const int buttonPading = 5;
+
+            /*tbMessage.Location = new Point(padding, this.Height - (padding + tbMessage.Height));
+            tbMessage.Size = new Size(btnNotice.Location.X - (tbMessage.Location.X + buttonPading), tbMessage.Height);
+            richTextBox1.Location = new Point(padding, 63);
+            richTextBox1.Size = new Size(this.Width - (padding * 2), tbMessage.Location.Y - (richTextBox1.Location.Y + textboxPadding));
+            cbAlwaysOnTop.Location = new Point(richTextBox1.Location.X + richTextBox1.Width - cbAlwaysOnTop.Width, cbAlwaysOnTop.Location.Y);*/
             // TODO: Resize všech komponent
         }
         public void AppendMessage(string username, string message, DateTime time, bool doNotLog = false)
