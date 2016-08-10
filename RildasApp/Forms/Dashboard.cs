@@ -1307,10 +1307,10 @@ namespace RildasApp.Forms
                     for (int j = 0; j < importantFiles.Controls.Count; j++)
                     {
                         Control control = importantFiles.Controls[j];
-                        if (((EpisodeVersion) control.Tag).id == epver.id)
+                        /*if (((EpisodeVersion) control.Tag).id == epver.id)
                         {
                             control.Location = new Point(0, i*100);
-                        }
+                        }*/
                     }
                     Anime anime = animes.FirstOrDefault(x => x.id == epver.animeId);
 

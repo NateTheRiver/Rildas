@@ -22,7 +22,9 @@ namespace RildasApp.Forms
         // Flash continuously until the window comes to the foreground. 
         public const UInt32 FLASHW_TIMERNOFG = 12;
         bool _focus = false;
-        List<Keys> pressed;
+        static Color myColor = Color.FromArgb(60, 130, 231);
+        static Color friendColor = Color.FromArgb(231, 76, 60);
+        List <Keys> pressed;
         protected override bool ShowWithoutActivation => true;
 
         public ChatWindowPrivate()
@@ -33,11 +35,35 @@ namespace RildasApp.Forms
             Global.UserConnected += UserEnter;
             this.FormClosing += OnFormClosing;
             richTextBox1.Location = new Point(1, 1);
-            this.SetStyle(ControlStyles.UserPaint, true);
+            this.SetStyle(ControlStyles.UserPaint, true);            
         }
 
-        private void RichTextBox1OnLinkClicked(object sender, LinkClickedEventArgs linkClickedEventArgs)
+        private void LoadHistory()
         {
+            string finalPath = Path.Combine(dirPath, (this.Tag as User).username + ".txt");
+            if (File.Exists(finalPath))
+            {
+                var logFile = File.ReadAllLines(finalPath);
+                List<string> log = new List<string>(logFile);
+                foreach (string s in log)
+                {
+                    //Communication
+                    if (s.Length > 0 && s[0] == '[')
+                    {
+                        string tmp = s.Substring(7);
+                        string colorized = s.Substring(0, s.IndexOf(':', s.IndexOf(':') + 1));
+                        string text = s.Substring(colorized.Length);
+                        Append(richTextBox1, colorized, (tmp.Substring(0, tmp.IndexOf(':')) == (this.Tag as User).username) ? friendColor : myColor);
+                        Append(richTextBox1, text + Environment.NewLine, Color.White);
+
+                    }
+                    //Information text
+                    else
+                    {
+                        Append(richTextBox1, s + Environment.NewLine, Color.White);
+                    }
+                }
+            }
 
         }
 
@@ -366,6 +392,7 @@ namespace RildasApp.Forms
 
         private void ChatWindowPrivate_Load(object sender, EventArgs e)
         {
+            LoadHistory();
             if (Global.GetLoggedUsers().Exists(x => x.username == (this.Tag as User).username))
             {
                 this.Style = MetroFramework.MetroColorStyle.Lime;
