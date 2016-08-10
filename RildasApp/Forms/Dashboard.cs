@@ -1300,14 +1300,14 @@ namespace RildasApp.Forms
                 for (int i = 0; i < filteredVersions.ToArray().Length; i++)
                 {
                     EpisodeVersion epver = filteredVersions.ToArray()[i];
-                    for (int j = 0; j < importantFiles.Controls.Count; j++)
+                  /*  for (int j = 0; j < importantFiles.Controls.Count; j++)
                     {
                         Control control = importantFiles.Controls[j];
                         if (((EpisodeVersion) control.Tag).id == epver.id)
                         {
                             control.Location = new Point(0, i*100);
                         }
-                    }
+                    }*/
                     Anime anime = animes.FirstOrDefault(x => x.id == epver.animeId);
 
                     if (anime == null) continue;
@@ -1577,7 +1577,7 @@ namespace RildasApp.Forms
             EpisodeVersion ver = new EpisodeVersion();
             ver.animeId = an.id;
             _publishSetLabels(ver);
-            if(an != null)
+            if(an != null)  
             publish_animePicturebox.Image = (Bitmap)Resources.ResourceManager.GetObject(Path.GetFileNameWithoutExtension(an.post_img));
             publish_animePicturebox.Visible = true;
             myPanel2.Refresh();
@@ -1883,6 +1883,7 @@ namespace RildasApp.Forms
         {
             //TODO: dodělat přidání a upravení anime
         }
+
 
         private void encode_buttonEncode_Click(object sender, EventArgs e)
         {

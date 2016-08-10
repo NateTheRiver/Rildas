@@ -446,12 +446,7 @@ namespace RildasApp
         }
         internal static Episode[] GetEpisodes(int animeId)
         {
-            List<Episode> eps = new List<Episode>();
-            foreach (Episode ep in episodes)
-            {
-                if (ep.animeid == animeId) eps.Add(ep);
-            }
-            return eps.ToArray();
+            return episodes.Where(ep => ep.animeid == animeId).ToArray();
         }
         internal static Anime[] GetAnimesOfUser(User user)
         {

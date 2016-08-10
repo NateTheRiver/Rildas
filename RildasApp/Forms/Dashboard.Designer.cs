@@ -68,7 +68,7 @@ namespace RildasApp.Forms
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.rbKorekce = new MetroFramework.Controls.MetroRadioButton();
             this.rbPreklad = new MetroFramework.Controls.MetroRadioButton();
-            this.tabPage5 = new MetroFramework.Controls.MetroTabPage();
+            this._downloadEpisode = new MetroFramework.Controls.MetroTabPage();
             this.panel3 = new MetroFramework.Controls.MetroPanel();
             this.tb3DownloadAJ = new MetroFramework.Controls.MetroButton();
             this.tb3Download = new MetroFramework.Controls.MetroButton();
@@ -126,16 +126,6 @@ namespace RildasApp.Forms
             this.publish_animePicturebox = new System.Windows.Forms.PictureBox();
             this.metroLabel16 = new MetroFramework.Controls.MetroLabel();
             this.publish_AnimeComboBox = new MetroFramework.Controls.MetroComboBox();
-            this._settings = new MetroFramework.Controls.MetroTabPage();
-            this.configMinToSysTray = new MetroFramework.Controls.MetroCheckBox();
-            this.configSilentNotifications = new MetroFramework.Controls.MetroCheckBox();
-            this.configSilentPrivateMessages = new MetroFramework.Controls.MetroCheckBox();
-            this.configSilentGroupMessages = new MetroFramework.Controls.MetroCheckBox();
-            this._configSilentAll = new MetroFramework.Controls.MetroCheckBox();
-            this.metroLabel14 = new MetroFramework.Controls.MetroLabel();
-            this._settingsAutoLogin = new MetroFramework.Controls.MetroCheckBox();
-            this.metroLabel13 = new MetroFramework.Controls.MetroLabel();
-            this._settingsOnStartUp = new MetroFramework.Controls.MetroCheckBox();
             this._admin = new MetroFramework.Controls.MetroTabPage();
             this._adminTabControl = new MetroFramework.Controls.MetroTabControl();
             this._adminEncode = new MetroFramework.Controls.MetroTabPage();
@@ -185,8 +175,23 @@ namespace RildasApp.Forms
             this.animeEdit_textAnime = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel20 = new MetroFramework.Controls.MetroLabel();
             this._adminAnimeEditCombo = new MetroFramework.Controls.MetroComboBox();
-            this._stats = new MetroFramework.Controls.MetroTabPage();
+            this._adminUserEdit = new MetroFramework.Controls.MetroTabPage();
+            this._userInfo = new MetroFramework.Controls.MetroTabControl();
+            this.metroCheckBox1 = new MetroFramework.Controls.MetroCheckBox();
+            this.metroLabel43 = new MetroFramework.Controls.MetroLabel();
+            this._cbadminACLuser = new MetroFramework.Controls.MetroComboBox();
+            this._settings = new MetroFramework.Controls.MetroTabPage();
+            this.configMinToSysTray = new MetroFramework.Controls.MetroCheckBox();
+            this.configSilentNotifications = new MetroFramework.Controls.MetroCheckBox();
+            this.configSilentPrivateMessages = new MetroFramework.Controls.MetroCheckBox();
+            this.configSilentGroupMessages = new MetroFramework.Controls.MetroCheckBox();
+            this._configSilentAll = new MetroFramework.Controls.MetroCheckBox();
+            this.metroLabel14 = new MetroFramework.Controls.MetroLabel();
+            this._settingsAutoLogin = new MetroFramework.Controls.MetroCheckBox();
+            this.metroLabel13 = new MetroFramework.Controls.MetroLabel();
+            this._settingsOnStartUp = new MetroFramework.Controls.MetroCheckBox();
             this._states = new MetroFramework.Controls.MetroTabPage();
+            this._stats = new MetroFramework.Controls.MetroTabPage();
             this.metroStyleExtender1 = new MetroFramework.Components.MetroStyleExtender(this.components);
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
@@ -199,11 +204,50 @@ namespace RildasApp.Forms
             this.chatGroupAdd = new MetroFramework.Controls.MetroButton();
             this.metroScrollBar2 = new MetroFramework.Controls.MetroScrollBar();
             this.chatsPanel = new System.Windows.Forms.Panel();
+            this._adminUserEditGeneral = new MetroFramework.Controls.MetroTabPage();
+            this._adminUserEditTeam = new MetroFramework.Controls.MetroTabPage();
+            this._adminUserEditAdmin = new MetroFramework.Controls.MetroTabPage();
+            this.metroLabel44 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel45 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel46 = new MetroFramework.Controls.MetroLabel();
+            this._adminUserEditUsername = new MetroFramework.Controls.MetroTextBox();
+            this.metroLabel47 = new MetroFramework.Controls.MetroLabel();
+            this._adminUserEditEmail = new MetroFramework.Controls.MetroTextBox();
+            this.metroLabel48 = new MetroFramework.Controls.MetroLabel();
+            this.metroComboBox3 = new MetroFramework.Controls.MetroComboBox();
+            this.metroLabel49 = new MetroFramework.Controls.MetroLabel();
+            this._adminUserEditRegistration = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel50 = new MetroFramework.Controls.MetroLabel();
+            this._adminUserEditLastLogin = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel51 = new MetroFramework.Controls.MetroLabel();
+            this._adminUserEditBirthDay = new MetroFramework.Controls.MetroLabel();
+            this._adminUserEditActivate = new MetroFramework.Controls.MetroLink();
+            this.metroLink2 = new MetroFramework.Controls.MetroLink();
+            this._adminUserEditSave = new MetroFramework.Controls.MetroButton();
+            this._adminUserEditAppAccess = new MetroFramework.Controls.MetroCheckBox();
+            this._adminUserEditTranslateOwn = new MetroFramework.Controls.MetroCheckBox();
+            this._adminUserEditTranslateForeign = new MetroFramework.Controls.MetroCheckBox();
+            this._adminUserEditCorrection = new MetroFramework.Controls.MetroCheckBox();
+            this._adminUserEditCorrectionForeign = new MetroFramework.Controls.MetroCheckBox();
+            this.metroLabel52 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel53 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel54 = new MetroFramework.Controls.MetroLabel();
+            this._adminUserEditApproveAnime = new MetroFramework.Controls.MetroCheckBox();
+            this.metroLabel55 = new MetroFramework.Controls.MetroLabel();
+            this._adminUserEditEncode = new MetroFramework.Controls.MetroCheckBox();
+            this.metroLabel56 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel57 = new MetroFramework.Controls.MetroLabel();
+            this._adminUserEditPublish = new MetroFramework.Controls.MetroCheckBox();
+            this._adminUserEditPublishForeign = new MetroFramework.Controls.MetroCheckBox();
+            this._adminUserEditSkipApproval = new MetroFramework.Controls.MetroCheckBox();
+            this._adminUserEditGetForeignCorrection = new MetroFramework.Controls.MetroCheckBox();
+            this._adminUserEditStealForeignCorrection = new MetroFramework.Controls.MetroCheckBox();
+            this._adminUserEditChatGroupsCreate = new MetroFramework.Controls.MetroCheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).BeginInit();
             this.metroTabControl1.SuspendLayout();
             this._dashboard.SuspendLayout();
             this._translate.SuspendLayout();
-            this.tabPage5.SuspendLayout();
+            this._downloadEpisode.SuspendLayout();
             this.panel3.SuspendLayout();
             this._calendar.SuspendLayout();
             this._helpers.SuspendLayout();
@@ -214,7 +258,6 @@ namespace RildasApp.Forms
             this._publish.SuspendLayout();
             this.metroPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.publish_animePicturebox)).BeginInit();
-            this._settings.SuspendLayout();
             this._admin.SuspendLayout();
             this._adminTabControl.SuspendLayout();
             this._adminEncode.SuspendLayout();
@@ -224,7 +267,12 @@ namespace RildasApp.Forms
             ((System.ComponentModel.ISupportInitialize)(this.animeEdit_specialCount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.animeEdit_Id)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.animeEdit_episodeCount)).BeginInit();
+            this._adminUserEdit.SuspendLayout();
+            this._userInfo.SuspendLayout();
+            this._settings.SuspendLayout();
             this.chatsPanel.SuspendLayout();
+            this._adminUserEditGeneral.SuspendLayout();
+            this._adminUserEditTeam.SuspendLayout();
             this.SuspendLayout();
             // 
             // metroStyleManager1
@@ -236,18 +284,18 @@ namespace RildasApp.Forms
             // 
             this.metroTabControl1.Controls.Add(this._dashboard);
             this.metroTabControl1.Controls.Add(this._translate);
-            this.metroTabControl1.Controls.Add(this.tabPage5);
+            this.metroTabControl1.Controls.Add(this._downloadEpisode);
             this.metroTabControl1.Controls.Add(this._calendar);
             this.metroTabControl1.Controls.Add(this._helpers);
             this.metroTabControl1.Controls.Add(this._xdccCenter);
             this.metroTabControl1.Controls.Add(this._publish);
-            this.metroTabControl1.Controls.Add(this._settings);
             this.metroTabControl1.Controls.Add(this._admin);
-            this.metroTabControl1.Controls.Add(this._stats);
+            this.metroTabControl1.Controls.Add(this._settings);
             this.metroTabControl1.Controls.Add(this._states);
+            this.metroTabControl1.Controls.Add(this._stats);
             this.metroTabControl1.Location = new System.Drawing.Point(23, 63);
             this.metroTabControl1.Name = "metroTabControl1";
-            this.metroTabControl1.SelectedIndex = 8;
+            this.metroTabControl1.SelectedIndex = 7;
             this.metroTabControl1.Size = new System.Drawing.Size(1455, 649);
             this.metroTabControl1.TabIndex = 0;
             this.metroTabControl1.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -716,28 +764,28 @@ namespace RildasApp.Forms
             this.rbPreklad.UseSelectable = true;
             this.rbPreklad.CheckedChanged += new System.EventHandler(this.CheckAnimeList);
             // 
-            // tabPage5
+            // _downloadEpisode
             // 
-            this.tabPage5.Controls.Add(this.panel3);
-            this.tabPage5.Controls.Add(this.cb2Version);
-            this.tabPage5.Controls.Add(this.metroLabel10);
-            this.tabPage5.Controls.Add(this.cb2Episodes);
-            this.tabPage5.Controls.Add(this.metroLabel9);
-            this.tabPage5.Controls.Add(this.cb2DoneAnime);
-            this.tabPage5.Controls.Add(this.cb2Anime);
-            this.tabPage5.Controls.Add(this.metroLabel8);
-            this.tabPage5.HorizontalScrollbarBarColor = true;
-            this.tabPage5.HorizontalScrollbarHighlightOnWheel = false;
-            this.tabPage5.HorizontalScrollbarSize = 10;
-            this.tabPage5.Location = new System.Drawing.Point(4, 38);
-            this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Size = new System.Drawing.Size(1447, 607);
-            this.tabPage5.TabIndex = 7;
-            this.tabPage5.Text = "Stáhnout díl ke korekci    ";
-            this.tabPage5.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.tabPage5.VerticalScrollbarBarColor = true;
-            this.tabPage5.VerticalScrollbarHighlightOnWheel = false;
-            this.tabPage5.VerticalScrollbarSize = 10;
+            this._downloadEpisode.Controls.Add(this.panel3);
+            this._downloadEpisode.Controls.Add(this.cb2Version);
+            this._downloadEpisode.Controls.Add(this.metroLabel10);
+            this._downloadEpisode.Controls.Add(this.cb2Episodes);
+            this._downloadEpisode.Controls.Add(this.metroLabel9);
+            this._downloadEpisode.Controls.Add(this.cb2DoneAnime);
+            this._downloadEpisode.Controls.Add(this.cb2Anime);
+            this._downloadEpisode.Controls.Add(this.metroLabel8);
+            this._downloadEpisode.HorizontalScrollbarBarColor = true;
+            this._downloadEpisode.HorizontalScrollbarHighlightOnWheel = false;
+            this._downloadEpisode.HorizontalScrollbarSize = 10;
+            this._downloadEpisode.Location = new System.Drawing.Point(4, 38);
+            this._downloadEpisode.Name = "_downloadEpisode";
+            this._downloadEpisode.Size = new System.Drawing.Size(1447, 607);
+            this._downloadEpisode.TabIndex = 7;
+            this._downloadEpisode.Text = "Stáhnout díl ke korekci    ";
+            this._downloadEpisode.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._downloadEpisode.VerticalScrollbarBarColor = true;
+            this._downloadEpisode.VerticalScrollbarHighlightOnWheel = false;
+            this._downloadEpisode.VerticalScrollbarSize = 10;
             // 
             // panel3
             // 
@@ -1545,144 +1593,6 @@ namespace RildasApp.Forms
             this.publish_AnimeComboBox.UseSelectable = true;
             this.publish_AnimeComboBox.SelectedIndexChanged += new System.EventHandler(this.publish_AnimeComboBox_SelectedIndexChanged);
             // 
-            // _settings
-            // 
-            this._settings.Controls.Add(this.configMinToSysTray);
-            this._settings.Controls.Add(this.configSilentNotifications);
-            this._settings.Controls.Add(this.configSilentPrivateMessages);
-            this._settings.Controls.Add(this.configSilentGroupMessages);
-            this._settings.Controls.Add(this._configSilentAll);
-            this._settings.Controls.Add(this.metroLabel14);
-            this._settings.Controls.Add(this._settingsAutoLogin);
-            this._settings.Controls.Add(this.metroLabel13);
-            this._settings.Controls.Add(this._settingsOnStartUp);
-            this._settings.HorizontalScrollbarBarColor = true;
-            this._settings.HorizontalScrollbarHighlightOnWheel = false;
-            this._settings.HorizontalScrollbarSize = 10;
-            this._settings.Location = new System.Drawing.Point(4, 38);
-            this._settings.Name = "_settings";
-            this._settings.Size = new System.Drawing.Size(1447, 607);
-            this._settings.TabIndex = 10;
-            this._settings.Text = "Nastavení    ";
-            this._settings.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this._settings.VerticalScrollbarBarColor = true;
-            this._settings.VerticalScrollbarHighlightOnWheel = false;
-            this._settings.VerticalScrollbarSize = 10;
-            // 
-            // configMinToSysTray
-            // 
-            this.configMinToSysTray.AutoSize = true;
-            this.configMinToSysTray.Location = new System.Drawing.Point(3, 122);
-            this.configMinToSysTray.Name = "configMinToSysTray";
-            this.configMinToSysTray.Size = new System.Drawing.Size(206, 15);
-            this.configMinToSysTray.TabIndex = 20;
-            this.configMinToSysTray.Text = "Minimalizovat na systémovou lištu";
-            this.configMinToSysTray.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.configMinToSysTray.UseSelectable = true;
-            this.configMinToSysTray.CheckedChanged += new System.EventHandler(this.metroCheckBox1_CheckedChanged_1);
-            // 
-            // configSilentNotifications
-            // 
-            this.configSilentNotifications.AutoSize = true;
-            this.configSilentNotifications.Location = new System.Drawing.Point(280, 143);
-            this.configSilentNotifications.Name = "configSilentNotifications";
-            this.configSilentNotifications.Size = new System.Drawing.Size(212, 15);
-            this.configSilentNotifications.TabIndex = 19;
-            this.configSilentNotifications.Text = "Tlumit notifikační vyskakovací okna";
-            this.configSilentNotifications.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.configSilentNotifications.UseSelectable = true;
-            this.configSilentNotifications.CheckedChanged += new System.EventHandler(this.configSilentNotifications_CheckedChanged);
-            // 
-            // configSilentPrivateMessages
-            // 
-            this.configSilentPrivateMessages.AutoSize = true;
-            this.configSilentPrivateMessages.Location = new System.Drawing.Point(280, 122);
-            this.configSilentPrivateMessages.Name = "configSilentPrivateMessages";
-            this.configSilentPrivateMessages.Size = new System.Drawing.Size(256, 15);
-            this.configSilentPrivateMessages.TabIndex = 18;
-            this.configSilentPrivateMessages.Text = "Tlumit vyskakovací okna soukromého chatu";
-            this.configSilentPrivateMessages.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.configSilentPrivateMessages.UseSelectable = true;
-            this.configSilentPrivateMessages.CheckedChanged += new System.EventHandler(this.configSilentPrivateMessages_CheckedChanged);
-            // 
-            // configSilentGroupMessages
-            // 
-            this.configSilentGroupMessages.AutoSize = true;
-            this.configSilentGroupMessages.Location = new System.Drawing.Point(280, 101);
-            this.configSilentGroupMessages.Name = "configSilentGroupMessages";
-            this.configSilentGroupMessages.Size = new System.Drawing.Size(257, 15);
-            this.configSilentGroupMessages.TabIndex = 17;
-            this.configSilentGroupMessages.Text = "Tlumit vyskakovací okna skupinového chatu";
-            this.configSilentGroupMessages.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.configSilentGroupMessages.UseSelectable = true;
-            this.configSilentGroupMessages.CheckedChanged += new System.EventHandler(this.configSilentGroupMessages_CheckedChanged);
-            // 
-            // _configSilentAll
-            // 
-            this._configSilentAll.AutoSize = true;
-            this._configSilentAll.Location = new System.Drawing.Point(257, 80);
-            this._configSilentAll.Name = "_configSilentAll";
-            this._configSilentAll.Size = new System.Drawing.Size(199, 15);
-            this._configSilentAll.TabIndex = 16;
-            this._configSilentAll.Text = "Tlumit všechna vyskakovací okna";
-            this._configSilentAll.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this._configSilentAll.UseSelectable = true;
-            this._configSilentAll.CheckedChanged += new System.EventHandler(this._configSilentAll_CheckedChanged);
-            // 
-            // metroLabel14
-            // 
-            this.metroLabel14.AutoSize = true;
-            this.metroLabel14.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.metroLabel14.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.metroLabel14.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.metroLabel14.Location = new System.Drawing.Point(256, 34);
-            this.metroLabel14.Name = "metroLabel14";
-            this.metroLabel14.Size = new System.Drawing.Size(114, 25);
-            this.metroLabel14.Style = MetroFramework.MetroColorStyle.Blue;
-            this.metroLabel14.TabIndex = 15;
-            this.metroLabel14.Text = "Silent Mode";
-            this.metroLabel14.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroLabel14.UseStyleColors = true;
-            // 
-            // _settingsAutoLogin
-            // 
-            this._settingsAutoLogin.AutoSize = true;
-            this._settingsAutoLogin.Location = new System.Drawing.Point(30, 101);
-            this._settingsAutoLogin.Name = "_settingsAutoLogin";
-            this._settingsAutoLogin.Size = new System.Drawing.Size(136, 15);
-            this._settingsAutoLogin.TabIndex = 14;
-            this._settingsAutoLogin.Text = "Automaticky přihlásit";
-            this._settingsAutoLogin.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this._settingsAutoLogin.UseSelectable = true;
-            this._settingsAutoLogin.CheckedChanged += new System.EventHandler(this.metroCheckBox1_CheckedChanged);
-            // 
-            // metroLabel13
-            // 
-            this.metroLabel13.AutoSize = true;
-            this.metroLabel13.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.metroLabel13.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.metroLabel13.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.metroLabel13.Location = new System.Drawing.Point(3, 34);
-            this.metroLabel13.Name = "metroLabel13";
-            this.metroLabel13.Size = new System.Drawing.Size(154, 25);
-            this.metroLabel13.Style = MetroFramework.MetroColorStyle.Blue;
-            this.metroLabel13.TabIndex = 13;
-            this.metroLabel13.Text = "Hlavní nastavení";
-            this.metroLabel13.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroLabel13.UseStyleColors = true;
-            // 
-            // _settingsOnStartUp
-            // 
-            this._settingsOnStartUp.AutoSize = true;
-            this._settingsOnStartUp.Location = new System.Drawing.Point(3, 80);
-            this._settingsOnStartUp.Name = "_settingsOnStartUp";
-            this._settingsOnStartUp.Size = new System.Drawing.Size(209, 15);
-            this._settingsOnStartUp.TabIndex = 2;
-            this._settingsOnStartUp.Text = "Zapnout aplikaci při startu počítače";
-            this._settingsOnStartUp.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this._settingsOnStartUp.UseSelectable = true;
-            this._settingsOnStartUp.CheckedChanged += new System.EventHandler(this._settingsOnStartUp_CheckedChanged);
-            // 
             // _admin
             // 
             this._admin.Controls.Add(this._adminTabControl);
@@ -1693,7 +1603,7 @@ namespace RildasApp.Forms
             this._admin.Name = "_admin";
             this._admin.Size = new System.Drawing.Size(1447, 607);
             this._admin.TabIndex = 12;
-            this._admin.Text = "Administrace";
+            this._admin.Text = "Administrace    ";
             this._admin.Theme = MetroFramework.MetroThemeStyle.Dark;
             this._admin.VerticalScrollbarBarColor = true;
             this._admin.VerticalScrollbarHighlightOnWheel = false;
@@ -1703,9 +1613,10 @@ namespace RildasApp.Forms
             // 
             this._adminTabControl.Controls.Add(this._adminEncode);
             this._adminTabControl.Controls.Add(this._adminAnimeEdit);
+            this._adminTabControl.Controls.Add(this._adminUserEdit);
             this._adminTabControl.Location = new System.Drawing.Point(3, 6);
             this._adminTabControl.Name = "_adminTabControl";
-            this._adminTabControl.SelectedIndex = 0;
+            this._adminTabControl.SelectedIndex = 2;
             this._adminTabControl.Size = new System.Drawing.Size(1325, 642);
             this._adminTabControl.TabIndex = 2;
             this._adminTabControl.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -1732,7 +1643,7 @@ namespace RildasApp.Forms
             this._adminEncode.Name = "_adminEncode";
             this._adminEncode.Size = new System.Drawing.Size(1317, 600);
             this._adminEncode.TabIndex = 0;
-            this._adminEncode.Text = "Enkód";
+            this._adminEncode.Text = "Enkód    ";
             this._adminEncode.Theme = MetroFramework.MetroThemeStyle.Dark;
             this._adminEncode.VerticalScrollbarBarColor = true;
             this._adminEncode.VerticalScrollbarHighlightOnWheel = false;
@@ -1922,7 +1833,7 @@ namespace RildasApp.Forms
             this._adminAnimeEdit.Name = "_adminAnimeEdit";
             this._adminAnimeEdit.Size = new System.Drawing.Size(1317, 600);
             this._adminAnimeEdit.TabIndex = 1;
-            this._adminAnimeEdit.Text = "Přidat/Upravit Anime";
+            this._adminAnimeEdit.Text = "Přidat/Upravit Anime    ";
             this._adminAnimeEdit.Theme = MetroFramework.MetroThemeStyle.Dark;
             this._adminAnimeEdit.UseCustomForeColor = true;
             this._adminAnimeEdit.VerticalScrollbarBarColor = true;
@@ -2191,7 +2102,7 @@ namespace RildasApp.Forms
             // 
             this.metroStyleExtender1.SetApplyMetroTheme(this.animeEdit_episodeCount, true);
             this.animeEdit_episodeCount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            this.animeEdit_episodeCount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.animeEdit_episodeCount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
             this.animeEdit_episodeCount.Location = new System.Drawing.Point(103, 212);
             this.animeEdit_episodeCount.Maximum = new decimal(new int[] {
             9999,
@@ -2466,20 +2377,209 @@ namespace RildasApp.Forms
             this._adminAnimeEditCombo.UseSelectable = true;
             this._adminAnimeEditCombo.SelectedIndexChanged += new System.EventHandler(this._adminAnimeEditCombo_SelectedIndexChanged);
             // 
-            // _stats
+            // _adminUserEdit
             // 
-            this._stats.HorizontalScrollbarBarColor = true;
-            this._stats.HorizontalScrollbarHighlightOnWheel = false;
-            this._stats.HorizontalScrollbarSize = 10;
-            this._stats.Location = new System.Drawing.Point(4, 38);
-            this._stats.Name = "_stats";
-            this._stats.Size = new System.Drawing.Size(1447, 607);
-            this._stats.TabIndex = 6;
-            this._stats.Text = "Statistiky    ";
-            this._stats.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this._stats.VerticalScrollbarBarColor = true;
-            this._stats.VerticalScrollbarHighlightOnWheel = false;
-            this._stats.VerticalScrollbarSize = 10;
+            this._adminUserEdit.Controls.Add(this._adminUserEditSave);
+            this._adminUserEdit.Controls.Add(this._userInfo);
+            this._adminUserEdit.Controls.Add(this.metroCheckBox1);
+            this._adminUserEdit.Controls.Add(this.metroLabel43);
+            this._adminUserEdit.Controls.Add(this._cbadminACLuser);
+            this._adminUserEdit.HorizontalScrollbarBarColor = true;
+            this._adminUserEdit.HorizontalScrollbarHighlightOnWheel = false;
+            this._adminUserEdit.HorizontalScrollbarSize = 10;
+            this._adminUserEdit.Location = new System.Drawing.Point(4, 38);
+            this._adminUserEdit.Name = "_adminUserEdit";
+            this._adminUserEdit.Size = new System.Drawing.Size(1317, 600);
+            this._adminUserEdit.TabIndex = 2;
+            this._adminUserEdit.Text = "Upravit uživatele";
+            this._adminUserEdit.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._adminUserEdit.VerticalScrollbarBarColor = true;
+            this._adminUserEdit.VerticalScrollbarHighlightOnWheel = false;
+            this._adminUserEdit.VerticalScrollbarSize = 10;
+            // 
+            // _userInfo
+            // 
+            this._userInfo.Controls.Add(this._adminUserEditGeneral);
+            this._userInfo.Controls.Add(this._adminUserEditTeam);
+            this._userInfo.Controls.Add(this._adminUserEditAdmin);
+            this._userInfo.Location = new System.Drawing.Point(3, 64);
+            this._userInfo.Name = "_userInfo";
+            this._userInfo.SelectedIndex = 0;
+            this._userInfo.Size = new System.Drawing.Size(1208, 417);
+            this._userInfo.TabIndex = 5;
+            this._userInfo.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._userInfo.UseSelectable = true;
+            this._userInfo.Visible = false;
+            // 
+            // metroCheckBox1
+            // 
+            this.metroCheckBox1.AutoSize = true;
+            this.metroCheckBox1.Location = new System.Drawing.Point(260, 38);
+            this.metroCheckBox1.Name = "metroCheckBox1";
+            this.metroCheckBox1.Size = new System.Drawing.Size(167, 15);
+            this.metroCheckBox1.TabIndex = 4;
+            this.metroCheckBox1.Text = "Zahrnout všechny uživatele";
+            this.metroCheckBox1.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroCheckBox1.UseSelectable = true;
+            // 
+            // metroLabel43
+            // 
+            this.metroLabel43.AutoSize = true;
+            this.metroLabel43.Location = new System.Drawing.Point(3, 38);
+            this.metroLabel43.Name = "metroLabel43";
+            this.metroLabel43.Size = new System.Drawing.Size(57, 19);
+            this.metroLabel43.TabIndex = 3;
+            this.metroLabel43.Text = "Uživatel:";
+            this.metroLabel43.Theme = MetroFramework.MetroThemeStyle.Dark;
+            // 
+            // _cbadminACLuser
+            // 
+            this._cbadminACLuser.FormattingEnabled = true;
+            this._cbadminACLuser.ItemHeight = 23;
+            this._cbadminACLuser.Location = new System.Drawing.Point(66, 28);
+            this._cbadminACLuser.Name = "_cbadminACLuser";
+            this._cbadminACLuser.Size = new System.Drawing.Size(173, 29);
+            this._cbadminACLuser.TabIndex = 2;
+            this._cbadminACLuser.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._cbadminACLuser.UseSelectable = true;
+            // 
+            // _settings
+            // 
+            this._settings.Controls.Add(this.configMinToSysTray);
+            this._settings.Controls.Add(this.configSilentNotifications);
+            this._settings.Controls.Add(this.configSilentPrivateMessages);
+            this._settings.Controls.Add(this.configSilentGroupMessages);
+            this._settings.Controls.Add(this._configSilentAll);
+            this._settings.Controls.Add(this.metroLabel14);
+            this._settings.Controls.Add(this._settingsAutoLogin);
+            this._settings.Controls.Add(this.metroLabel13);
+            this._settings.Controls.Add(this._settingsOnStartUp);
+            this._settings.HorizontalScrollbarBarColor = true;
+            this._settings.HorizontalScrollbarHighlightOnWheel = false;
+            this._settings.HorizontalScrollbarSize = 10;
+            this._settings.Location = new System.Drawing.Point(4, 38);
+            this._settings.Name = "_settings";
+            this._settings.Size = new System.Drawing.Size(1447, 607);
+            this._settings.TabIndex = 10;
+            this._settings.Text = "Nastavení    ";
+            this._settings.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._settings.VerticalScrollbarBarColor = true;
+            this._settings.VerticalScrollbarHighlightOnWheel = false;
+            this._settings.VerticalScrollbarSize = 10;
+            // 
+            // configMinToSysTray
+            // 
+            this.configMinToSysTray.AutoSize = true;
+            this.configMinToSysTray.Location = new System.Drawing.Point(3, 122);
+            this.configMinToSysTray.Name = "configMinToSysTray";
+            this.configMinToSysTray.Size = new System.Drawing.Size(206, 15);
+            this.configMinToSysTray.TabIndex = 20;
+            this.configMinToSysTray.Text = "Minimalizovat na systémovou lištu";
+            this.configMinToSysTray.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.configMinToSysTray.UseSelectable = true;
+            this.configMinToSysTray.CheckedChanged += new System.EventHandler(this.metroCheckBox1_CheckedChanged_1);
+            // 
+            // configSilentNotifications
+            // 
+            this.configSilentNotifications.AutoSize = true;
+            this.configSilentNotifications.Location = new System.Drawing.Point(280, 143);
+            this.configSilentNotifications.Name = "configSilentNotifications";
+            this.configSilentNotifications.Size = new System.Drawing.Size(212, 15);
+            this.configSilentNotifications.TabIndex = 19;
+            this.configSilentNotifications.Text = "Tlumit notifikační vyskakovací okna";
+            this.configSilentNotifications.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.configSilentNotifications.UseSelectable = true;
+            this.configSilentNotifications.CheckedChanged += new System.EventHandler(this.configSilentNotifications_CheckedChanged);
+            // 
+            // configSilentPrivateMessages
+            // 
+            this.configSilentPrivateMessages.AutoSize = true;
+            this.configSilentPrivateMessages.Location = new System.Drawing.Point(280, 122);
+            this.configSilentPrivateMessages.Name = "configSilentPrivateMessages";
+            this.configSilentPrivateMessages.Size = new System.Drawing.Size(256, 15);
+            this.configSilentPrivateMessages.TabIndex = 18;
+            this.configSilentPrivateMessages.Text = "Tlumit vyskakovací okna soukromého chatu";
+            this.configSilentPrivateMessages.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.configSilentPrivateMessages.UseSelectable = true;
+            this.configSilentPrivateMessages.CheckedChanged += new System.EventHandler(this.configSilentPrivateMessages_CheckedChanged);
+            // 
+            // configSilentGroupMessages
+            // 
+            this.configSilentGroupMessages.AutoSize = true;
+            this.configSilentGroupMessages.Location = new System.Drawing.Point(280, 101);
+            this.configSilentGroupMessages.Name = "configSilentGroupMessages";
+            this.configSilentGroupMessages.Size = new System.Drawing.Size(257, 15);
+            this.configSilentGroupMessages.TabIndex = 17;
+            this.configSilentGroupMessages.Text = "Tlumit vyskakovací okna skupinového chatu";
+            this.configSilentGroupMessages.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.configSilentGroupMessages.UseSelectable = true;
+            this.configSilentGroupMessages.CheckedChanged += new System.EventHandler(this.configSilentGroupMessages_CheckedChanged);
+            // 
+            // _configSilentAll
+            // 
+            this._configSilentAll.AutoSize = true;
+            this._configSilentAll.Location = new System.Drawing.Point(257, 80);
+            this._configSilentAll.Name = "_configSilentAll";
+            this._configSilentAll.Size = new System.Drawing.Size(199, 15);
+            this._configSilentAll.TabIndex = 16;
+            this._configSilentAll.Text = "Tlumit všechna vyskakovací okna";
+            this._configSilentAll.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._configSilentAll.UseSelectable = true;
+            this._configSilentAll.CheckedChanged += new System.EventHandler(this._configSilentAll_CheckedChanged);
+            // 
+            // metroLabel14
+            // 
+            this.metroLabel14.AutoSize = true;
+            this.metroLabel14.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel14.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabel14.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.metroLabel14.Location = new System.Drawing.Point(256, 34);
+            this.metroLabel14.Name = "metroLabel14";
+            this.metroLabel14.Size = new System.Drawing.Size(114, 25);
+            this.metroLabel14.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroLabel14.TabIndex = 15;
+            this.metroLabel14.Text = "Silent Mode";
+            this.metroLabel14.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel14.UseStyleColors = true;
+            // 
+            // _settingsAutoLogin
+            // 
+            this._settingsAutoLogin.AutoSize = true;
+            this._settingsAutoLogin.Location = new System.Drawing.Point(30, 101);
+            this._settingsAutoLogin.Name = "_settingsAutoLogin";
+            this._settingsAutoLogin.Size = new System.Drawing.Size(136, 15);
+            this._settingsAutoLogin.TabIndex = 14;
+            this._settingsAutoLogin.Text = "Automaticky přihlásit";
+            this._settingsAutoLogin.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._settingsAutoLogin.UseSelectable = true;
+            this._settingsAutoLogin.CheckedChanged += new System.EventHandler(this.metroCheckBox1_CheckedChanged);
+            // 
+            // metroLabel13
+            // 
+            this.metroLabel13.AutoSize = true;
+            this.metroLabel13.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel13.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabel13.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.metroLabel13.Location = new System.Drawing.Point(3, 34);
+            this.metroLabel13.Name = "metroLabel13";
+            this.metroLabel13.Size = new System.Drawing.Size(154, 25);
+            this.metroLabel13.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroLabel13.TabIndex = 13;
+            this.metroLabel13.Text = "Hlavní nastavení";
+            this.metroLabel13.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel13.UseStyleColors = true;
+            // 
+            // _settingsOnStartUp
+            // 
+            this._settingsOnStartUp.AutoSize = true;
+            this._settingsOnStartUp.Location = new System.Drawing.Point(3, 80);
+            this._settingsOnStartUp.Name = "_settingsOnStartUp";
+            this._settingsOnStartUp.Size = new System.Drawing.Size(209, 15);
+            this._settingsOnStartUp.TabIndex = 2;
+            this._settingsOnStartUp.Text = "Zapnout aplikaci při startu počítače";
+            this._settingsOnStartUp.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._settingsOnStartUp.UseSelectable = true;
+            this._settingsOnStartUp.CheckedChanged += new System.EventHandler(this._settingsOnStartUp_CheckedChanged);
             // 
             // _states
             // 
@@ -2500,6 +2600,21 @@ namespace RildasApp.Forms
             this._states.VerticalScrollbarBarColor = false;
             this._states.VerticalScrollbarHighlightOnWheel = false;
             this._states.VerticalScrollbarSize = 10;
+            // 
+            // _stats
+            // 
+            this._stats.HorizontalScrollbarBarColor = true;
+            this._stats.HorizontalScrollbarHighlightOnWheel = false;
+            this._stats.HorizontalScrollbarSize = 10;
+            this._stats.Location = new System.Drawing.Point(4, 38);
+            this._stats.Name = "_stats";
+            this._stats.Size = new System.Drawing.Size(1447, 607);
+            this._stats.TabIndex = 6;
+            this._stats.Text = "Statistiky    ";
+            this._stats.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._stats.VerticalScrollbarBarColor = true;
+            this._stats.VerticalScrollbarHighlightOnWheel = false;
+            this._stats.VerticalScrollbarSize = 10;
             // 
             // metroStyleExtender1
             // 
@@ -2635,11 +2750,551 @@ namespace RildasApp.Forms
             this.chatsPanel.Size = new System.Drawing.Size(179, 594);
             this.chatsPanel.TabIndex = 13;
             // 
+            // _adminUserEditGeneral
+            // 
+            this._adminUserEditGeneral.Controls.Add(this.metroLink2);
+            this._adminUserEditGeneral.Controls.Add(this._adminUserEditActivate);
+            this._adminUserEditGeneral.Controls.Add(this._adminUserEditBirthDay);
+            this._adminUserEditGeneral.Controls.Add(this.metroLabel51);
+            this._adminUserEditGeneral.Controls.Add(this._adminUserEditLastLogin);
+            this._adminUserEditGeneral.Controls.Add(this.metroLabel50);
+            this._adminUserEditGeneral.Controls.Add(this._adminUserEditRegistration);
+            this._adminUserEditGeneral.Controls.Add(this.metroLabel49);
+            this._adminUserEditGeneral.Controls.Add(this.metroComboBox3);
+            this._adminUserEditGeneral.Controls.Add(this.metroLabel48);
+            this._adminUserEditGeneral.Controls.Add(this._adminUserEditEmail);
+            this._adminUserEditGeneral.Controls.Add(this.metroLabel47);
+            this._adminUserEditGeneral.Controls.Add(this._adminUserEditUsername);
+            this._adminUserEditGeneral.Controls.Add(this.metroLabel46);
+            this._adminUserEditGeneral.Controls.Add(this.metroLabel45);
+            this._adminUserEditGeneral.Controls.Add(this.metroLabel44);
+            this._adminUserEditGeneral.HorizontalScrollbarBarColor = true;
+            this._adminUserEditGeneral.HorizontalScrollbarHighlightOnWheel = false;
+            this._adminUserEditGeneral.HorizontalScrollbarSize = 10;
+            this._adminUserEditGeneral.Location = new System.Drawing.Point(4, 38);
+            this._adminUserEditGeneral.Name = "_adminUserEditGeneral";
+            this._adminUserEditGeneral.Size = new System.Drawing.Size(1200, 375);
+            this._adminUserEditGeneral.TabIndex = 0;
+            this._adminUserEditGeneral.Text = "Obecné   ";
+            this._adminUserEditGeneral.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._adminUserEditGeneral.VerticalScrollbarBarColor = true;
+            this._adminUserEditGeneral.VerticalScrollbarHighlightOnWheel = false;
+            this._adminUserEditGeneral.VerticalScrollbarSize = 10;
+            // 
+            // _adminUserEditTeam
+            // 
+            this._adminUserEditTeam.Controls.Add(this._adminUserEditChatGroupsCreate);
+            this._adminUserEditTeam.Controls.Add(this._adminUserEditStealForeignCorrection);
+            this._adminUserEditTeam.Controls.Add(this._adminUserEditGetForeignCorrection);
+            this._adminUserEditTeam.Controls.Add(this._adminUserEditSkipApproval);
+            this._adminUserEditTeam.Controls.Add(this._adminUserEditPublishForeign);
+            this._adminUserEditTeam.Controls.Add(this._adminUserEditPublish);
+            this._adminUserEditTeam.Controls.Add(this.metroLabel57);
+            this._adminUserEditTeam.Controls.Add(this.metroLabel56);
+            this._adminUserEditTeam.Controls.Add(this._adminUserEditEncode);
+            this._adminUserEditTeam.Controls.Add(this.metroLabel55);
+            this._adminUserEditTeam.Controls.Add(this._adminUserEditApproveAnime);
+            this._adminUserEditTeam.Controls.Add(this.metroLabel54);
+            this._adminUserEditTeam.Controls.Add(this.metroLabel53);
+            this._adminUserEditTeam.Controls.Add(this.metroLabel52);
+            this._adminUserEditTeam.Controls.Add(this._adminUserEditCorrectionForeign);
+            this._adminUserEditTeam.Controls.Add(this._adminUserEditCorrection);
+            this._adminUserEditTeam.Controls.Add(this._adminUserEditTranslateForeign);
+            this._adminUserEditTeam.Controls.Add(this._adminUserEditTranslateOwn);
+            this._adminUserEditTeam.Controls.Add(this._adminUserEditAppAccess);
+            this._adminUserEditTeam.HorizontalScrollbarBarColor = true;
+            this._adminUserEditTeam.HorizontalScrollbarHighlightOnWheel = false;
+            this._adminUserEditTeam.HorizontalScrollbarSize = 10;
+            this._adminUserEditTeam.Location = new System.Drawing.Point(4, 38);
+            this._adminUserEditTeam.Name = "_adminUserEditTeam";
+            this._adminUserEditTeam.Size = new System.Drawing.Size(1200, 375);
+            this._adminUserEditTeam.TabIndex = 1;
+            this._adminUserEditTeam.Text = "Týmová práva   ";
+            this._adminUserEditTeam.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._adminUserEditTeam.VerticalScrollbarBarColor = true;
+            this._adminUserEditTeam.VerticalScrollbarHighlightOnWheel = false;
+            this._adminUserEditTeam.VerticalScrollbarSize = 10;
+            // 
+            // _adminUserEditAdmin
+            // 
+            this._adminUserEditAdmin.HorizontalScrollbarBarColor = true;
+            this._adminUserEditAdmin.HorizontalScrollbarHighlightOnWheel = false;
+            this._adminUserEditAdmin.HorizontalScrollbarSize = 10;
+            this._adminUserEditAdmin.Location = new System.Drawing.Point(4, 38);
+            this._adminUserEditAdmin.Name = "_adminUserEditAdmin";
+            this._adminUserEditAdmin.Size = new System.Drawing.Size(1200, 375);
+            this._adminUserEditAdmin.TabIndex = 2;
+            this._adminUserEditAdmin.Text = "Administrátorská práva   ";
+            this._adminUserEditAdmin.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._adminUserEditAdmin.VerticalScrollbarBarColor = true;
+            this._adminUserEditAdmin.VerticalScrollbarHighlightOnWheel = false;
+            this._adminUserEditAdmin.VerticalScrollbarSize = 10;
+            // 
+            // metroLabel44
+            // 
+            this.metroLabel44.AutoSize = true;
+            this.metroLabel44.Location = new System.Drawing.Point(3, 26);
+            this.metroLabel44.Name = "metroLabel44";
+            this.metroLabel44.Size = new System.Drawing.Size(28, 19);
+            this.metroLabel44.TabIndex = 2;
+            this.metroLabel44.Text = "ID: ";
+            this.metroLabel44.Theme = MetroFramework.MetroThemeStyle.Dark;
+            // 
+            // metroLabel45
+            // 
+            this.metroLabel45.AutoSize = true;
+            this.metroLabel45.Location = new System.Drawing.Point(129, 26);
+            this.metroLabel45.Name = "metroLabel45";
+            this.metroLabel45.Size = new System.Drawing.Size(28, 19);
+            this.metroLabel45.TabIndex = 3;
+            this.metroLabel45.Text = "126";
+            this.metroLabel45.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel45.UseStyleColors = true;
+            // 
+            // metroLabel46
+            // 
+            this.metroLabel46.AutoSize = true;
+            this.metroLabel46.Location = new System.Drawing.Point(3, 54);
+            this.metroLabel46.Name = "metroLabel46";
+            this.metroLabel46.Size = new System.Drawing.Size(120, 19);
+            this.metroLabel46.TabIndex = 4;
+            this.metroLabel46.Text = "Uživatelské jméno: ";
+            this.metroLabel46.Theme = MetroFramework.MetroThemeStyle.Dark;
+            // 
+            // _adminUserEditUsername
+            // 
+            // 
+            // 
+            // 
+            this._adminUserEditUsername.CustomButton.Image = null;
+            this._adminUserEditUsername.CustomButton.Location = new System.Drawing.Point(197, 1);
+            this._adminUserEditUsername.CustomButton.Name = "";
+            this._adminUserEditUsername.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this._adminUserEditUsername.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this._adminUserEditUsername.CustomButton.TabIndex = 1;
+            this._adminUserEditUsername.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this._adminUserEditUsername.CustomButton.UseSelectable = true;
+            this._adminUserEditUsername.CustomButton.Visible = false;
+            this._adminUserEditUsername.Lines = new string[] {
+        "NateTheRiver"};
+            this._adminUserEditUsername.Location = new System.Drawing.Point(129, 54);
+            this._adminUserEditUsername.MaxLength = 32767;
+            this._adminUserEditUsername.Name = "_adminUserEditUsername";
+            this._adminUserEditUsername.PasswordChar = '\0';
+            this._adminUserEditUsername.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this._adminUserEditUsername.SelectedText = "";
+            this._adminUserEditUsername.SelectionLength = 0;
+            this._adminUserEditUsername.SelectionStart = 0;
+            this._adminUserEditUsername.Size = new System.Drawing.Size(219, 23);
+            this._adminUserEditUsername.TabIndex = 5;
+            this._adminUserEditUsername.Text = "NateTheRiver";
+            this._adminUserEditUsername.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._adminUserEditUsername.UseSelectable = true;
+            this._adminUserEditUsername.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this._adminUserEditUsername.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // metroLabel47
+            // 
+            this.metroLabel47.AutoSize = true;
+            this.metroLabel47.Location = new System.Drawing.Point(3, 91);
+            this.metroLabel47.Name = "metroLabel47";
+            this.metroLabel47.Size = new System.Drawing.Size(50, 19);
+            this.metroLabel47.TabIndex = 6;
+            this.metroLabel47.Text = "E-mail:";
+            this.metroLabel47.Theme = MetroFramework.MetroThemeStyle.Dark;
+            // 
+            // _adminUserEditEmail
+            // 
+            // 
+            // 
+            // 
+            this._adminUserEditEmail.CustomButton.Image = null;
+            this._adminUserEditEmail.CustomButton.Location = new System.Drawing.Point(197, 1);
+            this._adminUserEditEmail.CustomButton.Name = "";
+            this._adminUserEditEmail.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this._adminUserEditEmail.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this._adminUserEditEmail.CustomButton.TabIndex = 1;
+            this._adminUserEditEmail.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this._adminUserEditEmail.CustomButton.UseSelectable = true;
+            this._adminUserEditEmail.CustomButton.Visible = false;
+            this._adminUserEditEmail.Lines = new string[] {
+        "NateTheRiver@rildas.cz"};
+            this._adminUserEditEmail.Location = new System.Drawing.Point(129, 87);
+            this._adminUserEditEmail.MaxLength = 32767;
+            this._adminUserEditEmail.Name = "_adminUserEditEmail";
+            this._adminUserEditEmail.PasswordChar = '\0';
+            this._adminUserEditEmail.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this._adminUserEditEmail.SelectedText = "";
+            this._adminUserEditEmail.SelectionLength = 0;
+            this._adminUserEditEmail.SelectionStart = 0;
+            this._adminUserEditEmail.Size = new System.Drawing.Size(219, 23);
+            this._adminUserEditEmail.TabIndex = 7;
+            this._adminUserEditEmail.Text = "NateTheRiver@rildas.cz";
+            this._adminUserEditEmail.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._adminUserEditEmail.UseSelectable = true;
+            this._adminUserEditEmail.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this._adminUserEditEmail.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // metroLabel48
+            // 
+            this.metroLabel48.AutoSize = true;
+            this.metroLabel48.Location = new System.Drawing.Point(3, 127);
+            this.metroLabel48.Name = "metroLabel48";
+            this.metroLabel48.Size = new System.Drawing.Size(41, 19);
+            this.metroLabel48.TabIndex = 8;
+            this.metroLabel48.Text = "State:";
+            this.metroLabel48.Theme = MetroFramework.MetroThemeStyle.Dark;
+            // 
+            // metroComboBox3
+            // 
+            this.metroComboBox3.FormattingEnabled = true;
+            this.metroComboBox3.ItemHeight = 23;
+            this.metroComboBox3.Items.AddRange(new object[] {
+            "OK",
+            "BANNED",
+            "PENDING",
+            "DELETED"});
+            this.metroComboBox3.Location = new System.Drawing.Point(129, 117);
+            this.metroComboBox3.Name = "metroComboBox3";
+            this.metroComboBox3.Size = new System.Drawing.Size(219, 29);
+            this.metroComboBox3.TabIndex = 9;
+            this.metroComboBox3.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroComboBox3.UseSelectable = true;
+            // 
+            // metroLabel49
+            // 
+            this.metroLabel49.AutoSize = true;
+            this.metroLabel49.Location = new System.Drawing.Point(3, 164);
+            this.metroLabel49.Name = "metroLabel49";
+            this.metroLabel49.Size = new System.Drawing.Size(84, 19);
+            this.metroLabel49.TabIndex = 10;
+            this.metroLabel49.Text = "Registrován: ";
+            this.metroLabel49.Theme = MetroFramework.MetroThemeStyle.Dark;
+            // 
+            // _adminUserEditRegistration
+            // 
+            this._adminUserEditRegistration.AutoSize = true;
+            this._adminUserEditRegistration.Location = new System.Drawing.Point(129, 164);
+            this._adminUserEditRegistration.Name = "_adminUserEditRegistration";
+            this._adminUserEditRegistration.Size = new System.Drawing.Size(172, 19);
+            this._adminUserEditRegistration.TabIndex = 11;
+            this._adminUserEditRegistration.Text = "1.1.1970 15:35 (IP: 78.20.2.35)";
+            this._adminUserEditRegistration.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._adminUserEditRegistration.UseStyleColors = true;
+            // 
+            // metroLabel50
+            // 
+            this.metroLabel50.AutoSize = true;
+            this.metroLabel50.Location = new System.Drawing.Point(3, 202);
+            this.metroLabel50.Name = "metroLabel50";
+            this.metroLabel50.Size = new System.Drawing.Size(119, 19);
+            this.metroLabel50.TabIndex = 12;
+            this.metroLabel50.Text = "Poslední přihlášení:";
+            this.metroLabel50.Theme = MetroFramework.MetroThemeStyle.Dark;
+            // 
+            // _adminUserEditLastLogin
+            // 
+            this._adminUserEditLastLogin.AutoSize = true;
+            this._adminUserEditLastLogin.Location = new System.Drawing.Point(129, 202);
+            this._adminUserEditLastLogin.Name = "_adminUserEditLastLogin";
+            this._adminUserEditLastLogin.Size = new System.Drawing.Size(172, 19);
+            this._adminUserEditLastLogin.TabIndex = 13;
+            this._adminUserEditLastLogin.Text = "1.1.1970 15:36 (IP: 78.20.2.35)";
+            this._adminUserEditLastLogin.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._adminUserEditLastLogin.UseStyleColors = true;
+            // 
+            // metroLabel51
+            // 
+            this.metroLabel51.AutoSize = true;
+            this.metroLabel51.Location = new System.Drawing.Point(4, 239);
+            this.metroLabel51.Name = "metroLabel51";
+            this.metroLabel51.Size = new System.Drawing.Size(62, 19);
+            this.metroLabel51.TabIndex = 14;
+            this.metroLabel51.Text = "Narozen:";
+            this.metroLabel51.Theme = MetroFramework.MetroThemeStyle.Dark;
+            // 
+            // _adminUserEditBirthDay
+            // 
+            this._adminUserEditBirthDay.AutoSize = true;
+            this._adminUserEditBirthDay.Location = new System.Drawing.Point(129, 239);
+            this._adminUserEditBirthDay.Name = "_adminUserEditBirthDay";
+            this._adminUserEditBirthDay.Size = new System.Drawing.Size(67, 19);
+            this._adminUserEditBirthDay.TabIndex = 15;
+            this._adminUserEditBirthDay.Text = "29.11.2354";
+            this._adminUserEditBirthDay.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._adminUserEditBirthDay.UseStyleColors = true;
+            // 
+            // _adminUserEditActivate
+            // 
+            this._adminUserEditActivate.Location = new System.Drawing.Point(3, 309);
+            this._adminUserEditActivate.Name = "_adminUserEditActivate";
+            this._adminUserEditActivate.Size = new System.Drawing.Size(357, 19);
+            this._adminUserEditActivate.Style = MetroFramework.MetroColorStyle.Red;
+            this._adminUserEditActivate.TabIndex = 16;
+            this._adminUserEditActivate.Text = "Účet není aktivován. Kliknutím na tento odkaz jej aktivujete.";
+            this._adminUserEditActivate.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._adminUserEditActivate.UseSelectable = true;
+            this._adminUserEditActivate.UseStyleColors = true;
+            // 
+            // metroLink2
+            // 
+            this.metroLink2.Location = new System.Drawing.Point(3, 280);
+            this.metroLink2.Name = "metroLink2";
+            this.metroLink2.Size = new System.Drawing.Size(345, 23);
+            this.metroLink2.TabIndex = 17;
+            this.metroLink2.Text = "Odeslat odkaz pro změnu hesla.";
+            this.metroLink2.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLink2.UseSelectable = true;
+            this.metroLink2.UseStyleColors = true;
+            // 
+            // _adminUserEditSave
+            // 
+            this._adminUserEditSave.Location = new System.Drawing.Point(3, 498);
+            this._adminUserEditSave.Name = "_adminUserEditSave";
+            this._adminUserEditSave.Size = new System.Drawing.Size(91, 28);
+            this._adminUserEditSave.TabIndex = 6;
+            this._adminUserEditSave.Text = "Uložit";
+            this._adminUserEditSave.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._adminUserEditSave.UseSelectable = true;
+            // 
+            // _adminUserEditAppAccess
+            // 
+            this._adminUserEditAppAccess.AutoSize = true;
+            this._adminUserEditAppAccess.Location = new System.Drawing.Point(11, 58);
+            this._adminUserEditAppAccess.Name = "_adminUserEditAppAccess";
+            this._adminUserEditAppAccess.Size = new System.Drawing.Size(143, 15);
+            this._adminUserEditAppAccess.TabIndex = 2;
+            this._adminUserEditAppAccess.Text = "Má přístup do aplikace";
+            this._adminUserEditAppAccess.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._adminUserEditAppAccess.UseSelectable = true;
+            // 
+            // _adminUserEditTranslateOwn
+            // 
+            this._adminUserEditTranslateOwn.AutoSize = true;
+            this._adminUserEditTranslateOwn.Location = new System.Drawing.Point(9, 164);
+            this._adminUserEditTranslateOwn.Name = "_adminUserEditTranslateOwn";
+            this._adminUserEditTranslateOwn.Size = new System.Drawing.Size(222, 15);
+            this._adminUserEditTranslateOwn.TabIndex = 3;
+            this._adminUserEditTranslateOwn.Text = "Má právo nahrát překlad svého anime";
+            this._adminUserEditTranslateOwn.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._adminUserEditTranslateOwn.UseSelectable = true;
+            // 
+            // _adminUserEditTranslateForeign
+            // 
+            this._adminUserEditTranslateForeign.AutoSize = true;
+            this._adminUserEditTranslateForeign.Location = new System.Drawing.Point(9, 185);
+            this._adminUserEditTranslateForeign.Name = "_adminUserEditTranslateForeign";
+            this._adminUserEditTranslateForeign.Size = new System.Drawing.Size(390, 15);
+            this._adminUserEditTranslateForeign.TabIndex = 4;
+            this._adminUserEditTranslateForeign.Text = "Má právo nahrát překlad anime, u něhož není uveden jako překladatel";
+            this._adminUserEditTranslateForeign.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._adminUserEditTranslateForeign.UseSelectable = true;
+            // 
+            // _adminUserEditCorrection
+            // 
+            this._adminUserEditCorrection.AutoSize = true;
+            this._adminUserEditCorrection.Location = new System.Drawing.Point(413, 164);
+            this._adminUserEditCorrection.Name = "_adminUserEditCorrection";
+            this._adminUserEditCorrection.Size = new System.Drawing.Size(151, 15);
+            this._adminUserEditCorrection.TabIndex = 5;
+            this._adminUserEditCorrection.Text = "Má právo nahrát korekci";
+            this._adminUserEditCorrection.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._adminUserEditCorrection.UseSelectable = true;
+            // 
+            // _adminUserEditCorrectionForeign
+            // 
+            this._adminUserEditCorrectionForeign.AutoSize = true;
+            this._adminUserEditCorrectionForeign.Location = new System.Drawing.Point(413, 185);
+            this._adminUserEditCorrectionForeign.Name = "_adminUserEditCorrectionForeign";
+            this._adminUserEditCorrectionForeign.Size = new System.Drawing.Size(375, 15);
+            this._adminUserEditCorrectionForeign.TabIndex = 6;
+            this._adminUserEditCorrectionForeign.Text = "Má právo nahrát korekci anime, u něhož není uveden jako korektor";
+            this._adminUserEditCorrectionForeign.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._adminUserEditCorrectionForeign.UseSelectable = true;
+            // 
+            // metroLabel52
+            // 
+            this.metroLabel52.AutoSize = true;
+            this.metroLabel52.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel52.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabel52.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.metroLabel52.Location = new System.Drawing.Point(5, 136);
+            this.metroLabel52.Name = "metroLabel52";
+            this.metroLabel52.Size = new System.Drawing.Size(91, 25);
+            this.metroLabel52.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroLabel52.TabIndex = 13;
+            this.metroLabel52.Text = "Překlady:";
+            this.metroLabel52.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel52.UseStyleColors = true;
+            // 
+            // metroLabel53
+            // 
+            this.metroLabel53.AutoSize = true;
+            this.metroLabel53.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel53.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabel53.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.metroLabel53.Location = new System.Drawing.Point(404, 136);
+            this.metroLabel53.Name = "metroLabel53";
+            this.metroLabel53.Size = new System.Drawing.Size(86, 25);
+            this.metroLabel53.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroLabel53.TabIndex = 14;
+            this.metroLabel53.Text = "Korekce:";
+            this.metroLabel53.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel53.UseStyleColors = true;
+            // 
+            // metroLabel54
+            // 
+            this.metroLabel54.AutoSize = true;
+            this.metroLabel54.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel54.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabel54.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.metroLabel54.Location = new System.Drawing.Point(5, 258);
+            this.metroLabel54.Name = "metroLabel54";
+            this.metroLabel54.Size = new System.Drawing.Size(119, 25);
+            this.metroLabel54.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroLabel54.TabIndex = 15;
+            this.metroLabel54.Text = "Schvalování:";
+            this.metroLabel54.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel54.UseStyleColors = true;
+            // 
+            // _adminUserEditApproveAnime
+            // 
+            this._adminUserEditApproveAnime.AutoSize = true;
+            this._adminUserEditApproveAnime.Location = new System.Drawing.Point(12, 286);
+            this._adminUserEditApproveAnime.Name = "_adminUserEditApproveAnime";
+            this._adminUserEditApproveAnime.Size = new System.Drawing.Size(152, 15);
+            this._adminUserEditApproveAnime.TabIndex = 16;
+            this._adminUserEditApproveAnime.Text = "Má právo schválit anime";
+            this._adminUserEditApproveAnime.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._adminUserEditApproveAnime.UseSelectable = true;
+            // 
+            // metroLabel55
+            // 
+            this.metroLabel55.AutoSize = true;
+            this.metroLabel55.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel55.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabel55.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.metroLabel55.Location = new System.Drawing.Point(407, 258);
+            this.metroLabel55.Name = "metroLabel55";
+            this.metroLabel55.Size = new System.Drawing.Size(70, 25);
+            this.metroLabel55.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroLabel55.TabIndex = 17;
+            this.metroLabel55.Text = "Enkód:";
+            this.metroLabel55.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel55.UseStyleColors = true;
+            // 
+            // _adminUserEditEncode
+            // 
+            this._adminUserEditEncode.AutoSize = true;
+            this._adminUserEditEncode.Location = new System.Drawing.Point(415, 286);
+            this._adminUserEditEncode.Name = "_adminUserEditEncode";
+            this._adminUserEditEncode.Size = new System.Drawing.Size(168, 15);
+            this._adminUserEditEncode.TabIndex = 18;
+            this._adminUserEditEncode.Text = "Má právo enkódovat anime";
+            this._adminUserEditEncode.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._adminUserEditEncode.UseSelectable = true;
+            // 
+            // metroLabel56
+            // 
+            this.metroLabel56.AutoSize = true;
+            this.metroLabel56.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel56.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabel56.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.metroLabel56.Location = new System.Drawing.Point(5, 30);
+            this.metroLabel56.Name = "metroLabel56";
+            this.metroLabel56.Size = new System.Drawing.Size(82, 25);
+            this.metroLabel56.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroLabel56.TabIndex = 19;
+            this.metroLabel56.Text = "Obecné:";
+            this.metroLabel56.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel56.UseStyleColors = true;
+            // 
+            // metroLabel57
+            // 
+            this.metroLabel57.AutoSize = true;
+            this.metroLabel57.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel57.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabel57.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.metroLabel57.Location = new System.Drawing.Point(406, 30);
+            this.metroLabel57.Name = "metroLabel57";
+            this.metroLabel57.Size = new System.Drawing.Size(128, 25);
+            this.metroLabel57.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroLabel57.TabIndex = 20;
+            this.metroLabel57.Text = "Zveřejňování:";
+            this.metroLabel57.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel57.UseStyleColors = true;
+            // 
+            // _adminUserEditPublish
+            // 
+            this._adminUserEditPublish.AutoSize = true;
+            this._adminUserEditPublish.Location = new System.Drawing.Point(414, 58);
+            this._adminUserEditPublish.Name = "_adminUserEditPublish";
+            this._adminUserEditPublish.Size = new System.Drawing.Size(176, 15);
+            this._adminUserEditPublish.TabIndex = 21;
+            this._adminUserEditPublish.Text = "Má právo zveřejnit své anime";
+            this._adminUserEditPublish.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._adminUserEditPublish.UseSelectable = true;
+            // 
+            // _adminUserEditPublishForeign
+            // 
+            this._adminUserEditPublishForeign.AutoSize = true;
+            this._adminUserEditPublishForeign.Location = new System.Drawing.Point(414, 79);
+            this._adminUserEditPublishForeign.Name = "_adminUserEditPublishForeign";
+            this._adminUserEditPublishForeign.Size = new System.Drawing.Size(358, 15);
+            this._adminUserEditPublishForeign.TabIndex = 22;
+            this._adminUserEditPublishForeign.Text = "Má právo zveřejnit anime, u něhož není uveden jako překladatel";
+            this._adminUserEditPublishForeign.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._adminUserEditPublishForeign.UseSelectable = true;
+            // 
+            // _adminUserEditSkipApproval
+            // 
+            this._adminUserEditSkipApproval.AutoSize = true;
+            this._adminUserEditSkipApproval.Location = new System.Drawing.Point(12, 307);
+            this._adminUserEditSkipApproval.Name = "_adminUserEditSkipApproval";
+            this._adminUserEditSkipApproval.Size = new System.Drawing.Size(270, 15);
+            this._adminUserEditSkipApproval.TabIndex = 23;
+            this._adminUserEditSkipApproval.Text = "Má právo odeslat verzi anime rovnou k enkódu";
+            this._adminUserEditSkipApproval.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._adminUserEditSkipApproval.UseSelectable = true;
+            // 
+            // _adminUserEditGetForeignCorrection
+            // 
+            this._adminUserEditGetForeignCorrection.AutoSize = true;
+            this._adminUserEditGetForeignCorrection.Location = new System.Drawing.Point(413, 206);
+            this._adminUserEditGetForeignCorrection.Name = "_adminUserEditGetForeignCorrection";
+            this._adminUserEditGetForeignCorrection.Size = new System.Drawing.Size(397, 15);
+            this._adminUserEditGetForeignCorrection.TabIndex = 24;
+            this._adminUserEditGetForeignCorrection.Text = "Má právo zamluvit si korekci anime, u něhož není uveden jako korektor";
+            this._adminUserEditGetForeignCorrection.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._adminUserEditGetForeignCorrection.UseSelectable = true;
+            // 
+            // _adminUserEditStealForeignCorrection
+            // 
+            this._adminUserEditStealForeignCorrection.AutoSize = true;
+            this._adminUserEditStealForeignCorrection.Location = new System.Drawing.Point(413, 227);
+            this._adminUserEditStealForeignCorrection.Name = "_adminUserEditStealForeignCorrection";
+            this._adminUserEditStealForeignCorrection.Size = new System.Drawing.Size(415, 15);
+            this._adminUserEditStealForeignCorrection.TabIndex = 25;
+            this._adminUserEditStealForeignCorrection.Text = "Má právo nahrát korekci k dílu, jehož korekci má zamluvenou jiný korektor";
+            this._adminUserEditStealForeignCorrection.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._adminUserEditStealForeignCorrection.UseSelectable = true;
+            // 
+            // _adminUserEditChatGroupsCreate
+            // 
+            this._adminUserEditChatGroupsCreate.AutoSize = true;
+            this._adminUserEditChatGroupsCreate.Location = new System.Drawing.Point(12, 79);
+            this._adminUserEditChatGroupsCreate.Name = "_adminUserEditChatGroupsCreate";
+            this._adminUserEditChatGroupsCreate.Size = new System.Drawing.Size(218, 15);
+            this._adminUserEditChatGroupsCreate.TabIndex = 26;
+            this._adminUserEditChatGroupsCreate.Text = "Má právo zakládat nové chat skupiny";
+            this._adminUserEditChatGroupsCreate.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._adminUserEditChatGroupsCreate.UseSelectable = true;
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1378, 749);
+            this.ClientSize = new System.Drawing.Size(1675, 749);
             this.Controls.Add(this.metroLabel_ConnectionLost);
             this.Controls.Add(this.metroTabControl1);
             this.Controls.Add(this.chatsPanel);
@@ -2658,8 +3313,8 @@ namespace RildasApp.Forms
             this._dashboard.PerformLayout();
             this._translate.ResumeLayout(false);
             this._translate.PerformLayout();
-            this.tabPage5.ResumeLayout(false);
-            this.tabPage5.PerformLayout();
+            this._downloadEpisode.ResumeLayout(false);
+            this._downloadEpisode.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this._calendar.ResumeLayout(false);
@@ -2676,8 +3331,6 @@ namespace RildasApp.Forms
             this.metroPanel1.ResumeLayout(false);
             this.metroPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.publish_animePicturebox)).EndInit();
-            this._settings.ResumeLayout(false);
-            this._settings.PerformLayout();
             this._admin.ResumeLayout(false);
             this._adminTabControl.ResumeLayout(false);
             this._adminEncode.ResumeLayout(false);
@@ -2689,8 +3342,17 @@ namespace RildasApp.Forms
             ((System.ComponentModel.ISupportInitialize)(this.animeEdit_specialCount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.animeEdit_Id)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.animeEdit_episodeCount)).EndInit();
+            this._adminUserEdit.ResumeLayout(false);
+            this._adminUserEdit.PerformLayout();
+            this._userInfo.ResumeLayout(false);
+            this._settings.ResumeLayout(false);
+            this._settings.PerformLayout();
             this.chatsPanel.ResumeLayout(false);
             this.chatsPanel.PerformLayout();
+            this._adminUserEditGeneral.ResumeLayout(false);
+            this._adminUserEditGeneral.PerformLayout();
+            this._adminUserEditTeam.ResumeLayout(false);
+            this._adminUserEditTeam.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2728,7 +3390,7 @@ namespace RildasApp.Forms
         private MetroFramework.Controls.MetroLabel metroLabel6;
         private MetroFramework.Controls.MetroCheckBox cbDoneAnime;
         private MetroFramework.Controls.MetroCheckBox cbAllEpisodes;
-        private MetroFramework.Controls.MetroTabPage tabPage5;
+        private MetroFramework.Controls.MetroTabPage _downloadEpisode;
         private MetroFramework.Controls.MetroLabel lbAJ2;
         private MetroFramework.Controls.MetroButton btnAJ;
         private MetroFramework.Controls.MetroLabel lbAJ;
@@ -2864,5 +3526,49 @@ namespace RildasApp.Forms
         private MetroFramework.Controls.MetroCheckBox animeEdit_addAsNew;
         private MetroFramework.Controls.MetroLabel metroLabel42;
         private System.Windows.Forms.NumericUpDown animeEdit_Id;
+        private MetroFramework.Controls.MetroTabPage _adminUserEdit;
+        private MetroFramework.Controls.MetroTabControl _userInfo;
+        private MetroFramework.Controls.MetroLabel metroLabel43;
+        private MetroFramework.Controls.MetroComboBox _cbadminACLuser;
+        private MetroFramework.Controls.MetroCheckBox metroCheckBox1;
+        private MetroFramework.Controls.MetroTabPage _adminUserEditGeneral;
+        private MetroFramework.Controls.MetroLabel metroLabel45;
+        private MetroFramework.Controls.MetroLabel metroLabel44;
+        private MetroFramework.Controls.MetroTabPage _adminUserEditTeam;
+        private MetroFramework.Controls.MetroTabPage _adminUserEditAdmin;
+        private MetroFramework.Controls.MetroLabel metroLabel48;
+        private MetroFramework.Controls.MetroTextBox _adminUserEditEmail;
+        private MetroFramework.Controls.MetroLabel metroLabel47;
+        private MetroFramework.Controls.MetroTextBox _adminUserEditUsername;
+        private MetroFramework.Controls.MetroLabel metroLabel46;
+        private MetroFramework.Controls.MetroComboBox metroComboBox3;
+        private MetroFramework.Controls.MetroButton _adminUserEditSave;
+        private MetroFramework.Controls.MetroLink metroLink2;
+        private MetroFramework.Controls.MetroLink _adminUserEditActivate;
+        private MetroFramework.Controls.MetroLabel _adminUserEditBirthDay;
+        private MetroFramework.Controls.MetroLabel metroLabel51;
+        private MetroFramework.Controls.MetroLabel _adminUserEditLastLogin;
+        private MetroFramework.Controls.MetroLabel metroLabel50;
+        private MetroFramework.Controls.MetroLabel _adminUserEditRegistration;
+        private MetroFramework.Controls.MetroLabel metroLabel49;
+        private MetroFramework.Controls.MetroCheckBox _adminUserEditChatGroupsCreate;
+        private MetroFramework.Controls.MetroCheckBox _adminUserEditStealForeignCorrection;
+        private MetroFramework.Controls.MetroCheckBox _adminUserEditGetForeignCorrection;
+        private MetroFramework.Controls.MetroCheckBox _adminUserEditSkipApproval;
+        private MetroFramework.Controls.MetroCheckBox _adminUserEditPublishForeign;
+        private MetroFramework.Controls.MetroCheckBox _adminUserEditPublish;
+        private MetroFramework.Controls.MetroLabel metroLabel57;
+        private MetroFramework.Controls.MetroLabel metroLabel56;
+        private MetroFramework.Controls.MetroCheckBox _adminUserEditEncode;
+        private MetroFramework.Controls.MetroLabel metroLabel55;
+        private MetroFramework.Controls.MetroCheckBox _adminUserEditApproveAnime;
+        private MetroFramework.Controls.MetroLabel metroLabel54;
+        private MetroFramework.Controls.MetroLabel metroLabel53;
+        private MetroFramework.Controls.MetroLabel metroLabel52;
+        private MetroFramework.Controls.MetroCheckBox _adminUserEditCorrectionForeign;
+        private MetroFramework.Controls.MetroCheckBox _adminUserEditCorrection;
+        private MetroFramework.Controls.MetroCheckBox _adminUserEditTranslateForeign;
+        private MetroFramework.Controls.MetroCheckBox _adminUserEditTranslateOwn;
+        private MetroFramework.Controls.MetroCheckBox _adminUserEditAppAccess;
     }
 }

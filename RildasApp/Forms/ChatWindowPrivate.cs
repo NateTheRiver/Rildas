@@ -50,6 +50,7 @@ namespace RildasApp.Forms
         {
             this.TopMost = true;
             this.Focus();
+            this.tbMessage.SelectionStart = this.tbMessage.Text.Length;
             this.BringToFront();
             this.Activate();
             this.TopMost = cbAlwaysOnTop.Checked;
@@ -182,6 +183,7 @@ namespace RildasApp.Forms
             richTextBox1.ScrollToCaret();
             RildasServerAPI.SendMessage(((User)this.Tag).id, tbMessage.Text);
             this.tbMessage.Focus();
+            this.tbMessage.SelectionStart = this.tbMessage.Text.Length;
             string dirPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "RildasLogs");
 
             try
@@ -376,6 +378,7 @@ namespace RildasApp.Forms
         private void ChatWindowPrivate_Activated(object sender, EventArgs e)
         {
             this.tbMessage.Focus();
+            this.tbMessage.SelectionStart = this.tbMessage.Text.Length;
         }
     }
 }
