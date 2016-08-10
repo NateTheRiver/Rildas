@@ -239,6 +239,7 @@ namespace RildasApp.Forms
 
         private void publishPanel_MouseClick(object sender, MouseEventArgs e)
         {
+            if (publish_AnimeComboBox.SelectedItem == null) return;
             selectedPublish = mouseY / 45;
             int animId = Global.GetAnime(publish_AnimeComboBox.SelectedItem.ToString()).id;
             List<EpisodeVersion> versions = Global.GetEpisodeVersions();
@@ -575,6 +576,7 @@ namespace RildasApp.Forms
             animeList = animeList.OrderBy(i => i.name).ToList();
 
             Panel panel = new Panel();
+            panel.Name = "state_panel";
             panel.BackColor = Color.FromArgb(17, 17, 17);
             panel.Size = new Size(1400, 600);
             panel.AutoScroll = true;
@@ -652,7 +654,9 @@ namespace RildasApp.Forms
                 _adminAnimeEditCombo.Items.Clear();
                 animeEdit_comboState.Items.Clear();
                 animeEdit_comboTranslator.Items.Clear();
+                animeEdit_comboCorrector.Items.Clear();
                 Global.GetUsers().OrderBy(x => x.username).ToList().ForEach(x => animeEdit_comboTranslator.Items.Add(x.username));
+                Global.GetUsers().OrderBy(x => x.username).ToList().ForEach(x => animeEdit_comboCorrector.Items.Add(x.username));
                 foreach (Anime.Status status in Anime.Status.GetValues(typeof(Anime.Status)))
                 {
                     animeEdit_comboState.Items.Add(status.ToString());
@@ -1577,7 +1581,6 @@ namespace RildasApp.Forms
             EpisodeVersion ver = new EpisodeVersion();
             ver.animeId = an.id;
             _publishSetLabels(ver);
-            if(an != null)  
             publish_animePicturebox.Image = (Bitmap)Resources.ResourceManager.GetObject(Path.GetFileNameWithoutExtension(an.post_img));
             publish_animePicturebox.Visible = true;
             myPanel2.Refresh();
@@ -1843,6 +1846,7 @@ namespace RildasApp.Forms
                 animeEdit_textFilename.Text = "";
                 animeEdit_textPlot.Text = "";
                 animeEdit_textPost.Text = "";
+                animeEdit_comboCorrector.Text = "";
                 animeEdit_comboTranslator.Text = "";
                 animeEdit_comboState.Text = "";
                 animeEdit_age.Value = 0;
@@ -1862,6 +1866,7 @@ namespace RildasApp.Forms
                 animeEdit_textFilename.Text = anime.filename;
                 animeEdit_textPlot.Text = anime.plot;
                 animeEdit_textPost.Text = anime.post_img;
+                animeEdit_comboCorrector.Text = Global.GetUser(anime.correctorid).username;
                 animeEdit_comboTranslator.Text = Global.GetUser(anime.translatorid).username;
                 animeEdit_comboState.Text = anime.status.ToString();
                 animeEdit_age.Value = anime.age;

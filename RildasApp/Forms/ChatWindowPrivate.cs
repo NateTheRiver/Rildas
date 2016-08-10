@@ -15,6 +15,7 @@ namespace RildasApp.Forms
         [return: MarshalAs(UnmanagedType.Bool)]
         static extern bool FlashWindowEx(ref FLASHWINFO pwfi);
         string directory = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().Location);
+        string dirPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "RildasLogs");
         //Flash both the window caption and taskbar button.
         //This is equivalent to setting the FLASHW_CAPTION | FLASHW_TRAY flags. 
         public const UInt32 FLASHW_ALL = 3;
@@ -66,6 +67,7 @@ namespace RildasApp.Forms
                     Append(richTextBox1, (this.Tag as User).username + " se nad Vámi slitoval a opět je tady.", Color.White);
                     Append(richTextBox1, Environment.NewLine, Color.White);
                     richTextBox1.ScrollToCaret();
+                    this.Refresh();
                 }));
             }
         }
@@ -80,6 +82,7 @@ namespace RildasApp.Forms
                     Append(richTextBox1, (this.Tag as User).username+ " se na Vás vykašlal a prostě to vypnul.", Color.White);
                     Append(richTextBox1, Environment.NewLine, Color.White);
                     richTextBox1.ScrollToCaret();
+                    this.Refresh();
                 }));
             }
         }
