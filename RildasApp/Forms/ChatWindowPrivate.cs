@@ -41,30 +41,28 @@ namespace RildasApp.Forms
         private void LoadHistory()
         {
             string finalPath = Path.Combine(dirPath, (this.Tag as User).username + ".txt");
-            if (File.Exists(finalPath))
+            if (!File.Exists(finalPath)) return;
+            var logFile = File.ReadAllLines(finalPath);
+            List<string> log = new List<string>(logFile);
+            foreach (string s in log)
             {
-                var logFile = File.ReadAllLines(finalPath);
-                List<string> log = new List<string>(logFile);
-                foreach (string s in log)
+                //Communication
+                if (s.Length > 0 && s[0] == '[')
                 {
-                    //Communication
-                    if (s.Length > 0 && s[0] == '[')
-                    {
-                        string tmp = s.Substring(7);
-                        string colorized = s.Substring(0, s.IndexOf(':', s.IndexOf(':') + 1));
-                        string text = s.Substring(colorized.Length);
-                        Append(richTextBox1, colorized, (tmp.Substring(0, tmp.IndexOf(':')) == (this.Tag as User).username) ? friendColor : myColor);
-                        Append(richTextBox1, text + Environment.NewLine, Color.White);
+                    string tmp = s.Substring(7);
+                    string colorized = s.Substring(0, s.IndexOf(':', s.IndexOf(':') + 1));
+                    string text = s.Substring(colorized.Length);
+                    Append(richTextBox1, colorized, (tmp.Substring(0, tmp.IndexOf(':')) == (this.Tag as User).username) ? friendColor : myColor);
+                    Append(richTextBox1, text + Environment.NewLine, Color.White);
 
-                    }
-                    //Information text
-                    else
-                    {
-                        Append(richTextBox1, s + Environment.NewLine, Color.White);
-                    }
+                }
+                //Information text
+                else
+                {
+                    Append(richTextBox1, s + Environment.NewLine, Color.White);
                 }
             }
-
+            richTextBox1.ScrollToCaret();
         }
 
         private void OnFormClosing(object sender, FormClosingEventArgs formClosingEventArgs)

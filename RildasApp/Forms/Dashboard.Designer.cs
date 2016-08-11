@@ -152,6 +152,7 @@ namespace RildasApp.Forms
             this.metroLabel37 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel41 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel36 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel43 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel35 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel34 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel33 = new MetroFramework.Controls.MetroLabel();
@@ -164,6 +165,7 @@ namespace RildasApp.Forms
             this.animeEdit_specialCount = new System.Windows.Forms.NumericUpDown();
             this.animeEdit_Id = new System.Windows.Forms.NumericUpDown();
             this.animeEdit_episodeCount = new System.Windows.Forms.NumericUpDown();
+            this.animeEdit_comboCorrector = new MetroFramework.Controls.MetroComboBox();
             this.animeEdit_comboTranslator = new MetroFramework.Controls.MetroComboBox();
             this.animeEdit_comboState = new MetroFramework.Controls.MetroComboBox();
             this.animeEdit_textBannerText = new MetroFramework.Controls.MetroTextBox();
@@ -176,10 +178,77 @@ namespace RildasApp.Forms
             this.metroLabel20 = new MetroFramework.Controls.MetroLabel();
             this._adminAnimeEditCombo = new MetroFramework.Controls.MetroComboBox();
             this._adminUserEdit = new MetroFramework.Controls.MetroTabPage();
+            this._adminACLuserSearch = new MetroFramework.Controls.MetroTextBox();
+            this._adminUserEditSave = new MetroFramework.Controls.MetroButton();
             this._userInfo = new MetroFramework.Controls.MetroTabControl();
-            this.metroCheckBox1 = new MetroFramework.Controls.MetroCheckBox();
-            this.metroLabel43 = new MetroFramework.Controls.MetroLabel();
-            this._cbadminACLuser = new MetroFramework.Controls.MetroComboBox();
+            this._adminUserEditGeneral = new MetroFramework.Controls.MetroTabPage();
+            this.metroLabel58 = new MetroFramework.Controls.MetroLabel();
+            this._adminUserEditGoldenAcc = new MetroFramework.Controls.MetroToggle();
+            this._adminUserEditNewPassword = new MetroFramework.Controls.MetroLink();
+            this._adminUserEditActivate = new MetroFramework.Controls.MetroLink();
+            this._adminUserEditBirthDay = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel51 = new MetroFramework.Controls.MetroLabel();
+            this._adminUserEditLastLogin = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel50 = new MetroFramework.Controls.MetroLabel();
+            this._adminUserEditRegistration = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel49 = new MetroFramework.Controls.MetroLabel();
+            this._adminUserEditState = new MetroFramework.Controls.MetroComboBox();
+            this.metroLabel48 = new MetroFramework.Controls.MetroLabel();
+            this._adminUserEditEmail = new MetroFramework.Controls.MetroTextBox();
+            this.metroLabel47 = new MetroFramework.Controls.MetroLabel();
+            this._adminUserEditUsername = new MetroFramework.Controls.MetroTextBox();
+            this.metroLabel46 = new MetroFramework.Controls.MetroLabel();
+            this._adminUserEditID = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel44 = new MetroFramework.Controls.MetroLabel();
+            this._adminUserEditTeam = new MetroFramework.Controls.MetroTabPage();
+            this._adminUserEditTeamMember = new MetroFramework.Controls.MetroCheckBox();
+            this._adminUserEditChatGroupsCreate = new MetroFramework.Controls.MetroCheckBox();
+            this._adminUserEditStealForeignCorrection = new MetroFramework.Controls.MetroCheckBox();
+            this._adminUserEditGetForeignCorrection = new MetroFramework.Controls.MetroCheckBox();
+            this._adminUserEditSkipApproval = new MetroFramework.Controls.MetroCheckBox();
+            this._adminUserEditPublishForeign = new MetroFramework.Controls.MetroCheckBox();
+            this._adminUserEditPublish = new MetroFramework.Controls.MetroCheckBox();
+            this.metroLabel57 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel56 = new MetroFramework.Controls.MetroLabel();
+            this._adminUserEditEncode = new MetroFramework.Controls.MetroCheckBox();
+            this.metroLabel55 = new MetroFramework.Controls.MetroLabel();
+            this._adminUserEditApproveAnime = new MetroFramework.Controls.MetroCheckBox();
+            this.metroLabel54 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel53 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel52 = new MetroFramework.Controls.MetroLabel();
+            this._adminUserEditCorrectionForeign = new MetroFramework.Controls.MetroCheckBox();
+            this._adminUserEditCorrection = new MetroFramework.Controls.MetroCheckBox();
+            this._adminUserEditTranslateForeign = new MetroFramework.Controls.MetroCheckBox();
+            this._adminUserEditTranslateOwn = new MetroFramework.Controls.MetroCheckBox();
+            this._adminUserEditAppAccess = new MetroFramework.Controls.MetroCheckBox();
+            this._adminUserEditAdmin = new MetroFramework.Controls.MetroTabPage();
+            this._adminUserEditAdminNotif = new MetroFramework.Controls.MetroCheckBox();
+            this._adminUserEditAdminServerRestart = new MetroFramework.Controls.MetroCheckBox();
+            this._adminUserEditAdminServerAdd = new MetroFramework.Controls.MetroCheckBox();
+            this.metroLabel63 = new MetroFramework.Controls.MetroLabel();
+            this._adminUserEditAdminApplicationVersion = new MetroFramework.Controls.MetroCheckBox();
+            this.metroLabel62 = new MetroFramework.Controls.MetroLabel();
+            this._adminUserEditAdminAdminDelete = new MetroFramework.Controls.MetroCheckBox();
+            this._adminUserEditAdminAdminAdd = new MetroFramework.Controls.MetroCheckBox();
+            this._adminUserEditAdminTeamEncode = new MetroFramework.Controls.MetroCheckBox();
+            this._adminUserEditAdminTeamPublish = new MetroFramework.Controls.MetroCheckBox();
+            this._adminUserEditAdminTeamApprove = new MetroFramework.Controls.MetroCheckBox();
+            this._adminUserEditAdminTeamCorrector = new MetroFramework.Controls.MetroCheckBox();
+            this._adminUserEditAdminTeamTranslate = new MetroFramework.Controls.MetroCheckBox();
+            this._adminUserEditAdminTeamGeneral = new MetroFramework.Controls.MetroCheckBox();
+            this._adminUserEditAdminUserGeneral = new MetroFramework.Controls.MetroCheckBox();
+            this.metroLabel61 = new MetroFramework.Controls.MetroLabel();
+            this._adminUserEditAdminEditAnime = new MetroFramework.Controls.MetroCheckBox();
+            this.metroLabel60 = new MetroFramework.Controls.MetroLabel();
+            this._adminUserEditAdminAddAnime = new MetroFramework.Controls.MetroCheckBox();
+            this.metroLabel59 = new MetroFramework.Controls.MetroLabel();
+            this._adminUserEditAdminAccess = new MetroFramework.Controls.MetroCheckBox();
+            this.adminACLSearchUser = new MetroFramework.Controls.MetroCheckBox();
+            this.metroLabel433 = new MetroFramework.Controls.MetroLabel();
+            this._adminACLuserSelect = new MetroFramework.Controls.MetroComboBox();
+            this._adminAddApp = new MetroFramework.Controls.MetroTabPage();
+            this._adminServerControl = new MetroFramework.Controls.MetroTabPage();
+            this._adminNotifications = new MetroFramework.Controls.MetroTabPage();
             this._settings = new MetroFramework.Controls.MetroTabPage();
             this.configMinToSysTray = new MetroFramework.Controls.MetroCheckBox();
             this.configSilentNotifications = new MetroFramework.Controls.MetroCheckBox();
@@ -204,47 +273,6 @@ namespace RildasApp.Forms
             this.chatGroupAdd = new MetroFramework.Controls.MetroButton();
             this.metroScrollBar2 = new MetroFramework.Controls.MetroScrollBar();
             this.chatsPanel = new System.Windows.Forms.Panel();
-            this._adminUserEditGeneral = new MetroFramework.Controls.MetroTabPage();
-            this._adminUserEditTeam = new MetroFramework.Controls.MetroTabPage();
-            this._adminUserEditAdmin = new MetroFramework.Controls.MetroTabPage();
-            this.metroLabel44 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel45 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel46 = new MetroFramework.Controls.MetroLabel();
-            this._adminUserEditUsername = new MetroFramework.Controls.MetroTextBox();
-            this.metroLabel47 = new MetroFramework.Controls.MetroLabel();
-            this._adminUserEditEmail = new MetroFramework.Controls.MetroTextBox();
-            this.metroLabel48 = new MetroFramework.Controls.MetroLabel();
-            this.metroComboBox3 = new MetroFramework.Controls.MetroComboBox();
-            this.metroLabel49 = new MetroFramework.Controls.MetroLabel();
-            this._adminUserEditRegistration = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel50 = new MetroFramework.Controls.MetroLabel();
-            this._adminUserEditLastLogin = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel51 = new MetroFramework.Controls.MetroLabel();
-            this._adminUserEditBirthDay = new MetroFramework.Controls.MetroLabel();
-            this._adminUserEditActivate = new MetroFramework.Controls.MetroLink();
-            this.metroLink2 = new MetroFramework.Controls.MetroLink();
-            this._adminUserEditSave = new MetroFramework.Controls.MetroButton();
-            this._adminUserEditAppAccess = new MetroFramework.Controls.MetroCheckBox();
-            this._adminUserEditTranslateOwn = new MetroFramework.Controls.MetroCheckBox();
-            this._adminUserEditTranslateForeign = new MetroFramework.Controls.MetroCheckBox();
-            this._adminUserEditCorrection = new MetroFramework.Controls.MetroCheckBox();
-            this._adminUserEditCorrectionForeign = new MetroFramework.Controls.MetroCheckBox();
-            this.metroLabel52 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel53 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel54 = new MetroFramework.Controls.MetroLabel();
-            this._adminUserEditApproveAnime = new MetroFramework.Controls.MetroCheckBox();
-            this.metroLabel55 = new MetroFramework.Controls.MetroLabel();
-            this._adminUserEditEncode = new MetroFramework.Controls.MetroCheckBox();
-            this.metroLabel56 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel57 = new MetroFramework.Controls.MetroLabel();
-            this._adminUserEditPublish = new MetroFramework.Controls.MetroCheckBox();
-            this._adminUserEditPublishForeign = new MetroFramework.Controls.MetroCheckBox();
-            this._adminUserEditSkipApproval = new MetroFramework.Controls.MetroCheckBox();
-            this._adminUserEditGetForeignCorrection = new MetroFramework.Controls.MetroCheckBox();
-            this._adminUserEditStealForeignCorrection = new MetroFramework.Controls.MetroCheckBox();
-            this.metroLabel433 = new MetroFramework.Controls.MetroLabel();
-            this.animeEdit_comboCorrector = new MetroFramework.Controls.MetroComboBox();
-            this._adminUserEditChatGroupsCreate = new MetroFramework.Controls.MetroCheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).BeginInit();
             this.metroTabControl1.SuspendLayout();
             this._dashboard.SuspendLayout();
@@ -271,10 +299,11 @@ namespace RildasApp.Forms
             ((System.ComponentModel.ISupportInitialize)(this.animeEdit_episodeCount)).BeginInit();
             this._adminUserEdit.SuspendLayout();
             this._userInfo.SuspendLayout();
-            this._settings.SuspendLayout();
-            this.chatsPanel.SuspendLayout();
             this._adminUserEditGeneral.SuspendLayout();
             this._adminUserEditTeam.SuspendLayout();
+            this._adminUserEditAdmin.SuspendLayout();
+            this._settings.SuspendLayout();
+            this.chatsPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // metroStyleManager1
@@ -1455,7 +1484,7 @@ namespace RildasApp.Forms
             // 
             this.publish_date.CalendarMonthBackground = System.Drawing.SystemColors.WindowText;
             this.publish_date.Location = new System.Drawing.Point(315, 348);
-            this.publish_date.MinimumSize = new System.Drawing.Size(0, 29);
+            this.publish_date.MinimumSize = new System.Drawing.Size(4, 29);
             this.publish_date.Name = "publish_date";
             this.publish_date.Size = new System.Drawing.Size(200, 29);
             this.publish_date.Style = MetroFramework.MetroColorStyle.Blue;
@@ -1616,9 +1645,12 @@ namespace RildasApp.Forms
             this._adminTabControl.Controls.Add(this._adminEncode);
             this._adminTabControl.Controls.Add(this._adminAnimeEdit);
             this._adminTabControl.Controls.Add(this._adminUserEdit);
+            this._adminTabControl.Controls.Add(this._adminAddApp);
+            this._adminTabControl.Controls.Add(this._adminServerControl);
+            this._adminTabControl.Controls.Add(this._adminNotifications);
             this._adminTabControl.Location = new System.Drawing.Point(3, 6);
             this._adminTabControl.Name = "_adminTabControl";
-            this._adminTabControl.SelectedIndex = 1;
+            this._adminTabControl.SelectedIndex = 2;
             this._adminTabControl.Size = new System.Drawing.Size(1325, 642);
             this._adminTabControl.TabIndex = 2;
             this._adminTabControl.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -1962,6 +1994,18 @@ namespace RildasApp.Forms
             this.metroLabel36.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.metroLabel36.UseStyleColors = true;
             // 
+            // metroLabel43
+            // 
+            this.metroLabel43.AutoSize = true;
+            this.metroLabel43.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel43.Location = new System.Drawing.Point(553, 292);
+            this.metroLabel43.Name = "metroLabel43";
+            this.metroLabel43.Size = new System.Drawing.Size(62, 19);
+            this.metroLabel43.TabIndex = 8;
+            this.metroLabel43.Text = "Korektor";
+            this.metroLabel43.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel43.UseStyleColors = true;
+            // 
             // metroLabel35
             // 
             this.metroLabel35.AutoSize = true;
@@ -2116,6 +2160,17 @@ namespace RildasApp.Forms
             this.animeEdit_episodeCount.Name = "animeEdit_episodeCount";
             this.animeEdit_episodeCount.Size = new System.Drawing.Size(376, 20);
             this.animeEdit_episodeCount.TabIndex = 6;
+            // 
+            // animeEdit_comboCorrector
+            // 
+            this.animeEdit_comboCorrector.FormattingEnabled = true;
+            this.animeEdit_comboCorrector.ItemHeight = 23;
+            this.animeEdit_comboCorrector.Location = new System.Drawing.Point(621, 282);
+            this.animeEdit_comboCorrector.Name = "animeEdit_comboCorrector";
+            this.animeEdit_comboCorrector.Size = new System.Drawing.Size(376, 29);
+            this.animeEdit_comboCorrector.TabIndex = 5;
+            this.animeEdit_comboCorrector.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.animeEdit_comboCorrector.UseSelectable = true;
             // 
             // animeEdit_comboTranslator
             // 
@@ -2383,11 +2438,12 @@ namespace RildasApp.Forms
             // 
             // _adminUserEdit
             // 
+            this._adminUserEdit.Controls.Add(this._adminACLuserSearch);
             this._adminUserEdit.Controls.Add(this._adminUserEditSave);
             this._adminUserEdit.Controls.Add(this._userInfo);
-            this._adminUserEdit.Controls.Add(this.metroCheckBox1);
+            this._adminUserEdit.Controls.Add(this.adminACLSearchUser);
             this._adminUserEdit.Controls.Add(this.metroLabel433);
-            this._adminUserEdit.Controls.Add(this._cbadminACLuser);
+            this._adminUserEdit.Controls.Add(this._adminACLuserSelect);
             this._adminUserEdit.HorizontalScrollbarBarColor = true;
             this._adminUserEdit.HorizontalScrollbarHighlightOnWheel = false;
             this._adminUserEdit.HorizontalScrollbarSize = 10;
@@ -2395,18 +2451,60 @@ namespace RildasApp.Forms
             this._adminUserEdit.Name = "_adminUserEdit";
             this._adminUserEdit.Size = new System.Drawing.Size(1317, 600);
             this._adminUserEdit.TabIndex = 2;
-            this._adminUserEdit.Text = "Upravit uživatele";
+            this._adminUserEdit.Text = "Upravit uživatele   ";
             this._adminUserEdit.Theme = MetroFramework.MetroThemeStyle.Dark;
             this._adminUserEdit.VerticalScrollbarBarColor = true;
             this._adminUserEdit.VerticalScrollbarHighlightOnWheel = false;
             this._adminUserEdit.VerticalScrollbarSize = 10;
+            // 
+            // _adminACLuserSearch
+            // 
+            // 
+            // 
+            // 
+            this._adminACLuserSearch.CustomButton.Image = null;
+            this._adminACLuserSearch.CustomButton.Location = new System.Drawing.Point(151, 1);
+            this._adminACLuserSearch.CustomButton.Name = "";
+            this._adminACLuserSearch.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this._adminACLuserSearch.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this._adminACLuserSearch.CustomButton.TabIndex = 1;
+            this._adminACLuserSearch.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this._adminACLuserSearch.CustomButton.UseSelectable = true;
+            this._adminACLuserSearch.CustomButton.Visible = false;
+            this._adminACLuserSearch.Lines = new string[0];
+            this._adminACLuserSearch.Location = new System.Drawing.Point(66, 38);
+            this._adminACLuserSearch.MaxLength = 32767;
+            this._adminACLuserSearch.Name = "_adminACLuserSearch";
+            this._adminACLuserSearch.PasswordChar = '\0';
+            this._adminACLuserSearch.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this._adminACLuserSearch.SelectedText = "";
+            this._adminACLuserSearch.SelectionLength = 0;
+            this._adminACLuserSearch.SelectionStart = 0;
+            this._adminACLuserSearch.Size = new System.Drawing.Size(173, 23);
+            this._adminACLuserSearch.TabIndex = 7;
+            this._adminACLuserSearch.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._adminACLuserSearch.UseSelectable = true;
+            this._adminACLuserSearch.Visible = false;
+            this._adminACLuserSearch.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this._adminACLuserSearch.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // _adminUserEditSave
+            // 
+            this._adminUserEditSave.Location = new System.Drawing.Point(3, 515);
+            this._adminUserEditSave.Name = "_adminUserEditSave";
+            this._adminUserEditSave.Size = new System.Drawing.Size(91, 28);
+            this._adminUserEditSave.TabIndex = 6;
+            this._adminUserEditSave.Text = "Uložit";
+            this._adminUserEditSave.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._adminUserEditSave.UseSelectable = true;
+            this._adminUserEditSave.Click += new System.EventHandler(this._adminUserEditSave_Click);
             // 
             // _userInfo
             // 
             this._userInfo.Controls.Add(this._adminUserEditGeneral);
             this._userInfo.Controls.Add(this._adminUserEditTeam);
             this._userInfo.Controls.Add(this._adminUserEditAdmin);
-            this._userInfo.Location = new System.Drawing.Point(3, 64);
+            this._userInfo.Location = new System.Drawing.Point(3, 76);
             this._userInfo.Name = "_userInfo";
             this._userInfo.SelectedIndex = 0;
             this._userInfo.Size = new System.Drawing.Size(1208, 417);
@@ -2415,37 +2513,921 @@ namespace RildasApp.Forms
             this._userInfo.UseSelectable = true;
             this._userInfo.Visible = false;
             // 
-            // metroCheckBox1
+            // _adminUserEditGeneral
             // 
-            this.metroCheckBox1.AutoSize = true;
-            this.metroCheckBox1.Location = new System.Drawing.Point(260, 38);
-            this.metroCheckBox1.Name = "metroCheckBox1";
-            this.metroCheckBox1.Size = new System.Drawing.Size(167, 15);
-            this.metroCheckBox1.TabIndex = 4;
-            this.metroCheckBox1.Text = "Zahrnout všechny uživatele";
-            this.metroCheckBox1.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroCheckBox1.UseSelectable = true;
+            this._adminUserEditGeneral.Controls.Add(this.metroLabel58);
+            this._adminUserEditGeneral.Controls.Add(this._adminUserEditGoldenAcc);
+            this._adminUserEditGeneral.Controls.Add(this._adminUserEditNewPassword);
+            this._adminUserEditGeneral.Controls.Add(this._adminUserEditActivate);
+            this._adminUserEditGeneral.Controls.Add(this._adminUserEditBirthDay);
+            this._adminUserEditGeneral.Controls.Add(this.metroLabel51);
+            this._adminUserEditGeneral.Controls.Add(this._adminUserEditLastLogin);
+            this._adminUserEditGeneral.Controls.Add(this.metroLabel50);
+            this._adminUserEditGeneral.Controls.Add(this._adminUserEditRegistration);
+            this._adminUserEditGeneral.Controls.Add(this.metroLabel49);
+            this._adminUserEditGeneral.Controls.Add(this._adminUserEditState);
+            this._adminUserEditGeneral.Controls.Add(this.metroLabel48);
+            this._adminUserEditGeneral.Controls.Add(this._adminUserEditEmail);
+            this._adminUserEditGeneral.Controls.Add(this.metroLabel47);
+            this._adminUserEditGeneral.Controls.Add(this._adminUserEditUsername);
+            this._adminUserEditGeneral.Controls.Add(this.metroLabel46);
+            this._adminUserEditGeneral.Controls.Add(this._adminUserEditID);
+            this._adminUserEditGeneral.Controls.Add(this.metroLabel44);
+            this._adminUserEditGeneral.HorizontalScrollbarBarColor = true;
+            this._adminUserEditGeneral.HorizontalScrollbarHighlightOnWheel = false;
+            this._adminUserEditGeneral.HorizontalScrollbarSize = 10;
+            this._adminUserEditGeneral.Location = new System.Drawing.Point(4, 38);
+            this._adminUserEditGeneral.Name = "_adminUserEditGeneral";
+            this._adminUserEditGeneral.Size = new System.Drawing.Size(1200, 375);
+            this._adminUserEditGeneral.TabIndex = 0;
+            this._adminUserEditGeneral.Text = "Obecné   ";
+            this._adminUserEditGeneral.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._adminUserEditGeneral.VerticalScrollbarBarColor = true;
+            this._adminUserEditGeneral.VerticalScrollbarHighlightOnWheel = false;
+            this._adminUserEditGeneral.VerticalScrollbarSize = 10;
             // 
-            // metroLabel43
+            // metroLabel58
+            // 
+            this.metroLabel58.AutoSize = true;
+            this.metroLabel58.Location = new System.Drawing.Point(4, 277);
+            this.metroLabel58.Name = "metroLabel58";
+            this.metroLabel58.Size = new System.Drawing.Size(103, 19);
+            this.metroLabel58.TabIndex = 19;
+            this.metroLabel58.Text = "Golden account:";
+            this.metroLabel58.Theme = MetroFramework.MetroThemeStyle.Dark;
+            // 
+            // _adminUserEditGoldenAcc
+            // 
+            this._adminUserEditGoldenAcc.AutoSize = true;
+            this._adminUserEditGoldenAcc.Location = new System.Drawing.Point(129, 279);
+            this._adminUserEditGoldenAcc.Name = "_adminUserEditGoldenAcc";
+            this._adminUserEditGoldenAcc.Size = new System.Drawing.Size(80, 17);
+            this._adminUserEditGoldenAcc.TabIndex = 18;
+            this._adminUserEditGoldenAcc.Text = "Off";
+            this._adminUserEditGoldenAcc.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._adminUserEditGoldenAcc.UseSelectable = true;
+            // 
+            // _adminUserEditNewPassword
+            // 
+            this._adminUserEditNewPassword.Location = new System.Drawing.Point(0, 315);
+            this._adminUserEditNewPassword.Name = "_adminUserEditNewPassword";
+            this._adminUserEditNewPassword.Size = new System.Drawing.Size(345, 23);
+            this._adminUserEditNewPassword.TabIndex = 17;
+            this._adminUserEditNewPassword.Text = "Odeslat odkaz pro změnu hesla.";
+            this._adminUserEditNewPassword.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._adminUserEditNewPassword.UseSelectable = true;
+            this._adminUserEditNewPassword.UseStyleColors = true;
+            // 
+            // _adminUserEditActivate
+            // 
+            this._adminUserEditActivate.Location = new System.Drawing.Point(0, 344);
+            this._adminUserEditActivate.Name = "_adminUserEditActivate";
+            this._adminUserEditActivate.Size = new System.Drawing.Size(357, 19);
+            this._adminUserEditActivate.Style = MetroFramework.MetroColorStyle.Red;
+            this._adminUserEditActivate.TabIndex = 16;
+            this._adminUserEditActivate.Text = "Účet není aktivován. Kliknutím na tento odkaz jej aktivujete.";
+            this._adminUserEditActivate.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._adminUserEditActivate.UseSelectable = true;
+            this._adminUserEditActivate.UseStyleColors = true;
+            // 
+            // _adminUserEditBirthDay
+            // 
+            this._adminUserEditBirthDay.AutoSize = true;
+            this._adminUserEditBirthDay.Location = new System.Drawing.Point(129, 239);
+            this._adminUserEditBirthDay.Name = "_adminUserEditBirthDay";
+            this._adminUserEditBirthDay.Size = new System.Drawing.Size(67, 19);
+            this._adminUserEditBirthDay.TabIndex = 15;
+            this._adminUserEditBirthDay.Text = "29.11.2354";
+            this._adminUserEditBirthDay.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._adminUserEditBirthDay.UseStyleColors = true;
+            // 
+            // metroLabel51
+            // 
+            this.metroLabel51.AutoSize = true;
+            this.metroLabel51.Location = new System.Drawing.Point(4, 239);
+            this.metroLabel51.Name = "metroLabel51";
+            this.metroLabel51.Size = new System.Drawing.Size(62, 19);
+            this.metroLabel51.TabIndex = 14;
+            this.metroLabel51.Text = "Narozen:";
+            this.metroLabel51.Theme = MetroFramework.MetroThemeStyle.Dark;
+            // 
+            // _adminUserEditLastLogin
+            // 
+            this._adminUserEditLastLogin.AutoSize = true;
+            this._adminUserEditLastLogin.Location = new System.Drawing.Point(129, 202);
+            this._adminUserEditLastLogin.Name = "_adminUserEditLastLogin";
+            this._adminUserEditLastLogin.Size = new System.Drawing.Size(172, 19);
+            this._adminUserEditLastLogin.TabIndex = 13;
+            this._adminUserEditLastLogin.Text = "1.1.1970 15:36 (IP: 78.20.2.35)";
+            this._adminUserEditLastLogin.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._adminUserEditLastLogin.UseStyleColors = true;
+            // 
+            // metroLabel50
+            // 
+            this.metroLabel50.AutoSize = true;
+            this.metroLabel50.Location = new System.Drawing.Point(3, 202);
+            this.metroLabel50.Name = "metroLabel50";
+            this.metroLabel50.Size = new System.Drawing.Size(119, 19);
+            this.metroLabel50.TabIndex = 12;
+            this.metroLabel50.Text = "Poslední přihlášení:";
+            this.metroLabel50.Theme = MetroFramework.MetroThemeStyle.Dark;
+            // 
+            // _adminUserEditRegistration
+            // 
+            this._adminUserEditRegistration.AutoSize = true;
+            this._adminUserEditRegistration.Location = new System.Drawing.Point(129, 164);
+            this._adminUserEditRegistration.Name = "_adminUserEditRegistration";
+            this._adminUserEditRegistration.Size = new System.Drawing.Size(172, 19);
+            this._adminUserEditRegistration.TabIndex = 11;
+            this._adminUserEditRegistration.Text = "1.1.1970 15:35 (IP: 78.20.2.35)";
+            this._adminUserEditRegistration.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._adminUserEditRegistration.UseStyleColors = true;
+            // 
+            // metroLabel49
+            // 
+            this.metroLabel49.AutoSize = true;
+            this.metroLabel49.Location = new System.Drawing.Point(3, 164);
+            this.metroLabel49.Name = "metroLabel49";
+            this.metroLabel49.Size = new System.Drawing.Size(84, 19);
+            this.metroLabel49.TabIndex = 10;
+            this.metroLabel49.Text = "Registrován: ";
+            this.metroLabel49.Theme = MetroFramework.MetroThemeStyle.Dark;
+            // 
+            // _adminUserEditState
+            // 
+            this._adminUserEditState.FormattingEnabled = true;
+            this._adminUserEditState.ItemHeight = 23;
+            this._adminUserEditState.Items.AddRange(new object[] {
+            "OK",
+            "BANNED",
+            "PENDING",
+            "DELETED"});
+            this._adminUserEditState.Location = new System.Drawing.Point(129, 117);
+            this._adminUserEditState.Name = "_adminUserEditState";
+            this._adminUserEditState.Size = new System.Drawing.Size(219, 29);
+            this._adminUserEditState.TabIndex = 9;
+            this._adminUserEditState.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._adminUserEditState.UseSelectable = true;
+            // 
+            // metroLabel48
+            // 
+            this.metroLabel48.AutoSize = true;
+            this.metroLabel48.Location = new System.Drawing.Point(3, 127);
+            this.metroLabel48.Name = "metroLabel48";
+            this.metroLabel48.Size = new System.Drawing.Size(41, 19);
+            this.metroLabel48.TabIndex = 8;
+            this.metroLabel48.Text = "State:";
+            this.metroLabel48.Theme = MetroFramework.MetroThemeStyle.Dark;
+            // 
+            // _adminUserEditEmail
+            // 
+            // 
+            // 
+            // 
+            this._adminUserEditEmail.CustomButton.Image = null;
+            this._adminUserEditEmail.CustomButton.Location = new System.Drawing.Point(197, 1);
+            this._adminUserEditEmail.CustomButton.Name = "";
+            this._adminUserEditEmail.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this._adminUserEditEmail.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this._adminUserEditEmail.CustomButton.TabIndex = 1;
+            this._adminUserEditEmail.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this._adminUserEditEmail.CustomButton.UseSelectable = true;
+            this._adminUserEditEmail.CustomButton.Visible = false;
+            this._adminUserEditEmail.Lines = new string[] {
+        "NateTheRiver@rildas.cz"};
+            this._adminUserEditEmail.Location = new System.Drawing.Point(129, 87);
+            this._adminUserEditEmail.MaxLength = 32767;
+            this._adminUserEditEmail.Name = "_adminUserEditEmail";
+            this._adminUserEditEmail.PasswordChar = '\0';
+            this._adminUserEditEmail.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this._adminUserEditEmail.SelectedText = "";
+            this._adminUserEditEmail.SelectionLength = 0;
+            this._adminUserEditEmail.SelectionStart = 0;
+            this._adminUserEditEmail.Size = new System.Drawing.Size(219, 23);
+            this._adminUserEditEmail.TabIndex = 7;
+            this._adminUserEditEmail.Text = "NateTheRiver@rildas.cz";
+            this._adminUserEditEmail.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._adminUserEditEmail.UseSelectable = true;
+            this._adminUserEditEmail.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this._adminUserEditEmail.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // metroLabel47
+            // 
+            this.metroLabel47.AutoSize = true;
+            this.metroLabel47.Location = new System.Drawing.Point(3, 91);
+            this.metroLabel47.Name = "metroLabel47";
+            this.metroLabel47.Size = new System.Drawing.Size(50, 19);
+            this.metroLabel47.TabIndex = 6;
+            this.metroLabel47.Text = "E-mail:";
+            this.metroLabel47.Theme = MetroFramework.MetroThemeStyle.Dark;
+            // 
+            // _adminUserEditUsername
+            // 
+            // 
+            // 
+            // 
+            this._adminUserEditUsername.CustomButton.Image = null;
+            this._adminUserEditUsername.CustomButton.Location = new System.Drawing.Point(197, 1);
+            this._adminUserEditUsername.CustomButton.Name = "";
+            this._adminUserEditUsername.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this._adminUserEditUsername.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this._adminUserEditUsername.CustomButton.TabIndex = 1;
+            this._adminUserEditUsername.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this._adminUserEditUsername.CustomButton.UseSelectable = true;
+            this._adminUserEditUsername.CustomButton.Visible = false;
+            this._adminUserEditUsername.Lines = new string[] {
+        "NateTheRiver"};
+            this._adminUserEditUsername.Location = new System.Drawing.Point(129, 54);
+            this._adminUserEditUsername.MaxLength = 32767;
+            this._adminUserEditUsername.Name = "_adminUserEditUsername";
+            this._adminUserEditUsername.PasswordChar = '\0';
+            this._adminUserEditUsername.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this._adminUserEditUsername.SelectedText = "";
+            this._adminUserEditUsername.SelectionLength = 0;
+            this._adminUserEditUsername.SelectionStart = 0;
+            this._adminUserEditUsername.Size = new System.Drawing.Size(219, 23);
+            this._adminUserEditUsername.TabIndex = 5;
+            this._adminUserEditUsername.Text = "NateTheRiver";
+            this._adminUserEditUsername.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._adminUserEditUsername.UseSelectable = true;
+            this._adminUserEditUsername.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this._adminUserEditUsername.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // metroLabel46
+            // 
+            this.metroLabel46.AutoSize = true;
+            this.metroLabel46.Location = new System.Drawing.Point(3, 54);
+            this.metroLabel46.Name = "metroLabel46";
+            this.metroLabel46.Size = new System.Drawing.Size(120, 19);
+            this.metroLabel46.TabIndex = 4;
+            this.metroLabel46.Text = "Uživatelské jméno: ";
+            this.metroLabel46.Theme = MetroFramework.MetroThemeStyle.Dark;
+            // 
+            // _adminUserEditID
+            // 
+            this._adminUserEditID.AutoSize = true;
+            this._adminUserEditID.Location = new System.Drawing.Point(129, 26);
+            this._adminUserEditID.Name = "_adminUserEditID";
+            this._adminUserEditID.Size = new System.Drawing.Size(28, 19);
+            this._adminUserEditID.TabIndex = 3;
+            this._adminUserEditID.Text = "126";
+            this._adminUserEditID.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._adminUserEditID.UseStyleColors = true;
+            // 
+            // metroLabel44
+            // 
+            this.metroLabel44.AutoSize = true;
+            this.metroLabel44.Location = new System.Drawing.Point(3, 26);
+            this.metroLabel44.Name = "metroLabel44";
+            this.metroLabel44.Size = new System.Drawing.Size(28, 19);
+            this.metroLabel44.TabIndex = 2;
+            this.metroLabel44.Text = "ID: ";
+            this.metroLabel44.Theme = MetroFramework.MetroThemeStyle.Dark;
+            // 
+            // _adminUserEditTeam
+            // 
+            this._adminUserEditTeam.Controls.Add(this._adminUserEditTeamMember);
+            this._adminUserEditTeam.Controls.Add(this._adminUserEditChatGroupsCreate);
+            this._adminUserEditTeam.Controls.Add(this._adminUserEditStealForeignCorrection);
+            this._adminUserEditTeam.Controls.Add(this._adminUserEditGetForeignCorrection);
+            this._adminUserEditTeam.Controls.Add(this._adminUserEditSkipApproval);
+            this._adminUserEditTeam.Controls.Add(this._adminUserEditPublishForeign);
+            this._adminUserEditTeam.Controls.Add(this._adminUserEditPublish);
+            this._adminUserEditTeam.Controls.Add(this.metroLabel57);
+            this._adminUserEditTeam.Controls.Add(this.metroLabel56);
+            this._adminUserEditTeam.Controls.Add(this._adminUserEditEncode);
+            this._adminUserEditTeam.Controls.Add(this.metroLabel55);
+            this._adminUserEditTeam.Controls.Add(this._adminUserEditApproveAnime);
+            this._adminUserEditTeam.Controls.Add(this.metroLabel54);
+            this._adminUserEditTeam.Controls.Add(this.metroLabel53);
+            this._adminUserEditTeam.Controls.Add(this.metroLabel52);
+            this._adminUserEditTeam.Controls.Add(this._adminUserEditCorrectionForeign);
+            this._adminUserEditTeam.Controls.Add(this._adminUserEditCorrection);
+            this._adminUserEditTeam.Controls.Add(this._adminUserEditTranslateForeign);
+            this._adminUserEditTeam.Controls.Add(this._adminUserEditTranslateOwn);
+            this._adminUserEditTeam.Controls.Add(this._adminUserEditAppAccess);
+            this._adminUserEditTeam.HorizontalScrollbarBarColor = true;
+            this._adminUserEditTeam.HorizontalScrollbarHighlightOnWheel = false;
+            this._adminUserEditTeam.HorizontalScrollbarSize = 10;
+            this._adminUserEditTeam.Location = new System.Drawing.Point(4, 38);
+            this._adminUserEditTeam.Name = "_adminUserEditTeam";
+            this._adminUserEditTeam.Size = new System.Drawing.Size(1200, 375);
+            this._adminUserEditTeam.TabIndex = 1;
+            this._adminUserEditTeam.Text = "Týmová práva   ";
+            this._adminUserEditTeam.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._adminUserEditTeam.VerticalScrollbarBarColor = true;
+            this._adminUserEditTeam.VerticalScrollbarHighlightOnWheel = false;
+            this._adminUserEditTeam.VerticalScrollbarSize = 10;
+            // 
+            // _adminUserEditTeamMember
+            // 
+            this._adminUserEditTeamMember.AutoSize = true;
+            this._adminUserEditTeamMember.Location = new System.Drawing.Point(9, 58);
+            this._adminUserEditTeamMember.Name = "_adminUserEditTeamMember";
+            this._adminUserEditTeamMember.Size = new System.Drawing.Size(106, 15);
+            this._adminUserEditTeamMember.TabIndex = 27;
+            this._adminUserEditTeamMember.Text = "Je členem týmu";
+            this._adminUserEditTeamMember.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._adminUserEditTeamMember.UseSelectable = true;
+            // 
+            // _adminUserEditChatGroupsCreate
+            // 
+            this._adminUserEditChatGroupsCreate.AutoSize = true;
+            this._adminUserEditChatGroupsCreate.Location = new System.Drawing.Point(9, 100);
+            this._adminUserEditChatGroupsCreate.Name = "_adminUserEditChatGroupsCreate";
+            this._adminUserEditChatGroupsCreate.Size = new System.Drawing.Size(218, 15);
+            this._adminUserEditChatGroupsCreate.TabIndex = 26;
+            this._adminUserEditChatGroupsCreate.Text = "Má právo zakládat nové chat skupiny";
+            this._adminUserEditChatGroupsCreate.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._adminUserEditChatGroupsCreate.UseSelectable = true;
+            // 
+            // _adminUserEditStealForeignCorrection
+            // 
+            this._adminUserEditStealForeignCorrection.AutoSize = true;
+            this._adminUserEditStealForeignCorrection.Location = new System.Drawing.Point(413, 227);
+            this._adminUserEditStealForeignCorrection.Name = "_adminUserEditStealForeignCorrection";
+            this._adminUserEditStealForeignCorrection.Size = new System.Drawing.Size(415, 15);
+            this._adminUserEditStealForeignCorrection.TabIndex = 25;
+            this._adminUserEditStealForeignCorrection.Text = "Má právo nahrát korekci k dílu, jehož korekci má zamluvenou jiný korektor";
+            this._adminUserEditStealForeignCorrection.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._adminUserEditStealForeignCorrection.UseSelectable = true;
+            // 
+            // _adminUserEditGetForeignCorrection
+            // 
+            this._adminUserEditGetForeignCorrection.AutoSize = true;
+            this._adminUserEditGetForeignCorrection.Location = new System.Drawing.Point(413, 206);
+            this._adminUserEditGetForeignCorrection.Name = "_adminUserEditGetForeignCorrection";
+            this._adminUserEditGetForeignCorrection.Size = new System.Drawing.Size(397, 15);
+            this._adminUserEditGetForeignCorrection.TabIndex = 24;
+            this._adminUserEditGetForeignCorrection.Text = "Má právo zamluvit si korekci anime, u něhož není uveden jako korektor";
+            this._adminUserEditGetForeignCorrection.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._adminUserEditGetForeignCorrection.UseSelectable = true;
+            // 
+            // _adminUserEditSkipApproval
+            // 
+            this._adminUserEditSkipApproval.AutoSize = true;
+            this._adminUserEditSkipApproval.Location = new System.Drawing.Point(12, 307);
+            this._adminUserEditSkipApproval.Name = "_adminUserEditSkipApproval";
+            this._adminUserEditSkipApproval.Size = new System.Drawing.Size(270, 15);
+            this._adminUserEditSkipApproval.TabIndex = 23;
+            this._adminUserEditSkipApproval.Text = "Má právo odeslat verzi anime rovnou k enkódu";
+            this._adminUserEditSkipApproval.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._adminUserEditSkipApproval.UseSelectable = true;
+            // 
+            // _adminUserEditPublishForeign
+            // 
+            this._adminUserEditPublishForeign.AutoSize = true;
+            this._adminUserEditPublishForeign.Location = new System.Drawing.Point(414, 79);
+            this._adminUserEditPublishForeign.Name = "_adminUserEditPublishForeign";
+            this._adminUserEditPublishForeign.Size = new System.Drawing.Size(358, 15);
+            this._adminUserEditPublishForeign.TabIndex = 22;
+            this._adminUserEditPublishForeign.Text = "Má právo zveřejnit anime, u něhož není uveden jako překladatel";
+            this._adminUserEditPublishForeign.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._adminUserEditPublishForeign.UseSelectable = true;
+            // 
+            // _adminUserEditPublish
+            // 
+            this._adminUserEditPublish.AutoSize = true;
+            this._adminUserEditPublish.Location = new System.Drawing.Point(414, 58);
+            this._adminUserEditPublish.Name = "_adminUserEditPublish";
+            this._adminUserEditPublish.Size = new System.Drawing.Size(176, 15);
+            this._adminUserEditPublish.TabIndex = 21;
+            this._adminUserEditPublish.Text = "Má právo zveřejnit své anime";
+            this._adminUserEditPublish.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._adminUserEditPublish.UseSelectable = true;
+            // 
+            // metroLabel57
+            // 
+            this.metroLabel57.AutoSize = true;
+            this.metroLabel57.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel57.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabel57.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.metroLabel57.Location = new System.Drawing.Point(406, 30);
+            this.metroLabel57.Name = "metroLabel57";
+            this.metroLabel57.Size = new System.Drawing.Size(128, 25);
+            this.metroLabel57.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroLabel57.TabIndex = 20;
+            this.metroLabel57.Text = "Zveřejňování:";
+            this.metroLabel57.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel57.UseStyleColors = true;
+            // 
+            // metroLabel56
+            // 
+            this.metroLabel56.AutoSize = true;
+            this.metroLabel56.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel56.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabel56.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.metroLabel56.Location = new System.Drawing.Point(5, 30);
+            this.metroLabel56.Name = "metroLabel56";
+            this.metroLabel56.Size = new System.Drawing.Size(82, 25);
+            this.metroLabel56.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroLabel56.TabIndex = 19;
+            this.metroLabel56.Text = "Obecné:";
+            this.metroLabel56.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel56.UseStyleColors = true;
+            // 
+            // _adminUserEditEncode
+            // 
+            this._adminUserEditEncode.AutoSize = true;
+            this._adminUserEditEncode.Location = new System.Drawing.Point(415, 286);
+            this._adminUserEditEncode.Name = "_adminUserEditEncode";
+            this._adminUserEditEncode.Size = new System.Drawing.Size(168, 15);
+            this._adminUserEditEncode.TabIndex = 18;
+            this._adminUserEditEncode.Text = "Má právo enkódovat anime";
+            this._adminUserEditEncode.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._adminUserEditEncode.UseSelectable = true;
+            // 
+            // metroLabel55
+            // 
+            this.metroLabel55.AutoSize = true;
+            this.metroLabel55.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel55.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabel55.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.metroLabel55.Location = new System.Drawing.Point(407, 258);
+            this.metroLabel55.Name = "metroLabel55";
+            this.metroLabel55.Size = new System.Drawing.Size(70, 25);
+            this.metroLabel55.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroLabel55.TabIndex = 17;
+            this.metroLabel55.Text = "Enkód:";
+            this.metroLabel55.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel55.UseStyleColors = true;
+            // 
+            // _adminUserEditApproveAnime
+            // 
+            this._adminUserEditApproveAnime.AutoSize = true;
+            this._adminUserEditApproveAnime.Location = new System.Drawing.Point(12, 286);
+            this._adminUserEditApproveAnime.Name = "_adminUserEditApproveAnime";
+            this._adminUserEditApproveAnime.Size = new System.Drawing.Size(152, 15);
+            this._adminUserEditApproveAnime.TabIndex = 16;
+            this._adminUserEditApproveAnime.Text = "Má právo schválit anime";
+            this._adminUserEditApproveAnime.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._adminUserEditApproveAnime.UseSelectable = true;
+            // 
+            // metroLabel54
+            // 
+            this.metroLabel54.AutoSize = true;
+            this.metroLabel54.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel54.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabel54.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.metroLabel54.Location = new System.Drawing.Point(5, 258);
+            this.metroLabel54.Name = "metroLabel54";
+            this.metroLabel54.Size = new System.Drawing.Size(119, 25);
+            this.metroLabel54.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroLabel54.TabIndex = 15;
+            this.metroLabel54.Text = "Schvalování:";
+            this.metroLabel54.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel54.UseStyleColors = true;
+            // 
+            // metroLabel53
+            // 
+            this.metroLabel53.AutoSize = true;
+            this.metroLabel53.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel53.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabel53.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.metroLabel53.Location = new System.Drawing.Point(404, 136);
+            this.metroLabel53.Name = "metroLabel53";
+            this.metroLabel53.Size = new System.Drawing.Size(86, 25);
+            this.metroLabel53.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroLabel53.TabIndex = 14;
+            this.metroLabel53.Text = "Korekce:";
+            this.metroLabel53.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel53.UseStyleColors = true;
+            // 
+            // metroLabel52
+            // 
+            this.metroLabel52.AutoSize = true;
+            this.metroLabel52.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel52.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabel52.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.metroLabel52.Location = new System.Drawing.Point(5, 136);
+            this.metroLabel52.Name = "metroLabel52";
+            this.metroLabel52.Size = new System.Drawing.Size(91, 25);
+            this.metroLabel52.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroLabel52.TabIndex = 13;
+            this.metroLabel52.Text = "Překlady:";
+            this.metroLabel52.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel52.UseStyleColors = true;
+            // 
+            // _adminUserEditCorrectionForeign
+            // 
+            this._adminUserEditCorrectionForeign.AutoSize = true;
+            this._adminUserEditCorrectionForeign.Location = new System.Drawing.Point(413, 185);
+            this._adminUserEditCorrectionForeign.Name = "_adminUserEditCorrectionForeign";
+            this._adminUserEditCorrectionForeign.Size = new System.Drawing.Size(375, 15);
+            this._adminUserEditCorrectionForeign.TabIndex = 6;
+            this._adminUserEditCorrectionForeign.Text = "Má právo nahrát korekci anime, u něhož není uveden jako korektor";
+            this._adminUserEditCorrectionForeign.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._adminUserEditCorrectionForeign.UseSelectable = true;
+            // 
+            // _adminUserEditCorrection
+            // 
+            this._adminUserEditCorrection.AutoSize = true;
+            this._adminUserEditCorrection.Location = new System.Drawing.Point(413, 164);
+            this._adminUserEditCorrection.Name = "_adminUserEditCorrection";
+            this._adminUserEditCorrection.Size = new System.Drawing.Size(151, 15);
+            this._adminUserEditCorrection.TabIndex = 5;
+            this._adminUserEditCorrection.Text = "Má právo nahrát korekci";
+            this._adminUserEditCorrection.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._adminUserEditCorrection.UseSelectable = true;
+            // 
+            // _adminUserEditTranslateForeign
+            // 
+            this._adminUserEditTranslateForeign.AutoSize = true;
+            this._adminUserEditTranslateForeign.Location = new System.Drawing.Point(9, 185);
+            this._adminUserEditTranslateForeign.Name = "_adminUserEditTranslateForeign";
+            this._adminUserEditTranslateForeign.Size = new System.Drawing.Size(390, 15);
+            this._adminUserEditTranslateForeign.TabIndex = 4;
+            this._adminUserEditTranslateForeign.Text = "Má právo nahrát překlad anime, u něhož není uveden jako překladatel";
+            this._adminUserEditTranslateForeign.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._adminUserEditTranslateForeign.UseSelectable = true;
+            // 
+            // _adminUserEditTranslateOwn
+            // 
+            this._adminUserEditTranslateOwn.AutoSize = true;
+            this._adminUserEditTranslateOwn.Location = new System.Drawing.Point(9, 164);
+            this._adminUserEditTranslateOwn.Name = "_adminUserEditTranslateOwn";
+            this._adminUserEditTranslateOwn.Size = new System.Drawing.Size(222, 15);
+            this._adminUserEditTranslateOwn.TabIndex = 3;
+            this._adminUserEditTranslateOwn.Text = "Má právo nahrát překlad svého anime";
+            this._adminUserEditTranslateOwn.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._adminUserEditTranslateOwn.UseSelectable = true;
+            // 
+            // _adminUserEditAppAccess
+            // 
+            this._adminUserEditAppAccess.AutoSize = true;
+            this._adminUserEditAppAccess.Location = new System.Drawing.Point(9, 79);
+            this._adminUserEditAppAccess.Name = "_adminUserEditAppAccess";
+            this._adminUserEditAppAccess.Size = new System.Drawing.Size(143, 15);
+            this._adminUserEditAppAccess.TabIndex = 2;
+            this._adminUserEditAppAccess.Text = "Má přístup do aplikace";
+            this._adminUserEditAppAccess.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._adminUserEditAppAccess.UseSelectable = true;
+            // 
+            // _adminUserEditAdmin
+            // 
+            this._adminUserEditAdmin.Controls.Add(this._adminUserEditAdminNotif);
+            this._adminUserEditAdmin.Controls.Add(this._adminUserEditAdminServerRestart);
+            this._adminUserEditAdmin.Controls.Add(this._adminUserEditAdminServerAdd);
+            this._adminUserEditAdmin.Controls.Add(this.metroLabel63);
+            this._adminUserEditAdmin.Controls.Add(this._adminUserEditAdminApplicationVersion);
+            this._adminUserEditAdmin.Controls.Add(this.metroLabel62);
+            this._adminUserEditAdmin.Controls.Add(this._adminUserEditAdminAdminDelete);
+            this._adminUserEditAdmin.Controls.Add(this._adminUserEditAdminAdminAdd);
+            this._adminUserEditAdmin.Controls.Add(this._adminUserEditAdminTeamEncode);
+            this._adminUserEditAdmin.Controls.Add(this._adminUserEditAdminTeamPublish);
+            this._adminUserEditAdmin.Controls.Add(this._adminUserEditAdminTeamApprove);
+            this._adminUserEditAdmin.Controls.Add(this._adminUserEditAdminTeamCorrector);
+            this._adminUserEditAdmin.Controls.Add(this._adminUserEditAdminTeamTranslate);
+            this._adminUserEditAdmin.Controls.Add(this._adminUserEditAdminTeamGeneral);
+            this._adminUserEditAdmin.Controls.Add(this._adminUserEditAdminUserGeneral);
+            this._adminUserEditAdmin.Controls.Add(this.metroLabel61);
+            this._adminUserEditAdmin.Controls.Add(this._adminUserEditAdminEditAnime);
+            this._adminUserEditAdmin.Controls.Add(this.metroLabel60);
+            this._adminUserEditAdmin.Controls.Add(this._adminUserEditAdminAddAnime);
+            this._adminUserEditAdmin.Controls.Add(this.metroLabel59);
+            this._adminUserEditAdmin.Controls.Add(this._adminUserEditAdminAccess);
+            this._adminUserEditAdmin.HorizontalScrollbarBarColor = true;
+            this._adminUserEditAdmin.HorizontalScrollbarHighlightOnWheel = false;
+            this._adminUserEditAdmin.HorizontalScrollbarSize = 10;
+            this._adminUserEditAdmin.Location = new System.Drawing.Point(4, 38);
+            this._adminUserEditAdmin.Name = "_adminUserEditAdmin";
+            this._adminUserEditAdmin.Size = new System.Drawing.Size(1200, 375);
+            this._adminUserEditAdmin.TabIndex = 2;
+            this._adminUserEditAdmin.Text = "Administrátorská práva   ";
+            this._adminUserEditAdmin.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._adminUserEditAdmin.VerticalScrollbarBarColor = true;
+            this._adminUserEditAdmin.VerticalScrollbarHighlightOnWheel = false;
+            this._adminUserEditAdmin.VerticalScrollbarSize = 10;
+            // 
+            // _adminUserEditAdminNotif
+            // 
+            this._adminUserEditAdminNotif.AutoSize = true;
+            this._adminUserEditAdminNotif.Location = new System.Drawing.Point(12, 69);
+            this._adminUserEditAdminNotif.Name = "_adminUserEditAdminNotif";
+            this._adminUserEditAdminNotif.Size = new System.Drawing.Size(184, 15);
+            this._adminUserEditAdminNotif.TabIndex = 39;
+            this._adminUserEditAdminNotif.Text = "Může rozeslat novou notifikaci";
+            this._adminUserEditAdminNotif.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._adminUserEditAdminNotif.UseSelectable = true;
+            // 
+            // _adminUserEditAdminServerRestart
+            // 
+            this._adminUserEditAdminServerRestart.AutoSize = true;
+            this._adminUserEditAdminServerRestart.Location = new System.Drawing.Point(619, 69);
+            this._adminUserEditAdminServerRestart.Name = "_adminUserEditAdminServerRestart";
+            this._adminUserEditAdminServerRestart.Size = new System.Drawing.Size(145, 15);
+            this._adminUserEditAdminServerRestart.TabIndex = 38;
+            this._adminUserEditAdminServerRestart.Text = "Může restartovat server";
+            this._adminUserEditAdminServerRestart.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._adminUserEditAdminServerRestart.UseSelectable = true;
+            // 
+            // _adminUserEditAdminServerAdd
+            // 
+            this._adminUserEditAdminServerAdd.AutoSize = true;
+            this._adminUserEditAdminServerAdd.Location = new System.Drawing.Point(619, 48);
+            this._adminUserEditAdminServerAdd.Name = "_adminUserEditAdminServerAdd";
+            this._adminUserEditAdminServerAdd.Size = new System.Drawing.Size(194, 15);
+            this._adminUserEditAdminServerAdd.TabIndex = 37;
+            this._adminUserEditAdminServerAdd.Text = "Může nahrát novou verzi serveru";
+            this._adminUserEditAdminServerAdd.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._adminUserEditAdminServerAdd.UseSelectable = true;
+            // 
+            // metroLabel63
+            // 
+            this.metroLabel63.AutoSize = true;
+            this.metroLabel63.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel63.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabel63.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.metroLabel63.Location = new System.Drawing.Point(619, 20);
+            this.metroLabel63.Name = "metroLabel63";
+            this.metroLabel63.Size = new System.Drawing.Size(140, 25);
+            this.metroLabel63.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroLabel63.TabIndex = 36;
+            this.metroLabel63.Text = "Server Control:";
+            this.metroLabel63.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel63.UseStyleColors = true;
+            // 
+            // _adminUserEditAdminApplicationVersion
+            // 
+            this._adminUserEditAdminApplicationVersion.AutoSize = true;
+            this._adminUserEditAdminApplicationVersion.Location = new System.Drawing.Point(12, 230);
+            this._adminUserEditAdminApplicationVersion.Name = "_adminUserEditAdminApplicationVersion";
+            this._adminUserEditAdminApplicationVersion.Size = new System.Drawing.Size(196, 15);
+            this._adminUserEditAdminApplicationVersion.TabIndex = 35;
+            this._adminUserEditAdminApplicationVersion.Text = "Může přidat novou verzi aplikace";
+            this._adminUserEditAdminApplicationVersion.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._adminUserEditAdminApplicationVersion.UseSelectable = true;
+            // 
+            // metroLabel62
+            // 
+            this.metroLabel62.AutoSize = true;
+            this.metroLabel62.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel62.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabel62.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.metroLabel62.Location = new System.Drawing.Point(12, 199);
+            this.metroLabel62.Name = "metroLabel62";
+            this.metroLabel62.Size = new System.Drawing.Size(90, 25);
+            this.metroLabel62.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroLabel62.TabIndex = 34;
+            this.metroLabel62.Text = "Aplikace:";
+            this.metroLabel62.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel62.UseStyleColors = true;
+            // 
+            // _adminUserEditAdminAdminDelete
+            // 
+            this._adminUserEditAdminAdminDelete.AutoSize = true;
+            this._adminUserEditAdminAdminDelete.Location = new System.Drawing.Point(321, 216);
+            this._adminUserEditAdminAdminDelete.Name = "_adminUserEditAdminAdminDelete";
+            this._adminUserEditAdminAdminDelete.Size = new System.Drawing.Size(222, 15);
+            this._adminUserEditAdminAdminDelete.TabIndex = 33;
+            this._adminUserEditAdminAdminDelete.Text = "Může odebírat administrátorská práva";
+            this._adminUserEditAdminAdminDelete.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._adminUserEditAdminAdminDelete.UseSelectable = true;
+            // 
+            // _adminUserEditAdminAdminAdd
+            // 
+            this._adminUserEditAdminAdminAdd.AutoSize = true;
+            this._adminUserEditAdminAdminAdd.Location = new System.Drawing.Point(321, 195);
+            this._adminUserEditAdminAdminAdd.Name = "_adminUserEditAdminAdminAdd";
+            this._adminUserEditAdminAdminAdd.Size = new System.Drawing.Size(231, 15);
+            this._adminUserEditAdminAdminAdd.TabIndex = 32;
+            this._adminUserEditAdminAdminAdd.Text = "Může přidělovat administrátorská práva";
+            this._adminUserEditAdminAdminAdd.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._adminUserEditAdminAdminAdd.UseSelectable = true;
+            // 
+            // _adminUserEditAdminTeamEncode
+            // 
+            this._adminUserEditAdminTeamEncode.AutoSize = true;
+            this._adminUserEditAdminTeamEncode.Location = new System.Drawing.Point(321, 174);
+            this._adminUserEditAdminTeamEncode.Name = "_adminUserEditAdminTeamEncode";
+            this._adminUserEditAdminTeamEncode.Size = new System.Drawing.Size(225, 15);
+            this._adminUserEditAdminTeamEncode.TabIndex = 31;
+            this._adminUserEditAdminTeamEncode.Text = "Může měnit enkódovací týmová práva";
+            this._adminUserEditAdminTeamEncode.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._adminUserEditAdminTeamEncode.UseSelectable = true;
+            // 
+            // _adminUserEditAdminTeamPublish
+            // 
+            this._adminUserEditAdminTeamPublish.AutoSize = true;
+            this._adminUserEditAdminTeamPublish.Location = new System.Drawing.Point(321, 153);
+            this._adminUserEditAdminTeamPublish.Name = "_adminUserEditAdminTeamPublish";
+            this._adminUserEditAdminTeamPublish.Size = new System.Drawing.Size(229, 15);
+            this._adminUserEditAdminTeamPublish.TabIndex = 30;
+            this._adminUserEditAdminTeamPublish.Text = "Může měnit zveřejňovací týmová práva";
+            this._adminUserEditAdminTeamPublish.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._adminUserEditAdminTeamPublish.UseSelectable = true;
+            // 
+            // _adminUserEditAdminTeamApprove
+            // 
+            this._adminUserEditAdminTeamApprove.AutoSize = true;
+            this._adminUserEditAdminTeamApprove.Location = new System.Drawing.Point(321, 132);
+            this._adminUserEditAdminTeamApprove.Name = "_adminUserEditAdminTeamApprove";
+            this._adminUserEditAdminTeamApprove.Size = new System.Drawing.Size(225, 15);
+            this._adminUserEditAdminTeamApprove.TabIndex = 29;
+            this._adminUserEditAdminTeamApprove.Text = "Může měnit schvalovací týmová práva";
+            this._adminUserEditAdminTeamApprove.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._adminUserEditAdminTeamApprove.UseSelectable = true;
+            // 
+            // _adminUserEditAdminTeamCorrector
+            // 
+            this._adminUserEditAdminTeamCorrector.AutoSize = true;
+            this._adminUserEditAdminTeamCorrector.Location = new System.Drawing.Point(321, 111);
+            this._adminUserEditAdminTeamCorrector.Name = "_adminUserEditAdminTeamCorrector";
+            this._adminUserEditAdminTeamCorrector.Size = new System.Drawing.Size(225, 15);
+            this._adminUserEditAdminTeamCorrector.TabIndex = 28;
+            this._adminUserEditAdminTeamCorrector.Text = "Může měnit korektorská týmová práva";
+            this._adminUserEditAdminTeamCorrector.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._adminUserEditAdminTeamCorrector.UseSelectable = true;
+            // 
+            // _adminUserEditAdminTeamTranslate
+            // 
+            this._adminUserEditAdminTeamTranslate.AutoSize = true;
+            this._adminUserEditAdminTeamTranslate.Location = new System.Drawing.Point(321, 90);
+            this._adminUserEditAdminTeamTranslate.Name = "_adminUserEditAdminTeamTranslate";
+            this._adminUserEditAdminTeamTranslate.Size = new System.Drawing.Size(239, 15);
+            this._adminUserEditAdminTeamTranslate.TabIndex = 27;
+            this._adminUserEditAdminTeamTranslate.Text = "Může měnit překladatelská týmová práva";
+            this._adminUserEditAdminTeamTranslate.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._adminUserEditAdminTeamTranslate.UseSelectable = true;
+            // 
+            // _adminUserEditAdminTeamGeneral
+            // 
+            this._adminUserEditAdminTeamGeneral.AutoSize = true;
+            this._adminUserEditAdminTeamGeneral.Location = new System.Drawing.Point(321, 69);
+            this._adminUserEditAdminTeamGeneral.Name = "_adminUserEditAdminTeamGeneral";
+            this._adminUserEditAdminTeamGeneral.Size = new System.Drawing.Size(203, 15);
+            this._adminUserEditAdminTeamGeneral.TabIndex = 26;
+            this._adminUserEditAdminTeamGeneral.Text = "Může měnit obecná týmová práva";
+            this._adminUserEditAdminTeamGeneral.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._adminUserEditAdminTeamGeneral.UseSelectable = true;
+            // 
+            // _adminUserEditAdminUserGeneral
+            // 
+            this._adminUserEditAdminUserGeneral.AutoSize = true;
+            this._adminUserEditAdminUserGeneral.Location = new System.Drawing.Point(321, 48);
+            this._adminUserEditAdminUserGeneral.Name = "_adminUserEditAdminUserGeneral";
+            this._adminUserEditAdminUserGeneral.Size = new System.Drawing.Size(203, 15);
+            this._adminUserEditAdminUserGeneral.TabIndex = 25;
+            this._adminUserEditAdminUserGeneral.Text = "Může měnit obecná práva uživatel";
+            this._adminUserEditAdminUserGeneral.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._adminUserEditAdminUserGeneral.UseSelectable = true;
+            // 
+            // metroLabel61
+            // 
+            this.metroLabel61.AutoSize = true;
+            this.metroLabel61.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel61.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabel61.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.metroLabel61.Location = new System.Drawing.Point(321, 20);
+            this.metroLabel61.Name = "metroLabel61";
+            this.metroLabel61.Size = new System.Drawing.Size(91, 25);
+            this.metroLabel61.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroLabel61.TabIndex = 24;
+            this.metroLabel61.Text = "Uživatelé";
+            this.metroLabel61.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel61.UseStyleColors = true;
+            // 
+            // _adminUserEditAdminEditAnime
+            // 
+            this._adminUserEditAdminEditAnime.AutoSize = true;
+            this._adminUserEditAdminEditAnime.Location = new System.Drawing.Point(12, 160);
+            this._adminUserEditAdminEditAnime.Name = "_adminUserEditAdminEditAnime";
+            this._adminUserEditAdminEditAnime.Size = new System.Drawing.Size(170, 15);
+            this._adminUserEditAdminEditAnime.TabIndex = 23;
+            this._adminUserEditAdminEditAnime.Text = "Může měnit existující anime";
+            this._adminUserEditAdminEditAnime.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._adminUserEditAdminEditAnime.UseSelectable = true;
+            // 
+            // metroLabel60
+            // 
+            this.metroLabel60.AutoSize = true;
+            this.metroLabel60.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel60.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabel60.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.metroLabel60.Location = new System.Drawing.Point(12, 108);
+            this.metroLabel60.Name = "metroLabel60";
+            this.metroLabel60.Size = new System.Drawing.Size(72, 25);
+            this.metroLabel60.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroLabel60.TabIndex = 22;
+            this.metroLabel60.Text = "Anime:";
+            this.metroLabel60.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel60.UseStyleColors = true;
+            // 
+            // _adminUserEditAdminAddAnime
+            // 
+            this._adminUserEditAdminAddAnime.AutoSize = true;
+            this._adminUserEditAdminAddAnime.Location = new System.Drawing.Point(12, 136);
+            this._adminUserEditAdminAddAnime.Name = "_adminUserEditAdminAddAnime";
+            this._adminUserEditAdminAddAnime.Size = new System.Drawing.Size(163, 15);
+            this._adminUserEditAdminAddAnime.TabIndex = 21;
+            this._adminUserEditAdminAddAnime.Text = "Může přidávat nová anime";
+            this._adminUserEditAdminAddAnime.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._adminUserEditAdminAddAnime.UseSelectable = true;
+            // 
+            // metroLabel59
+            // 
+            this.metroLabel59.AutoSize = true;
+            this.metroLabel59.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel59.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabel59.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.metroLabel59.Location = new System.Drawing.Point(12, 20);
+            this.metroLabel59.Name = "metroLabel59";
+            this.metroLabel59.Size = new System.Drawing.Size(82, 25);
+            this.metroLabel59.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroLabel59.TabIndex = 20;
+            this.metroLabel59.Text = "Obecné:";
+            this.metroLabel59.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel59.UseStyleColors = true;
+            // 
+            // _adminUserEditAdminAccess
+            // 
+            this._adminUserEditAdminAccess.AutoSize = true;
+            this._adminUserEditAdminAccess.Location = new System.Drawing.Point(12, 48);
+            this._adminUserEditAdminAccess.Name = "_adminUserEditAdminAccess";
+            this._adminUserEditAdminAccess.Size = new System.Drawing.Size(220, 15);
+            this._adminUserEditAdminAccess.TabIndex = 2;
+            this._adminUserEditAdminAccess.Text = "Má přístup do administrátorské sekce";
+            this._adminUserEditAdminAccess.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._adminUserEditAdminAccess.UseSelectable = true;
+            // 
+            // adminACLSearchUser
+            // 
+            this.adminACLSearchUser.AutoSize = true;
+            this.adminACLSearchUser.Location = new System.Drawing.Point(279, 38);
+            this.adminACLSearchUser.Name = "adminACLSearchUser";
+            this.adminACLSearchUser.Size = new System.Drawing.Size(118, 15);
+            this.adminACLSearchUser.TabIndex = 4;
+            this.adminACLSearchUser.Text = "Vyhledat uživatele";
+            this.adminACLSearchUser.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.adminACLSearchUser.UseSelectable = true;
+            this.adminACLSearchUser.CheckedChanged += new System.EventHandler(this.adminACLSearchUser_CheckedChanged);
+            // 
+            // metroLabel433
             // 
             this.metroLabel433.AutoSize = true;
             this.metroLabel433.Location = new System.Drawing.Point(3, 38);
-            this.metroLabel433.Name = "metroLabel43";
+            this.metroLabel433.Name = "metroLabel433";
             this.metroLabel433.Size = new System.Drawing.Size(57, 19);
             this.metroLabel433.TabIndex = 3;
             this.metroLabel433.Text = "Uživatel:";
             this.metroLabel433.Theme = MetroFramework.MetroThemeStyle.Dark;
             // 
-            // _cbadminACLuser
+            // _adminACLuserSelect
             // 
-            this._cbadminACLuser.FormattingEnabled = true;
-            this._cbadminACLuser.ItemHeight = 23;
-            this._cbadminACLuser.Location = new System.Drawing.Point(66, 28);
-            this._cbadminACLuser.Name = "_cbadminACLuser";
-            this._cbadminACLuser.Size = new System.Drawing.Size(173, 29);
-            this._cbadminACLuser.TabIndex = 2;
-            this._cbadminACLuser.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this._cbadminACLuser.UseSelectable = true;
+            this._adminACLuserSelect.FormattingEnabled = true;
+            this._adminACLuserSelect.ItemHeight = 23;
+            this._adminACLuserSelect.Location = new System.Drawing.Point(66, 28);
+            this._adminACLuserSelect.Name = "_adminACLuserSelect";
+            this._adminACLuserSelect.Size = new System.Drawing.Size(173, 29);
+            this._adminACLuserSelect.TabIndex = 2;
+            this._adminACLuserSelect.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._adminACLuserSelect.UseSelectable = true;
+            this._adminACLuserSelect.SelectedIndexChanged += new System.EventHandler(this._adminACLuserSelect_SelectedIndexChanged);
+            // 
+            // _adminAddApp
+            // 
+            this._adminAddApp.HorizontalScrollbarBarColor = true;
+            this._adminAddApp.HorizontalScrollbarHighlightOnWheel = false;
+            this._adminAddApp.HorizontalScrollbarSize = 10;
+            this._adminAddApp.Location = new System.Drawing.Point(4, 38);
+            this._adminAddApp.Name = "_adminAddApp";
+            this._adminAddApp.Size = new System.Drawing.Size(1317, 600);
+            this._adminAddApp.TabIndex = 3;
+            this._adminAddApp.Text = "Nahrát novou verzi aplikace   ";
+            this._adminAddApp.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._adminAddApp.VerticalScrollbarBarColor = true;
+            this._adminAddApp.VerticalScrollbarHighlightOnWheel = false;
+            this._adminAddApp.VerticalScrollbarSize = 10;
+            // 
+            // _adminServerControl
+            // 
+            this._adminServerControl.HorizontalScrollbarBarColor = true;
+            this._adminServerControl.HorizontalScrollbarHighlightOnWheel = false;
+            this._adminServerControl.HorizontalScrollbarSize = 10;
+            this._adminServerControl.Location = new System.Drawing.Point(4, 38);
+            this._adminServerControl.Name = "_adminServerControl";
+            this._adminServerControl.Size = new System.Drawing.Size(1317, 600);
+            this._adminServerControl.TabIndex = 4;
+            this._adminServerControl.Text = "Server control   ";
+            this._adminServerControl.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._adminServerControl.VerticalScrollbarBarColor = true;
+            this._adminServerControl.VerticalScrollbarHighlightOnWheel = false;
+            this._adminServerControl.VerticalScrollbarSize = 10;
+            // 
+            // _adminNotifications
+            // 
+            this._adminNotifications.HorizontalScrollbarBarColor = true;
+            this._adminNotifications.HorizontalScrollbarHighlightOnWheel = false;
+            this._adminNotifications.HorizontalScrollbarSize = 10;
+            this._adminNotifications.Location = new System.Drawing.Point(4, 38);
+            this._adminNotifications.Name = "_adminNotifications";
+            this._adminNotifications.Size = new System.Drawing.Size(1317, 600);
+            this._adminNotifications.TabIndex = 5;
+            this._adminNotifications.Text = "Notifikace   ";
+            this._adminNotifications.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this._adminNotifications.VerticalScrollbarBarColor = true;
+            this._adminNotifications.VerticalScrollbarHighlightOnWheel = false;
+            this._adminNotifications.VerticalScrollbarSize = 10;
             // 
             // _settings
             // 
@@ -2754,569 +3736,6 @@ namespace RildasApp.Forms
             this.chatsPanel.Size = new System.Drawing.Size(179, 594);
             this.chatsPanel.TabIndex = 13;
             // 
-            // _adminUserEditGeneral
-            // 
-            this._adminUserEditGeneral.Controls.Add(this.metroLink2);
-            this._adminUserEditGeneral.Controls.Add(this._adminUserEditActivate);
-            this._adminUserEditGeneral.Controls.Add(this._adminUserEditBirthDay);
-            this._adminUserEditGeneral.Controls.Add(this.metroLabel51);
-            this._adminUserEditGeneral.Controls.Add(this._adminUserEditLastLogin);
-            this._adminUserEditGeneral.Controls.Add(this.metroLabel50);
-            this._adminUserEditGeneral.Controls.Add(this._adminUserEditRegistration);
-            this._adminUserEditGeneral.Controls.Add(this.metroLabel49);
-            this._adminUserEditGeneral.Controls.Add(this.metroComboBox3);
-            this._adminUserEditGeneral.Controls.Add(this.metroLabel48);
-            this._adminUserEditGeneral.Controls.Add(this._adminUserEditEmail);
-            this._adminUserEditGeneral.Controls.Add(this.metroLabel47);
-            this._adminUserEditGeneral.Controls.Add(this._adminUserEditUsername);
-            this._adminUserEditGeneral.Controls.Add(this.metroLabel46);
-            this._adminUserEditGeneral.Controls.Add(this.metroLabel45);
-            this._adminUserEditGeneral.Controls.Add(this.metroLabel44);
-            this._adminUserEditGeneral.HorizontalScrollbarBarColor = true;
-            this._adminUserEditGeneral.HorizontalScrollbarHighlightOnWheel = false;
-            this._adminUserEditGeneral.HorizontalScrollbarSize = 10;
-            this._adminUserEditGeneral.Location = new System.Drawing.Point(4, 38);
-            this._adminUserEditGeneral.Name = "_adminUserEditGeneral";
-            this._adminUserEditGeneral.Size = new System.Drawing.Size(1200, 375);
-            this._adminUserEditGeneral.TabIndex = 0;
-            this._adminUserEditGeneral.Text = "Obecné   ";
-            this._adminUserEditGeneral.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this._adminUserEditGeneral.VerticalScrollbarBarColor = true;
-            this._adminUserEditGeneral.VerticalScrollbarHighlightOnWheel = false;
-            this._adminUserEditGeneral.VerticalScrollbarSize = 10;
-            // 
-            // _adminUserEditTeam
-            // 
-            this._adminUserEditTeam.Controls.Add(this._adminUserEditChatGroupsCreate);
-            this._adminUserEditTeam.Controls.Add(this._adminUserEditStealForeignCorrection);
-            this._adminUserEditTeam.Controls.Add(this._adminUserEditGetForeignCorrection);
-            this._adminUserEditTeam.Controls.Add(this._adminUserEditSkipApproval);
-            this._adminUserEditTeam.Controls.Add(this._adminUserEditPublishForeign);
-            this._adminUserEditTeam.Controls.Add(this._adminUserEditPublish);
-            this._adminUserEditTeam.Controls.Add(this.metroLabel57);
-            this._adminUserEditTeam.Controls.Add(this.metroLabel56);
-            this._adminUserEditTeam.Controls.Add(this._adminUserEditEncode);
-            this._adminUserEditTeam.Controls.Add(this.metroLabel55);
-            this._adminUserEditTeam.Controls.Add(this._adminUserEditApproveAnime);
-            this._adminUserEditTeam.Controls.Add(this.metroLabel54);
-            this._adminUserEditTeam.Controls.Add(this.metroLabel53);
-            this._adminUserEditTeam.Controls.Add(this.metroLabel52);
-            this._adminUserEditTeam.Controls.Add(this._adminUserEditCorrectionForeign);
-            this._adminUserEditTeam.Controls.Add(this._adminUserEditCorrection);
-            this._adminUserEditTeam.Controls.Add(this._adminUserEditTranslateForeign);
-            this._adminUserEditTeam.Controls.Add(this._adminUserEditTranslateOwn);
-            this._adminUserEditTeam.Controls.Add(this._adminUserEditAppAccess);
-            this._adminUserEditTeam.HorizontalScrollbarBarColor = true;
-            this._adminUserEditTeam.HorizontalScrollbarHighlightOnWheel = false;
-            this._adminUserEditTeam.HorizontalScrollbarSize = 10;
-            this._adminUserEditTeam.Location = new System.Drawing.Point(4, 38);
-            this._adminUserEditTeam.Name = "_adminUserEditTeam";
-            this._adminUserEditTeam.Size = new System.Drawing.Size(1200, 375);
-            this._adminUserEditTeam.TabIndex = 1;
-            this._adminUserEditTeam.Text = "Týmová práva   ";
-            this._adminUserEditTeam.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this._adminUserEditTeam.VerticalScrollbarBarColor = true;
-            this._adminUserEditTeam.VerticalScrollbarHighlightOnWheel = false;
-            this._adminUserEditTeam.VerticalScrollbarSize = 10;
-            // 
-            // _adminUserEditAdmin
-            // 
-            this._adminUserEditAdmin.HorizontalScrollbarBarColor = true;
-            this._adminUserEditAdmin.HorizontalScrollbarHighlightOnWheel = false;
-            this._adminUserEditAdmin.HorizontalScrollbarSize = 10;
-            this._adminUserEditAdmin.Location = new System.Drawing.Point(4, 38);
-            this._adminUserEditAdmin.Name = "_adminUserEditAdmin";
-            this._adminUserEditAdmin.Size = new System.Drawing.Size(1200, 375);
-            this._adminUserEditAdmin.TabIndex = 2;
-            this._adminUserEditAdmin.Text = "Administrátorská práva   ";
-            this._adminUserEditAdmin.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this._adminUserEditAdmin.VerticalScrollbarBarColor = true;
-            this._adminUserEditAdmin.VerticalScrollbarHighlightOnWheel = false;
-            this._adminUserEditAdmin.VerticalScrollbarSize = 10;
-            // 
-            // metroLabel44
-            // 
-            this.metroLabel44.AutoSize = true;
-            this.metroLabel44.Location = new System.Drawing.Point(3, 26);
-            this.metroLabel44.Name = "metroLabel44";
-            this.metroLabel44.Size = new System.Drawing.Size(28, 19);
-            this.metroLabel44.TabIndex = 2;
-            this.metroLabel44.Text = "ID: ";
-            this.metroLabel44.Theme = MetroFramework.MetroThemeStyle.Dark;
-            // 
-            // metroLabel45
-            // 
-            this.metroLabel45.AutoSize = true;
-            this.metroLabel45.Location = new System.Drawing.Point(129, 26);
-            this.metroLabel45.Name = "metroLabel45";
-            this.metroLabel45.Size = new System.Drawing.Size(28, 19);
-            this.metroLabel45.TabIndex = 3;
-            this.metroLabel45.Text = "126";
-            this.metroLabel45.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroLabel45.UseStyleColors = true;
-            // 
-            // metroLabel46
-            // 
-            this.metroLabel46.AutoSize = true;
-            this.metroLabel46.Location = new System.Drawing.Point(3, 54);
-            this.metroLabel46.Name = "metroLabel46";
-            this.metroLabel46.Size = new System.Drawing.Size(120, 19);
-            this.metroLabel46.TabIndex = 4;
-            this.metroLabel46.Text = "Uživatelské jméno: ";
-            this.metroLabel46.Theme = MetroFramework.MetroThemeStyle.Dark;
-            // 
-            // _adminUserEditUsername
-            // 
-            // 
-            // 
-            // 
-            this._adminUserEditUsername.CustomButton.Image = null;
-            this._adminUserEditUsername.CustomButton.Location = new System.Drawing.Point(197, 1);
-            this._adminUserEditUsername.CustomButton.Name = "";
-            this._adminUserEditUsername.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this._adminUserEditUsername.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this._adminUserEditUsername.CustomButton.TabIndex = 1;
-            this._adminUserEditUsername.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this._adminUserEditUsername.CustomButton.UseSelectable = true;
-            this._adminUserEditUsername.CustomButton.Visible = false;
-            this._adminUserEditUsername.Lines = new string[] {
-        "NateTheRiver"};
-            this._adminUserEditUsername.Location = new System.Drawing.Point(129, 54);
-            this._adminUserEditUsername.MaxLength = 32767;
-            this._adminUserEditUsername.Name = "_adminUserEditUsername";
-            this._adminUserEditUsername.PasswordChar = '\0';
-            this._adminUserEditUsername.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this._adminUserEditUsername.SelectedText = "";
-            this._adminUserEditUsername.SelectionLength = 0;
-            this._adminUserEditUsername.SelectionStart = 0;
-            this._adminUserEditUsername.Size = new System.Drawing.Size(219, 23);
-            this._adminUserEditUsername.TabIndex = 5;
-            this._adminUserEditUsername.Text = "NateTheRiver";
-            this._adminUserEditUsername.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this._adminUserEditUsername.UseSelectable = true;
-            this._adminUserEditUsername.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this._adminUserEditUsername.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // metroLabel47
-            // 
-            this.metroLabel47.AutoSize = true;
-            this.metroLabel47.Location = new System.Drawing.Point(3, 91);
-            this.metroLabel47.Name = "metroLabel47";
-            this.metroLabel47.Size = new System.Drawing.Size(50, 19);
-            this.metroLabel47.TabIndex = 6;
-            this.metroLabel47.Text = "E-mail:";
-            this.metroLabel47.Theme = MetroFramework.MetroThemeStyle.Dark;
-            // 
-            // _adminUserEditEmail
-            // 
-            // 
-            // 
-            // 
-            this._adminUserEditEmail.CustomButton.Image = null;
-            this._adminUserEditEmail.CustomButton.Location = new System.Drawing.Point(197, 1);
-            this._adminUserEditEmail.CustomButton.Name = "";
-            this._adminUserEditEmail.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this._adminUserEditEmail.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this._adminUserEditEmail.CustomButton.TabIndex = 1;
-            this._adminUserEditEmail.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this._adminUserEditEmail.CustomButton.UseSelectable = true;
-            this._adminUserEditEmail.CustomButton.Visible = false;
-            this._adminUserEditEmail.Lines = new string[] {
-        "NateTheRiver@rildas.cz"};
-            this._adminUserEditEmail.Location = new System.Drawing.Point(129, 87);
-            this._adminUserEditEmail.MaxLength = 32767;
-            this._adminUserEditEmail.Name = "_adminUserEditEmail";
-            this._adminUserEditEmail.PasswordChar = '\0';
-            this._adminUserEditEmail.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this._adminUserEditEmail.SelectedText = "";
-            this._adminUserEditEmail.SelectionLength = 0;
-            this._adminUserEditEmail.SelectionStart = 0;
-            this._adminUserEditEmail.Size = new System.Drawing.Size(219, 23);
-            this._adminUserEditEmail.TabIndex = 7;
-            this._adminUserEditEmail.Text = "NateTheRiver@rildas.cz";
-            this._adminUserEditEmail.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this._adminUserEditEmail.UseSelectable = true;
-            this._adminUserEditEmail.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this._adminUserEditEmail.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // metroLabel48
-            // 
-            this.metroLabel48.AutoSize = true;
-            this.metroLabel48.Location = new System.Drawing.Point(3, 127);
-            this.metroLabel48.Name = "metroLabel48";
-            this.metroLabel48.Size = new System.Drawing.Size(41, 19);
-            this.metroLabel48.TabIndex = 8;
-            this.metroLabel48.Text = "State:";
-            this.metroLabel48.Theme = MetroFramework.MetroThemeStyle.Dark;
-            // 
-            // metroComboBox3
-            // 
-            this.metroComboBox3.FormattingEnabled = true;
-            this.metroComboBox3.ItemHeight = 23;
-            this.metroComboBox3.Items.AddRange(new object[] {
-            "OK",
-            "BANNED",
-            "PENDING",
-            "DELETED"});
-            this.metroComboBox3.Location = new System.Drawing.Point(129, 117);
-            this.metroComboBox3.Name = "metroComboBox3";
-            this.metroComboBox3.Size = new System.Drawing.Size(219, 29);
-            this.metroComboBox3.TabIndex = 9;
-            this.metroComboBox3.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroComboBox3.UseSelectable = true;
-            // 
-            // metroLabel49
-            // 
-            this.metroLabel49.AutoSize = true;
-            this.metroLabel49.Location = new System.Drawing.Point(3, 164);
-            this.metroLabel49.Name = "metroLabel49";
-            this.metroLabel49.Size = new System.Drawing.Size(84, 19);
-            this.metroLabel49.TabIndex = 10;
-            this.metroLabel49.Text = "Registrován: ";
-            this.metroLabel49.Theme = MetroFramework.MetroThemeStyle.Dark;
-            // 
-            // _adminUserEditRegistration
-            // 
-            this._adminUserEditRegistration.AutoSize = true;
-            this._adminUserEditRegistration.Location = new System.Drawing.Point(129, 164);
-            this._adminUserEditRegistration.Name = "_adminUserEditRegistration";
-            this._adminUserEditRegistration.Size = new System.Drawing.Size(172, 19);
-            this._adminUserEditRegistration.TabIndex = 11;
-            this._adminUserEditRegistration.Text = "1.1.1970 15:35 (IP: 78.20.2.35)";
-            this._adminUserEditRegistration.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this._adminUserEditRegistration.UseStyleColors = true;
-            // 
-            // metroLabel50
-            // 
-            this.metroLabel50.AutoSize = true;
-            this.metroLabel50.Location = new System.Drawing.Point(3, 202);
-            this.metroLabel50.Name = "metroLabel50";
-            this.metroLabel50.Size = new System.Drawing.Size(119, 19);
-            this.metroLabel50.TabIndex = 12;
-            this.metroLabel50.Text = "Poslední přihlášení:";
-            this.metroLabel50.Theme = MetroFramework.MetroThemeStyle.Dark;
-            // 
-            // _adminUserEditLastLogin
-            // 
-            this._adminUserEditLastLogin.AutoSize = true;
-            this._adminUserEditLastLogin.Location = new System.Drawing.Point(129, 202);
-            this._adminUserEditLastLogin.Name = "_adminUserEditLastLogin";
-            this._adminUserEditLastLogin.Size = new System.Drawing.Size(172, 19);
-            this._adminUserEditLastLogin.TabIndex = 13;
-            this._adminUserEditLastLogin.Text = "1.1.1970 15:36 (IP: 78.20.2.35)";
-            this._adminUserEditLastLogin.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this._adminUserEditLastLogin.UseStyleColors = true;
-            // 
-            // metroLabel51
-            // 
-            this.metroLabel51.AutoSize = true;
-            this.metroLabel51.Location = new System.Drawing.Point(4, 239);
-            this.metroLabel51.Name = "metroLabel51";
-            this.metroLabel51.Size = new System.Drawing.Size(62, 19);
-            this.metroLabel51.TabIndex = 14;
-            this.metroLabel51.Text = "Narozen:";
-            this.metroLabel51.Theme = MetroFramework.MetroThemeStyle.Dark;
-            // 
-            // _adminUserEditBirthDay
-            // 
-            this._adminUserEditBirthDay.AutoSize = true;
-            this._adminUserEditBirthDay.Location = new System.Drawing.Point(129, 239);
-            this._adminUserEditBirthDay.Name = "_adminUserEditBirthDay";
-            this._adminUserEditBirthDay.Size = new System.Drawing.Size(67, 19);
-            this._adminUserEditBirthDay.TabIndex = 15;
-            this._adminUserEditBirthDay.Text = "29.11.2354";
-            this._adminUserEditBirthDay.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this._adminUserEditBirthDay.UseStyleColors = true;
-            // 
-            // _adminUserEditActivate
-            // 
-            this._adminUserEditActivate.Location = new System.Drawing.Point(3, 309);
-            this._adminUserEditActivate.Name = "_adminUserEditActivate";
-            this._adminUserEditActivate.Size = new System.Drawing.Size(357, 19);
-            this._adminUserEditActivate.Style = MetroFramework.MetroColorStyle.Red;
-            this._adminUserEditActivate.TabIndex = 16;
-            this._adminUserEditActivate.Text = "Účet není aktivován. Kliknutím na tento odkaz jej aktivujete.";
-            this._adminUserEditActivate.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this._adminUserEditActivate.UseSelectable = true;
-            this._adminUserEditActivate.UseStyleColors = true;
-            // 
-            // metroLink2
-            // 
-            this.metroLink2.Location = new System.Drawing.Point(3, 280);
-            this.metroLink2.Name = "metroLink2";
-            this.metroLink2.Size = new System.Drawing.Size(345, 23);
-            this.metroLink2.TabIndex = 17;
-            this.metroLink2.Text = "Odeslat odkaz pro změnu hesla.";
-            this.metroLink2.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroLink2.UseSelectable = true;
-            this.metroLink2.UseStyleColors = true;
-            // 
-            // _adminUserEditSave
-            // 
-            this._adminUserEditSave.Location = new System.Drawing.Point(3, 498);
-            this._adminUserEditSave.Name = "_adminUserEditSave";
-            this._adminUserEditSave.Size = new System.Drawing.Size(91, 28);
-            this._adminUserEditSave.TabIndex = 6;
-            this._adminUserEditSave.Text = "Uložit";
-            this._adminUserEditSave.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this._adminUserEditSave.UseSelectable = true;
-            // 
-            // _adminUserEditAppAccess
-            // 
-            this._adminUserEditAppAccess.AutoSize = true;
-            this._adminUserEditAppAccess.Location = new System.Drawing.Point(11, 58);
-            this._adminUserEditAppAccess.Name = "_adminUserEditAppAccess";
-            this._adminUserEditAppAccess.Size = new System.Drawing.Size(143, 15);
-            this._adminUserEditAppAccess.TabIndex = 2;
-            this._adminUserEditAppAccess.Text = "Má přístup do aplikace";
-            this._adminUserEditAppAccess.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this._adminUserEditAppAccess.UseSelectable = true;
-            // 
-            // _adminUserEditTranslateOwn
-            // 
-            this._adminUserEditTranslateOwn.AutoSize = true;
-            this._adminUserEditTranslateOwn.Location = new System.Drawing.Point(9, 164);
-            this._adminUserEditTranslateOwn.Name = "_adminUserEditTranslateOwn";
-            this._adminUserEditTranslateOwn.Size = new System.Drawing.Size(222, 15);
-            this._adminUserEditTranslateOwn.TabIndex = 3;
-            this._adminUserEditTranslateOwn.Text = "Má právo nahrát překlad svého anime";
-            this._adminUserEditTranslateOwn.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this._adminUserEditTranslateOwn.UseSelectable = true;
-            // 
-            // _adminUserEditTranslateForeign
-            // 
-            this._adminUserEditTranslateForeign.AutoSize = true;
-            this._adminUserEditTranslateForeign.Location = new System.Drawing.Point(9, 185);
-            this._adminUserEditTranslateForeign.Name = "_adminUserEditTranslateForeign";
-            this._adminUserEditTranslateForeign.Size = new System.Drawing.Size(390, 15);
-            this._adminUserEditTranslateForeign.TabIndex = 4;
-            this._adminUserEditTranslateForeign.Text = "Má právo nahrát překlad anime, u něhož není uveden jako překladatel";
-            this._adminUserEditTranslateForeign.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this._adminUserEditTranslateForeign.UseSelectable = true;
-            // 
-            // _adminUserEditCorrection
-            // 
-            this._adminUserEditCorrection.AutoSize = true;
-            this._adminUserEditCorrection.Location = new System.Drawing.Point(413, 164);
-            this._adminUserEditCorrection.Name = "_adminUserEditCorrection";
-            this._adminUserEditCorrection.Size = new System.Drawing.Size(151, 15);
-            this._adminUserEditCorrection.TabIndex = 5;
-            this._adminUserEditCorrection.Text = "Má právo nahrát korekci";
-            this._adminUserEditCorrection.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this._adminUserEditCorrection.UseSelectable = true;
-            // 
-            // _adminUserEditCorrectionForeign
-            // 
-            this._adminUserEditCorrectionForeign.AutoSize = true;
-            this._adminUserEditCorrectionForeign.Location = new System.Drawing.Point(413, 185);
-            this._adminUserEditCorrectionForeign.Name = "_adminUserEditCorrectionForeign";
-            this._adminUserEditCorrectionForeign.Size = new System.Drawing.Size(375, 15);
-            this._adminUserEditCorrectionForeign.TabIndex = 6;
-            this._adminUserEditCorrectionForeign.Text = "Má právo nahrát korekci anime, u něhož není uveden jako korektor";
-            this._adminUserEditCorrectionForeign.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this._adminUserEditCorrectionForeign.UseSelectable = true;
-            // 
-            // metroLabel52
-            // 
-            this.metroLabel52.AutoSize = true;
-            this.metroLabel52.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.metroLabel52.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.metroLabel52.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.metroLabel52.Location = new System.Drawing.Point(5, 136);
-            this.metroLabel52.Name = "metroLabel52";
-            this.metroLabel52.Size = new System.Drawing.Size(91, 25);
-            this.metroLabel52.Style = MetroFramework.MetroColorStyle.Blue;
-            this.metroLabel52.TabIndex = 13;
-            this.metroLabel52.Text = "Překlady:";
-            this.metroLabel52.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroLabel52.UseStyleColors = true;
-            // 
-            // metroLabel53
-            // 
-            this.metroLabel53.AutoSize = true;
-            this.metroLabel53.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.metroLabel53.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.metroLabel53.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.metroLabel53.Location = new System.Drawing.Point(404, 136);
-            this.metroLabel53.Name = "metroLabel53";
-            this.metroLabel53.Size = new System.Drawing.Size(86, 25);
-            this.metroLabel53.Style = MetroFramework.MetroColorStyle.Blue;
-            this.metroLabel53.TabIndex = 14;
-            this.metroLabel53.Text = "Korekce:";
-            this.metroLabel53.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroLabel53.UseStyleColors = true;
-            // 
-            // metroLabel54
-            // 
-            this.metroLabel54.AutoSize = true;
-            this.metroLabel54.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.metroLabel54.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.metroLabel54.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.metroLabel54.Location = new System.Drawing.Point(5, 258);
-            this.metroLabel54.Name = "metroLabel54";
-            this.metroLabel54.Size = new System.Drawing.Size(119, 25);
-            this.metroLabel54.Style = MetroFramework.MetroColorStyle.Blue;
-            this.metroLabel54.TabIndex = 15;
-            this.metroLabel54.Text = "Schvalování:";
-            this.metroLabel54.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroLabel54.UseStyleColors = true;
-            // 
-            // _adminUserEditApproveAnime
-            // 
-            this._adminUserEditApproveAnime.AutoSize = true;
-            this._adminUserEditApproveAnime.Location = new System.Drawing.Point(12, 286);
-            this._adminUserEditApproveAnime.Name = "_adminUserEditApproveAnime";
-            this._adminUserEditApproveAnime.Size = new System.Drawing.Size(152, 15);
-            this._adminUserEditApproveAnime.TabIndex = 16;
-            this._adminUserEditApproveAnime.Text = "Má právo schválit anime";
-            this._adminUserEditApproveAnime.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this._adminUserEditApproveAnime.UseSelectable = true;
-            // 
-            // metroLabel55
-            // 
-            this.metroLabel55.AutoSize = true;
-            this.metroLabel55.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.metroLabel55.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.metroLabel55.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.metroLabel55.Location = new System.Drawing.Point(407, 258);
-            this.metroLabel55.Name = "metroLabel55";
-            this.metroLabel55.Size = new System.Drawing.Size(70, 25);
-            this.metroLabel55.Style = MetroFramework.MetroColorStyle.Blue;
-            this.metroLabel55.TabIndex = 17;
-            this.metroLabel55.Text = "Enkód:";
-            this.metroLabel55.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroLabel55.UseStyleColors = true;
-            // 
-            // _adminUserEditEncode
-            // 
-            this._adminUserEditEncode.AutoSize = true;
-            this._adminUserEditEncode.Location = new System.Drawing.Point(415, 286);
-            this._adminUserEditEncode.Name = "_adminUserEditEncode";
-            this._adminUserEditEncode.Size = new System.Drawing.Size(168, 15);
-            this._adminUserEditEncode.TabIndex = 18;
-            this._adminUserEditEncode.Text = "Má právo enkódovat anime";
-            this._adminUserEditEncode.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this._adminUserEditEncode.UseSelectable = true;
-            // 
-            // metroLabel56
-            // 
-            this.metroLabel56.AutoSize = true;
-            this.metroLabel56.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.metroLabel56.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.metroLabel56.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.metroLabel56.Location = new System.Drawing.Point(5, 30);
-            this.metroLabel56.Name = "metroLabel56";
-            this.metroLabel56.Size = new System.Drawing.Size(82, 25);
-            this.metroLabel56.Style = MetroFramework.MetroColorStyle.Blue;
-            this.metroLabel56.TabIndex = 19;
-            this.metroLabel56.Text = "Obecné:";
-            this.metroLabel56.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroLabel56.UseStyleColors = true;
-            // 
-            // metroLabel57
-            // 
-            this.metroLabel57.AutoSize = true;
-            this.metroLabel57.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.metroLabel57.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.metroLabel57.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.metroLabel57.Location = new System.Drawing.Point(406, 30);
-            this.metroLabel57.Name = "metroLabel57";
-            this.metroLabel57.Size = new System.Drawing.Size(128, 25);
-            this.metroLabel57.Style = MetroFramework.MetroColorStyle.Blue;
-            this.metroLabel57.TabIndex = 20;
-            this.metroLabel57.Text = "Zveřejňování:";
-            this.metroLabel57.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroLabel57.UseStyleColors = true;
-            // 
-            // _adminUserEditPublish
-            // 
-            this._adminUserEditPublish.AutoSize = true;
-            this._adminUserEditPublish.Location = new System.Drawing.Point(414, 58);
-            this._adminUserEditPublish.Name = "_adminUserEditPublish";
-            this._adminUserEditPublish.Size = new System.Drawing.Size(176, 15);
-            this._adminUserEditPublish.TabIndex = 21;
-            this._adminUserEditPublish.Text = "Má právo zveřejnit své anime";
-            this._adminUserEditPublish.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this._adminUserEditPublish.UseSelectable = true;
-            // 
-            // _adminUserEditPublishForeign
-            // 
-            this._adminUserEditPublishForeign.AutoSize = true;
-            this._adminUserEditPublishForeign.Location = new System.Drawing.Point(414, 79);
-            this._adminUserEditPublishForeign.Name = "_adminUserEditPublishForeign";
-            this._adminUserEditPublishForeign.Size = new System.Drawing.Size(358, 15);
-            this._adminUserEditPublishForeign.TabIndex = 22;
-            this._adminUserEditPublishForeign.Text = "Má právo zveřejnit anime, u něhož není uveden jako překladatel";
-            this._adminUserEditPublishForeign.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this._adminUserEditPublishForeign.UseSelectable = true;
-            // 
-            // _adminUserEditSkipApproval
-            // 
-            this._adminUserEditSkipApproval.AutoSize = true;
-            this._adminUserEditSkipApproval.Location = new System.Drawing.Point(12, 307);
-            this._adminUserEditSkipApproval.Name = "_adminUserEditSkipApproval";
-            this._adminUserEditSkipApproval.Size = new System.Drawing.Size(270, 15);
-            this._adminUserEditSkipApproval.TabIndex = 23;
-            this._adminUserEditSkipApproval.Text = "Má právo odeslat verzi anime rovnou k enkódu";
-            this._adminUserEditSkipApproval.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this._adminUserEditSkipApproval.UseSelectable = true;
-            // 
-            // _adminUserEditGetForeignCorrection
-            // 
-            this._adminUserEditGetForeignCorrection.AutoSize = true;
-            this._adminUserEditGetForeignCorrection.Location = new System.Drawing.Point(413, 206);
-            this._adminUserEditGetForeignCorrection.Name = "_adminUserEditGetForeignCorrection";
-            this._adminUserEditGetForeignCorrection.Size = new System.Drawing.Size(397, 15);
-            this._adminUserEditGetForeignCorrection.TabIndex = 24;
-            this._adminUserEditGetForeignCorrection.Text = "Má právo zamluvit si korekci anime, u něhož není uveden jako korektor";
-            this._adminUserEditGetForeignCorrection.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this._adminUserEditGetForeignCorrection.UseSelectable = true;
-            // 
-            // _adminUserEditStealForeignCorrection
-            // 
-            this._adminUserEditStealForeignCorrection.AutoSize = true;
-            this._adminUserEditStealForeignCorrection.Location = new System.Drawing.Point(413, 227);
-            this._adminUserEditStealForeignCorrection.Name = "_adminUserEditStealForeignCorrection";
-            this._adminUserEditStealForeignCorrection.Size = new System.Drawing.Size(415, 15);
-            this._adminUserEditStealForeignCorrection.TabIndex = 25;
-            this._adminUserEditStealForeignCorrection.Text = "Má právo nahrát korekci k dílu, jehož korekci má zamluvenou jiný korektor";
-            this._adminUserEditStealForeignCorrection.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this._adminUserEditStealForeignCorrection.UseSelectable = true;
-            // 
-            // _adminUserEditChatGroupsCreate
-            // 
-            this._adminUserEditChatGroupsCreate.AutoSize = true;
-            this._adminUserEditChatGroupsCreate.Location = new System.Drawing.Point(12, 79);
-            this._adminUserEditChatGroupsCreate.Name = "_adminUserEditChatGroupsCreate";
-            this._adminUserEditChatGroupsCreate.Size = new System.Drawing.Size(218, 15);
-            this._adminUserEditChatGroupsCreate.TabIndex = 26;
-            this._adminUserEditChatGroupsCreate.Text = "Má právo zakládat nové chat skupiny";
-            this._adminUserEditChatGroupsCreate.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this._adminUserEditChatGroupsCreate.UseSelectable = true;
-            // 
-            // metroLabel43
-            // 
-            this.metroLabel43.AutoSize = true;
-            this.metroLabel43.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel43.Location = new System.Drawing.Point(553, 292);
-            this.metroLabel43.Name = "metroLabel43";
-            this.metroLabel43.Size = new System.Drawing.Size(62, 19);
-            this.metroLabel43.TabIndex = 8;
-            this.metroLabel43.Text = "Korektor";
-            this.metroLabel43.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroLabel43.UseStyleColors = true;
-            // 
-            // animeEdit_comboCorrector
-            // 
-            this.animeEdit_comboCorrector.FormattingEnabled = true;
-            this.animeEdit_comboCorrector.ItemHeight = 23;
-            this.animeEdit_comboCorrector.Location = new System.Drawing.Point(621, 282);
-            this.animeEdit_comboCorrector.Name = "animeEdit_comboCorrector";
-            this.animeEdit_comboCorrector.Size = new System.Drawing.Size(376, 29);
-            this.animeEdit_comboCorrector.TabIndex = 5;
-            this.animeEdit_comboCorrector.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.animeEdit_comboCorrector.UseSelectable = true;
-            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3372,14 +3791,16 @@ namespace RildasApp.Forms
             this._adminUserEdit.ResumeLayout(false);
             this._adminUserEdit.PerformLayout();
             this._userInfo.ResumeLayout(false);
-            this._settings.ResumeLayout(false);
-            this._settings.PerformLayout();
-            this.chatsPanel.ResumeLayout(false);
-            this.chatsPanel.PerformLayout();
             this._adminUserEditGeneral.ResumeLayout(false);
             this._adminUserEditGeneral.PerformLayout();
             this._adminUserEditTeam.ResumeLayout(false);
             this._adminUserEditTeam.PerformLayout();
+            this._adminUserEditAdmin.ResumeLayout(false);
+            this._adminUserEditAdmin.PerformLayout();
+            this._settings.ResumeLayout(false);
+            this._settings.PerformLayout();
+            this.chatsPanel.ResumeLayout(false);
+            this.chatsPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -3556,10 +3977,10 @@ namespace RildasApp.Forms
         private MetroFramework.Controls.MetroTabPage _adminUserEdit;
         private MetroFramework.Controls.MetroTabControl _userInfo;
         private MetroFramework.Controls.MetroLabel metroLabel43;
-        private MetroFramework.Controls.MetroComboBox _cbadminACLuser;
-        private MetroFramework.Controls.MetroCheckBox metroCheckBox1;
+        private MetroFramework.Controls.MetroComboBox _adminACLuserSelect;
+        private MetroFramework.Controls.MetroCheckBox adminACLSearchUser;
         private MetroFramework.Controls.MetroTabPage _adminUserEditGeneral;
-        private MetroFramework.Controls.MetroLabel metroLabel45;
+        private MetroFramework.Controls.MetroLabel _adminUserEditID;
         private MetroFramework.Controls.MetroLabel metroLabel44;
         private MetroFramework.Controls.MetroTabPage _adminUserEditTeam;
         private MetroFramework.Controls.MetroTabPage _adminUserEditAdmin;
@@ -3568,9 +3989,9 @@ namespace RildasApp.Forms
         private MetroFramework.Controls.MetroLabel metroLabel47;
         private MetroFramework.Controls.MetroTextBox _adminUserEditUsername;
         private MetroFramework.Controls.MetroLabel metroLabel46;
-        private MetroFramework.Controls.MetroComboBox metroComboBox3;
+        private MetroFramework.Controls.MetroComboBox _adminUserEditState;
         private MetroFramework.Controls.MetroButton _adminUserEditSave;
-        private MetroFramework.Controls.MetroLink metroLink2;
+        private MetroFramework.Controls.MetroLink _adminUserEditNewPassword;
         private MetroFramework.Controls.MetroLink _adminUserEditActivate;
         private MetroFramework.Controls.MetroLabel _adminUserEditBirthDay;
         private MetroFramework.Controls.MetroLabel metroLabel51;
@@ -3599,5 +4020,33 @@ namespace RildasApp.Forms
         private MetroFramework.Controls.MetroCheckBox _adminUserEditAppAccess;
         private MetroFramework.Controls.MetroLabel metroLabel433;
         private MetroFramework.Controls.MetroComboBox animeEdit_comboCorrector;
+        private MetroFramework.Controls.MetroLabel metroLabel58;
+        private MetroFramework.Controls.MetroToggle _adminUserEditGoldenAcc;
+        private MetroFramework.Controls.MetroCheckBox _adminUserEditTeamMember;
+        private MetroFramework.Controls.MetroCheckBox _adminUserEditAdminNotif;
+        private MetroFramework.Controls.MetroCheckBox _adminUserEditAdminServerRestart;
+        private MetroFramework.Controls.MetroCheckBox _adminUserEditAdminServerAdd;
+        private MetroFramework.Controls.MetroLabel metroLabel63;
+        private MetroFramework.Controls.MetroCheckBox _adminUserEditAdminApplicationVersion;
+        private MetroFramework.Controls.MetroLabel metroLabel62;
+        private MetroFramework.Controls.MetroCheckBox _adminUserEditAdminAdminDelete;
+        private MetroFramework.Controls.MetroCheckBox _adminUserEditAdminAdminAdd;
+        private MetroFramework.Controls.MetroCheckBox _adminUserEditAdminTeamEncode;
+        private MetroFramework.Controls.MetroCheckBox _adminUserEditAdminTeamPublish;
+        private MetroFramework.Controls.MetroCheckBox _adminUserEditAdminTeamApprove;
+        private MetroFramework.Controls.MetroCheckBox _adminUserEditAdminTeamCorrector;
+        private MetroFramework.Controls.MetroCheckBox _adminUserEditAdminTeamTranslate;
+        private MetroFramework.Controls.MetroCheckBox _adminUserEditAdminTeamGeneral;
+        private MetroFramework.Controls.MetroCheckBox _adminUserEditAdminUserGeneral;
+        private MetroFramework.Controls.MetroLabel metroLabel61;
+        private MetroFramework.Controls.MetroCheckBox _adminUserEditAdminEditAnime;
+        private MetroFramework.Controls.MetroLabel metroLabel60;
+        private MetroFramework.Controls.MetroCheckBox _adminUserEditAdminAddAnime;
+        private MetroFramework.Controls.MetroLabel metroLabel59;
+        private MetroFramework.Controls.MetroCheckBox _adminUserEditAdminAccess;
+        private MetroFramework.Controls.MetroTabPage _adminAddApp;
+        private MetroFramework.Controls.MetroTabPage _adminServerControl;
+        private MetroFramework.Controls.MetroTabPage _adminNotifications;
+        private MetroFramework.Controls.MetroTextBox _adminACLuserSearch;
     }
 }

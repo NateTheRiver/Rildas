@@ -19,7 +19,7 @@ namespace Host
             list.SocketAccepted += List_SocketAccepted;
             list.Start();
             Thread packageAutoUpdate = new Thread(AutoXDCCUpdater.DownloadAndParse);
-          //  packageAutoUpdate.Start();
+            packageAutoUpdate.Start();
             while (true) Console.ReadLine();
         }
 

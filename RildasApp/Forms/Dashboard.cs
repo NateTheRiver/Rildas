@@ -688,6 +688,9 @@ namespace RildasApp.Forms
                 lbAJ.Visible = true;
                 lbAJ2.Visible = true;
                 btnAJ.Visible = true;
+                this.cbReady.CheckedChanged -= new System.EventHandler(this.cbReady_CheckedChanged);
+                cbReady.Checked = false;
+                this.cbReady.CheckedChanged += new System.EventHandler(this.cbReady_CheckedChanged);
             }
             if (rbKorekce.Checked)
             {
@@ -699,6 +702,9 @@ namespace RildasApp.Forms
                 lbAJ.Visible = false;
                 lbAJ2.Visible = false;
                 btnAJ.Visible = false;
+                this.cbReady.CheckedChanged -= new System.EventHandler(this.cbReady_CheckedChanged);
+                cbReady.Checked = true;
+                this.cbReady.CheckedChanged += new System.EventHandler(this.cbReady_CheckedChanged);
             }
         }
 
@@ -1191,7 +1197,8 @@ namespace RildasApp.Forms
         }
         private void LoadNotifications()
         {
-            List<Notification> notifications = Global.GetNotifications();
+            List<Notification> notifications = Global.GetNotifications().ToList();
+            notifications.Reverse();
             int iterator = 0;
             this.Invoke(new MethodInvoker(delegate
             {
@@ -1889,6 +1896,52 @@ namespace RildasApp.Forms
             //TODO: dodělat přidání a upravení anime
         }
 
+        private void _adminUserEditSave_Click(object sender, EventArgs e)
+        {
+            List<User.Access> accesses =  new List<User.Access>();
+            if (_adminUserEditAdminAccess.Checked) accesses.Add(User.Access.ADMIN_ACCESS);
+            if (_adminUserEditAdminAdminAdd.Checked) accesses.Add(User.Access.ADMIN_ADDADMIN);
+            if (_adminUserEditAdminAddAnime.Checked) accesses.Add(User.Access.ADMIN_ADDANIME);
+            if (_adminUserEditAdminEditAnime.Checked) accesses.Add(User.Access.ADMIN_CHANGEANIME);
+            if (_adminUserEditAdminNotif.Checked) accesses.Add(User.Access.ADMIN_NOTIFICATIONS);   
+            if (_adminUserEditAdminApplicationVersion.Checked) accesses.Add(User.Access.ADMIN_PUBLISHAPP);
+            if (_adminUserEditAdminServerAdd.Checked) accesses.Add(User.Access.ADMIN_PUBLISHSERVER);
+            if (_adminUserEditAdminAdminDelete.Checked) accesses.Add(User.Access.ADMIN_REMOVEADMIN);
+            if (_adminUserEditAdminServerRestart.Checked) accesses.Add(User.Access.ADMIN_RESTARTSERVER);
+            if (_adminUserEditAdminTeamApprove.Checked) accesses.Add(User.Access.ADMIN_TEAMEDITAPPROVAL);
+            if (_adminUserEditAdminTeamCorrector.Checked) accesses.Add(User.Access.ADMIN_TEAMEDITCORRECTION);
+            if (_adminUserEditAdminTeamEncode.Checked) accesses.Add(User.Access.ADMIN_TEAMEDITENCODE);
+            if (_adminUserEditAdminTeamGeneral.Checked) accesses.Add(User.Access.ADMIN_TEAMEDITGENERAL);
+            if (_adminUserEditAdminTeamPublish.Checked) accesses.Add(User.Access.ADMIN_TEAMEDITPUBLISH);
+            if (_adminUserEditAdminTeamTranslate.Checked) accesses.Add(User.Access.ADMIN_TEAMEDITTRANSLATE);
+            if (_adminUserEditAdminUserGeneral.Checked) accesses.Add(User.Access.ADMIN_USEREDITGENERAL);
+            if (_adminUserEditSkipApproval.Checked) accesses.Add(User.Access.APPROVAL_SKIP);
+            if (_adminUserEditApproveAnime.Checked) accesses.Add(User.Access.APPROVE_ANIME);
+            if (_adminUserEditAppAccess.Checked) accesses.Add(User.Access.APP_ACCESS);
+            if (_adminUserEditChatGroupsCreate.Checked) accesses.Add(User.Access.CHAT_CREATENEW);
+            if (_adminUserEditCorrectionForeign.Checked) accesses.Add(User.Access.CORRECTION_FOREIGN);
+            if (_adminUserEditGetForeignCorrection.Checked) accesses.Add(User.Access.CORRECTION_RESERVEFOREIGN);
+            if (_adminUserEditCorrection.Checked) accesses.Add(User.Access.CORRECTION_UPLOAD);
+            if (_adminUserEditStealForeignCorrection.Checked) accesses.Add(User.Access.CORRECTION_UPLOADRESERVED);
+            if (_adminUserEditEncode.Checked) accesses.Add(User.Access.ENCODE_ANIME);
+            if (_adminUserEditPublishForeign.Checked) accesses.Add(User.Access.PUBLISH_FOREIGN);
+            if (_adminUserEditPublish.Checked) accesses.Add(User.Access.PUBLISH_OWN);
+            if (_adminUserEditTranslateForeign.Checked) accesses.Add(User.Access.TRANSLATE_FOREIGN);
+            if (_adminUserEditTranslateOwn.Checked) accesses.Add(User.Access.TRANSLATE_OWN);
+            
+            
+        }
+
+        private void adminACLSearchUser_CheckedChanged(object sender, EventArgs e)
+        {
+            _adminACLuserSelect.Visible = false;
+            _adminACLuserSearch.Visible = true;
+        }
+
+        private void _adminACLuserSelect_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
 
         private void encode_buttonEncode_Click(object sender, EventArgs e)
         {
@@ -1896,7 +1949,7 @@ namespace RildasApp.Forms
             if (an.Any())
             {
                 var ep = Global.GetEpisodes(an[0].id).Where(x => x.epState == state.Korekce && x.ep_number == Int32.Parse(encode_comboEpisode.SelectedItem.ToString())).ToList();
-                if (ep.Count() > 0)
+                if (ep.Any())
                 {
                     ep[0].link_mega = encode_textMega.Text;
                     ep[0].link_ulozto = encode_textUlozto.Text;
